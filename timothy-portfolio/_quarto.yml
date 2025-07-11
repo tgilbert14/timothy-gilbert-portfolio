@@ -2,20 +2,28 @@ project:
   type: website
 
 website:
-  title: "timothy-portfolio"
+  title: "Timothy Gilbert"
+  favicon: assets/desertLeafShrimp.png
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - text: Home
+        href: index.qmd
+      - text: Projects
+        href: projects.qmd
+      - text: Visualizations
+        href: visualizations.qmd
+      - text: Résumé
+        href: resume.qmd
+      - text: About
+        href: about.qmd
+    right:
+      - icon: github
+        href: https://github.com/tgilbert14
+      - icon: envelope
+        href: mailto:tsgilbert@arizona.edu
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
+    theme: darkly
     css: styles.css
     toc: true
-
-
-
