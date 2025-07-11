@@ -1,7 +1,86 @@
 ---
-title: "timothy-portfolio"
+title: "Home"
+format: html
 ---
 
-This is a Quarto website.
+<img src="assets/tim_gc.jpg" width="180px" style="float: left; margin-right: 20px; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2);"/>
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+# Welcome --- I'm Timothy Gilbert
+
+*Ecologist · Data Designer · Conservation Technologist*
+
+Welcome to my digital portfolio! I specialize in building intuitive data workflows that connect field-based ecological expertise with actionable insights --- in both conservation and clinical domains. Whether I'm constructing Shiny dashboards for research teams, modeling nitrate chemistry trends, or automating QA for longitudinal datasets, I aim to make complexity digestible and mission-driven.
+
+## 🚀 Explore My Work
+
+::: {style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;"}
+
+</a>
+
+<a href="about.qmd" style="text-decoration: none;">
+
+::: {style="width: 180px; padding: 10px; border-radius: 10px; background-color: seagreen; color: white; box-shadow: 2px 2px 6px rgba(0,0,0,0.1); text-align: center;"}
+```         
+
+ABOUT ME
+```
+:::
+
+</a>
+
+<a href="projects.qmd" style="text-decoration: none;">
+
+::: {style="width: 180px; padding: 10px; border-radius: 10px; background-color: seagreen; color: white; box-shadow: 2px 2px 6px rgba(0,0,0,0.1); text-align: center;"}
+```         
+
+MY PROJECTS
+```
+:::
+
+</a>
+
+<a href="visualizations.qmd" style="text-decoration: none;">
+
+::: {style="width: 180px; padding: 10px; border-radius: 10px; background-color: seagreen; color: white; box-shadow: 2px 2px 6px rgba(0,0,0,0.1); text-align: center;"}
+```         
+
+VISUALIZATIONS
+```
+:::
+
+</a>
+
+<a href="resume.qmd" style="text-decoration: none;">
+
+::: {style="width: 180px; padding: 10px; border-radius: 10px; background-color: seagreen; color: white; box-shadow: 2px 2px 6px rgba(0,0,0,0.1); text-align: center;"}
+```         
+
+RESUME/CV
+```
+:::
+
+
+:::
+
+------------------------------------------------------------------------
+
+## 🔍 What You'll Find Here
+
+-   **Projects**: Dashboards, Shiny apps, and R tools I've built for field teams, research labs, and public-facing visualizations.
+-   **Visualizations**: Maps, plots, and data stories from ecological and clinical datasets.
+-   **Résumé**: My background across field ecology, data science, and technical development.
+-   **About**: A glimpse into my journey, passions, and how I work.
+
+## ✨ Currently Exploring
+
+-   Clinical programming frameworks (CDISC: SEND, SDTM, ADaM)
+-   PK/PD exposure-response modeling
+-   Visual storytelling with Quarto + ggplot2
+-   Custom QA workflows for SQL-backed Shiny apps
+
+If you're a researcher, developer, or agency looking to bridge technical insight with ecological relevance --- I'd love to connect.
+
+## 📬 Reach Out
+
+📧 [tsgilbert\@arizona.edu](mailto:tsgilbert@arizona.edu)\
+🔗 [GitHub](https://github.com/tgilbert14)

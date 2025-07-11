@@ -1,0 +1,57 @@
+---
+title: "Projects"
+format: html
+---
+
+---
+
+## 🐁 NEON Small Mammal Tracker  
+Interactive dashboard for entering, mapping, and analyzing small mammal trapping data.  
+
+- **Tools:** R Shiny, leaflet, RSQLite  
+- **Features:** real-time GIS mapping, summary statistics, species heat maps  
+- **Code:** [GitHub Repo](https://github.com/tgilbert14/neon-small-mammal-tracker)
+- **Live App:** [RatTrapHistoryApp](https://t-lama.shinyapps.io/RatTrapHistory/)  
+<img src="assets/mammal_tracker.png" width="600px" style="border-radius: 8px; margin-top: 10px;">
+
+---
+
+## 💧 NEON Water Chemistry Viewer  
+Dual‐axis plotter comparing analytes with built-in correlation stats and ML predictions.  
+
+- **Tools:** R Shiny, plotly, caret (ML), SQLite  
+- **Features:** customizable analyte pairs, regression overlays, download CSV  
+- **Code:** [GitHub Repo](https://github.com/tgilbert14/neon-water-chem-viewer)  
+- **Live App:** [WaterAnalyteApp](https://t-lama.shinyapps.io/AnalyteViewer/)  
+<img src="assets/water_chem_viewer.png" width="600px" style="border-radius: 8px; margin-top: 10px;">
+
+---
+
+## 🖥️ Electron-Bundled Shiny Desktop App  
+A standalone desktop tool embedding a Shiny UI with an internal SQL database backend.  
+
+- **Tools:** R Shiny, Electron, SQLite, rmarkdown  
+- **Features:** cross-platform installer, offline data entry, report export  
+- **Code:** [GitHub Repo](https://github.com/tgilbert14/electron-shiny-app)
+- **Live App:** [WaterAnalyteApp](https://t-lama.shinyapps.io/AnalyteViewer/)  
+<img src="assets/electron_shiny.png" width="600px" style="border-radius: 8px; margin-top: 10px;">
+
+---
+
+## 🏀 NCAA Recruitment Trend Visualizer  
+Web scraper + dynamic ggplot2 dashboard analyzing recruiting patterns across conferences.  
+
+- **Tools:** R (ggplot2, plotly)
+- **Features:** live data pull, interactive charts, conference comparisons  
+- **Code:** [GitHub Repo](https://github.com/tgilbert14/recruitment-trend-visualizer)  
+<img src="assets/recruitment_trends.png" width="600px" style="border-radius: 8px; margin-top: 10px;">
+
+---
+
+## ☁️ VGS Batch Importer App  
+Automates ingestion of large Excel datasets into SQL with built-in QA/QC rules.  
+
+- **Tools:** R (tidyverse, DBI, RSQLite), Quarto  
+- **Features:** drag-and-drop uploader, data validation report, error logging  
+- **Code:** [GitHub Repo](https://github.com/tgilbert14/vgs-batch-importer)  
+<img src="assets/vgs_importer.png" width="600px" style="border-radius: 8px; margin-top: 10px;">

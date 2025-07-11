@@ -1,0 +1,58 @@
+---
+title: "Visualizations"
+format: html
+---
+
+Welcome to a curated gallery of my favorite data stories---click any image to explore the full dashboard or plot code!
+
+------------------------------------------------------------------------
+
+## Water Chemistry Comparisons
+
+::: {style="display: flex; flex-wrap: wrap; gap: 20px;"}
+<a href="assets/nitrate_trend_full.png" target="_blank"> <img src="assets/ComparisonReport.jpg" alt="Analyte Comparisons" style="width: 100%; max-width: 400px; border-radius: 8px; box-shadow: 2px 2px 8px rgba(0,0,0,0.1);"/>
+
+<p style="text-align: center; margin-top: 8px;">Conductivity vs ANC Analyte comparison over time
+
+</p>
+
+</a>
+
+<a href="assets/flow_rate_full.png" target="_blank"> <img src="assets/CorrelationReport.jpg" alt="Analyte Correlations" style="width: 100%; max-width: 400px; border-radius: 8px; box-shadow: 2px 2px 8px rgba(0,0,0,0.1);"/>
+
+<p style="text-align: center; margin-top: 8px;">
+
+Correlation Report between Analytes
+
+</p>
+
+</a>
+:::
+
+------------------------------------------------------------------------
+
+## Small Mammal Captures
+
+::: {style="display: flex; flex-wrap: wrap; gap: 20px;"}
+<a href="assets/MammalCapturesPerPlot.png" target="_blank"> <img src="assets/MammalCapturesPerPlot.jpg" alt="Captures per plot" style="width: 100%; max-width: 400px; border-radius: 8px; box-shadow: 2px 2px 8px rgba(0,0,0,0.1);"/>
+
+<p style="text-align: center; margin-top: 8px;">
+
+Small Mammal Capture Comparisons</p></a>
+
+<a href="assets/rangeland_map_full.png" target="_blank"> <img src="assets/MammalCaptureMap.jpg" alt="Capture Location Map" style="width: 100%; max-width: 400px; border-radius: 8px; box-shadow: 2px 2px 8px rgba(0,0,0,0.1);"/>
+
+<p style="text-align: center; margin-top: 8px;">Mammal Capture Map</p></a>
+:::
+
+------------------------------------------------------------------------
+
+## Interactive Dashboards
+
+-   **Water Chemistry Viewer** (Shiny + Plotly)\
+    <iframe src="https://t-lama.shinyapps.io/AnalyteViewer/" 
+            width="100%" height="600" style="border:none;"></iframe>
+
+-   **Mammal Tracker** (Shiny + Leaflet)\
+    <iframe src="https://t-lama.shinyapps.io/RatTrapHistory/" 
+            width="100%" height="600" style="border:none;"></iframe>
