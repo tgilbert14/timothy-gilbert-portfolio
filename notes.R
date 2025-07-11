@@ -13,3 +13,9 @@ git add .
 git commit -m "Initial Quarto site"
 git remote add origin https://github.com/tgilbert14/timothy-gilbert-portfolio.git
 git push -u origin main
+
+
+
+git commit --allow-empty -m "Trigger rebuild"
+git push
+
