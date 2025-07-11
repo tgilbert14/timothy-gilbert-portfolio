@@ -1,26 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Timothy Gilbert",
-    "section": "",
-    "text": "(Ecologist · Data Scientist · Conservation Technologist)\nIf you’ve made it here, that means you are interested in my work!\nWelcome to my portfolio! I build intuitive data tools that translate ecological and clinical datasets into clear, actionable insights. My work blends R Shiny dashboards, SQL-backed applications, and data visualizations that support decision-making in conservation and health science domains."
-  },
-  {
-    "objectID": "index.html#featured-projects",
-    "href": "index.html#featured-projects",
-    "title": "Timothy Gilbert",
-    "section": "Featured Projects",
-    "text": "Featured Projects\n\nPredictive Aquatic Chemistry Dashboard\nRangeland Visualization Tool"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Hi — I’m Timothy, an ecologist turned data scientist with a passion for building tools that drive conservation, clinical progress, and environmental understanding. My journey began with wildlife fieldwork and trapping grid maps and has evolved into designing clean database schemas, predictive dashboards, and QA systems that empower teams to make data-backed decisions.\nI thrive at the intersection of meaningful missions and technical complexity. Whether it’s wrangling messy ecological field data, designing visual workflows for conservation agencies, or exploring clinical programming standards like CDISC, I’m all in. I’ve worked with federal agencies, research institutions, and cross-functional technical teams — always aiming to improve clarity, utility, and insight.\nI believe good data tools should be intuitive, adaptable, and human-centered. And I love the creative challenge of bridging field knowledge with analytical design. Most recently, I’ve been exploring PK/PD modeling, clinical data transformation, and Quarto-based documentation systems to support scientific transparency and reproducibility."
-  },
-  {
     "objectID": "visualizations.html",
     "href": "visualizations.html",
     "title": "Visualizations",
@@ -28,88 +7,25 @@
     "text": "Welcome to a curated gallery of my favorite data stories—click any image to explore the full dashboard or plot code!"
   },
   {
-    "objectID": "visualizations.html#ecological-time-series",
-    "href": "visualizations.html#ecological-time-series",
+    "objectID": "visualizations.html#water-chemistry-comparisons",
+    "href": "visualizations.html#water-chemistry-comparisons",
     "title": "Visualizations",
-    "section": "",
-    "text": "Nitrate trends"
+    "section": "Water Chemistry Comparisons",
+    "text": "Water Chemistry Comparisons\n\n \n\nConductivity vs ANC Analyte comparison over time\n\n\n \n\nCorrelation Report between Analytes"
   },
   {
-    "objectID": "visualizations.html#mammal-trapping-maps",
-    "href": "visualizations.html#mammal-trapping-maps",
+    "objectID": "visualizations.html#small-mammal-captures",
+    "href": "visualizations.html#small-mammal-captures",
     "title": "Visualizations",
-    "section": "",
-    "text": "Trap Grid"
+    "section": "Small Mammal Captures",
+    "text": "Small Mammal Captures\n\n \n\nSmall Mammal Capture Comparisons\n\n\n \n\nMammal Capture Map"
   },
   {
-    "objectID": "visualizations.html#clinical-trial-pkpd-mockup",
-    "href": "visualizations.html#clinical-trial-pkpd-mockup",
+    "objectID": "visualizations.html#interactive-dashboards",
+    "href": "visualizations.html#interactive-dashboards",
     "title": "Visualizations",
-    "section": "",
-    "text": "Coming soon — visualizations of exposure-response models and tidy CDISC compliance plots."
-  },
-  {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Projects",
-    "section": "",
-    "text": "Interactive dashboard for entering, mapping, and analyzing small mammal trapping data.\n\nTools: R Shiny, leaflet, RSQLite\n\nFeatures: real-time GIS mapping, summary statistics, species heat maps\n\nCode: GitHub Repo\nLive App: RatTrapHistoryApp\n\n\n\n\n\n\nDual‐axis plotter comparing analytes with built-in correlation stats and ML predictions.\n\nTools: R Shiny, plotly, caret (ML), SQLite\n\nFeatures: customizable analyte pairs, regression overlays, download CSV\n\nCode: GitHub Repo\n\nLive App: WaterAnalyteApp\n\n\n\n\n\n\nA standalone desktop tool embedding a Shiny UI with an internal SQL database backend.\n\nTools: R Shiny, Electron, SQLite, rmarkdown\n\nFeatures: cross-platform installer, offline data entry, report export\n\nCode: GitHub Repo\nLive App: WaterAnalyteApp\n\n\n\n\n\n\nWeb scraper + dynamic ggplot2 dashboard analyzing recruiting patterns across conferences.\n\nTools: R (ggplot2, plotly)\nFeatures: live data pull, interactive charts, conference comparisons\n\nCode: GitHub Repo\n\n\n\n\n\n\nAutomates ingestion of large Excel datasets into SQL with built-in QA/QC rules.\n\nTools: R (tidyverse, DBI, RSQLite), Quarto\n\nFeatures: drag-and-drop uploader, data validation report, error logging\n\nCode: GitHub Repo"
-  },
-  {
-    "objectID": "projects.html#predictive-aquatic-chemistry-dashboard",
-    "href": "projects.html#predictive-aquatic-chemistry-dashboard",
-    "title": "Projects",
-    "section": "",
-    "text": "Built with R Shiny, plotly, and SQLite — uses real-time water quality data to predict nitrate concentrations and visualize temporal changes."
-  },
-  {
-    "objectID": "projects.html#wildlife-metadata-app",
-    "href": "projects.html#wildlife-metadata-app",
-    "title": "Projects",
-    "section": "🦉 Wildlife Metadata App",
-    "text": "🦉 Wildlife Metadata App\nAn internal tool developed for field teams to track trapping data, sample metadata, and ecological notes across dozens of field campaigns."
-  },
-  {
-    "objectID": "projects.html#rangeland-visualization-tool",
-    "href": "projects.html#rangeland-visualization-tool",
-    "title": "Projects",
-    "section": "🌾 Rangeland Visualization Tool",
-    "text": "🌾 Rangeland Visualization Tool\nIntegrates field survey data with satellite imagery layers and classification models. Built with Quarto and ggplot2.\nEach project includes: - Description of the challenge - Tools used - Link to GitHub repository - Screenshot or live demo (if hosted)"
-  },
-  {
-    "objectID": "resume.html",
-    "href": "resume.html",
-    "title": "Résumé",
-    "section": "",
-    "text": "You can download the my Résumé/CV: CLICK ME!"
-  },
-  {
-    "objectID": "resume.html#summary",
-    "href": "resume.html#summary",
-    "title": "Résumé",
-    "section": "",
-    "text": "Ecologist and data scientist with field expertise, programming skills (R, SQL, Python), and a passion for conservation and clinical data applications.\n\n\n\nR Shiny, tidyverse, plotly, ggplot2\nSQL, SQLite, schema design, query optimization\nQA/QC automation\nGit & GitHub, Tableau\nEcological fieldwork and metadata workflows"
-  },
-  {
-    "objectID": "about.html#interests-focus",
-    "href": "about.html#interests-focus",
-    "title": "About",
-    "section": "🌿 Interests & Focus",
-    "text": "🌿 Interests & Focus\n\nEcological data pipelines and interactive tools\nR Shiny dashboards, SQL databases, and QA automation\nVisual storytelling through data (ggplot2, Quarto, Tableau)\nMission-driven work in conservation, public health, and research"
-  },
-  {
-    "objectID": "about.html#lets-connect",
-    "href": "about.html#lets-connect",
-    "title": "About",
-    "section": "📬 Let’s Connect",
-    "text": "📬 Let’s Connect\n📧 tsgilbert@arizona.edu\n💾 GitHub"
-  },
-  {
-    "objectID": "projects.html#vgs-batch-importer-app",
-    "href": "projects.html#vgs-batch-importer-app",
-    "title": "Projects",
-    "section": "☁️ VGS Batch Importer App",
-    "text": "☁️ VGS Batch Importer App\nAutomates ingestion of large Excel datasets into SQL with built-in QA/QC rules.\n\nTools: R (tidyverse, DBI, RSQLite), Quarto\n\nFeatures: drag-and-drop uploader, data validation report, error logging\n\nCode: GitHub Repo"
+    "section": "Interactive Dashboards",
+    "text": "Interactive Dashboards\n\nWater Chemistry Viewer (Shiny + Plotly)\n\nMammal Tracker (Shiny + Leaflet)"
   },
   {
     "objectID": "projects.html#neon-small-mammal-tracker",
@@ -140,25 +56,39 @@
     "text": "🏀 NCAA Recruitment Trend Visualizer\nWeb scraper + dynamic ggplot2 dashboard analyzing recruiting patterns across conferences.\n\nTools: R (ggplot2, plotly)\nFeatures: live data pull, interactive charts, conference comparisons\n\nCode: GitHub Repo"
   },
   {
-    "objectID": "visualizations.html#water-chemistry-comparisons",
-    "href": "visualizations.html#water-chemistry-comparisons",
-    "title": "Visualizations",
-    "section": "Water Chemistry Comparisons",
-    "text": "Water Chemistry Comparisons\n\n \n\nConductivity vs ANC Analyte comparison over time\n\n\n \n\nCorrelation Report between Analytes"
+    "objectID": "projects.html#vgs-batch-importer-app",
+    "href": "projects.html#vgs-batch-importer-app",
+    "title": "Projects",
+    "section": "☁️ VGS Batch Importer App",
+    "text": "☁️ VGS Batch Importer App\nAutomates ingestion of large Excel datasets into SQL with built-in QA/QC rules.\n\nTools: R (tidyverse, DBI, RSQLite), Quarto\n\nFeatures: drag-and-drop uploader, data validation report, error logging\n\nCode: GitHub Repo"
   },
   {
-    "objectID": "visualizations.html#small-mammal-captures",
-    "href": "visualizations.html#small-mammal-captures",
-    "title": "Visualizations",
-    "section": "Small Mammal Captures",
-    "text": "Small Mammal Captures\n\n \n\nSmall Mammal Capture Comparisons\n\n\n \n\nMammal Capture Map"
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Hi — I’m Timothy, an ecologist turned data scientist with a passion for building tools that drive conservation, clinical progress, and environmental understanding. My journey began with wildlife fieldwork and trapping grid maps and has evolved into designing clean database schemas, predictive dashboards, and QA systems that empower teams to make data-backed decisions.\nI thrive at the intersection of meaningful missions and technical complexity. Whether it’s wrangling messy ecological field data, designing visual workflows for conservation agencies, or exploring clinical programming standards like CDISC, I’m all in. I’ve worked with federal agencies, research institutions, and cross-functional technical teams — always aiming to improve clarity, utility, and insight.\nI believe good data tools should be intuitive, adaptable, and human-centered. And I love the creative challenge of bridging field knowledge with analytical design. Most recently, I’ve been exploring PK/PD modeling, clinical data transformation, and Quarto-based documentation systems to support scientific transparency and reproducibility."
   },
   {
-    "objectID": "visualizations.html#interactive-dashboards",
-    "href": "visualizations.html#interactive-dashboards",
-    "title": "Visualizations",
-    "section": "Interactive Dashboards",
-    "text": "Interactive Dashboards\n\nWater Chemistry Viewer (Shiny + Plotly)\n\nMammal Tracker (Shiny + Leaflet)"
+    "objectID": "about.html#interests-focus",
+    "href": "about.html#interests-focus",
+    "title": "About",
+    "section": "🌿 Interests & Focus",
+    "text": "🌿 Interests & Focus\n\nEcological data pipelines and interactive tools\nR Shiny dashboards, SQL databases, and QA automation\nVisual storytelling through data (ggplot2, Quarto, Tableau)\nMission-driven work in conservation, public health, and research"
+  },
+  {
+    "objectID": "about.html#lets-connect",
+    "href": "about.html#lets-connect",
+    "title": "About",
+    "section": "📬 Let’s Connect",
+    "text": "📬 Let’s Connect\n📧 tsgilbert@arizona.edu\n💾 GitHub"
+  },
+  {
+    "objectID": "index.html#explore-my-work",
+    "href": "index.html#explore-my-work",
+    "title": "Home",
+    "section": "🚀 Explore My Work",
+    "text": "🚀 Explore My Work\n\n\n\n\n\nABOUT ME\n\n\n\n\n\nMY PROJECTS\n\n\n\n\n\nVISUALIZATIONS\n\n\n\n\n\nRESUME/CV"
   },
   {
     "objectID": "index.html#what-youll-find-here",
@@ -175,11 +105,18 @@
     "text": "✨ Currently Exploring\n\nClinical programming frameworks (CDISC: SEND, SDTM, ADaM)\nPK/PD exposure-response modeling\nVisual storytelling with Quarto + ggplot2\nCustom QA workflows for SQL-backed Shiny apps\n\nIf you’re a researcher, developer, or agency looking to bridge technical insight with ecological relevance — I’d love to connect."
   },
   {
-    "objectID": "index.html#lets-connect",
-    "href": "index.html#lets-connect",
+    "objectID": "index.html#reach-out",
+    "href": "index.html#reach-out",
     "title": "Home",
-    "section": "📬 Let’s Connect",
-    "text": "📬 Let’s Connect\n📧 tsgilbert@arizona.edu\n🔗 GitHub"
+    "section": "📬 Reach Out",
+    "text": "📬 Reach Out\n📧 tsgilbert@arizona.edu\n🔗 GitHub"
+  },
+  {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Résumé",
+    "section": "",
+    "text": "You can download the my Résumé/CV: CLICK ME!"
   },
   {
     "objectID": "resume.html#education",
@@ -215,19 +152,5 @@
     "title": "Résumé",
     "section": "References",
     "text": "References\nAvailable upon request or view at the bottom of the Résumé/CV PDF."
-  },
-  {
-    "objectID": "index.html#explore-my-work",
-    "href": "index.html#explore-my-work",
-    "title": "Home",
-    "section": "🚀 Explore My Work",
-    "text": "🚀 Explore My Work\n\n\n\n\n\nABOUT ME\n\n\n\n\n\nMY PROJECTS\n\n\n\n\n\nVISUALIZATIONS\n\n\n\n\n\nRESUME/CV"
-  },
-  {
-    "objectID": "index.html#reach-out",
-    "href": "index.html#reach-out",
-    "title": "Home",
-    "section": "📬 Reach Out",
-    "text": "📬 Reach Out\n📧 tsgilbert@arizona.edu\n🔗 GitHub"
   }
 ]
