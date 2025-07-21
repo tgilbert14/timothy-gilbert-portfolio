@@ -2,30 +2,30 @@
   {
     "objectID": "visualizations.html",
     "href": "visualizations.html",
-    "title": "Visualizations",
+    "title": "Dashboards & Visualizations",
     "section": "",
-    "text": "Welcome to a curated gallery of my favorite data stories—click any image to explore the full dashboard or plot code!"
+    "text": "Welcome to a curated gallery of my favorite data stories — here are some of the projects I’ve enjoyed building!"
   },
   {
     "objectID": "visualizations.html#water-chemistry-comparisons",
     "href": "visualizations.html#water-chemistry-comparisons",
     "title": "Visualizations",
     "section": "Water Chemistry Comparisons",
-    "text": "Water Chemistry Comparisons\n\n \n\nConductivity vs ANC Analyte comparison over time\n\n\n \n\nCorrelation Report between Analytes"
+    "text": "Water Chemistry Comparisons\n\n \n\nConductivity vs ANC analyte comparison over time\n\n\n \n\nCorrelation report between analytes"
   },
   {
     "objectID": "visualizations.html#small-mammal-captures",
     "href": "visualizations.html#small-mammal-captures",
     "title": "Visualizations",
     "section": "Small Mammal Captures",
-    "text": "Small Mammal Captures\n\n \n\nSmall Mammal Capture Comparisons\n\n\n \n\nMammal Capture Map"
+    "text": "Small Mammal Captures\n\n \n\nSmall mammal capture comparisons\n\n\n \n\nMammal capture map"
   },
   {
     "objectID": "visualizations.html#interactive-dashboards",
     "href": "visualizations.html#interactive-dashboards",
-    "title": "Visualizations",
+    "title": "Dashboards & Visualizations",
     "section": "Interactive Dashboards",
-    "text": "Interactive Dashboards\n\nWater Chemistry Viewer (Shiny + Plotly)\n\nMammal Tracker (Shiny + Leaflet)"
+    "text": "Interactive Dashboards\n\n\nWater Chemistry Viewer (Shiny + Plotly + MLR)\n\nMammal Tracker (Shiny + Leaflet + GGMap)\n\nClient Data Manipulation (Shiny + ReadXL + Openxlsx) (username=1, password=1)\n\nUSFS Name Converter (Shiny + DT)"
   },
   {
     "objectID": "projects.html#neon-small-mammal-tracker",
@@ -46,7 +46,7 @@
     "href": "projects.html#electron-bundled-shiny-desktop-app",
     "title": "Projects",
     "section": "🖥️ Electron-Bundled Shiny Desktop App",
-    "text": "🖥️ Electron-Bundled Shiny Desktop App\nA standalone desktop tool embedding a Shiny UI with an internal SQL database backend.\n\nTools: R Shiny, Electron, SQLite, rmarkdown\n\nFeatures: cross-platform installer, offline data entry, report export\n\nCode: GitHub Repo\nLive App: WaterAnalyteApp"
+    "text": "🖥️ Electron-Bundled Shiny Desktop App\nA standalone desktop tool embedding a Shiny UI with an internal SQL database back-end.\n\nTools: R Shiny, Electron, SQLite, rmarkdown\n\nFeatures: cross-platform installer, offline data entry, report export\n\nCode: GitHub Repo"
   },
   {
     "objectID": "projects.html#ncaa-recruitment-trend-visualizer",
@@ -67,28 +67,28 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Hi — I’m Timothy, an ecologist turned data scientist with a passion for building tools that drive conservation, clinical progress, and environmental understanding. My journey began with wildlife fieldwork and trapping grid maps and has evolved into designing clean database schemas, predictive dashboards, and QA systems that empower teams to make data-backed decisions.\nI thrive at the intersection of meaningful missions and technical complexity. Whether it’s wrangling messy ecological field data, designing visual workflows for conservation agencies, or exploring clinical programming standards like CDISC, I’m all in. I’ve worked with federal agencies, research institutions, and cross-functional technical teams — always aiming to improve clarity, utility, and insight.\nI believe good data tools should be intuitive, adaptable, and human-centered. And I love the creative challenge of bridging field knowledge with analytical design. Most recently, I’ve been exploring PK/PD modeling, clinical data transformation, and Quarto-based documentation systems to support scientific transparency and reproducibility."
+    "text": "Hi — I’m Timothy, an ecologist turned data scientist with a passion for building tools that drive a deeper understanding of data, particularly when it comes to conservation and the environment. My journey began with ecological data collection from small mammal trapping, electro-fishing, to plant diversity surveys evolving into designing clean database schemas, predictive dashboards, data management and QA systems that empower teams to visualize data and make data-backed decisions.\nI love wrangling messy ecological field data, designing visual workflows for conservation agencies. I’ve worked with federal agencies, research institutions, and cross-functional technical teams — always aiming to improve clarity, utility, and insight.\nI believe good data tools should be intuitive, adaptable, and easy to understand. Most recently, I’ve been exploring Big 12 recruiting data for basketball and football programs and creating plot visualizations via R.\nOh, I also love ultra running and long hikes with my pups!"
   },
   {
     "objectID": "about.html#interests-focus",
     "href": "about.html#interests-focus",
     "title": "About",
-    "section": "🌿 Interests & Focus",
-    "text": "🌿 Interests & Focus\n\nEcological data pipelines and interactive tools\nR Shiny dashboards, SQL databases, and QA automation\nVisual storytelling through data (ggplot2, Quarto, Tableau)\nMission-driven work in conservation, public health, and research"
+    "section": "🌿 Interests & Focus 🌿",
+    "text": "🌿 Interests & Focus 🌿\n\nEcological data pipelines and interactive tools\nR Shiny dashboards, SQL databases, and QA automation\nVisual storytelling through data (ggplot2, Quarto, Plotly, Leaflet)\nData visualizations of recruit classes from 247 sports (along with web scraping)"
   },
   {
     "objectID": "about.html#lets-connect",
     "href": "about.html#lets-connect",
     "title": "About",
-    "section": "📬 Let’s Connect",
-    "text": "📬 Let’s Connect\n📧 tsgilbert@arizona.edu\n💾 GitHub"
+    "section": "Let’s Connect!",
+    "text": "Let’s Connect!\n📧 tsgilbert@arizona.edu\n💾 GitHub"
   },
   {
     "objectID": "index.html#explore-my-work",
     "href": "index.html#explore-my-work",
     "title": "Home",
     "section": "🚀 Explore My Work",
-    "text": "🚀 Explore My Work\n\n\n\n\n\nABOUT ME\n\n\n\n\n\nMY PROJECTS\n\n\n\n\n\nVISUALIZATIONS\n\n\n\n\n\nRESUME/CV"
+    "text": "🚀 Explore My Work\n\n\n\n\nABOUT ME\n\n\n\n\nMY PROJECTS\n\n \n\n\nVISUALIZATIONS\n\n\n\n\nRESUME/CV"
   },
   {
     "objectID": "index.html#what-youll-find-here",
@@ -101,8 +101,8 @@
     "objectID": "index.html#currently-exploring",
     "href": "index.html#currently-exploring",
     "title": "Home",
-    "section": "✨ Currently Exploring",
-    "text": "✨ Currently Exploring\n\nClinical programming frameworks (CDISC: SEND, SDTM, ADaM)\nPK/PD exposure-response modeling\nVisual storytelling with Quarto + ggplot2\nCustom QA workflows for SQL-backed Shiny apps\n\nIf you’re a researcher, developer, or agency looking to bridge technical insight with ecological relevance — I’d love to connect."
+    "section": "Currently Exploring",
+    "text": "Currently Exploring\n\nCustom Web Scraping interactive tools\nVisual storytelling with Quarto + ggplot2 for Big 12 recruiting\nData entry applications with SQL-backed\n\nIf you’re a researcher, developer, or agency looking to bridge technical insight with ecological relevance please reach out :)"
   },
   {
     "objectID": "index.html#reach-out",
@@ -152,5 +152,47 @@
     "title": "Résumé",
     "section": "References",
     "text": "References\nAvailable upon request or view at the bottom of the Résumé/CV PDF."
+  },
+  {
+    "objectID": "index.html#explore-my-work-1",
+    "href": "index.html#explore-my-work-1",
+    "title": "Home",
+    "section": "🚀 Explore My Work",
+    "text": "🚀 Explore My Work\n\n\n\n  &lt;strong&gt;ABOUT ME&lt;/strong&gt;\n&lt;/div&gt;\n\n\n\n  &lt;strong&gt;MY PROJECTS&lt;/strong&gt;\n&lt;/div&gt;\n\n\n\n  &lt;strong&gt;VISUALIZATIONS&lt;/strong&gt;\n&lt;/div&gt;\n\n\n\n  &lt;strong&gt;RESUME / CV&lt;/strong&gt;\n&lt;/div&gt;\n\n\n\n\n🔍 What You’ll Find Here\n\nProjects: Dashboards, Shiny apps, and R tools I’ve built for field teams, research labs, and public-facing visualizations.\nVisualizations: Maps, plots, and data stories from ecological and clinical datasets.\nRésumé: My background across field ecology, data science, and technical development.\nAbout: A glimpse into my journey, passions, and how I work.\n\n\n\n✨ Currently Exploring\n\nClinical programming frameworks (CDISC: SEND, SDTM, ADaM)\nPK/PD exposure-response modeling\nVisual storytelling with Quarto + ggplot2\nCustom QA workflows for SQL-backed Shiny apps\n\nIf you’re a researcher, developer, or agency looking to bridge technical insight with ecological relevance — I’d love to connect.\n\n\n📬 Reach Out\n📧 tsgilbert@arizona.edu\n🔗 GitHub"
+  },
+  {
+    "objectID": "index.html#my-work",
+    "href": "index.html#my-work",
+    "title": "Home",
+    "section": "My Work",
+    "text": "My Work\n\n\n\n\nABOUT ME\n\n\n\n\nMY PROJECTS\n\n \n\n\nVISUALIZATIONS\n\n\n\n\nRESUME/CV"
+  },
+  {
+    "objectID": "index.html#contact",
+    "href": "index.html#contact",
+    "title": "Home",
+    "section": "Contact",
+    "text": "Contact\n📧 tsgilbert@arizona.edu\n🔗 GitHub"
+  },
+  {
+    "objectID": "index.html#exploring",
+    "href": "index.html#exploring",
+    "title": "Home",
+    "section": "Exploring",
+    "text": "Exploring\nI am always working on developing new skills, here are some of the things I am focusing on… - Custom Web Scraping interactive tools - Visual storytelling with Quarto + ggplot2 for Big 12 recruiting - Data entry applications with SQL-backed - Python applications - Machine learning for forecasting\nIf you’re a researcher, developer, or agency looking to bridge technical insight with ecological relevance please reach out :)"
+  },
+  {
+    "objectID": "index.html#infomation",
+    "href": "index.html#infomation",
+    "title": "Home",
+    "section": "Infomation",
+    "text": "Infomation\n\n\n\n\nABOUT ME\n\n\n\n\nMY PROJECTS\n\n \n\n\nVISUALIZATIONS\n\n\n\n\nRESUME/CV"
+  },
+  {
+    "objectID": "index.html#information",
+    "href": "index.html#information",
+    "title": "Home",
+    "section": "Information",
+    "text": "Information\n\nABOUT ME MY PROJECTS VISUALIZATIONS RESUME/CV"
   }
 ]
