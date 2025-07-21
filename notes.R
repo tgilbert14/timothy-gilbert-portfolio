@@ -14,8 +14,15 @@ git commit -m "Initial Quarto site"
 git remote add origin https://github.com/tgilbert14/timothy-gilbert-portfolio.git
 git push -u origin main
 
-
-
+# tried to rebuild...
 git commit --allow-empty -m "Trigger rebuild"
 git push
 
+# gitHub pages not finding it
+# update Yaml 'output-dir: docs'
+quarto render
+git add .
+git commit -m "Set output to docs for GitHub Pages"
+git push
+
+# update settings > pages > Choose your branch (usually main) and /docs instead
