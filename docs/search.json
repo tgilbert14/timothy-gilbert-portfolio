@@ -7,20 +7,6 @@
     "text": "Welcome to a curated gallery of my favorite data stories — here are some of the projects I’ve enjoyed building!"
   },
   {
-    "objectID": "visualizations.html#water-chemistry-comparisons",
-    "href": "visualizations.html#water-chemistry-comparisons",
-    "title": "Visualizations",
-    "section": "Water Chemistry Comparisons",
-    "text": "Water Chemistry Comparisons\n\n \n\nConductivity vs ANC analyte comparison over time\n\n\n \n\nCorrelation report between analytes"
-  },
-  {
-    "objectID": "visualizations.html#small-mammal-captures",
-    "href": "visualizations.html#small-mammal-captures",
-    "title": "Visualizations",
-    "section": "Small Mammal Captures",
-    "text": "Small Mammal Captures\n\n \n\nSmall mammal capture comparisons\n\n\n \n\nMammal capture map"
-  },
-  {
     "objectID": "visualizations.html#interactive-dashboards",
     "href": "visualizations.html#interactive-dashboards",
     "title": "Dashboards & Visualizations",
@@ -42,18 +28,18 @@
     "text": "💧 NEON Water Chemistry Viewer\nDual‐axis plotter comparing analytes with built-in correlation stats and ML predictions.\n\nTools: R Shiny, plotly, caret (ML), SQLite\n\nFeatures: customizable analyte pairs, regression overlays, download CSV\n\nCode: GitHub Repo\n\nLive App: WaterAnalyteApp"
   },
   {
-    "objectID": "projects.html#electron-bundled-shiny-desktop-app",
-    "href": "projects.html#electron-bundled-shiny-desktop-app",
-    "title": "Projects",
-    "section": "🖥️ Electron-Bundled Shiny Desktop App",
-    "text": "🖥️ Electron-Bundled Shiny Desktop App\nA standalone desktop tool embedding a Shiny UI with an internal SQL database back-end.\n\nTools: R Shiny, Electron, SQLite, rmarkdown\n\nFeatures: cross-platform installer, offline data entry, report export\n\nCode: GitHub Repo"
-  },
-  {
     "objectID": "projects.html#ncaa-recruitment-trend-visualizer",
     "href": "projects.html#ncaa-recruitment-trend-visualizer",
     "title": "Projects",
     "section": "🏀 NCAA Recruitment Trend Visualizer",
     "text": "🏀 NCAA Recruitment Trend Visualizer\nWeb scraper + dynamic ggplot2 dashboard analyzing recruiting patterns across conferences.\n\nTools: R (ggplot2, plotly)\nFeatures: live data pull, interactive charts, conference comparisons\n\nCode: GitHub Repo"
+  },
+  {
+    "objectID": "projects.html#electron-bundled-shiny-desktop-app",
+    "href": "projects.html#electron-bundled-shiny-desktop-app",
+    "title": "Projects",
+    "section": "🖥️ Electron-Bundled Shiny Desktop App",
+    "text": "🖥️ Electron-Bundled Shiny Desktop App\nA standalone desktop tool embedding a Shiny UI with an internal SQL database back-end.\n\nTools: R Shiny, Electron, SQLite, rmarkdown\n\nFeatures: cross-platform installer, offline data entry, report export\n\nCode: GitHub Repo"
   },
   {
     "objectID": "projects.html#vgs-batch-importer-app",
@@ -84,32 +70,18 @@
     "text": "Let’s Connect!\n📧 tsgilbert@arizona.edu\n💾 GitHub"
   },
   {
-    "objectID": "index.html#explore-my-work",
-    "href": "index.html#explore-my-work",
+    "objectID": "index.html#exploring",
+    "href": "index.html#exploring",
     "title": "Home",
-    "section": "🚀 Explore My Work",
-    "text": "🚀 Explore My Work\n\n\n\n\nABOUT ME\n\n\n\n\nMY PROJECTS\n\n \n\n\nVISUALIZATIONS\n\n\n\n\nRESUME/CV"
+    "section": "Exploring",
+    "text": "Exploring\nI am always working on developing new skills, here are some of the things I am focusing on… - Custom Web Scraping interactive tools - Visual storytelling with Quarto + ggplot2 for Big 12 recruiting - Data entry applications with SQL-backed - Python applications - Machine learning for forecasting\nIf you’re a researcher, developer, or agency looking to bridge technical insight with ecological relevance please reach out :)"
   },
   {
-    "objectID": "index.html#what-youll-find-here",
-    "href": "index.html#what-youll-find-here",
+    "objectID": "index.html#contact",
+    "href": "index.html#contact",
     "title": "Home",
-    "section": "🔍 What You’ll Find Here",
-    "text": "🔍 What You’ll Find Here\n\nProjects: Dashboards, Shiny apps, and R tools I’ve built for field teams, research labs, and public-facing visualizations.\nVisualizations: Maps, plots, and data stories from ecological and clinical datasets.\nRésumé: My background across field ecology, data science, and technical development.\nAbout: A glimpse into my journey, passions, and how I work."
-  },
-  {
-    "objectID": "index.html#currently-exploring",
-    "href": "index.html#currently-exploring",
-    "title": "Home",
-    "section": "Currently Exploring",
-    "text": "Currently Exploring\n\nCustom Web Scraping interactive tools\nVisual storytelling with Quarto + ggplot2 for Big 12 recruiting\nData entry applications with SQL-backed\n\nIf you’re a researcher, developer, or agency looking to bridge technical insight with ecological relevance please reach out :)"
-  },
-  {
-    "objectID": "index.html#reach-out",
-    "href": "index.html#reach-out",
-    "title": "Home",
-    "section": "📬 Reach Out",
-    "text": "📬 Reach Out\n📧 tsgilbert@arizona.edu\n🔗 GitHub"
+    "section": "Contact",
+    "text": "Contact\n📧 tsgilbert@arizona.edu\n🔗 GitHub"
   },
   {
     "objectID": "resume.html",
@@ -152,47 +124,5 @@
     "title": "Résumé",
     "section": "References",
     "text": "References\nAvailable upon request or view at the bottom of the Résumé/CV PDF."
-  },
-  {
-    "objectID": "index.html#explore-my-work-1",
-    "href": "index.html#explore-my-work-1",
-    "title": "Home",
-    "section": "🚀 Explore My Work",
-    "text": "🚀 Explore My Work\n\n\n\n  &lt;strong&gt;ABOUT ME&lt;/strong&gt;\n&lt;/div&gt;\n\n\n\n  &lt;strong&gt;MY PROJECTS&lt;/strong&gt;\n&lt;/div&gt;\n\n\n\n  &lt;strong&gt;VISUALIZATIONS&lt;/strong&gt;\n&lt;/div&gt;\n\n\n\n  &lt;strong&gt;RESUME / CV&lt;/strong&gt;\n&lt;/div&gt;\n\n\n\n\n🔍 What You’ll Find Here\n\nProjects: Dashboards, Shiny apps, and R tools I’ve built for field teams, research labs, and public-facing visualizations.\nVisualizations: Maps, plots, and data stories from ecological and clinical datasets.\nRésumé: My background across field ecology, data science, and technical development.\nAbout: A glimpse into my journey, passions, and how I work.\n\n\n\n✨ Currently Exploring\n\nClinical programming frameworks (CDISC: SEND, SDTM, ADaM)\nPK/PD exposure-response modeling\nVisual storytelling with Quarto + ggplot2\nCustom QA workflows for SQL-backed Shiny apps\n\nIf you’re a researcher, developer, or agency looking to bridge technical insight with ecological relevance — I’d love to connect.\n\n\n📬 Reach Out\n📧 tsgilbert@arizona.edu\n🔗 GitHub"
-  },
-  {
-    "objectID": "index.html#my-work",
-    "href": "index.html#my-work",
-    "title": "Home",
-    "section": "My Work",
-    "text": "My Work\n\n\n\n\nABOUT ME\n\n\n\n\nMY PROJECTS\n\n \n\n\nVISUALIZATIONS\n\n\n\n\nRESUME/CV"
-  },
-  {
-    "objectID": "index.html#contact",
-    "href": "index.html#contact",
-    "title": "Home",
-    "section": "Contact",
-    "text": "Contact\n📧 tsgilbert@arizona.edu\n🔗 GitHub"
-  },
-  {
-    "objectID": "index.html#exploring",
-    "href": "index.html#exploring",
-    "title": "Home",
-    "section": "Exploring",
-    "text": "Exploring\nI am always working on developing new skills, here are some of the things I am focusing on… - Custom Web Scraping interactive tools - Visual storytelling with Quarto + ggplot2 for Big 12 recruiting - Data entry applications with SQL-backed - Python applications - Machine learning for forecasting\nIf you’re a researcher, developer, or agency looking to bridge technical insight with ecological relevance please reach out :)"
-  },
-  {
-    "objectID": "index.html#infomation",
-    "href": "index.html#infomation",
-    "title": "Home",
-    "section": "Infomation",
-    "text": "Infomation\n\n\n\n\nABOUT ME\n\n\n\n\nMY PROJECTS\n\n \n\n\nVISUALIZATIONS\n\n\n\n\nRESUME/CV"
-  },
-  {
-    "objectID": "index.html#information",
-    "href": "index.html#information",
-    "title": "Home",
-    "section": "Information",
-    "text": "Information\n\nABOUT ME MY PROJECTS VISUALIZATIONS RESUME/CV"
   }
 ]
