@@ -18,7 +18,7 @@ Welcome to my digital portfolio! I specialize in building intuitive data applica
 ------------------------------------------------------------------------
 
 ::: explore-text
-## Exploring
+## Currently Exploring
 
 I am always working on developing new skills, here are some of the things I am focusing on...
 
@@ -31,7 +31,7 @@ I am always working on developing new skills, here are some of the things I am f
 If you're a researcher, developer, or agency looking to bridge technical insight with ecological relevance please reach out :)
 :::
 
-## Contact
+## Contact Me
 
 📧 [tsgilbert\@arizona.edu](mailto:tsgilbert@arizona.edu)\
 🔗 [GitHub](https://github.com/tgilbert14)
