@@ -25,7 +25,7 @@ format: html
 
 Hi — I'm Timothy, an ecologist turned data scientist with a passion for building tools that drive a deeper understanding of data, particularly when it comes to conservation and the environment. My journey began with ecological data collection from small mammal trapping, electro-fishing, to plant diversity surveys evolving into designing clean database schemas, predictive dashboards, data management and QA systems that empower teams to visualize data and make data-backed decisions.
 
-I love wrangling messy ecological field data, designing visual workflows for conservation agencies. I’ve worked with federal agencies, research institutions, and cross-functional technical teams — always aiming to improve clarity, utility, and insight.
+I love wrangling messy ecological field data, designing visual workflows for conservation agencies, and creating SQL databases to store long term data collection. I’ve worked with federal agencies, research institutions, and cross-functional technical teams — always aiming to improve clarity, utility, and insight.
 
 I believe good data tools should be intuitive, adaptable, and easy to understand. Most recently, I’ve been exploring Big 12 recruiting data for basketball and football programs and creating plot visualizations via R.
 
