@@ -3,24 +3,22 @@ title: "Dashboards & Visualizations"
 format: html
 ---
 
-<div class="viz-intro">
-  Welcome to a curated gallery of my favorite data stories — here are some of the projects I’ve enjoyed building!
-</div>
+::: viz-intro
+Welcome to a curated gallery of my favorite data stories --- here are some of the projects I've enjoyed building!
+:::
 
-## Interactive Dashboards
+## 💻 Interactive Dashboards
 
-::: {.explore-text}
+::: explore-text
+-   ***Mammal Tracker*** (Shiny + Leaflet + GGMap)\
+    <iframe src="https://t-lama.shinyapps.io/RatTrapHistory/" class="viz-frame"></iframe>
 
-- ***Water Chemistry Viewer*** (Shiny + Plotly + MLR)  
-  <iframe src="https://t-lama.shinyapps.io/AnalyteViewer/" class="viz-frame"></iframe>
+-   ***Client Data Manipulation*** (Shiny + ReadXL + Openxlsx) *(username=1, password=1)*\
+    <iframe src="https://t-lama.shinyapps.io/ClientScriptHost/" class="viz-frame"></iframe>
 
-- ***Mammal Tracker*** (Shiny + Leaflet + GGMap)  
-  <iframe src="https://t-lama.shinyapps.io/RatTrapHistory/" class="viz-frame"></iframe>
+-   ***Water Chemistry Viewer*** (Shiny + Plotly + MLR)\
+    <iframe src="https://t-lama.shinyapps.io/AnalyteViewer/" class="viz-frame"></iframe>
 
-- ***Client Data Manipulation*** (Shiny + ReadXL + Openxlsx) *(username=1, password=1)*   
-  <iframe src="https://t-lama.shinyapps.io/ClientScriptHost/" class="viz-frame"></iframe>
-
-- ***USFS Name Converter*** (Shiny + DT)  
-  <iframe src="https://t-lama.shinyapps.io/App-VGS-USFS-Name2VGS/" class="viz-frame"></iframe>
-
+-   ***USFS Name Converter*** (Shiny + DT)\
+    <iframe src="https://t-lama.shinyapps.io/App-VGS-USFS-Name2VGS/" class="viz-frame"></iframe>
 :::
