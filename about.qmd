@@ -3,34 +3,22 @@ title: "About"
 format: html
 ---
 
-::: {style="
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 18px 0;
-"}
-<img src="assets/tim_run.jpg" width="220px" style="border: 4px solid #D6A775; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0,0,0,0.15);"/> <img src="assets/tim_other.jpg" width="220px" style="border: 4px solid #D6A775; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0,0,0,0.15);"/>
-:::
+<div>
 
-Hi --- I'm Timothy, an ecologist turned data scientist with a passion for building tools that drive a deeper understanding of data, particularly when it comes to conservation and the environment. My journey began with ecological data collection from small mammal trapping, electro-fishing, to plant diversity surveys evolving into designing clean database schemas, predictive dashboards, data management and QA systems that empower teams to visualize data and make data-backed decisions.
+[![](assets/tim_other.jpg){fig-align="center" width="600"}](https://ultrasignup.com/results_participant.aspx?fname=Timothy&lname=Gilbert#)
 
-I love wrangling messy ecological field data, designing visual workflows for conservation agencies, and creating SQL databases to store long term data collection. I've worked with federal agencies, research institutions, and cross-functional technical teams --- always aiming to improve clarity, utility, and insight.
+</div>
 
-I believe good data tools should be intuitive, adaptable, and easy to understand. Most recently, I've been exploring Big 12 recruiting data for basketball and football programs and creating plot visualizations via R.
+Hello! I'm Timothy, an ecologist turned data scientist with a passion for building tools that drive a deeper understanding of data, particularly when it comes to conservation and the environment. My journey began with ecological data collection from small mammal trapping, electro-fishing, to plant diversity surveys evolving into designing SQL database schemas, predictive dashboards, data management and QA systems to make intriguing and insightful data visualizations.
 
-Oh, I also love ultra running and long hikes with my pups!
+I love wrangling messy ecological field data, designing visual workflows for conservation agencies, and creating SQL databases to store long term data collection. I've worked with federal agencies, research institutions, and cross-functional technical teams and am always aiming to improve and create new projects!
+
+I believe good data tools should be intuitive, adaptable, and easy to understand\... Most recently, I've been exploring Big 12 recruiting data for basketball and football programs and creating plot visualizations via R.
+
+Oh, I also love ultra running and long hikes with my pups 🐕🐕
 
 ::: {style="
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 18px 0;
-"}
-<img src="assets/tali.jpg" width="220px" style="border: 4px solid #D6A775; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0,0,0,0.15);"/> <img src="assets/dogs1.jpg" width="220px" style="border: 4px solid #D6A775; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0,0,0,0.15);"/> <img src="assets/dogs2.jpg" width="220px" style="border: 4px solid #D6A775; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0,0,0,0.15);"/>
+[![](assets/dogs1.jpg){style="border: 4px solid #D6A775; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0,0,0,0.15);" fig-align="center" width="600"}](https://www.instagram.com/timbogilbert/?hl=en)
 :::
 
 ## 🌿 Interests & Focus 🌿
@@ -44,3 +32,5 @@ Oh, I also love ultra running and long hikes with my pups!
 
 📧 [tsgilbert\@arizona.edu](mailto:tsgilbert@arizona.edu)\
 💾 [GitHub](https://github.com/tgilbert14)
+
+[![](assets/dogs2.jpg){fig-align="center" width="600"}](https://www.linkedin.com/in/tgilbert14/)

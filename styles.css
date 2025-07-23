@@ -25,23 +25,24 @@
 /* center text inside each card */
     .card {
     display: flex;
+    margin: 8px;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    width: 75%;
+    width: 85%;
     min-width: 220px;
     padding: 12px;
     border-radius: 10px;
     color: white;
     text-align: center;
     text-decoration: none;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 2px 2px 6px blue;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 4px 4px 12px rgba(0,0,0,0.15);
+  transform: translate(-6px, -6px);
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Individual card colors */
@@ -49,6 +50,43 @@
 .card-projects      { background-color: salmon; }
 .card-visualizations{ background-color: lightsalmon; }
 .card-resume        { background-color: salmon; }
+
+/* contacts for HOME */
+.contact-container {
+    display: box;
+    justify-content: left;
+    gap: 12px;
+    padding: 12px 0;
+    margin: auto;
+}
+
+/* center text inside each card */
+    .contact {
+    display: flex;
+    margin: 8px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 85%;
+    min-width: 220px;
+    padding: 12px;
+    border-radius: 10px;
+    color: turquoise;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 2px 2px 6px blue;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Individual card colors */
+.contact-email      { background-color: lightsalmon; }
+.contact-git        { background-color: lightsalmon; }
+
+/* Individual contact hoover */
+.contact:hover {
+  transform: translate(-6px, -6px);
+  box-shadow: 6px 6px 18px rgba(0, 0, 0, 0.15);
+}
 
 /* ---------------------------------------------------
    Exploring Section

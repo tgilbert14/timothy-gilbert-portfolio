@@ -53,7 +53,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: 0 auto; padding: 18px 0; “}\nHi — I’m Timothy, an ecologist turned data scientist with a passion for building tools that drive a deeper understanding of data, particularly when it comes to conservation and the environment. My journey began with ecological data collection from small mammal trapping, electro-fishing, to plant diversity surveys evolving into designing clean database schemas, predictive dashboards, data management and QA systems that empower teams to visualize data and make data-backed decisions.\nI love wrangling messy ecological field data, designing visual workflows for conservation agencies, and creating SQL databases to store long term data collection. I’ve worked with federal agencies, research institutions, and cross-functional technical teams — always aiming to improve clarity, utility, and insight.\nI believe good data tools should be intuitive, adaptable, and easy to understand. Most recently, I’ve been exploring Big 12 recruiting data for basketball and football programs and creating plot visualizations via R.\nOh, I also love ultra running and long hikes with my pups!"
+    "text": "Hello! I’m Timothy, an ecologist turned data scientist with a passion for building tools that drive a deeper understanding of data, particularly when it comes to conservation and the environment. My journey began with ecological data collection from small mammal trapping, electro-fishing, to plant diversity surveys evolving into designing SQL database schemas, predictive dashboards, data management and QA systems to make intriguing and insightful data visualizations.\nI love wrangling messy ecological field data, designing visual workflows for conservation agencies, and creating SQL databases to store long term data collection. I’ve worked with federal agencies, research institutions, and cross-functional technical teams and am always aiming to improve and create new projects!\nI believe good data tools should be intuitive, adaptable, and easy to understand... Most recently, I’ve been exploring Big 12 recruiting data for basketball and football programs and creating plot visualizations via R.\nOh, I also love ultra running and long hikes with my pups 🐕🐕"
   },
   {
     "objectID": "about.html#interests-focus",
@@ -74,14 +74,14 @@
     "href": "index.html#currently-exploring",
     "title": "Home",
     "section": "Currently Exploring",
-    "text": "Currently Exploring\nI am always working on developing new skills, here are some of the things I am focusing on…\n\nCustom Web Scraping interactive tools\nVisual storytelling with Quarto + ggplot2 for Big 12 recruiting\nData entry applications with SQL-backed\nPython applications\nMachine learning for forecasting\n\nIf you’re a researcher, developer, or agency looking to bridge technical insight with ecological relevance please reach out :)"
+    "text": "Currently Exploring\nI am always working on developing new skills, here are some of the things I am focusing on…\n\nCustom Web Scraping interactive tools\nVisual storytelling with Quarto + ggplot2 for Big 12 recruiting\nData entry applications with SQL back-end\nPython applications\nMachine learning for forecasting\n\nIf you’re a researcher, developer, or agency looking for some R incite or to build interactive R shiny data applications, please reach out! I am always looking for new ecological projects to work on and develop my skills."
   },
   {
     "objectID": "index.html#contact-me",
     "href": "index.html#contact-me",
     "title": "Home",
     "section": "Contact Me",
-    "text": "Contact Me\n📧 tsgilbert@arizona.edu\n🔗 GitHub"
+    "text": "Contact Me\n\n📧 Email Me \n 🔗 Check out my GitHub"
   },
   {
     "objectID": "resume.html",

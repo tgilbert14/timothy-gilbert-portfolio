@@ -12,7 +12,7 @@ format: html
 Welcome to my digital portfolio! I specialize in building intuitive data applications and workflows that connect field-based ecological expertise that translate ecological fieldwork into practical tools for environmental analysis and decision-making. I also love web scraping data to create data visualizations and creating forecasting tools.
 
 ::: card-container
-<a href="about.qmd" class="card card-about">ABOUT ME</a> <a href="projects.qmd" class="card card-projects">MY PROJECTS</a> <a href="visualizations.qmd" class="card card-visualizations">DASHBOARDS</a> <a href="resume.qmd" class="card card-resume">RESUME/CV</a>
+<a href="projects.qmd" class="card card-projects">MY PROJECTS</a> <a href="visualizations.qmd" class="card card-visualizations">DASHBOARDS</a> <a href="resume.qmd" class="card card-resume">RESUME/CV</a> <a href="about.qmd" class="card card-about">ABOUT ME</a>
 :::
 
 ------------------------------------------------------------------------
@@ -24,14 +24,19 @@ I am always working on developing new skills, here are some of the things I am f
 
 -   Custom Web Scraping interactive tools
 -   Visual storytelling with Quarto + ggplot2 for Big 12 recruiting
--   Data entry applications with SQL-backed
+-   Data entry applications with SQL back-end
 -   Python applications
 -   Machine learning for forecasting
 
-If you're a researcher, developer, or agency looking to bridge technical insight with ecological relevance please reach out :)
+**If you're a researcher, developer, or agency looking for some R incite or to build interactive R shiny data applications, please reach out!** I am always looking for new ecological projects to work on and develop my skills.
 :::
 
 ## Contact Me
 
-📧 [tsgilbert\@arizona.edu](mailto:tsgilbert@arizona.edu)\
-🔗 [GitHub](https://github.com/tgilbert14)
+::: contact-container
+<a href="mailto:tsgilbert@arizona.edu" class="contact email">📧 Email Me </a>
+
+<a href="https://github.com/tgilbert14" class="contact git"> 🔗 Check out my GitHub </a>
+:::
+<!-- 📧 [tsgilbert\@arizona.edu](mailto:tsgilbert@arizona.edu)\ -->
+<!-- 🔗 [GitHub](https://github.com/tgilbert14) -->
