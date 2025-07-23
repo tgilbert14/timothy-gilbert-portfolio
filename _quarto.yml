@@ -9,14 +9,14 @@ website:
     left:
       - text: Home
         href: index.qmd
-      - text: Projects
-        href: projects.qmd
-      - text: Visualizations
-        href: visualizations.qmd
-      - text: Résumé
-        href: resume.qmd
       - text: About
         href: about.qmd
+      - text: Projects
+        href: projects.qmd
+      - text: Résumé
+        href: resume.qmd
+      - text: Shiny Apps
+        href: dashboards.qmd
     right:
       - icon: github
         href: https://github.com/tgilbert14

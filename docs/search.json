@@ -1,89 +1,5 @@
 [
   {
-    "objectID": "visualizations.html",
-    "href": "visualizations.html",
-    "title": "Dashboards & Visualizations",
-    "section": "",
-    "text": "Welcome to a curated gallery of my favorite data stories — here are some of the projects I’ve enjoyed building!"
-  },
-  {
-    "objectID": "visualizations.html#interactive-dashboards",
-    "href": "visualizations.html#interactive-dashboards",
-    "title": "Dashboards & Visualizations",
-    "section": "💻 Interactive Dashboards",
-    "text": "💻 Interactive Dashboards\n\n\nMammal Tracker (Shiny + Leaflet + GGMap)\n\nClient Data Manipulation (Shiny + ReadXL + Openxlsx) (username=1, password=1)\n\nWater Chemistry Viewer (Shiny + Plotly + MLR)\n\nUSFS Name Converter (Shiny + DT)"
-  },
-  {
-    "objectID": "projects.html#neon-small-mammal-tracker",
-    "href": "projects.html#neon-small-mammal-tracker",
-    "title": "Projects",
-    "section": "🐁 NEON Small Mammal Tracker",
-    "text": "🐁 NEON Small Mammal Tracker\nInteractive dashboard for entering, mapping, and analyzing small mammal trapping data.\n\nTools: R Shiny, leaflet, RSQLite\n\nFeatures: real-time GIS mapping, summary statistics, species heat maps\n\nCode: GitHub Repo\nLive App: RatTrapHistoryApp"
-  },
-  {
-    "objectID": "projects.html#neon-water-chemistry-viewer",
-    "href": "projects.html#neon-water-chemistry-viewer",
-    "title": "Projects",
-    "section": "💧 NEON Water Chemistry Viewer",
-    "text": "💧 NEON Water Chemistry Viewer\nDual‐axis plotter comparing analytes with built-in correlation stats and ML predictions.\n\nTools: R Shiny, plotly, caret (ML), SQLite\n\nFeatures: customizable analyte pairs, regression overlays, download CSV\n\nCode: GitHub Repo\n\nLive App: WaterAnalyteApp"
-  },
-  {
-    "objectID": "projects.html#ncaa-recruitment-trend-visualizer",
-    "href": "projects.html#ncaa-recruitment-trend-visualizer",
-    "title": "Projects",
-    "section": "🏀 NCAA Recruitment Trend Visualizer",
-    "text": "🏀 NCAA Recruitment Trend Visualizer\nWeb scraper + dynamic ggplot2 dashboard analyzing recruiting patterns across conferences.\n\nTools: R (ggplot2, plotly)\nFeatures: live data pull, interactive charts, conference comparisons\n\nCode: GitHub Repo"
-  },
-  {
-    "objectID": "projects.html#electron-bundled-shiny-desktop-app",
-    "href": "projects.html#electron-bundled-shiny-desktop-app",
-    "title": "Projects",
-    "section": "🖥️ Electron-Bundled Shiny Desktop App",
-    "text": "🖥️ Electron-Bundled Shiny Desktop App\nA standalone desktop tool embedding a Shiny UI with an internal SQL database back-end.\n\nTools: R Shiny, Electron, SQLite, rmarkdown\n\nFeatures: cross-platform installer, offline data entry, report export\n\nCode: GitHub Repo"
-  },
-  {
-    "objectID": "projects.html#vgs-batch-importer-app",
-    "href": "projects.html#vgs-batch-importer-app",
-    "title": "Projects",
-    "section": "☁️ VGS Batch Importer App",
-    "text": "☁️ VGS Batch Importer App\nAutomates ingestion of large Excel datasets into SQL with built-in QA/QC rules.\n\nTools: R (tidyverse, DBI, RSQLite), Quarto\n\nFeatures: drag-and-drop uploader, data validation report, error logging\n\nCode: GitHub Repo"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About Me",
-    "section": "",
-    "text": "Hello! I’m Timothy, an ecologist turned data scientist with a passion for building tools that drive a deeper understanding of data, particularly when it comes to conservation and the environment. My journey began with ecological data collection from small mammal trapping, electro-fishing, to plant diversity surveys evolving into designing SQL database schemas, predictive dashboards, data management and QA systems to make intriguing and insightful data visualizations.\nI love wrangling messy ecological field data, designing visual workflows for conservation agencies, and creating SQL databases to store long term data collection. I’ve worked with federal agencies, research institutions, and cross-functional technical teams and am always aiming to improve and create new projects!\nI believe good data tools should be intuitive, adaptable, and easy to understand... Most recently, I’ve been exploring Big 12 recruiting data for basketball and football programs and creating plot visualizations via R.\nOh, I also love ultra running and long hikes with my pups 🐕🐕"
-  },
-  {
-    "objectID": "about.html#interests-focus",
-    "href": "about.html#interests-focus",
-    "title": "About Me",
-    "section": "🌿 Interests & Focus 🌿",
-    "text": "🌿 Interests & Focus 🌿\n\nEcological data pipelines and interactive tools\nR Shiny dashboards, SQL databases, and QA automation\nVisual storytelling through data (ggplot2, Quarto, Plotly, Leaflet)\nData visualizations of recruit classes from 247 sports (along with web scraping)"
-  },
-  {
-    "objectID": "about.html#lets-connect",
-    "href": "about.html#lets-connect",
-    "title": "About Me",
-    "section": "Let’s Connect!",
-    "text": "Let’s Connect!\n📧 tsgilbert@arizona.edu\n💾 GitHub"
-  },
-  {
-    "objectID": "index.html#currently-exploring",
-    "href": "index.html#currently-exploring",
-    "title": "Home",
-    "section": "Currently Exploring",
-    "text": "Currently Exploring\nI am always working on developing new skills, here are some of the things I am focusing on…\n\nCustom Web Scraping interactive tools\nVisual storytelling with Quarto + ggplot2 for Big 12 recruiting\nData entry applications with SQL back-end\nPython applications\nMachine learning for forecasting\n\nIf you’re a researcher, developer, or agency looking for some R incite or to build interactive R shiny data applications, please reach out! I am always looking for new ecological projects to work on and develop my skills."
-  },
-  {
-    "objectID": "index.html#contact-me",
-    "href": "index.html#contact-me",
-    "title": "Home",
-    "section": "Contact Me",
-    "text": "Contact Me\n\n📧 Email Me \n 🔗 My GitHub"
-  },
-  {
     "objectID": "resume.html",
     "href": "resume.html",
     "title": "Résumé",
@@ -124,5 +40,103 @@
     "title": "Résumé",
     "section": "References",
     "text": "References\nAvailable upon request or view at the bottom of the Résumé/CV PDF."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Who Am I?",
+    "section": "",
+    "text": "Ecologist · Data Scientist · Data Analyst · IT Support Specialist\nWelcome to my digital portfolio! I specialize in building intuitive data applications and workflows that connect field-based ecological expertise that translate ecological fieldwork into practical tools for environmental analysis and decision-making. I also love web scraping data to create data visualizations and creating forecasting tools."
+  },
+  {
+    "objectID": "index.html#currently-exploring",
+    "href": "index.html#currently-exploring",
+    "title": "Who Am I?",
+    "section": "Currently Exploring",
+    "text": "Currently Exploring\nI am always working on developing new skills, here are some of the things I am focusing on…\n\nCustom Web Scraping interactive tools\nVisual storytelling with Quarto + ggplot2 for Big 12 recruiting\nData entry applications with SQL back-end\nPython applications\nMachine learning for forecasting\n\nIf you’re a researcher, developer, or agency looking for some R incite or to build interactive R shiny data applications, please reach out! I am always looking for new ecological projects to work on and develop my skills."
+  },
+  {
+    "objectID": "index.html#contact-me",
+    "href": "index.html#contact-me",
+    "title": "Who Am I?",
+    "section": "Contact Me",
+    "text": "Contact Me\n\n📧 Email Me \n 🔗 My GitHub"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Me",
+    "section": "",
+    "text": "Hello! I’m Timothy, an ecologist turned data scientist with a passion for building tools that drive a deeper understanding of data, particularly when it comes to conservation and the environment. My journey began with ecological data collection from small mammal trapping, electro-fishing, to plant diversity surveys evolving into designing SQL database schemas, predictive dashboards, data management and QA systems to make intriguing and insightful data visualizations.\nI love wrangling messy ecological field data, designing visual workflows for conservation agencies, and creating SQL databases to store long term data collection. I’ve worked with federal agencies, research institutions, and cross-functional technical teams and am always aiming to improve and create new projects!\nI believe good data tools should be intuitive, adaptable, and easy to understand... Most recently, I’ve been exploring Big 12 recruiting data for basketball and football programs and creating plot visualizations via R.\nOh, I also love ultra running and long hikes with my pups 🐕🐕"
+  },
+  {
+    "objectID": "about.html#interests-focus",
+    "href": "about.html#interests-focus",
+    "title": "About Me",
+    "section": "🌿 Interests & Focus 🌿",
+    "text": "🌿 Interests & Focus 🌿\n\nEcological data pipelines and interactive tools\nR Shiny dashboards, SQL databases, and QA automation\nVisual storytelling through data (ggplot2, Quarto, Plotly, Leaflet)\nData visualizations of recruit classes from 247 sports (along with web scraping)"
+  },
+  {
+    "objectID": "about.html#lets-connect",
+    "href": "about.html#lets-connect",
+    "title": "About Me",
+    "section": "Let’s Connect!",
+    "text": "Let’s Connect!\n📧 tsgilbert@arizona.edu\n💾 GitHub"
+  },
+  {
+    "objectID": "dashboards.html",
+    "href": "dashboards.html",
+    "title": "Dashboards & Visualizations",
+    "section": "",
+    "text": "Welcome to a curated gallery of my favorite data stories — here are some of the interactive projects I’ve enjoyed building and hosting!"
+  },
+  {
+    "objectID": "dashboards.html#r-shiny-applications",
+    "href": "dashboards.html#r-shiny-applications",
+    "title": "Dashboards & Visualizations",
+    "section": "R Shiny Applications",
+    "text": "R Shiny Applications\n\n\nMammal Tracker (Shiny + Leaflet + GGMap) ➡️\n\n\n\nClient Data Manipulation (Shiny + ReadXL + Openxlsx) (username=1, password=1) ➡️\n\n\n\nWater Chemistry Viewer (Shiny + Plotly + MLR) ➡️\n\n\n\nUSFS Name Converter (Shiny + DT) ➡️"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "My Projects",
+    "section": "",
+    "text": "These are some of the projects I’ve built to show the type of tools I love creating!"
+  },
+  {
+    "objectID": "projects.html#neon-small-mammal-tracker",
+    "href": "projects.html#neon-small-mammal-tracker",
+    "title": "My Projects",
+    "section": "NEON Small Mammal Tracker",
+    "text": "NEON Small Mammal Tracker\nThis Shiny application visualizes small mammal capture data from the National Ecological Observatory Network (NEON). Users can select a location and date range to compare captures across NEON sites. The app processes individual ID tags to rank sites by total capture volume, offering a clear view of spatial and temporal patterns in small mammal activity.\n\nCode: GitHub Repo\nLive App: RatTrapHistoryApp"
+  },
+  {
+    "objectID": "projects.html#neon-water-chemistry-viewer",
+    "href": "projects.html#neon-water-chemistry-viewer",
+    "title": "My Projects",
+    "section": "NEON Water Chemistry Viewer",
+    "text": "NEON Water Chemistry Viewer\nThis Shiny app lets you explore NEON's Surface Water Chemistry (SWC) data across ecological sites in the U.S. Just pick a date range, aquatic site, and two analytes to compare — then hit \"Process Selection(s)\" to see how they stack up. It's built to help visualize water chemistry shifts over time and across space. Curious about how the data's collected? Click on any SWC label in the app, or learn more about NEON's mission here.\n\nCode: GitHub Repo\nLive App: WaterAnalyteApp"
+  },
+  {
+    "objectID": "projects.html#ncaa-recruitment-trend-visualizer",
+    "href": "projects.html#ncaa-recruitment-trend-visualizer",
+    "title": "My Projects",
+    "section": "NCAA Recruitment Trend Visualizer",
+    "text": "NCAA Recruitment Trend Visualizer\nThis project scrapes recruiting data from multiple sports sites (like 247Sports and On3) to visualize University of Arizona football and basketball class rankings along with other schools via scraping the web. It uses custom R scripts to pull, clean, and plot athlete data — giving a quick snapshot of how UA stacks up across seasons. The visualizations are built with ggplot2 and exported as clean, shareable graphics. Great for fans, analysts, or anyone curious about recruiting trends.\n\nCode: GitHub Repo"
+  },
+  {
+    "objectID": "projects.html#electron-bundled-shiny-desktop-app",
+    "href": "projects.html#electron-bundled-shiny-desktop-app",
+    "title": "My Projects",
+    "section": "Electron-Bundled Shiny Desktop App",
+    "text": "Electron-Bundled Shiny Desktop App\nA standalone desktop tool embedding a Shiny UI with an internal SQL database back-end. This local Shiny app is built to manage structured data offline with a bundled SQL database — no cloud required. It’s designed for research teams, data loggers, or anyone who wants quick access to stored info without depending on external servers. You can insert, update, and retrieve records through a clean R-powered interface, and because it’s packaged with Electron and R-Portable, it runs as a standalone Windows app — even on machines without R installed.\n\nCode: GitHub Repo"
+  },
+  {
+    "objectID": "projects.html#vgs-batch-importer-app",
+    "href": "projects.html#vgs-batch-importer-app",
+    "title": "My Projects",
+    "section": "VGS Batch Importer App",
+    "text": "VGS Batch Importer App\nThis Shiny app streamlines batch importing of historical ecological data into a local SQL-backed VGS database. It’s built to handle messy Excel files with varying structures — parsing key fields like SiteID and applying user-selected inputs to organize metadata, create protocol-linked event records, and insert sample data. It’s adaptable, robust, and designed for real-world field workflows.\nPower Mode flags formatting issues early via QA/QC logs, letting you clean sheets and re-run the pipeline with confidence. Once data is processed, you can generate correct folder names with a script and sync clean datasets to the VGS ecosystem.\n\nCode: GitHub Repo"
   }
 ]

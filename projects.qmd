@@ -1,56 +1,60 @@
 ---
-title: "Projects"
+title: "My Projects"
 format: html
 ---
 
----
+::: project-intro
+These are some of the projects I've built to show the type of tools I love creating!
+:::
 
-## 🐁 NEON Small Mammal Tracker  
-Interactive dashboard for entering, mapping, and analyzing small mammal trapping data.  
+::: project-content
 
-- **Tools:** R Shiny, leaflet, RSQLite  
-- **Features:** real-time GIS mapping, summary statistics, species heat maps  
-- **Code:** [GitHub Repo](https://github.com/tgilbert14/neon-small-mammal-tracker)
-- **Live App:** [RatTrapHistoryApp](https://t-lama.shinyapps.io/RatTrapHistory/)  
-<img src="assets/MammalsCapturesPerPlot.jpg" width="600px" style="border-radius: 8px; margin-top: 10px;">
+------------------------------------------------------------------------
 
----
+## NEON Small Mammal Tracker
 
-## 💧 NEON Water Chemistry Viewer  
-Dual‐axis plotter comparing analytes with built-in correlation stats and ML predictions.  
+This Shiny application visualizes small mammal capture data from the National Ecological Observatory Network (NEON). Users can select a location and date range to compare captures across NEON sites. The app processes individual ID tags to rank sites by total capture volume, offering a clear view of spatial and temporal patterns in small mammal activity.
 
-- **Tools:** R Shiny, plotly, caret (ML), SQLite  
-- **Features:** customizable analyte pairs, regression overlays, download CSV  
-- **Code:** [GitHub Repo](https://github.com/tgilbert14/NEON-WaterChemistry-Analyte-Viewer-App)  
-- **Live App:** [WaterAnalyteApp](https://t-lama.shinyapps.io/AnalyteViewer/)  
-<img src="assets/ComparisonReport.jpg" width="600px" style="border-radius: 8px; margin-top: 10px;">
+-   **Code:** [GitHub Repo](https://github.com/tgilbert14/neon-small-mammal-tracker)
+-   **Live App:** [RatTrapHistoryApp](https://t-lama.shinyapps.io/RatTrapHistory/)\
+    <img src="assets/MammalsCapturesPerPlot.jpg" width="600px" style="border-radius: 8px; margin-top: 10px;"/>
 
----
+------------------------------------------------------------------------
 
-## 🏀 NCAA Recruitment Trend Visualizer  
-Web scraper + dynamic ggplot2 dashboard analyzing recruiting patterns across conferences.  
+## NEON Water Chemistry Viewer
 
-- **Tools:** R (ggplot2, plotly)
-- **Features:** live data pull, interactive charts, conference comparisons  
-- **Code:** [GitHub Repo](https://github.com/tgilbert14/UA-recruits-)  
-<img src="assets/basketball_avgClassRatings_ALL.png" width="600px" style="border-radius: 8px; margin-top: 10px;">
+This Shiny app lets you explore NEON\'s Surface Water Chemistry (SWC) data across ecological sites in the U.S. Just pick a date range, aquatic site, and two analytes to compare --- then hit \"Process Selection(s)\" to see how they stack up. It\'s built to help visualize water chemistry shifts over time and across space. Curious about how the data\'s collected? Click on any SWC label in the app, or learn more about NEON\'s mission [here](https://data.neonscience.org/).
 
----
+-   **Code:** [GitHub Repo](https://github.com/tgilbert14/NEON-WaterChemistry-Analyte-Viewer-App)
+-   **Live App:** [WaterAnalyteApp](https://t-lama.shinyapps.io/AnalyteViewer/)\
+    <img src="assets/ComparisonReport.jpg" width="600px" style="border-radius: 8px; margin-top: 10px;"/>
 
-## 🖥️ Electron-Bundled Shiny Desktop App  
-A standalone desktop tool embedding a Shiny UI with an internal SQL database back-end.  
+------------------------------------------------------------------------
 
-- **Tools:** R Shiny, Electron, SQLite, rmarkdown  
-- **Features:** cross-platform installer, offline data entry, report export  
-- **Code:** [GitHub Repo](https://github.com/tgilbert14/R-Local-Storage-SQL-exe)  
-<img src="assets/electron.jpg" width="600px" style="border-radius: 8px; margin-top: 10px;">
+## NCAA Recruitment Trend Visualizer
 
----
+This project scrapes recruiting data from multiple sports sites (like 247Sports and On3) to visualize University of Arizona football and basketball class rankings along with other schools via scraping the web. It uses custom R scripts to pull, clean, and plot athlete data --- giving a quick snapshot of how UA stacks up across seasons. The visualizations are built with ggplot2 and exported as clean, shareable graphics. Great for fans, analysts, or anyone curious about recruiting trends.
 
-## ☁️ VGS Batch Importer App  
-Automates ingestion of large Excel datasets into SQL with built-in QA/QC rules.  
+-   **Code:** [GitHub Repo](https://github.com/tgilbert14/UA-recruits-)\
+    <img src="assets/basketball_avgClassRatings_ALL.png" width="600px" style="border-radius: 8px; margin-top: 10px;"/>
 
-- **Tools:** R (tidyverse, DBI, RSQLite), Quarto  
-- **Features:** drag-and-drop uploader, data validation report, error logging  
-- **Code:** [GitHub Repo](https://github.com/tgilbert14/vgs-batch-importer)  
-<img src="assets/batch.jpg" width="600px" style="border-radius: 8px; margin-top: 10px;">
+------------------------------------------------------------------------
+
+## Electron-Bundled Shiny Desktop App
+
+A standalone desktop tool embedding a Shiny UI with an internal SQL database back-end. This local Shiny app is built to manage structured data offline with a bundled SQL database --- no cloud required. It's designed for research teams, data loggers, or anyone who wants quick access to stored info without depending on external servers. You can insert, update, and retrieve records through a clean R-powered interface, and because it's packaged with Electron and R-Portable, it runs as a standalone Windows app --- even on machines without R installed.
+
+-   **Code:** [GitHub Repo](https://github.com/tgilbert14/R-Local-Storage-SQL-exe)\
+    <img src="assets/electron.jpg" width="600px" style="border-radius: 8px; margin-top: 10px;"/>
+
+------------------------------------------------------------------------
+
+## VGS Batch Importer App
+
+This Shiny app streamlines batch importing of historical ecological data into a local SQL-backed VGS database. It's built to handle messy Excel files with varying structures --- parsing key fields like SiteID and applying user-selected inputs to organize metadata, create protocol-linked event records, and insert sample data. It's adaptable, robust, and designed for real-world field workflows.
+
+Power Mode flags formatting issues early via QA/QC logs, letting you clean sheets and re-run the pipeline with confidence. Once data is processed, you can generate correct folder names with a script and sync clean datasets to the VGS ecosystem.
+
+-   **Code:** [GitHub Repo](https://github.com/tgilbert14/vgs-batch-importer)\
+    <img src="assets/batch.jpg" width="600px" style="border-radius: 8px; margin-top: 10px;"/>
+:::

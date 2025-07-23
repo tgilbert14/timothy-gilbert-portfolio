@@ -1,18 +1,25 @@
 ---
-title: "Home"
+title: "Who Am I?"
 format: html
 ---
 
 <img src="assets/tim_gc.jpg" class="intro-image"/>
 
-# Who am I?
+------------------------------------------------------------------------
+
 
 *Ecologist · Data Scientist · Data Analyst · IT Support Specialist*
 
 Welcome to my digital portfolio! I specialize in building intuitive data applications and workflows that connect field-based ecological expertise that translate ecological fieldwork into practical tools for environmental analysis and decision-making. I also love web scraping data to create data visualizations and creating forecasting tools.
 
+------------------------------------------------------------------------
+
 ::: card-container
-<a href="projects.qmd" class="card card-projects">MY PROJECTS</a> <a href="visualizations.qmd" class="card card-visualizations">DASHBOARDS</a> <a href="resume.qmd" class="card card-resume">RESUME/CV</a> <a href="about.qmd" class="card card-about">ABOUT ME</a>
+<a> </a>
+<a href="about.qmd" class="card card-about">ABOUT ME</a>
+<a href="projects.qmd" class="card card-projects">MY PROJECTS</a>
+<a href="resume.qmd" class="card card-resume">RESUME/CV</a>
+<a href="dashboards.qmd" class="card card-visualizations">SHINY APPS</a>
 :::
 
 ------------------------------------------------------------------------
