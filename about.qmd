@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "About Me"
 format: html
 ---
 
@@ -28,9 +28,9 @@ Oh, I also love ultra running and long hikes with my pups 🐕🐕
 -   Visual storytelling through data (ggplot2, Quarto, Plotly, Leaflet)
 -   Data visualizations of recruit classes from 247 sports (along with web scraping)
 
-## Let's Connect!
+## *Let's Connect!*
 
-📧 [tsgilbert\@arizona.edu](mailto:tsgilbert@arizona.edu)\
-💾 [GitHub](https://github.com/tgilbert14)
+*📧 [tsgilbert\@arizona.edu](mailto:tsgilbert@arizona.edu)*\
+*💾 [GitHub](https://github.com/tgilbert14)*
 
 [![](assets/dogs2.jpg){fig-align="center" width="600"}](https://www.linkedin.com/in/tgilbert14/)

@@ -36,7 +36,7 @@ I am always working on developing new skills, here are some of the things I am f
 ::: contact-container
 <a href="mailto:tsgilbert@arizona.edu" class="contact email">📧 Email Me </a>
 
-<a href="https://github.com/tgilbert14" class="contact git"> 🔗 Check out my GitHub </a>
+<a href="https://github.com/tgilbert14" class="contact git"> 🔗 My GitHub </a>
 :::
 <!-- 📧 [tsgilbert\@arizona.edu](mailto:tsgilbert@arizona.edu)\ -->
 <!-- 🔗 [GitHub](https://github.com/tgilbert14) -->

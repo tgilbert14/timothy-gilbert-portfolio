@@ -51,21 +51,21 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "About Me",
     "section": "",
     "text": "Hello! I’m Timothy, an ecologist turned data scientist with a passion for building tools that drive a deeper understanding of data, particularly when it comes to conservation and the environment. My journey began with ecological data collection from small mammal trapping, electro-fishing, to plant diversity surveys evolving into designing SQL database schemas, predictive dashboards, data management and QA systems to make intriguing and insightful data visualizations.\nI love wrangling messy ecological field data, designing visual workflows for conservation agencies, and creating SQL databases to store long term data collection. I’ve worked with federal agencies, research institutions, and cross-functional technical teams and am always aiming to improve and create new projects!\nI believe good data tools should be intuitive, adaptable, and easy to understand... Most recently, I’ve been exploring Big 12 recruiting data for basketball and football programs and creating plot visualizations via R.\nOh, I also love ultra running and long hikes with my pups 🐕🐕"
   },
   {
     "objectID": "about.html#interests-focus",
     "href": "about.html#interests-focus",
-    "title": "About",
+    "title": "About Me",
     "section": "🌿 Interests & Focus 🌿",
     "text": "🌿 Interests & Focus 🌿\n\nEcological data pipelines and interactive tools\nR Shiny dashboards, SQL databases, and QA automation\nVisual storytelling through data (ggplot2, Quarto, Plotly, Leaflet)\nData visualizations of recruit classes from 247 sports (along with web scraping)"
   },
   {
     "objectID": "about.html#lets-connect",
     "href": "about.html#lets-connect",
-    "title": "About",
+    "title": "About Me",
     "section": "Let’s Connect!",
     "text": "Let’s Connect!\n📧 tsgilbert@arizona.edu\n💾 GitHub"
   },
@@ -81,7 +81,7 @@
     "href": "index.html#contact-me",
     "title": "Home",
     "section": "Contact Me",
-    "text": "Contact Me\n\n📧 Email Me \n 🔗 Check out my GitHub"
+    "text": "Contact Me\n\n📧 Email Me \n 🔗 My GitHub"
   },
   {
     "objectID": "resume.html",
