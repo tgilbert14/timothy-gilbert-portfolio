@@ -86,16 +86,9 @@
   {
     "objectID": "dashboards.html",
     "href": "dashboards.html",
-    "title": "Dashboards & Visualizations",
+    "title": "Apps, Dashboards & Visualizations",
     "section": "",
-    "text": "Welcome to a curated gallery of my favorite data stories — here are some of the interactive projects I’ve enjoyed building and hosting!"
-  },
-  {
-    "objectID": "dashboards.html#r-shiny-applications",
-    "href": "dashboards.html#r-shiny-applications",
-    "title": "Dashboards & Visualizations",
-    "section": "R Shiny Applications",
-    "text": "R Shiny Applications\n\n\nMammal Tracker (Shiny + Leaflet + GGMap) ➡️\n\n\n\nClient Data Manipulation (Shiny + ReadXL + Openxlsx) (username=1, password=1) ➡️\n\n\n\nWater Chemistry Viewer (Shiny + Plotly + MLR) ➡️\n\n\n\nUSFS Name Converter (Shiny + DT) ➡️"
+    "text": "Welcome to a curated gallery of my favorite data stories — here are some of the interactive projects I’ve enjoyed building and hosting!\n\n\n\n\nUofA Football Recruiting Pipeline (2023-2026) (Leaflet + HTML + Geocoder) ➡️\n\n\n\n\n\n\nMammal Tracker (Shiny + Leaflet + GGMap) ➡️\n\n\n\n\n\n\nClient Data Manipulation (Shiny + ReadXL + Openxlsx) (username=1, password=1) ➡️\n\n\n\n\n\n\nWater Chemistry Viewer (Shiny + Plotly + MLR) ➡️\n\n\n\n\n\n\nUSFS Name Converter (Shiny + DT) ➡️"
   },
   {
     "objectID": "projects.html",
@@ -103,6 +96,48 @@
     "title": "My Projects",
     "section": "",
     "text": "These are some of the projects I’ve built to show the type of tools I love creating!"
+  },
+  {
+    "objectID": "projects.html#ncaa-recruitment-trend-visualizer",
+    "href": "projects.html#ncaa-recruitment-trend-visualizer",
+    "title": "My Projects",
+    "section": "NCAA Recruitment Trend Visualizer",
+    "text": "NCAA Recruitment Trend Visualizer\nThis project scrapes recruiting data from multiple sports sites (like 247Sports and On3) to visualize University of Arizona football and basketball class rankings along with other schools via scraping the web. It uses custom R scripts to pull, clean, and plot athlete data — giving a quick snapshot of how UA stacks up across seasons. The visualizations are built with ggplot2 and exported as clean, shareable graphics. Great for fans, analysts, or anyone curious about recruiting trends.\n\nCode: GitHub Repo\nExamples:\n\nInteractive UofA Football Recruiting Pipeline Leaflet Map (2023-2026) [Click Me]\nBig 12 College Basketball Recruiting Class Grades from 2016-2025 ⬇️\n\nUniversity of Arizona vs ASU Basketball Recruit Comparisons ⬇️"
+  },
+  {
+    "objectID": "projects.html#vgs-batch-importer",
+    "href": "projects.html#vgs-batch-importer",
+    "title": "My Projects",
+    "section": "VGS-Batch-Importer",
+    "text": "VGS-Batch-Importer\nThis R Shiny application was built as an ETL pipeline to ingest batch historical excel datasheets into a SQLite database. Generic Data Sheets were build with QA validations built in. This example allows for site, point ground cover, line intercept, and nested frequency data for multiple transects to be ingested for multiple sheets at a time.\nThis app is specifically set to connect to a local VGS database. It can be adapted to be used for a variety of different digital data sheets that contain historical data in different formats. Basic structure works like so; reads data, parses data based on keys set in script (e.g., “SiteID” to find site name) and selected inputs from UI, organizes data, connects to local SQL database, creates and executes SQL insert statements to create site, site metadata, locations, protocols for event data (includes event groups and events in each eventgroup), then inserts sample data into each event. Various QA/QC checks are built in to prevent corrupt data from being inserted. Code can be seen at https://github.com/tgilbert14/VGS-Batch-Importer-App\n\nCode: GitHub Repo\n\n\nApplications Details ⬇️\n\n\n\nMain UI View\n\n\nThe app interface has options to select protocols available for ingest. It has various options depending on the import:\n\nPower Mode: This check box bypasses errors by generating and opening a excel workbook to review. The errors are then fixed and eventually the import happens with this setting turned off.\nSpecies Replace: This check box enables a SpeciesReplace.xlsx file that can be used to mass update species codes for every file instead of going into each individual file and changing it individually. This is exceptionally helpful when a USDA code has had an update or a client uses the wrong code consistency.\nSelect Protocol for Import: Sampling protocols (quanitative data collection through VGS) are hard-coded for the selection drop down list. Surveys (qualative data collection through VGS) were designed later and query the local VGS database on your local machine to offer drop down selections for what surveys are available on the device to import data to.\nBatch Import Data: This prompts a pop up window to select the batch import files to import (multiple .xlsx files can be imported at once).\nSpecies Count: This button queries that VGS database and counts the species at each site to provide an overview of the data that was collected.\nSpecies Check: This button brings a pop up that lets the client select a list of states that the sites are located. It then compares the plant codes in the database to USDA plant lists by each state (www/sp_lists_USDA) to check for inconsistencies and data entry errors.\nUpdate Site Name: This links to a script that looks through all location lat/long coordinates and check them in a USFS enterprise shape file to help predict what folder (Allotment/Pasture) they belong in and rename them according to USFS naming conventions (numeric based off of Region-Forest-Ranger District-Allotment-Pasture-SiteID).\nSurvey Log Input?: This new feature offers survey (qualitative data) import with pre-built surveys. This section is still under development.\n🦐: This is a help button that provides general workflow for batch importing data with this app.\n\n\nPower Mode ⏬"
+  },
+  {
+    "objectID": "projects.html#section",
+    "href": "projects.html#section",
+    "title": "My Projects",
+    "section": "",
+    "text": "Species Replace ⏬"
+  },
+  {
+    "objectID": "projects.html#section-1",
+    "href": "projects.html#section-1",
+    "title": "My Projects",
+    "section": "",
+    "text": "Species Count ⏬"
+  },
+  {
+    "objectID": "projects.html#section-2",
+    "href": "projects.html#section-2",
+    "title": "My Projects",
+    "section": "",
+    "text": "Species Check ⏬"
+  },
+  {
+    "objectID": "projects.html#section-3",
+    "href": "projects.html#section-3",
+    "title": "My Projects",
+    "section": "",
+    "text": "This app also generates a log text file stored in the ‘www/’ folder to track code flow and debug import issues. ⏬\n\n\n\nwww/r_output.txt log"
   },
   {
     "objectID": "projects.html#neon-small-mammal-tracker",
@@ -116,27 +151,13 @@
     "href": "projects.html#neon-water-chemistry-viewer",
     "title": "My Projects",
     "section": "NEON Water Chemistry Viewer",
-    "text": "NEON Water Chemistry Viewer\nThis Shiny app lets you explore NEON's Surface Water Chemistry (SWC) data across ecological sites in the U.S. Just pick a date range, aquatic site, and two analytes to compare — then hit \"Process Selection(s)\" to see how they stack up. It's built to help visualize water chemistry shifts over time and across space. Curious about how the data's collected? Click on any SWC label in the app, or learn more about NEON's mission here.\n\nCode: GitHub Repo\nLive App: WaterAnalyteApp"
-  },
-  {
-    "objectID": "projects.html#ncaa-recruitment-trend-visualizer",
-    "href": "projects.html#ncaa-recruitment-trend-visualizer",
-    "title": "My Projects",
-    "section": "NCAA Recruitment Trend Visualizer",
-    "text": "NCAA Recruitment Trend Visualizer\nThis project scrapes recruiting data from multiple sports sites (like 247Sports and On3) to visualize University of Arizona football and basketball class rankings along with other schools via scraping the web. It uses custom R scripts to pull, clean, and plot athlete data — giving a quick snapshot of how UA stacks up across seasons. The visualizations are built with ggplot2 and exported as clean, shareable graphics. Great for fans, analysts, or anyone curious about recruiting trends.\n\nCode: GitHub Repo"
+    "text": "NEON Water Chemistry Viewer\nThis Shiny app lets you explore NEON’s Surface Water Chemistry (SWC) data across ecological sites in the U.S. Just pick a date range, aquatic site, and two analytes to compare — then hit “Process Selection(s)” to see how they stack up. It’s built to help visualize water chemistry shifts over time and across space. Curious about how the data’s collected? Click on any SWC label in the app, or learn more about NEON’s mission here.\n\nCode: GitHub Repo\nLive App: WaterAnalyteApp"
   },
   {
     "objectID": "projects.html#electron-bundled-shiny-desktop-app",
     "href": "projects.html#electron-bundled-shiny-desktop-app",
     "title": "My Projects",
     "section": "Electron-Bundled Shiny Desktop App",
-    "text": "Electron-Bundled Shiny Desktop App\nA standalone desktop tool embedding a Shiny UI with an internal SQL database back-end. This local Shiny app is built to manage structured data offline with a bundled SQL database — no cloud required. It’s designed for research teams, data loggers, or anyone who wants quick access to stored info without depending on external servers. You can insert, update, and retrieve records through a clean R-powered interface, and because it’s packaged with Electron and R-Portable, it runs as a standalone Windows app — even on machines without R installed.\n\nCode: GitHub Repo"
-  },
-  {
-    "objectID": "projects.html#vgs-batch-importer-app",
-    "href": "projects.html#vgs-batch-importer-app",
-    "title": "My Projects",
-    "section": "VGS Batch Importer App",
-    "text": "VGS Batch Importer App\nThis Shiny app streamlines batch importing of historical ecological data into a local SQL-backed VGS database. It’s built to handle messy Excel files with varying structures — parsing key fields like SiteID and applying user-selected inputs to organize metadata, create protocol-linked event records, and insert sample data. It’s adaptable, robust, and designed for real-world field workflows.\nPower Mode flags formatting issues early via QA/QC logs, letting you clean sheets and re-run the pipeline with confidence. Once data is processed, you can generate correct folder names with a script and sync clean datasets to the VGS ecosystem.\n\nCode: GitHub Repo"
+    "text": "Electron-Bundled Shiny Desktop App\nA standalone desktop tool embedding a Shiny UI with an internal SQL database back-end. This local Shiny app is built to manage structured data offline with a bundled SQL database — no cloud required. It’s designed for research teams, data loggers, or anyone who wants quick access to stored info without depending on external servers. You can insert, update, and retrieve records through a clean R-powered interface, and because it’s packaged with Electron and R-Portable, it runs as a standalone Windows app — even on machines without R installed.\n\nCode: GitHub Repo\n\n\n\n\nContact me @ tsgilbert@arizona.edu for questions, feedback, suggestions, or if you want to collaborate!"
   }
 ]

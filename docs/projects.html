@@ -163,8 +163,85 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="project-content">
 <hr>
+<section id="ncaa-recruitment-trend-visualizer" class="level2">
+<h2 class="anchored" data-anchor-id="ncaa-recruitment-trend-visualizer"><em>NCAA Recruitment Trend Visualizer</em></h2>
+<p>This project scrapes recruiting data from multiple sports sites (like <a href="https://247sports.com/">247Sports</a> and <a href="https://www.on3.com/college/arizona-wildcats/">On3</a>) to visualize University of Arizona football and basketball class rankings along with other schools via scraping the web. It uses custom R scripts to pull, clean, and plot athlete data — giving a quick snapshot of how UA stacks up across seasons. The visualizations are built with ggplot2 and exported as clean, shareable graphics. Great for fans, analysts, or anyone curious about recruiting trends.</p>
+<ul>
+<li><p><strong>Code:</strong> <a href="https://github.com/tgilbert14/UA-recruits-">GitHub Repo</a></p></li>
+<li><p><strong>Examples:</strong></p>
+<ul>
+<li><p><a href="https://tgilbert14.github.io/UA-recruits-/az_football_recruit_map_2023_2026.html">Interactive UofA Football Recruiting Pipeline Leaflet Map (2023-2026) [Click Me]</a></p></li>
+<li><p><a href="https://github.com/tgilbert14/UA-recruits-/blob/main/plots/basketball/comparisons/basketball_avgClassRatings_ALL_2025-07-09.png">Big 12 College Basketball Recruiting Class Grades from 2016-2025</a> ⬇️<br>
+<img src="assets/basketball_avgClassRatings_ALL.png" class="img-fluid" style="border-radius: 8px; margin-top: 10px;" width="600"></p></li>
+<li><p><a href="https://github.com/tgilbert14/UA-recruits-/blob/main/plots/basketball/comparisons/basketball_avgClassRatings_Filtered_2025-07-09.png">University of Arizona vs ASU Basketball Recruit Comparisons</a> ⬇️</p>
+<p><img src="assets/basketball_avgClassRatings_Filtered_2025-07-09.png" class="img-fluid"></p></li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="vgs-batch-importer" class="level2">
+<h2 class="anchored" data-anchor-id="vgs-batch-importer"><strong><em>VGS-Batch-Importer</em></strong></h2>
+<p>This R Shiny application was built as an ETL pipeline to ingest batch historical excel datasheets into a SQLite database. <a href="assets/NestedFreq_GC_LineIntercept_HistoricalDataEntry_2025.xlsm">Generic Data Sheets</a> were build with QA validations built in. This example allows for site, point ground cover, line intercept, and nested frequency data for multiple transects to be ingested for multiple sheets at a time.</p>
+<p>This app is specifically set to connect to a local <a href="https://vgs.arizona.edu/">VGS</a> database. It can be adapted to be used for a variety of different digital data sheets that contain historical data in different formats. Basic structure works like so; reads data, parses data based on keys set in script (e.g., “SiteID” to find site name) and selected inputs from UI, organizes data, connects to local SQL database, creates and executes SQL insert statements to create site, site metadata, locations, protocols for event data (includes event groups and events in each eventgroup), then inserts sample data into each event. Various QA/QC checks are built in to prevent corrupt data from being inserted. Code can be seen at <a href="https://github.com/tgilbert14/VGS-Batch-Importer-App" class="uri">https://github.com/tgilbert14/VGS-Batch-Importer-App</a></p>
+<ul>
+<li><strong>Code:</strong> <a href="https://github.com/tgilbert14/vgs-batch-importer">GitHub Repo</a></li>
+</ul>
+<section id="applications-details" class="level3">
+<h3 class="anchored" data-anchor-id="applications-details"><strong><em>Applications Details</em></strong> ⬇️</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/mainUI.jpg" class="img-fluid figure-img"></p>
+<figcaption><em>Main UI View</em></figcaption>
+</figure>
+</div>
+<p>The app interface has options to select protocols available for ingest. It has various options depending on the import:</p>
+<ul>
+<li><p><strong>Power Mode</strong>: <em>This check box bypasses errors by generating and opening a excel workbook to review. The errors are then fixed and eventually the import happens with this setting turned off.</em></p></li>
+<li><p><strong>Species Replace</strong>: <em>This check box enables a <a href="assets/SpeciesReplace.xlsx">SpeciesReplace.xlsx</a> file that can be used to mass update species codes for every file instead of going into each individual file and changing it individually. This is exceptionally helpful when a USDA code has had an update or a client uses the wrong code consistency.</em></p></li>
+<li><p><strong>Select Protocol for Import</strong>: <em>Sampling protocols (quanitative data collection through VGS) are hard-coded for the selection drop down list. Surveys (qualative data collection through VGS) were designed later and query the local VGS database on your local machine to offer drop down selections for what surveys are available on the device to import data to.</em></p></li>
+<li><p><strong>Batch Import Data</strong>: <em>This prompts a pop up window to select the batch import files to import (multiple .xlsx files can be imported at once).</em></p></li>
+<li><p><strong>Species Count</strong>: <em>This button queries that VGS database and counts the species at each site to provide an overview of the data that was collected.</em></p></li>
+<li><p><strong>Species Check</strong>: <em>This button brings a pop up that lets the client select a list of states that the sites are located. It then compares the plant codes in the database to USDA plant lists by each state (www/sp_lists_USDA) to check for inconsistencies and data entry errors.</em></p></li>
+<li><p><strong>Update Site Name</strong>: <em>This links to a script that looks through all location lat/long coordinates and check them in a USFS enterprise shape file to help predict what folder (Allotment/Pasture) they belong in and rename them according to USFS naming conventions (numeric based off of Region-Forest-Ranger District-Allotment-Pasture-SiteID).</em></p></li>
+<li><p><strong>Survey Log Input?</strong>: <em>This new feature offers survey (qualitative data) import with pre-built surveys. This section is still under development.</em></p></li>
+<li><p><strong>🦐</strong>: <em>This is a help button that provides general workflow for batch importing data with this app.</em></p></li>
+</ul>
+<section id="power-mode" class="level5">
+<h5 class="anchored" data-anchor-id="power-mode"><em>Power Mode</em> ⏬</h5>
+</section>
+</section>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"><img src="assets/powerMode.jpg" class="img-fluid"></h2>
+<section id="species-replace" class="level5">
+<h5 class="anchored" data-anchor-id="species-replace"><em>Species Replace</em> ⏬</h5>
+</section>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1"><img src="assets/speciesReplace.jpg" class="img-fluid"></h2>
+<section id="species-count" class="level5">
+<h5 class="anchored" data-anchor-id="species-count"><em>Species Count</em> ⏬</h5>
+</section>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2"><img src="assets/speciesCount.jpg" class="img-fluid"></h2>
+<section id="species-check" class="level5">
+<h5 class="anchored" data-anchor-id="species-check"><em>Species Check</em> ⏬</h5>
+</section>
+</section>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3"><img src="assets/speciesCheck.jpg" class="img-fluid"></h2>
+<p><em>This app also generates a log text file stored in the ‘www/’ folder to track code flow and debug import issues.</em> ⏬</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/logExample.jpg" class="img-fluid figure-img"></p>
+<figcaption><em>www/r_output.txt log</em></figcaption>
+</figure>
+</div>
+<hr>
+</section>
 <section id="neon-small-mammal-tracker" class="level2">
-<h2 class="anchored" data-anchor-id="neon-small-mammal-tracker">NEON Small Mammal Tracker</h2>
+<h2 class="anchored" data-anchor-id="neon-small-mammal-tracker"><em>NEON Small Mammal Tracker</em></h2>
 <p>This Shiny application visualizes small mammal capture data from the National Ecological Observatory Network (NEON). Users can select a location and date range to compare captures across NEON sites. The app processes individual ID tags to rank sites by total capture volume, offering a clear view of spatial and temporal patterns in small mammal activity.</p>
 <ul>
 <li><strong>Code:</strong> <a href="https://github.com/tgilbert14/neon-small-mammal-tracker">GitHub Repo</a></li>
@@ -174,8 +251,8 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 <section id="neon-water-chemistry-viewer" class="level2">
-<h2 class="anchored" data-anchor-id="neon-water-chemistry-viewer">NEON Water Chemistry Viewer</h2>
-<p>This Shiny app lets you explore NEON's Surface Water Chemistry (SWC) data across ecological sites in the U.S. Just pick a date range, aquatic site, and two analytes to compare — then hit "Process Selection(s)" to see how they stack up. It's built to help visualize water chemistry shifts over time and across space. Curious about how the data's collected? Click on any SWC label in the app, or learn more about NEON's mission <a href="https://data.neonscience.org/">here</a>.</p>
+<h2 class="anchored" data-anchor-id="neon-water-chemistry-viewer"><em>NEON Water Chemistry Viewer</em></h2>
+<p>This Shiny app lets you explore NEON’s Surface Water Chemistry (SWC) data across ecological sites in the U.S. Just pick a date range, aquatic site, and two analytes to compare — then hit “Process Selection(s)” to see how they stack up. It’s built to help visualize water chemistry shifts over time and across space. Curious about how the data’s collected? Click on any SWC label in the app, or learn more about NEON’s mission <a href="https://data.neonscience.org/">here</a>.</p>
 <ul>
 <li><strong>Code:</strong> <a href="https://github.com/tgilbert14/NEON-WaterChemistry-Analyte-Viewer-App">GitHub Repo</a></li>
 <li><strong>Live App:</strong> <a href="https://t-lama.shinyapps.io/AnalyteViewer/">WaterAnalyteApp</a><br>
@@ -183,32 +260,16 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <hr>
 </section>
-<section id="ncaa-recruitment-trend-visualizer" class="level2">
-<h2 class="anchored" data-anchor-id="ncaa-recruitment-trend-visualizer">NCAA Recruitment Trend Visualizer</h2>
-<p>This project scrapes recruiting data from multiple sports sites (like 247Sports and On3) to visualize University of Arizona football and basketball class rankings along with other schools via scraping the web. It uses custom R scripts to pull, clean, and plot athlete data — giving a quick snapshot of how UA stacks up across seasons. The visualizations are built with ggplot2 and exported as clean, shareable graphics. Great for fans, analysts, or anyone curious about recruiting trends.</p>
-<ul>
-<li><strong>Code:</strong> <a href="https://github.com/tgilbert14/UA-recruits-">GitHub Repo</a><br>
-<img src="assets/basketball_avgClassRatings_ALL.png" width="600px" style="border-radius: 8px; margin-top: 10px;"></li>
-</ul>
-<hr>
-</section>
 <section id="electron-bundled-shiny-desktop-app" class="level2">
-<h2 class="anchored" data-anchor-id="electron-bundled-shiny-desktop-app">Electron-Bundled Shiny Desktop App</h2>
+<h2 class="anchored" data-anchor-id="electron-bundled-shiny-desktop-app"><em>Electron-Bundled Shiny Desktop App</em></h2>
 <p>A standalone desktop tool embedding a Shiny UI with an internal SQL database back-end. This local Shiny app is built to manage structured data offline with a bundled SQL database — no cloud required. It’s designed for research teams, data loggers, or anyone who wants quick access to stored info without depending on external servers. You can insert, update, and retrieve records through a clean R-powered interface, and because it’s packaged with Electron and R-Portable, it runs as a standalone Windows app — even on machines without R installed.</p>
 <ul>
 <li><strong>Code:</strong> <a href="https://github.com/tgilbert14/R-Local-Storage-SQL-exe">GitHub Repo</a><br>
 <img src="assets/electron.jpg" width="600px" style="border-radius: 8px; margin-top: 10px;"></li>
 </ul>
 <hr>
-</section>
-<section id="vgs-batch-importer-app" class="level2">
-<h2 class="anchored" data-anchor-id="vgs-batch-importer-app">VGS Batch Importer App</h2>
-<p>This Shiny app streamlines batch importing of historical ecological data into a local SQL-backed VGS database. It’s built to handle messy Excel files with varying structures — parsing key fields like SiteID and applying user-selected inputs to organize metadata, create protocol-linked event records, and insert sample data. It’s adaptable, robust, and designed for real-world field workflows.</p>
-<p>Power Mode flags formatting issues early via QA/QC logs, letting you clean sheets and re-run the pipeline with confidence. Once data is processed, you can generate correct folder names with a script and sync clean datasets to the VGS ecosystem.</p>
-<ul>
-<li><strong>Code:</strong> <a href="https://github.com/tgilbert14/vgs-batch-importer">GitHub Repo</a><br>
-<img src="assets/batch.jpg" width="600px" style="border-radius: 8px; margin-top: 10px;"></li>
-</ul>
+<hr>
+<p><em>Contact me @ <a href="mailto:tsgilbert@arizona.edu">tsgilbert@arizona.edu</a> for questions, feedback, suggestions, or if you want to collaborate!</em></p>
 </section>
 </div>
 
