@@ -1,69 +1,74 @@
 ---
-title: "Résumé"
+title: "Résumé/CV"
 format: html
 ---
 
-You can download the my Résumé/CV:
-[CLICK ME!](assets/Gilbert_ResumeCV.pdf){.btn}
+### *IT Computing Analyst I-III*
 
-<iframe 
-  src="assets/Gilbert_ResumeCV.pdf#view=fitH" 
-  width="100%" 
-  height="800px" 
-  style="border: none; margin-top: 1rem;">
-  This browser does not support PDFs. Please download the PDF to view it: 
-  <a href="assets/Gilbert_ResumeCV.pdf">Download Résumé</a>.
-</iframe>
+**University of Arizona -- VGS Project \| Tucson, AZ**
 
----
+*March 2022--Present / Promoted to Analyst III in Nov of 2022 / Full-Time*
+
+-   Developed and deployed R Shiny applications for research data workflows, including data ingestion, management, manipulation, quality assurance, and interactive visualizations
+
+-   Designed ETL pipelines for historical ecological datasets, parsing Excel files into structured SQL tables with QA/QC protocols built in
+
+-   Maintained local and server-side databases (Microsoft SQL Server, SQLite), automated SQL scripts for data quality and reporting
+
+-   Collaborated with federal agencies, universities and other non-profits on environmental data collection and technical support including maintenance of field data collection devices
+
+-    Led and mentored a student data entry team, standardizing QA protocols for high-volume historical data transcription
+
+-   Supported cross-platform software testing (Windows, iOS, Android) in a C# environment using Visual Studio, Visual Studio Code; tracked bugs and fixes via Jira
+
+-   Supported agile development workflows and sprint tasks across technical and field teams; led daily scrum meetings
+
+-   Assisted in preparing quarterly reports for federal funding sources, documenting project progress, deliverables, and achievements
+
+### Other Experience
+
+-   *Rangeland Specialist*
+
+-   *Lead Aquatics Field Ecologist*
+
+-   *Fuels Monitoring Technician*
+
+-   *Floor Manager/Server/Busser/Dish Washer*
+
+*(See Résumé/CV below for complete work history)*
+
+------------------------------------------------------------------------
+
+## Programming Projects
+
+<a href="projects.qmd" class="card card-projects">MY PROJECTS</a>
+
+------------------------------------------------------------------------
 
 ## Education
 
-- **University of Arizona**  
-  B.S. Natural Resources: Wildlife Conservation & Management (May 2017)
+-   **University of Arizona**\
+    *B.S. Natural Resources: Wildlife Conservation & Management (May 2017)*
 
----
-
-## Professional Experience
-
-### IT Computing Analyst III  
-*University of Arizona – VGS Project | Tucson, AZ*  
-Nov 2022 – Present  
-- Developed and deployed R Shiny applications with SQL backends for research workflows  
-- Automated Excel-to-SQL data ingestion with built-in QA/QC  
-- Collaborated with USFS, NRCS, BLM, BIA on environmental data training and support  
-- Managed local & server-side databases (SQL Server, SQLite) and mentored student workers  
-
-### IT Support Computing Analyst I  
-*University of Arizona – VGS Project | Tucson, AZ*  
-Mar 2022 – Nov 2022  
-- Supported cross-platform VGS troubleshooting and user training  
-- Built R-based tools for database manipulation and field reporting  
-
-*(See Résumé/CV for complete work history)*
-
----
-
-## Programming Experience
-
-- **VGS Batch Importer App** (R Shiny, DBI, RSQLite)  
-- **NEON Small Mammal Tracker** (leaflet, Shiny)  
-- **NEON Water Chemistry Viewer** (plotly, ML predictions)  
-- **Electron-Bundled Shiny Desktop App** (Electron, Shiny)  
-- **NCAA Recruitment Trend Visualizer** (Python + R)
-
----
-
-## Skills & Expertise
-
-### Technical  
-R (Shiny, tidyverse, ggplot2, DBI), SQL (Server, SQLite), Python (pandas, web scraping), GIS (ArcMap, Survey123), QA/QC automation, Git & GitHub, Quarto  
-
-### Field & Ecological  
-Aquatic sampling, small mammal & entomology surveys, vegetation monitoring, soil & microbial sampling, 4×4 field driving  
-
----
+------------------------------------------------------------------------
 
 ## References
 
-Available upon request or view at the bottom of the Résumé/CV PDF.
+*Available upon request or view at the bottom of the Résumé/CV PDF.*
+
+------------------------------------------------------------------------
+
+You can download the my Résumé/CV: [CLICK ME!](assets/Gilbert_ResumeCV.pdf){.btn}
+
+<iframe src="assets/Gilbert_ResumeCV.pdf#view=fitH" width="100%" height="800px" style="border: none; margin-top: 1rem;">
+
+This browser does not support PDFs. Please download the PDF to view it: <a href="assets/Gilbert_ResumeCV.pdf">Download Résumé</a>.
+
+</iframe>
+
+------------------------------------------------------------------------
+
+::: card-container
+
+<a> </a> <a href="about.qmd" class="card card-about">ABOUT ME</a> <a href="projects.qmd" class="card card-projects">MY PROJECTS</a> <a href="resume.qmd" class="card card-resume">RESUME/CV</a> <a href="dashboards.qmd" class="card card-visualizations">SHINY APPS</a>
+:::

@@ -4,40 +4,45 @@ format: html
 ---
 
 ::: viz-intro
-Welcome to a curated gallery of my favorite data stories --- here are some of the interactive projects I've enjoyed building and hosting!
+Welcome to a curated gallery of my favorite data stories, here are some of the interactive projects I've enjoyed building and hosting!
 :::
 
 ------------------------------------------------------------------------
 
 ::: explore-text
+***NCAA Big 12 Recruiting Pipeline*** (shiny + geocoder + leaflet) ➡️\
 
--   ***UofA Football Recruiting Pipeline (2023-2026)*** (Leaflet + HTML + Geocoder) ➡️\
-
-    <iframe src="https://tgilbert14.github.io/UA-recruits-/az_football_recruit_map_2023_2026.html" class="viz-frame" scrolling="no"></iframe>
-
-------------------------------------------------------------------------
-
--   ***Mammal Tracker*** (Shiny + Leaflet + GGMap) ➡️\
-
-    <iframe src="https://t-lama.shinyapps.io/RatTrapHistory/" class="viz-frame" scrolling="no"></iframe>
+<iframe src="https://t-lama.shinyapps.io/College-Pipeline-Tracker/" class="viz-frame" scrolling="yes" width="100%" min-height="1200px" loading="lazy" style="border: none; margin-top: 1rem;"> </iframe>
 
 ------------------------------------------------------------------------
 
--   ***Client Data Manipulation*** (Shiny + ReadXL + Openxlsx) *(username=1, password=1)* ➡️\
+***Mammal Tracker*** (shiny + leaflet + ggmap) ➡️\
 
-    <iframe src="https://t-lama.shinyapps.io/ClientScriptHost/" class="viz-frame" scrolling="no"></iframe>
-
-------------------------------------------------------------------------
-
--   ***Water Chemistry Viewer*** (Shiny + Plotly + MLR) ➡️\
-
-    <iframe src="https://t-lama.shinyapps.io/AnalyteViewer/" class="viz-frame" scrolling="no"></iframe>
+<iframe src="https://t-lama.shinyapps.io/RatTrapHistory/" class="viz-frame" scrolling="yes" width="100%" min-height="1200px" loading="lazy" style="border: none; margin-top: 1rem;"> </iframe>
 
 ------------------------------------------------------------------------
 
--   ***USFS Name Converter*** (Shiny + DT) ➡️\
+***Client Data Manipulation*** (shiny + readxl + openxlsx) *\*username=1, password=1* ➡️\
 
-    <iframe src="https://t-lama.shinyapps.io/App-VGS-USFS-Name2VGS/" class="viz-frame" scrolling="no"></iframe>
-    
+<iframe src="https://t-lama.shinyapps.io/ClientScriptHost/" class="viz-frame" scrolling="yes" width="100%" min-height="1200px" loading="lazy" style="border: none; margin-top: 1rem;"> </iframe>
+
 ------------------------------------------------------------------------
+
+<!-- ***Water Chemistry Viewer*** (shiny + plotly + mlr) ➡️\ -->
+
+<!-- <iframe src="https://t-lama.shinyapps.io/AnalyteViewer/" class="viz-frame" scrolling="yes" width="100%" min-height="1200px" loading="lazy" style="border: none; margin-top: 1rem;"> </iframe> -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+***USFS Name Converter*** (shiny + tidyverse + DT) ➡️\
+
+<iframe src="https://t-lama.shinyapps.io/App-VGS-USFS-Name2VGS/" class="viz-frame" scrolling="yes" width="100%" min-height="1200px" loading="lazy" style="border: none; margin-top: 1rem;"> </iframe>
+
+------------------------------------------------------------------------
+:::
+
+
+::: card-container
+
+<a> </a> <a href="about.qmd" class="card card-about">ABOUT ME</a> <a href="projects.qmd" class="card card-projects">MY PROJECTS</a> <a href="resume.qmd" class="card card-resume">RESUME/CV</a> <a href="dashboards.qmd" class="card card-visualizations">SHINY APPS</a>
 :::
