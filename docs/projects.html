@@ -165,26 +165,23 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <section id="ncaa-recruitment-trend-visualizer" class="level2">
 <h2 class="anchored" data-anchor-id="ncaa-recruitment-trend-visualizer"><em>NCAA Recruitment Trend Visualizer</em></h2>
-<p>This project scrapes recruiting data from multiple sports sites (like <a href="https://247sports.com/">247Sports</a> and <a href="https://www.on3.com/college/arizona-wildcats/">On3</a>) to visualize University of Arizona football and basketball class rankings along with other schools via scraping the web. It uses custom R scripts to pull, clean, and plot athlete data — giving a quick snapshot of how UA stacks up across seasons. The visualizations are built with ggplot2 and exported as clean, shareable graphics. Great for fans, analysts, or anyone curious about recruiting trends.</p>
+<p>Scrapes recruiting data from multiple sports sites (e.g., 247Sports, On3) to visualize Big 12 football and basketball class rankings. Custom R scripts handle data extraction, cleaning, and plotting, with interactive controls for sport, class year, and team. Built in Shiny with Leaflet for dynamic geospatial visualizations.</p>
 <ul>
-<li><p><strong>Code:</strong> <a href="https://github.com/tgilbert14/UA-recruits-">GitHub Repo</a></p></li>
-<li><p><strong>Examples:</strong></p>
-<ul>
-<li><p><a href="https://tgilbert14.github.io/UA-recruits-/az_football_recruit_map_2023_2026.html">Interactive UofA Football Recruiting Pipeline Leaflet Map (2023-2026) [Click Me]</a></p></li>
-<li><p><a href="https://github.com/tgilbert14/UA-recruits-/blob/main/plots/basketball/comparisons/basketball_avgClassRatings_ALL_2025-07-09.png">Big 12 College Basketball Recruiting Class Grades from 2016-2025</a> ⬇️<br>
-<img src="assets/basketball_avgClassRatings_ALL.png" class="img-fluid" style="border-radius: 8px; margin-top: 10px;" width="600"></p></li>
-<li><p><a href="https://github.com/tgilbert14/UA-recruits-/blob/main/plots/basketball/comparisons/basketball_avgClassRatings_Filtered_2025-07-09.png">University of Arizona vs ASU Basketball Recruit Comparisons</a> ⬇️</p>
-<p><img src="assets/basketball_avgClassRatings_Filtered_2025-07-09.png" class="img-fluid"></p></li>
-</ul></li>
+<li><p><strong>Code:</strong> <a href="https://github.com/tgilbert14/UA-recruits-">GitHub</a></p></li>
+<li><p><strong>Live App:</strong> <a href="https://t-lama.shinyapps.io/RatTrapHistory/" title="https://t-lama.shinyapps.io/College-Pipeline-Tracker/">App</a></p></li>
 </ul>
+<p>⭆ <a href="https://github.com/tgilbert14/UA-recruits-/blob/main/plots/basketball/comparisons/basketball_avgClassRatings_ALL_2025-07-09.png">Big 12 College Basketball Recruiting Class Grades from 2016-2025</a> ⬇️</p>
+<p><img src="assets/basketball_avgClassRatings_ALL.png" class="img-fluid"></p>
+<p>⭆ <a href="https://github.com/tgilbert14/UA-recruits-/blob/main/plots/basketball/comparisons/basketball_avgClassRatings_Filtered_2025-07-09.png">University of Arizona vs ASU Basketball Recruit Comparisons</a> ⬇️</p>
+<p><img src="assets/basketball_avgClassRatings_Filtered_2025-07-09.png" class="img-fluid"></p>
 <hr>
 </section>
 <section id="vgs-batch-importer" class="level2">
-<h2 class="anchored" data-anchor-id="vgs-batch-importer"><strong><em>VGS-Batch-Importer</em></strong></h2>
-<p>This R Shiny application was built as an ETL pipeline to ingest batch historical excel datasheets into a SQLite database. <a href="assets/NestedFreq_GC_LineIntercept_HistoricalDataEntry_2025.xlsm">Generic Data Sheets</a> were build with QA validations built in. This example allows for site, point ground cover, line intercept, and nested frequency data for multiple transects to be ingested for multiple sheets at a time.</p>
-<p>This app is specifically set to connect to a local <a href="https://vgs.arizona.edu/">VGS</a> database. It can be adapted to be used for a variety of different digital data sheets that contain historical data in different formats. Basic structure works like so; reads data, parses data based on keys set in script (e.g., “SiteID” to find site name) and selected inputs from UI, organizes data, connects to local SQL database, creates and executes SQL insert statements to create site, site metadata, locations, protocols for event data (includes event groups and events in each eventgroup), then inserts sample data into each event. Various QA/QC checks are built in to prevent corrupt data from being inserted. Code can be seen at <a href="https://github.com/tgilbert14/VGS-Batch-Importer-App" class="uri">https://github.com/tgilbert14/VGS-Batch-Importer-App</a></p>
+<h2 class="anchored" data-anchor-id="vgs-batch-importer"><strong><em>VGS Batch Importer</em></strong></h2>
+<p>An ETL pipeline built in R to ingest historical Excel datasheets into a SQLite database. Supports multiple vegetation protocols (e.g., point ground cover, line intercept, nested frequency) across transects and sites. The app parses data using key identifiers (e.g., SiteID), organizes metadata, and inserts structured records into a local <a href="https://vgs.arizona.edu/">VGS</a> database. QA/QC checks are embedded to prevent corrupt or incomplete data from being ingested.</p>
 <ul>
-<li><strong>Code:</strong> <a href="https://github.com/tgilbert14/vgs-batch-importer">GitHub Repo</a></li>
+<li><strong>Code:</strong> <a href="https://github.com/tgilbert14/vgs-batch-importer">GitHub</a></li>
+<li><strong>Live App:</strong> Local-only Shiny app</li>
 </ul>
 <section id="applications-details" class="level3">
 <h3 class="anchored" data-anchor-id="applications-details"><strong><em>Applications Details</em></strong> ⬇️</h3>
@@ -242,32 +239,37 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="neon-small-mammal-tracker" class="level2">
 <h2 class="anchored" data-anchor-id="neon-small-mammal-tracker"><em>NEON Small Mammal Tracker</em></h2>
-<p>This Shiny application visualizes small mammal capture data from the National Ecological Observatory Network (NEON). Users can select a location and date range to compare captures across NEON sites. The app processes individual ID tags to rank sites by total capture volume, offering a clear view of spatial and temporal patterns in small mammal activity.</p>
+<p>Interactive Shiny app visualizing small mammal capture data from the National Ecological Observatory Network (NEON). Users select location and date range to compare capture volumes across NEON sites. The app processes individual ID tags to rank sites by total captures, revealing spatial and temporal trends in mammal activity.</p>
 <ul>
-<li><strong>Code:</strong> <a href="https://github.com/tgilbert14/neon-small-mammal-tracker">GitHub Repo</a></li>
-<li><strong>Live App:</strong> <a href="https://t-lama.shinyapps.io/RatTrapHistory/">RatTrapHistoryApp</a><br>
-<img src="assets/MammalsCapturesPerPlot.jpg" width="600px" style="border-radius: 8px; margin-top: 10px;"></li>
+<li><strong>Code:</strong> <a href="https://github.com/tgilbert14/neon-small-mammal-tracker">GitHub</a></li>
+<li><strong>Live App:</strong> <a href="https://t-lama.shinyapps.io/RatTrapHistory/">App</a></li>
 </ul>
+<p><img src="assets/MammalsCapturesPerPlot.jpg" class="img-fluid"></p>
 <hr>
 </section>
 <section id="neon-water-chemistry-viewer" class="level2">
 <h2 class="anchored" data-anchor-id="neon-water-chemistry-viewer"><em>NEON Water Chemistry Viewer</em></h2>
-<p>This Shiny app lets you explore NEON’s Surface Water Chemistry (SWC) data across ecological sites in the U.S. Just pick a date range, aquatic site, and two analytes to compare — then hit “Process Selection(s)” to see how they stack up. It’s built to help visualize water chemistry shifts over time and across space. Curious about how the data’s collected? Click on any SWC label in the app, or learn more about NEON’s mission <a href="https://data.neonscience.org/">here</a>.</p>
+<p>This Shiny app lets you explore NEON’s Surface Water Chemistry (SWC) data across ecological sites in the U.S. Just pick a date range, aquatic site, and two analytes to compare, then hit “Process Selection(s)” to see how they stack up. It’s built to help visualize water chemistry shifts over time and across space. Curious about how the data’s collected? Click on any SWC label in the app, or learn more about NEON’s mission <a href="https://data.neonscience.org/">here</a>.</p>
 <ul>
-<li><strong>Code:</strong> <a href="https://github.com/tgilbert14/NEON-WaterChemistry-Analyte-Viewer-App">GitHub Repo</a></li>
-<li><strong>Live App:</strong> <a href="https://t-lama.shinyapps.io/AnalyteViewer/">WaterAnalyteApp</a><br>
-<img src="assets/ComparisonReport.jpg" width="600px" style="border-radius: 8px; margin-top: 10px;"></li>
+<li><strong>Code:</strong> <a href="https://github.com/tgilbert14/NEON-WaterChemistry-Analyte-Viewer-App">GitHub</a></li>
+<li><strong>Live App:</strong> <a href="https://t-lama.shinyapps.io/AnalyteViewer/">App</a></li>
 </ul>
+<p><img src="assets/ComparisonReport.jpg" class="img-fluid"></p>
+<p><img src="assets/CorrelationReport.jpg" class="img-fluid"></p>
 <hr>
 </section>
 <section id="electron-bundled-shiny-desktop-app" class="level2">
 <h2 class="anchored" data-anchor-id="electron-bundled-shiny-desktop-app"><em>Electron-Bundled Shiny Desktop App</em></h2>
-<p>A standalone desktop tool embedding a Shiny UI with an internal SQL database back-end. This local Shiny app is built to manage structured data offline with a bundled SQL database — no cloud required. It’s designed for research teams, data loggers, or anyone who wants quick access to stored info without depending on external servers. You can insert, update, and retrieve records through a clean R-powered interface, and because it’s packaged with Electron and R-Portable, it runs as a standalone Windows app — even on machines without R installed.</p>
+<p>A standalone desktop tool combining a Shiny UI with an embedded SQL database. Designed for offline use by research teams and field data loggers, it enables structured data entry, updates, and retrieval without cloud dependencies. Built with Electron and R-Portable, the app runs as a self-contained Windows executable, no R installation required.</p>
 <ul>
-<li><strong>Code:</strong> <a href="https://github.com/tgilbert14/R-Local-Storage-SQL-exe">GitHub Repo</a><br>
-<img src="assets/electron.jpg" width="600px" style="border-radius: 8px; margin-top: 10px;"></li>
+<li><strong>Code:</strong> <a href="https://github.com/tgilbert14/R-Local-Storage-SQL-exe">GitHub</a></li>
+<li><strong>Live App:</strong> Local-only Shiny app</li>
 </ul>
+<p><img src="assets/electron.jpg" class="img-fluid"></p>
 <hr>
+<div class="card-container">
+<p><a> </a> <a href="./about.html" class="card card-about">ABOUT ME</a> <a href="./projects.html" class="card card-projects">MY PROJECTS</a> <a href="./resume.html" class="card card-resume">RESUME/CV</a> <a href="./dashboards.html" class="card card-visualizations">SHINY APPS</a></p>
+</div>
 <hr>
 <p><em>Contact me @ <a href="mailto:tsgilbert@arizona.edu">tsgilbert@arizona.edu</a> for questions, feedback, suggestions, or if you want to collaborate!</em></p>
 </section>
