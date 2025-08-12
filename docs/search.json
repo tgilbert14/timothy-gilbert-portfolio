@@ -74,7 +74,7 @@
     "href": "dashboards.html",
     "title": "Apps, Dashboards & Visualizations",
     "section": "",
-    "text": "Welcome to a curated gallery of my favorite data stories, here are some of the interactive projects I’ve enjoyed building and hosting!\n\n\n\nNCAA Big 12 Recruiting Pipeline (shiny + geocoder + leaflet) ➡️\n\n\n\n\nMammal Tracker (shiny + leaflet + ggmap) ➡️\n\n\n\n\nClient Data Manipulation (shiny + readxl + openxlsx) *username=1, password=1 ➡️\n\n\n\n\n\n\n\nUSFS Name Converter (shiny + tidyverse + DT) ➡️\n\n\n\n\n\n\n  ABOUT ME MY PROJECTS RESUME/CV SHINY APPS"
+    "text": "Welcome to a curated gallery of my favorite data stories, here are some of the interactive projects I’ve enjoyed building and hosting!\n\n\n\nNCAA Big 12 Recruiting Pipeline (shiny + geocoder + leaflet)\n⭆ Click for Stand Alone App\n\n\n\nMammal Tracker (shiny + leaflet + ggmap)\n⭆ Click for Stand Alone App\n\n\n\nClient Data Manipulation (shiny + readxl + openxlsx) *username=1, password=1\n⭆ Click for Stand Alone App\n\n\n\n\n\n\nUSFS Name Converter (shiny + tidyverse + DT)\n⭆ Click for Stand Alone App\n\n\n\n\n\n  ABOUT ME MY PROJECTS RESUME/CV SHINY APPS"
   },
   {
     "objectID": "projects.html",
