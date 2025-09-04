@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Timothy Gilbert"
+  title: "{ Tim Gilbert }"
   favicon: assets/desertLeafShrimp.png
   navbar:
   
