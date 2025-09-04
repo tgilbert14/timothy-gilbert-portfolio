@@ -72,16 +72,23 @@
   {
     "objectID": "dashboards.html",
     "href": "dashboards.html",
-    "title": "Apps, Dashboards & Visualizations",
+    "title": "Live Shiny App Examples",
     "section": "",
-    "text": "Welcome to a curated gallery of my favorite data stories, here are some of the interactive projects I’ve enjoyed building and hosting!\n\n\n\nNCAA Big 12 Recruiting Pipeline (shiny + geocoder + leaflet)\n⭆ Click for Stand Alone App\n\n\n\nMammal Tracker (shiny + leaflet + ggmap)\n⭆ Click for Stand Alone App\n\n\n\nClient Data Manipulation (shiny + readxl + openxlsx) *username=1, password=1\n⭆ Click for Stand Alone App\n\n\n\n\n\n\nUSFS Name Converter (shiny + tidyverse + DT)\n⭆ Click for Stand Alone App\n\n\n\n\n\n  ABOUT ME MY PROJECTS RESUME/CV SHINY APPS"
+    "text": "Here are some examples of Shiny apps that I host…\n\n\n\nNCAA Big 12 Recruiting Pipeline (shiny + geocoder + leaflet)\n⭆ Click for Stand Alone App\n\n\n\nMammal Tracker (shiny + leaflet + ggmap)\n⭆ Click for Stand Alone App\n\n\n\n\n\n\nUSFS Name Converter (shiny + tidyverse + DT)\n⭆ Click for Stand Alone App\n\n\n\n\n\n  ABOUT ME MY PROJECTS RESUME/CV SHINY APPS"
   },
   {
     "objectID": "projects.html",
     "href": "projects.html",
     "title": "My Projects",
     "section": "",
-    "text": "These are some of the projects I’ve built to show the type of tools I love creating!"
+    "text": "These are some of the projects I’ve built…"
+  },
+  {
+    "objectID": "projects.html#vgslite",
+    "href": "projects.html#vgslite",
+    "title": "My Projects",
+    "section": "VGSLite",
+    "text": "VGSLite\nVGSLite is a R based helper application (.exe install) built to support VGS 5 Desktop on Windows devices.\n\nCode: GitHub\nLive App: Local-only .exe installable app\n\n\n\n⭆ Installation\nTo install VGSLite on your Windows device:\n\nDownload the latest release from VGSLite.\nUnzip the folder and run VGSLite Setup 1.1.0.exe.\nYou may have to click “more info” in order to install the application as it is not code certified.\n\n\n\n⭆ Features\n✅ Clean Database: Cleans up any orphan data links that may exist to help prevent corrupt data. Often used before “Empty Tombstone” to troubleshoot sync issues.\n✅ Convert database to Local: Moves cloud data into local folders. Not recommended unless you plan on only collecting data locally.\n✅ Delete Unassigned data: Deletes all data and sites inside the “Unassigned” bin at once instead of going though each event.\n✅ Empty Tombstone: Clears deletion cache, often used to troubleshoot sync issues.\n✅ Move Event: Lets user move a single event from an existing site to another site. Often used when an event was put on the wrong site. This WILL NOT UPDATE SYNC STATE (i.e., cloud-to-local or local-to-cloud).\n\n\n⭆ Usage After launching the app:\n✅ Select a task from the drop-down (e.g., “Move Event”).\n✅ Follow prompts (e.g., Select Site to move from, Site to move to, and date of Event to move, then confirm selections).\n✅ Click through confirmation pop-ups to see what is being done.\n✅ Make sure to close out VGS 5 if open, and reopen it to confirm changes."
   },
   {
     "objectID": "projects.html#ncaa-recruitment-trend-visualizer",

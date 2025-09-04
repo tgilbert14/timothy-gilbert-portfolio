@@ -6,25 +6,40 @@ website:
   title: "Timothy Gilbert"
   favicon: assets/desertLeafShrimp.png
   navbar:
+  
     left:
       - text: Home
         href: index.qmd
+        
       - text: About
         href: about.qmd
+        
       - text: Projects
         href: projects.qmd
-      - text: Résumé
-        href: resume.qmd
-      - text: Shiny Apps
+        
+      - text: Shiny App Examples
         href: dashboards.qmd
+
     right:
+
       - icon: github
         href: https://github.com/tgilbert14
+        
       - icon: envelope
         href: mailto:tsgilbert@arizona.edu
+        
+      - text: CV
+        href: resume.qmd
+        
+      - icon: linkedin
+        href: www.linkedin.com/in/tgilbert14
+        
+      - icon: instagram
+        href: https://www.instagram.com/timbogilbert/
+        
 
 format:
   html:
-    theme: cyborg
+    theme: flatly
     css: styles.css
     toc: true

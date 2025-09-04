@@ -37,10 +37,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bb7160830725afa8abeda692f2b24947.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-cc63fce9873912f1bbbccf05079cc9ea.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -103,12 +103,8 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resume.html"> 
-<span class="menu-text">Résumé</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./dashboards.html"> 
-<span class="menu-text">Shiny Apps</span></a>
+<span class="menu-text">Shiny App Examples</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -119,6 +115,20 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="mailto:tsgilbert@arizona.edu"> <i class="bi bi-envelope" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./resume.html"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="./www.linkedin.com/in/tgilbert14"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/timbogilbert/"> <i class="bi bi-instagram" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -159,10 +169,44 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="project-intro">
-<p>These are some of the projects I’ve built to show the type of tools I love creating!</p>
+<p>These are some of the projects I’ve built…</p>
 </div>
 <div class="project-content">
 <hr>
+<section id="vgslite" class="level2">
+<h2 class="anchored" data-anchor-id="vgslite"><em>VGSLite</em></h2>
+<p>VGSLite is a R based helper application (.exe install) built to support VGS 5 Desktop on Windows devices.</p>
+<ul>
+<li><p><strong>Code:</strong> <a href="https://github.com/tgilbert14/VGSLite">GitHub</a></p></li>
+<li><p><strong>Live App:</strong> Local-only <a href="https://github.com/tgilbert14/VGSLite/blob/main/VGSLite%20Setup%201.1.0.zip" title="Download .exe zip found on GitHub">.exe installable app</a></p></li>
+</ul>
+<p><img src="assets/VGSLite.png" class="img-fluid"></p>
+<section id="installation" class="level4">
+<h4 class="anchored" data-anchor-id="installation">⭆ Installation</h4>
+<p>To install <a href="https://github.com/tgilbert14/VGSLite">VGSLite</a> on your Windows device:</p>
+<ol type="1">
+<li>Download the latest release from <a href="https://github.com/tgilbert14/VGSLite/blob/main/VGSLite%20Setup%201.1.0.zip">VGSLite</a>.</li>
+<li>Unzip the folder and run VGSLite Setup 1.1.0.exe.</li>
+<li>You may have to click “more info” in order to install the application as it is not code certified.</li>
+</ol>
+</section>
+<section id="features" class="level4">
+<h4 class="anchored" data-anchor-id="features">⭆ Features</h4>
+<p>✅ Clean Database: Cleans up any orphan data links that may exist to help prevent corrupt data. Often used before “Empty Tombstone” to troubleshoot sync issues.</p>
+<p>✅ Convert database to Local: Moves cloud data into local folders. Not recommended unless you plan on only collecting data locally.</p>
+<p>✅ Delete Unassigned data: Deletes all data and sites inside the “Unassigned” bin at once instead of going though each event.</p>
+<p>✅ Empty Tombstone: Clears deletion cache, often used to troubleshoot sync issues.</p>
+<p>✅ Move Event: Lets user move a single event from an existing site to another site. Often used when an event was put on the wrong site. This WILL NOT UPDATE SYNC STATE (i.e., cloud-to-local or local-to-cloud).</p>
+</section>
+<section id="usage-after-launching-the-app" class="level4">
+<h4 class="anchored" data-anchor-id="usage-after-launching-the-app">⭆ Usage After launching the app:</h4>
+<p>✅ Select a task from the drop-down (e.g., “Move Event”).</p>
+<p>✅ Follow prompts (e.g., Select Site to move from, Site to move to, and date of Event to move, then confirm selections).</p>
+<p>✅ Click through confirmation pop-ups to see what is being done.</p>
+<p>✅ Make sure to close out VGS 5 if open, and reopen it to confirm changes.</p>
+<hr>
+</section>
+</section>
 <section id="ncaa-recruitment-trend-visualizer" class="level2">
 <h2 class="anchored" data-anchor-id="ncaa-recruitment-trend-visualizer"><em>NCAA Recruitment Trend Visualizer</em></h2>
 <p>Scrapes recruiting data from multiple sports sites (e.g., 247Sports, On3) to visualize Big 12 football and basketball class rankings. Custom R scripts handle data extraction, cleaning, and plotting, with interactive controls for sport, class year, and team. Built in Shiny with Leaflet for dynamic geospatial visualizations.</p>
