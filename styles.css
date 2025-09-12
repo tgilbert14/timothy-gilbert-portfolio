@@ -34,7 +34,7 @@
 }
 
 body {
-  background: linear-gradient(to right, #024c4f, rgb(100, 100, 216), rgb(4, 4, 97));
+  background: linear-gradient(to right, #16e874, rgb(13, 13, 86), rgb(15, 190, 175));
   color: ivory;
   font-family: 'sans-serif', Arial, sans-serif;
 }
@@ -129,6 +129,10 @@ body {
 }
 
 .contact-git {
+  background-color: salmon;
+}
+
+.contact-coffee {
   background-color: lightsalmon;
 }
 

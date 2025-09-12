@@ -39,6 +39,8 @@ I am always working on developing new skills, here are some of the things I am f
 <a href="mailto:tsgilbert@arizona.edu" class="contact email">📧 Email Me </a>
 
 <a href="https://github.com/tgilbert14" class="contact git"> 🔗 My GitHub </a>
+
+<a href="https://www.buymeacoffee.com/tgilbert14" class="contact coffee"> ☕ Buy me a coffee </a>
 :::
 
 <!-- 📧 [tsgilbert\@arizona.edu](mailto:tsgilbert@arizona.edu)\ -->
