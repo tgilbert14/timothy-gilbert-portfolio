@@ -15,7 +15,7 @@ These are some of the projects I've built...
 
 VGSLite is a R based helper application (.exe install) built to support VGS 5 Desktop on Windows devices.
 
--   **Code:** [GitHub](https://github.com/tgilbert14/VGSLite)
+-   **Code:** [GitHub (Private)](https://github.com/tgilbert14/VGSLite "Please contact me if you would like to view source code")
 
 -   **Live App:** Local-only
 
