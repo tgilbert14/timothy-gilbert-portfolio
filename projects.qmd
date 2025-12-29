@@ -61,6 +61,8 @@ Scrapes recruiting data from multiple sports sites (e.g., 247Sports, On3) to vis
 
 -   **Live App:** [App](https://t-lama.shinyapps.io/College-Pipeline-Tracker/ "https://t-lama.shinyapps.io/College-Pipeline-Tracker/")
 
+### ***NCAA Sample Data Visualizations***
+
 ⭆ [Big 12 College Basketball Recruiting Class Grades from 2016-2025](https://github.com/tgilbert14/UA-recruits-/blob/main/plots/basketball/comparisons/basketball_avgClassRatings_ALL_2025-07-09.png) ⬇️
 
 ![](assets/basketball_avgClassRatings_ALL.png)

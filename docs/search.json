@@ -95,7 +95,7 @@
     "href": "projects.html#ncaa-recruitment-trend-visualizer",
     "title": "My Projects",
     "section": "NCAA Recruitment Trend Visualizer",
-    "text": "NCAA Recruitment Trend Visualizer\nScrapes recruiting data from multiple sports sites (e.g., 247Sports, On3) to visualize Big 12 football and basketball class rankings. Custom R scripts handle data extraction, cleaning, and plotting, with interactive controls for sport, class year, and team. Built in Shiny with Leaflet for dynamic geospatial visualizations.\n\nCode: GitHub\nLive App: App\n\n⭆ Big 12 College Basketball Recruiting Class Grades from 2016-2025 ⬇️\n\n⭆ University of Arizona vs ASU Basketball Recruit Comparisons ⬇️"
+    "text": "NCAA Recruitment Trend Visualizer\nScrapes recruiting data from multiple sports sites (e.g., 247Sports, On3) to visualize Big 12 football and basketball class rankings. Custom R scripts handle data extraction, cleaning, and plotting, with interactive controls for sport, class year, and team. Built in Shiny with Leaflet for dynamic geospatial visualizations.\n\nCode: GitHub\nLive App: App\n\n\nNCAA Sample Data Visualizations\n⭆ Big 12 College Basketball Recruiting Class Grades from 2016-2025 ⬇️\n\n⭆ University of Arizona vs ASU Basketball Recruit Comparisons ⬇️"
   },
   {
     "objectID": "projects.html#vgs-batch-importer",
