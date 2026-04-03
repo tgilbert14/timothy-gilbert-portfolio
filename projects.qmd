@@ -1,19 +1,19 @@
 ---
-title: "My Projects"
+title: ""
 format: html
 ---
 
 ::: project-intro
-These are some of the projects I've built...
+Other Projects...
 :::
 
-::: project-content
+::::: project-content
 
 ------------------------------------------------------------------------
 
 ## *VGSLite*
 
-VGSLite is a R based helper application (.exe install) built to support VGS 5 Desktop on Windows devices.
+VGSLite is a R based helper application (.exe install) built to support VGS 5 Desktop on Windows devices that was build in R and packaged with Electron.
 
 -   **Code:** [GitHub (Private)](https://github.com/tgilbert14/VGSLite "Please contact me if you would like to view source code")
 
@@ -21,7 +21,7 @@ VGSLite is a R based helper application (.exe install) built to support VGS 5 De
 
 ![](assets/VGSLite.png)
 
-#### ⭆ Installation
+#### ⭆ Installation Guide
 
 To install VGSLite on your Windows device:
 
@@ -53,15 +53,11 @@ To install VGSLite on your Windows device:
 
 ------------------------------------------------------------------------
 
-## *NCAA Recruitment Trend Visualizer*
+## NCAA Sample Data Visualizations
 
-Scrapes recruiting data from multiple sports sites (e.g., 247Sports, On3) to visualize Big 12 football and basketball class rankings. Custom R scripts handle data extraction, cleaning, and plotting, with interactive controls for sport, class year, and team. Built in Shiny with Leaflet for dynamic geospatial visualizations.
-
--   **Code:** [GitHub](https://github.com/tgilbert14/UA-recruits-)
-
--   **Live App:** [App](https://t-lama.shinyapps.io/College-Pipeline-Tracker/ "https://t-lama.shinyapps.io/College-Pipeline-Tracker/")
-
-### ***NCAA Sample Data Visualizations***
+::: project-content
+Scripts to scrape recruiting data from multiple sports sites (e.g., 247Sports, On3) and visualize Big 12 football and basketball class rankings over time.
+:::
 
 ⭆ [Big 12 College Basketball Recruiting Class Grades from 2016-2025](https://github.com/tgilbert14/UA-recruits-/blob/main/plots/basketball/comparisons/basketball_avgClassRatings_ALL_2025-07-09.png) ⬇️
 
@@ -73,52 +69,70 @@ Scrapes recruiting data from multiple sports sites (e.g., 247Sports, On3) to vis
 
 ------------------------------------------------------------------------
 
-## ***VGS Batch Importer***
+## VGS Batch Importer
 
 An ETL pipeline built in R to ingest historical Excel datasheets into a SQLite database. Supports multiple vegetation protocols (e.g., point ground cover, line intercept, nested frequency) across transects and sites. The app parses data using key identifiers (e.g., SiteID), organizes metadata, and inserts structured records into a local [VGS](https://vgs.arizona.edu/) database. QA/QC checks are embedded to prevent corrupt or incomplete data from being ingested.
 
 -   **Code:** [GitHub](https://github.com/tgilbert14/vgs-batch-importer)
 -   **Live App:** Local-only Shiny app
 
-### ***Applications Details*** ⬇️
+### Applications Details ⬇️
 
 ![*Main UI View*](assets/mainUI.jpg)
 
 The app interface has options to select protocols available for ingest. It has various options depending on the import:
 
--   **Power Mode**: *This check box bypasses errors by generating and opening a excel workbook to review. The errors are then fixed and eventually the import happens with this setting turned off.*
+#### Power Mode:
 
--   **Species Replace**: *This check box enables a [SpeciesReplace.xlsx](assets/SpeciesReplace.xlsx) file that can be used to mass update species codes for every file instead of going into each individual file and changing it individually. This is exceptionally helpful when a USDA code has had an update or a client uses the wrong code consistency.*
+*This check box bypasses errors by generating and opening a excel workbook to review. The errors are then fixed and eventually the import happens with this setting turned off.*
 
--   **Select Protocol for Import**: *Sampling protocols (quanitative data collection through VGS) are hard-coded for the selection drop down list. Surveys (qualative data collection through VGS) were designed later and query the local VGS database on your local machine to offer drop down selections for what surveys are available on the device to import data to.*
+#### Species Replace:
 
--   **Batch Import Data**: *This prompts a pop up window to select the batch import files to import (multiple .xlsx files can be imported at once).*
+*This check box enables a [SpeciesReplace.xlsx](assets/SpeciesReplace.xlsx) file that can be used to mass update species codes for every file instead of going into each individual file and changing it individually. This is exceptionally helpful when a USDA code has had an update or a client uses the wrong code consistency.*
 
--   **Species Count**: *This button queries that VGS database and counts the species at each site to provide an overview of the data that was collected.*
+#### Select Protocol for Import:
 
--   **Species Check**: *This button brings a pop up that lets the client select a list of states that the sites are located. It then compares the plant codes in the database to USDA plant lists by each state (www/sp_lists_USDA) to check for inconsistencies and data entry errors.*
+*Sampling protocols (quantitative data collection through VGS) are hard-coded for the selection drop down list. Surveys (qualitative data collection through VGS) were designed later and query the local VGS database on your local machine to offer drop down selections for what surveys are available on the device to import data to.*
 
--   **Update Site Name**: *This links to a script that looks through all location lat/long coordinates and check them in a USFS enterprise shape file to help predict what folder (Allotment/Pasture) they belong in and rename them according to USFS naming conventions (numeric based off of Region-Forest-Ranger District-Allotment-Pasture-SiteID).*
+#### Batch Import Data:
 
--   **Survey Log Input?**: *This new feature offers survey (qualitative data) import with pre-built surveys. This section is still under development.*
+*This prompts a pop up window to select the batch import files to import (multiple .xlsx files can be imported at once).*
 
--   **🦐**: *This is a help button that provides general workflow for batch importing data with this app.*
+#### Species Count:
 
-##### *Power Mode* ⏬
+*This button queries that VGS database and counts the species at each site to provide an overview of the data that was collected.*
 
-## ![](assets/powerMode.jpg)
+#### Species Check:
 
-##### *Species Replace* ⏬
+*This button brings a pop up that lets the client select a list of states that the sites are located. It then compares the plant codes in the database to USDA plant lists by each state (www/sp_lists_USDA) to check for inconsistencies and data entry errors.*
 
-## ![](assets/speciesReplace.jpg)
+#### Update Site Name:
 
-##### *Species Count* ⏬
+*This links to a script that looks through all location lat/long coordinates and check them in a USFS enterprise shape file to help predict what folder (Allotment/Pasture) they belong in and rename them according to USFS naming conventions (numeric based off of Region-Forest-Ranger District-Allotment-Pasture-SiteID).*
 
-## ![](assets/speciesCount.jpg)
+#### Survey Log Input?:
 
-##### *Species Check* ⏬
+*This new feature offers survey (qualitative data) import with pre-built surveys. This section is still under development.*
 
-## ![](assets/speciesCheck.jpg)
+#### 🦐:
+
+*This is a help button that provides general workflow for batch importing data with this app.*
+
+##### Power Mode ⏬
+
+![](assets/powerMode.jpg)
+
+##### Species Replace ⏬
+
+![](assets/speciesReplace.jpg)
+
+##### Species Count ⏬
+
+![](assets/speciesCount.jpg)
+
+##### Species Check ⏬
+
+![](assets/speciesCheck.jpg)
 
 *This app also generates a log text file stored in the 'www/' folder to track code flow and debug import issues.* ⏬
 
@@ -126,46 +140,23 @@ The app interface has options to select protocols available for ingest. It has v
 
 ------------------------------------------------------------------------
 
-## *NEON Small Mammal Tracker*
 
-Interactive Shiny app visualizing small mammal capture data from the National Ecological Observatory Network (NEON). Users select location and date range to compare capture volumes across NEON sites. The app processes individual ID tags to rank sites by total captures, revealing spatial and temporal trends in mammal activity.
-
--   **Code:** [GitHub](https://github.com/tgilbert14/neon-small-mammal-tracker)
--   **Live App:** [App](https://t-lama.shinyapps.io/RatTrapHistory/)
-
-![](assets/MammalsCapturesPerPlot.jpg)
 
 ------------------------------------------------------------------------
 
-## *NEON Water Chemistry Viewer*
 
-This Shiny app lets you explore NEON's Surface Water Chemistry (SWC) data across ecological sites in the U.S. Just pick a date range, aquatic site, and two analytes to compare, then hit "Process Selection(s)" to see how they stack up. It's built to help visualize water chemistry shifts over time and across space. Curious about how the data's collected? Click on any SWC label in the app, or learn more about NEON's mission [here](https://data.neonscience.org/).
-
--   **Code:** [GitHub](https://github.com/tgilbert14/NEON-WaterChemistry-Analyte-Viewer-App)
--   **Live App:** [App](https://t-lama.shinyapps.io/AnalyteViewer/)
-
-![](assets/ComparisonReport.jpg)
-
-![](assets/CorrelationReport.jpg)
 
 ------------------------------------------------------------------------
 
-## *Electron-Bundled Shiny Desktop App*
 
-A standalone desktop tool combining a Shiny UI with an embedded SQL database. Designed for offline use by research teams and field data loggers, it enables structured data entry, updates, and retrieval without cloud dependencies. Built with Electron and R-Portable, the app runs as a self-contained Windows executable, no R installation required.
-
--   **Code:** [GitHub](https://github.com/tgilbert14/R-Local-Storage-SQL-exe)
--   **Live App:** Local-only Shiny app
-
-![](assets/electron.jpg)
 
 ------------------------------------------------------------------------
 
 ::: card-container
-<a> </a> <a href="about.qmd" class="card card-about">ABOUT ME</a> <a href="projects.qmd" class="card card-projects">MY PROJECTS</a> <a href="resume.qmd" class="card card-resume">RESUME/CV</a> <a href="dashboards.qmd" class="card card-visualizations">SHINY APPS</a>
+<a> </a> <a href="about.qmd" class="card card-about">ABOUT ME</a> <a href="dashboards.qmd" class="card card-visualizations">SHINY APPS</a> <a href="projects.qmd" class="card card-projects">PROJECTS</a> <a href="resume.qmd" class="card card-resume">RESUME/CV</a>
 :::
 
 ------------------------------------------------------------------------
 
 *Contact me \@ [tsgilbert\@arizona.edu](mailto:tsgilbert@arizona.edu) for questions, feedback, suggestions, or if you want to collaborate!*
-:::
+:::::

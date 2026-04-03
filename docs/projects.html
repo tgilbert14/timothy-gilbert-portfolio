@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>My Projects – { Tim Gilbert }</title>
+<title>projects – { Tim Gilbert }</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -99,12 +99,12 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./projects.html" aria-current="page"> 
-<span class="menu-text">Projects</span></a>
+    <a class="nav-link" href="./dashboards.html"> 
+<span class="menu-text">Shiny Apps</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./dashboards.html"> 
-<span class="menu-text">Shiny App Examples</span></a>
+    <a class="nav-link active" href="./projects.html" aria-current="page"> 
+<span class="menu-text">Other Projects</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -157,42 +157,26 @@ ul.task-list li input[type="checkbox"] {
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">My Projects</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
 
 
 <div class="project-intro">
-<p>These are some of the projects I’ve built…</p>
+<p>Other Projects…</p>
 </div>
 <div class="project-content">
 <hr>
 <section id="vgslite" class="level2">
 <h2 class="anchored" data-anchor-id="vgslite"><em>VGSLite</em></h2>
-<p>VGSLite is a R based helper application (.exe install) built to support VGS 5 Desktop on Windows devices.</p>
+<p>VGSLite is a R based helper application (.exe install) built to support VGS 5 Desktop on Windows devices that was build in R and packaged with Electron.</p>
 <ul>
 <li><p><strong>Code:</strong> <a href="https://github.com/tgilbert14/VGSLite" title="Please contact me if you would like to view source code">GitHub (Private)</a></p></li>
 <li><p><strong>Live App:</strong> Local-only</p></li>
 </ul>
 <p><img src="assets/VGSLite.png" class="img-fluid"></p>
-<section id="installation" class="level4">
-<h4 class="anchored" data-anchor-id="installation">⭆ Installation</h4>
+<section id="installation-guide" class="level4">
+<h4 class="anchored" data-anchor-id="installation-guide">⭆ Installation Guide</h4>
 <p>To install VGSLite on your Windows device:</p>
 <ol type="1">
 <li>Download the latest release from <a href="https://github.com/tgilbert14/VGSLite/releases/tag/VGSLite">VGSLite</a>.</li>
@@ -217,31 +201,26 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 </section>
-<section id="ncaa-recruitment-trend-visualizer" class="level2">
-<h2 class="anchored" data-anchor-id="ncaa-recruitment-trend-visualizer"><em>NCAA Recruitment Trend Visualizer</em></h2>
-<p>Scrapes recruiting data from multiple sports sites (e.g., 247Sports, On3) to visualize Big 12 football and basketball class rankings. Custom R scripts handle data extraction, cleaning, and plotting, with interactive controls for sport, class year, and team. Built in Shiny with Leaflet for dynamic geospatial visualizations.</p>
-<ul>
-<li><p><strong>Code:</strong> <a href="https://github.com/tgilbert14/UA-recruits-">GitHub</a></p></li>
-<li><p><strong>Live App:</strong> <a href="https://t-lama.shinyapps.io/College-Pipeline-Tracker/" title="https://t-lama.shinyapps.io/College-Pipeline-Tracker/">App</a></p></li>
-</ul>
-<section id="ncaa-sample-data-visualizations" class="level3">
-<h3 class="anchored" data-anchor-id="ncaa-sample-data-visualizations"><strong><em>NCAA Sample Data Visualizations</em></strong></h3>
+<section id="ncaa-sample-data-visualizations" class="level2">
+<h2 class="anchored" data-anchor-id="ncaa-sample-data-visualizations">NCAA Sample Data Visualizations</h2>
+<div class="project-content">
+<p>Scripts to scrape recruiting data from multiple sports sites (e.g., 247Sports, On3) and visualize Big 12 football and basketball class rankings over time.</p>
+</div>
 <p>⭆ <a href="https://github.com/tgilbert14/UA-recruits-/blob/main/plots/basketball/comparisons/basketball_avgClassRatings_ALL_2025-07-09.png">Big 12 College Basketball Recruiting Class Grades from 2016-2025</a> ⬇️</p>
 <p><img src="assets/basketball_avgClassRatings_ALL.png" class="img-fluid"></p>
 <p>⭆ <a href="https://github.com/tgilbert14/UA-recruits-/blob/main/plots/basketball/comparisons/basketball_avgClassRatings_Filtered_2025-07-09.png">University of Arizona vs ASU Basketball Recruit Comparisons</a> ⬇️</p>
 <p><img src="assets/basketball_avgClassRatings_Filtered_2025-07-09.png" class="img-fluid"></p>
 <hr>
 </section>
-</section>
 <section id="vgs-batch-importer" class="level2">
-<h2 class="anchored" data-anchor-id="vgs-batch-importer"><strong><em>VGS Batch Importer</em></strong></h2>
+<h2 class="anchored" data-anchor-id="vgs-batch-importer">VGS Batch Importer</h2>
 <p>An ETL pipeline built in R to ingest historical Excel datasheets into a SQLite database. Supports multiple vegetation protocols (e.g., point ground cover, line intercept, nested frequency) across transects and sites. The app parses data using key identifiers (e.g., SiteID), organizes metadata, and inserts structured records into a local <a href="https://vgs.arizona.edu/">VGS</a> database. QA/QC checks are embedded to prevent corrupt or incomplete data from being ingested.</p>
 <ul>
 <li><strong>Code:</strong> <a href="https://github.com/tgilbert14/vgs-batch-importer">GitHub</a></li>
 <li><strong>Live App:</strong> Local-only Shiny app</li>
 </ul>
 <section id="applications-details" class="level3">
-<h3 class="anchored" data-anchor-id="applications-details"><strong><em>Applications Details</em></strong> ⬇️</h3>
+<h3 class="anchored" data-anchor-id="applications-details">Applications Details ⬇️</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/mainUI.jpg" class="img-fluid figure-img"></p>
@@ -249,42 +228,56 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <p>The app interface has options to select protocols available for ingest. It has various options depending on the import:</p>
-<ul>
-<li><p><strong>Power Mode</strong>: <em>This check box bypasses errors by generating and opening a excel workbook to review. The errors are then fixed and eventually the import happens with this setting turned off.</em></p></li>
-<li><p><strong>Species Replace</strong>: <em>This check box enables a <a href="assets/SpeciesReplace.xlsx">SpeciesReplace.xlsx</a> file that can be used to mass update species codes for every file instead of going into each individual file and changing it individually. This is exceptionally helpful when a USDA code has had an update or a client uses the wrong code consistency.</em></p></li>
-<li><p><strong>Select Protocol for Import</strong>: <em>Sampling protocols (quanitative data collection through VGS) are hard-coded for the selection drop down list. Surveys (qualative data collection through VGS) were designed later and query the local VGS database on your local machine to offer drop down selections for what surveys are available on the device to import data to.</em></p></li>
-<li><p><strong>Batch Import Data</strong>: <em>This prompts a pop up window to select the batch import files to import (multiple .xlsx files can be imported at once).</em></p></li>
-<li><p><strong>Species Count</strong>: <em>This button queries that VGS database and counts the species at each site to provide an overview of the data that was collected.</em></p></li>
-<li><p><strong>Species Check</strong>: <em>This button brings a pop up that lets the client select a list of states that the sites are located. It then compares the plant codes in the database to USDA plant lists by each state (www/sp_lists_USDA) to check for inconsistencies and data entry errors.</em></p></li>
-<li><p><strong>Update Site Name</strong>: <em>This links to a script that looks through all location lat/long coordinates and check them in a USFS enterprise shape file to help predict what folder (Allotment/Pasture) they belong in and rename them according to USFS naming conventions (numeric based off of Region-Forest-Ranger District-Allotment-Pasture-SiteID).</em></p></li>
-<li><p><strong>Survey Log Input?</strong>: <em>This new feature offers survey (qualitative data) import with pre-built surveys. This section is still under development.</em></p></li>
-<li><p><strong>🦐</strong>: <em>This is a help button that provides general workflow for batch importing data with this app.</em></p></li>
-</ul>
-<section id="power-mode" class="level5">
-<h5 class="anchored" data-anchor-id="power-mode"><em>Power Mode</em> ⏬</h5>
+<section id="power-mode" class="level4">
+<h4 class="anchored" data-anchor-id="power-mode">Power Mode:</h4>
+<p><em>This check box bypasses errors by generating and opening a excel workbook to review. The errors are then fixed and eventually the import happens with this setting turned off.</em></p>
 </section>
+<section id="species-replace" class="level4">
+<h4 class="anchored" data-anchor-id="species-replace">Species Replace:</h4>
+<p><em>This check box enables a <a href="assets/SpeciesReplace.xlsx">SpeciesReplace.xlsx</a> file that can be used to mass update species codes for every file instead of going into each individual file and changing it individually. This is exceptionally helpful when a USDA code has had an update or a client uses the wrong code consistency.</em></p>
 </section>
+<section id="select-protocol-for-import" class="level4">
+<h4 class="anchored" data-anchor-id="select-protocol-for-import">Select Protocol for Import:</h4>
+<p><em>Sampling protocols (quantitative data collection through VGS) are hard-coded for the selection drop down list. Surveys (qualitative data collection through VGS) were designed later and query the local VGS database on your local machine to offer drop down selections for what surveys are available on the device to import data to.</em></p>
 </section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"><img src="assets/powerMode.jpg" class="img-fluid"></h2>
-<section id="species-replace" class="level5">
-<h5 class="anchored" data-anchor-id="species-replace"><em>Species Replace</em> ⏬</h5>
+<section id="batch-import-data" class="level4">
+<h4 class="anchored" data-anchor-id="batch-import-data">Batch Import Data:</h4>
+<p><em>This prompts a pop up window to select the batch import files to import (multiple .xlsx files can be imported at once).</em></p>
 </section>
+<section id="species-count" class="level4">
+<h4 class="anchored" data-anchor-id="species-count">Species Count:</h4>
+<p><em>This button queries that VGS database and counts the species at each site to provide an overview of the data that was collected.</em></p>
 </section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1"><img src="assets/speciesReplace.jpg" class="img-fluid"></h2>
-<section id="species-count" class="level5">
-<h5 class="anchored" data-anchor-id="species-count"><em>Species Count</em> ⏬</h5>
+<section id="species-check" class="level4">
+<h4 class="anchored" data-anchor-id="species-check">Species Check:</h4>
+<p><em>This button brings a pop up that lets the client select a list of states that the sites are located. It then compares the plant codes in the database to USDA plant lists by each state (www/sp_lists_USDA) to check for inconsistencies and data entry errors.</em></p>
 </section>
+<section id="update-site-name" class="level4">
+<h4 class="anchored" data-anchor-id="update-site-name">Update Site Name:</h4>
+<p><em>This links to a script that looks through all location lat/long coordinates and check them in a USFS enterprise shape file to help predict what folder (Allotment/Pasture) they belong in and rename them according to USFS naming conventions (numeric based off of Region-Forest-Ranger District-Allotment-Pasture-SiteID).</em></p>
 </section>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2"><img src="assets/speciesCount.jpg" class="img-fluid"></h2>
-<section id="species-check" class="level5">
-<h5 class="anchored" data-anchor-id="species-check"><em>Species Check</em> ⏬</h5>
+<section id="survey-log-input" class="level4">
+<h4 class="anchored" data-anchor-id="survey-log-input">Survey Log Input?:</h4>
+<p><em>This new feature offers survey (qualitative data) import with pre-built surveys. This section is still under development.</em></p>
 </section>
+<section id="section" class="level4">
+<h4 class="anchored" data-anchor-id="section">🦐:</h4>
+<p><em>This is a help button that provides general workflow for batch importing data with this app.</em></p>
+<section id="power-mode-1" class="level5">
+<h5 class="anchored" data-anchor-id="power-mode-1">Power Mode ⏬</h5>
+<p><img src="assets/powerMode.jpg" class="img-fluid"></p>
 </section>
-<section id="section-3" class="level2">
-<h2 class="anchored" data-anchor-id="section-3"><img src="assets/speciesCheck.jpg" class="img-fluid"></h2>
+<section id="species-replace-1" class="level5">
+<h5 class="anchored" data-anchor-id="species-replace-1">Species Replace ⏬</h5>
+<p><img src="assets/speciesReplace.jpg" class="img-fluid"></p>
+</section>
+<section id="species-count-1" class="level5">
+<h5 class="anchored" data-anchor-id="species-count-1">Species Count ⏬</h5>
+<p><img src="assets/speciesCount.jpg" class="img-fluid"></p>
+</section>
+<section id="species-check-1" class="level5">
+<h5 class="anchored" data-anchor-id="species-check-1">Species Check ⏬</h5>
+<p><img src="assets/speciesCheck.jpg" class="img-fluid"></p>
 <p><em>This app also generates a log text file stored in the ‘www/’ folder to track code flow and debug import issues.</em> ⏬</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -293,42 +286,17 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <hr>
-</section>
-<section id="neon-small-mammal-tracker" class="level2">
-<h2 class="anchored" data-anchor-id="neon-small-mammal-tracker"><em>NEON Small Mammal Tracker</em></h2>
-<p>Interactive Shiny app visualizing small mammal capture data from the National Ecological Observatory Network (NEON). Users select location and date range to compare capture volumes across NEON sites. The app processes individual ID tags to rank sites by total captures, revealing spatial and temporal trends in mammal activity.</p>
-<ul>
-<li><strong>Code:</strong> <a href="https://github.com/tgilbert14/neon-small-mammal-tracker">GitHub</a></li>
-<li><strong>Live App:</strong> <a href="https://t-lama.shinyapps.io/RatTrapHistory/">App</a></li>
-</ul>
-<p><img src="assets/MammalsCapturesPerPlot.jpg" class="img-fluid"></p>
 <hr>
-</section>
-<section id="neon-water-chemistry-viewer" class="level2">
-<h2 class="anchored" data-anchor-id="neon-water-chemistry-viewer"><em>NEON Water Chemistry Viewer</em></h2>
-<p>This Shiny app lets you explore NEON’s Surface Water Chemistry (SWC) data across ecological sites in the U.S. Just pick a date range, aquatic site, and two analytes to compare, then hit “Process Selection(s)” to see how they stack up. It’s built to help visualize water chemistry shifts over time and across space. Curious about how the data’s collected? Click on any SWC label in the app, or learn more about NEON’s mission <a href="https://data.neonscience.org/">here</a>.</p>
-<ul>
-<li><strong>Code:</strong> <a href="https://github.com/tgilbert14/NEON-WaterChemistry-Analyte-Viewer-App">GitHub</a></li>
-<li><strong>Live App:</strong> <a href="https://t-lama.shinyapps.io/AnalyteViewer/">App</a></li>
-</ul>
-<p><img src="assets/ComparisonReport.jpg" class="img-fluid"></p>
-<p><img src="assets/CorrelationReport.jpg" class="img-fluid"></p>
 <hr>
-</section>
-<section id="electron-bundled-shiny-desktop-app" class="level2">
-<h2 class="anchored" data-anchor-id="electron-bundled-shiny-desktop-app"><em>Electron-Bundled Shiny Desktop App</em></h2>
-<p>A standalone desktop tool combining a Shiny UI with an embedded SQL database. Designed for offline use by research teams and field data loggers, it enables structured data entry, updates, and retrieval without cloud dependencies. Built with Electron and R-Portable, the app runs as a self-contained Windows executable, no R installation required.</p>
-<ul>
-<li><strong>Code:</strong> <a href="https://github.com/tgilbert14/R-Local-Storage-SQL-exe">GitHub</a></li>
-<li><strong>Live App:</strong> Local-only Shiny app</li>
-</ul>
-<p><img src="assets/electron.jpg" class="img-fluid"></p>
 <hr>
 <div class="card-container">
-<p><a> </a> <a href="./about.html" class="card card-about">ABOUT ME</a> <a href="./projects.html" class="card card-projects">MY PROJECTS</a> <a href="./resume.html" class="card card-resume">RESUME/CV</a> <a href="./dashboards.html" class="card card-visualizations">SHINY APPS</a></p>
+<p><a> </a> <a href="./about.html" class="card card-about">ABOUT ME</a> <a href="./dashboards.html" class="card card-visualizations">SHINY APPS</a> <a href="./projects.html" class="card card-projects">PROJECTS</a> <a href="./resume.html" class="card card-resume">RESUME/CV</a></p>
 </div>
 <hr>
 <p><em>Contact me @ <a href="mailto:tsgilbert@arizona.edu">tsgilbert@arizona.edu</a> for questions, feedback, suggestions, or if you want to collaborate!</em></p>
+</section>
+</section>
+</section>
 </section>
 </div>
 

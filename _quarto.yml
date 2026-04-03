@@ -14,11 +14,11 @@ website:
       - text: About
         href: about.qmd
         
-      - text: Projects
-        href: projects.qmd
-        
-      - text: Shiny App Examples
+      - text: Shiny Apps
         href: dashboards.qmd
+        
+      - text: Other Projects
+        href: projects.qmd
 
     right:
 

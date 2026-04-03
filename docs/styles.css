@@ -34,7 +34,7 @@
 }
 
 body {
-  background: linear-gradient(to right, #087b3c, rgb(13, 13, 86), rgb(13, 13, 86), rgb(1, 1, 118));
+  background: linear-gradient(to right, rgb(13, 13, 86), rgb(1, 1, 118));
   color: ivory;
   font-family: 'sans-serif', Arial, sans-serif;
 }

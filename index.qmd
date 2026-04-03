@@ -1,5 +1,5 @@
 ---
-title: "Who Am I?"
+title: ""
 format: html
 ---
 
@@ -7,30 +7,26 @@ format: html
 
 ------------------------------------------------------------------------
 
-*Ecologist · Data Scientist · Data Analyst · IT Support Specialist*
+*Data Scientist · Ecologist · IT Support Specialist*
 
-Welcome to my digital portfolio! I specialize in building intuitive data applications and workflows that connect field-based ecological expertise that translate ecological fieldwork into practical tools for environmental analysis and decision-making. I also love web scraping data to create data visualizations and creating forecasting tools.
+Welcome to my digital portfolio! I've built this quarto portfolio to help showcase some of my coding skills and convey what I do. I specialize in building R Shiny applications and managing relational databases through various versions of SQL. I have a degree in Natural Resources and am currently finishing up my Data Science Masters.
 
 ------------------------------------------------------------------------
 
 ::: card-container
-<a> </a> <a href="about.qmd" class="card card-about">ABOUT ME</a> <a href="projects.qmd" class="card card-projects">MY PROJECTS</a> <a href="resume.qmd" class="card card-resume">RESUME/CV</a> <a href="dashboards.qmd" class="card card-visualizations">SHINY APPS</a>
+<a> </a> <a href="about.qmd" class="card card-about">ABOUT ME</a> <a href="dashboards.qmd" class="card card-visualizations">SHINY APPS</a> <a href="projects.qmd" class="card card-projects">PROJECTS</a> <a href="resume.qmd" class="card card-resume">RESUME/CV</a>
 :::
 
 ------------------------------------------------------------------------
 
 ::: explore-text
-## Currently Exploring
+## Fun things I love to work on...
 
-I am always working on developing new skills, here are some of the things I am focusing on...
-
--   Custom Web Scraping interactive tools
--   Visual storytelling with Quarto + ggplot2 for Big 12 recruiting
--   Data entry applications with SQL back-end
--   Python applications
--   Machine learning for forecasting
-
-**If you're a researcher, developer, or agency looking for some R incite or to build interactive R shiny data applications, please reach out!** I am always looking for new ecological projects to work on and develop my skills.
+-   *Data entry applications with SQL back-end (local and web hosted)*
+-   *Machine learning for forecasting*
+-   *Sports analytics and data visualization*
+-   *Ecological data management and visualization*
+-   *Custom Web Scraping interactive tools*
 :::
 
 ## Contact Me

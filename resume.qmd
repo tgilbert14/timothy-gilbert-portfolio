@@ -41,7 +41,7 @@ format: html
 
 ## Programming Projects
 
-<a href="projects.qmd" class="card card-projects">MY PROJECTS</a>
+<a href="projects.qmd" class="card card-projects">PROJECTS</a>
 
 ------------------------------------------------------------------------
 
@@ -70,5 +70,5 @@ This browser does not support PDFs. Please download the PDF to view it: <a href=
 
 ::: card-container
 
-<a> </a> <a href="about.qmd" class="card card-about">ABOUT ME</a> <a href="projects.qmd" class="card card-projects">MY PROJECTS</a> <a href="resume.qmd" class="card card-resume">RESUME/CV</a> <a href="dashboards.qmd" class="card card-visualizations">SHINY APPS</a>
+<a> </a> <a href="about.qmd" class="card card-about">ABOUT ME</a> <a href="dashboards.qmd" class="card card-visualizations">SHINY APPS</a> <a href="projects.qmd" class="card card-projects">PROJECTS</a> <a href="resume.qmd" class="card card-resume">RESUME/CV</a>
 :::
