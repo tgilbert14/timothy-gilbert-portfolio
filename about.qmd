@@ -5,7 +5,7 @@ format: html
 
 ------------------------------------------------------------------------
 
-I am an ecologist turned data scientist, or at least that is my ultimate dream. I currently work for the University of Arizona on a data collection application and spend most of my time developing R and Python applications for interactive data visualizations. I am currently finishing up my masters in Data Science.
+Hello! I'm an ecologist turned data scientist and my goal is to help manage ecological data. I currently work for the University of Arizona on a data collection application and spend most of my time developing R and Python applications for interactive data visualizations. I am currently finishing up my masters in Data Science.
 
 I started my career collecting ecological data (small mammal trapping, electro-fishing, plant diversity, ect.) with the National Ecological Observatory Network and started to teach myself to code there for fun. Eventually I moved into data applications and began to learn more and more, and creating more (which you can check out on my other pages here).
 

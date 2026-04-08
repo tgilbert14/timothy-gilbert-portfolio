@@ -30,9 +30,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "{ Tim Gilbert }",
+    "title": "",
     "section": "",
-    "text": "Data Scientist · Ecologist · IT Support Specialist\nWelcome to my digital portfolio! I’ve built this quarto portfolio to help showcase some of my coding skills and convey what I do. I specialize in building R Shiny applications and managing relational databases through various versions of SQL. I have a degree in Natural Resources and am currently finishing up my Data Science Masters."
+    "text": "Timothy Gilbert\nData Scientist · Ecologist · IT Support Specialist\nWelcome to my digital portfolio! I’ve built this quarto portfolio to help showcase some of my coding skills and convey what I do. I specialize in building R Shiny applications and managing relational databases through various versions of SQL. I have a degree in Natural Resources and am currently finishing up my Data Science Masters."
   },
   {
     "objectID": "index.html#currently-exploring",
@@ -44,7 +44,7 @@
   {
     "objectID": "index.html#contact-me",
     "href": "index.html#contact-me",
-    "title": "{ Tim Gilbert }",
+    "title": "",
     "section": "Contact Me",
     "text": "Contact Me\n\n📧 Email Me \n 🔗 My GitHub \n ☕ Buy me a coffee"
   },
@@ -156,9 +156,9 @@
   {
     "objectID": "index.html#fun-things-i-love-to-work-on",
     "href": "index.html#fun-things-i-love-to-work-on",
-    "title": "{ Tim Gilbert }",
+    "title": "",
     "section": "Fun things I love to work on…",
-    "text": "Fun things I love to work on…\n\nData entry applications with SQL back-end (local and web hosted)\nMachine learning for forecasting\nSports analytics and data visualization\nEcological data management and visualization\nCustom Web Scraping interactive tools"
+    "text": "Fun things I love to work on…\n\nSports analytics and data visualization\nData entry applications with SQL back-end (local and web hosted)\nEcological data management and visualization\nCustom Web Scraping interactive tools\nMachine learning for forecasting"
   },
   {
     "objectID": "about.html#ultra-running-snap-shot",
@@ -207,7 +207,7 @@
     "href": "dashboards.html#older-applications",
     "title": "{ Tim Gilbert }",
     "section": "Older Applications",
-    "text": "Older Applications\nUSFS Name Converter ⭆ Click for Stand Alone App\nWater Chemistry Analyte Viewer ⭆ Click for Stand Alone App\nClient Script Processer ⭆ Click for Stand Alone App\n\n\n  ABOUT ME SHINY APPS PROJECTS RESUME/CV"
+    "text": "Older Applications\nUSFS Name Converter ⭆ Click for Stand Alone App\nWater Chemistry Analyte Viewer ⭆ Click for Stand Alone App\n\n\n  ABOUT ME SHINY APPS PROJECTS RESUME/CV"
   },
   {
     "objectID": "projects.html#ncaa-sample-data-visualizations",
@@ -215,5 +215,26 @@
     "title": "{ Tim Gilbert }",
     "section": "NCAA Sample Data Visualizations",
     "text": "NCAA Sample Data Visualizations\n\nScripts to scrape recruiting data from multiple sports sites (e.g., 247Sports, On3) and visualize Big 12 football and basketball class rankings over time.\n\n⭆ Big 12 College Basketball Recruiting Class Grades from 2016-2025 ⬇️\n\n⭆ University of Arizona vs ASU Basketball Recruit Comparisons ⬇️"
+  },
+  {
+    "objectID": "index.html#some-of-my-favorite-visualizations",
+    "href": "index.html#some-of-my-favorite-visualizations",
+    "title": "{ Tim Gilbert }",
+    "section": "Some of my favorite visualizations",
+    "text": "Some of my favorite visualizations\n\nBig 12 Recruiting Distance Traveled by Recruits\n\n\n\nThis box plot examines how far football recruits travel to join Big 12 football programs and whether that distance changed in the most recent recruiting cycle. Each symbol represents the distance a recruit traveled from their high school to their college (indicated by the logos on the left). Circles represent recruits for the 2025 season, while x symbols represent recruits that have been targeted from earlier classes (2016- 2024 ). The plot is ordered from top to bottom by smallest median distance (thick black line in each box plot). Twenty-eight extreme outliers (~%1 of data) were excluded for clarity. Texas schools tend to draw recruits from shorter distances and have relatively low medians: Baylor(163 miles), Houston(179 miles) and TCU(221 miles). BYU, Arizona, Arizona State and Utah have higher medians ranging from 350-600 miles, largely driven by recruits from Hawaii. Overall, recruiting distance patterns appear relatively stable over time, with the 2025 class showing similar distance traveled to previous years. The one notable exception being UCF, which had no recruits from California in 2025.\n\n\n\n\nBig 12 Recruiting over Time (Table)\n\n\n\nThese tables summarize how recruiting talent has changed over time by region and position group. Players were assigned to regions based on the state where they attended high school. Recruits from outside the United States, as well as those who did not fall into selected position groups were excluded for clarity. Table A uses average player scores to assess how talent has changed over time. All regions showed increases in average scores for both position groups as seen by the darker colors in the more recent years. The Northeast recorded the highest average score in 2025 (89.3 ), although this reflects only three rated recruits for that year. Table B uses total counts of rated players to show talent changes in volume over time. The year 2025 was excluded because it does not represent a full three-year grouping. The Southwest and West had the most rated recruits (993 and 750 respectively) followed by the Southeast (616 ), Midwest (544 ) and Northeast (98 ). Overall, the number of rated recruits has declined over time while average ratings have increased which could be due to more selective recruiting and/or changes in how players have been rated over time.\n\n\n\n\nSolar Power Generation Change over Time\n\n\n\nThis faceted bar plot shows how total solar power generation has changed over the last six years. The year 2019 was chosen as the starting point because it marks the period when solar generation began increasing substantially. From 2019 to 2024, solar power generation rose across all selected countries, the largest being China, which increased from 224 TWh in 2019 to 839 TWh in 2024 (a 247% increase). In contrast, the second largest producer, the United States, increased from 107 TWh to 303 TWh over the same period (a 183% increase). The only change in ranking occurred in 2022 when India overtake Japan to become the third largest solar power generating country. Overall, total solar power generation has increased steadily over time.\n\n\n\n\nTop 10 CO2 Emitting Countries from Fossil Fuels\n\n\n\nThis bar plot shows the results of correctly vs incorrectly filtering the Ember Emissions data set to show examples of what should be filtered for, as well as what could happen if filtering is done incorrectly. The dark blue bars on the left show the data filtered correctly by units (mtCO2), category (Power sector emissions), variable (Gas and Other Fossil, Coal, Gas, Other Fossil) and subcategory not equal to “Aggregate fuel.” This was done because “Fuel” and “Aggregate fuel” overlap with each other for some countries. The yellow bars on the right shows the data incorrectly filtered (same filters for correct filter except not filtering for subcategory “Aggregate fuel”) which results in substantially higher total CO2 emissions. Each country was ranked from highest to lowest for each filter type. The correctly filtered data shows Germany as the 6th highest emitter of CO2 from fossil fuels, while the incorrectly filtered data shows Saudi Arabia as the 6th highest emitter."
+  },
+  {
+    "objectID": "index.html#top-10-co2-emitting-countries-from-fossil-fuels",
+    "href": "index.html#top-10-co2-emitting-countries-from-fossil-fuels",
+    "title": "{ Tim Gilbert }",
+    "section": "Top 10 CO2 Emitting Countries from Fossil Fuels",
+    "text": "Top 10 CO2 Emitting Countries from Fossil Fuels"
+  },
+  {
+    "objectID": "index.html#fun-data-visualizations",
+    "href": "index.html#fun-data-visualizations",
+    "title": "",
+    "section": "Fun Data Visualizations",
+    "text": "Fun Data Visualizations\n\nBig 12 Recruiting Distance Traveled by Recruits\n\n\n\nThis box plot examines how far football recruits travel to join Big 12 football programs and whether that distance changed in the most recent recruiting cycle. Each symbol represents the distance a recruit traveled from their high school to their college (indicated by the logos on the left). Circles represent recruits for the 2025 season, while x symbols represent recruits that have been targeted from earlier classes (2016- 2024 ). The plot is ordered from top to bottom by smallest median distance (thick black line in each box plot). Twenty-eight extreme outliers (~%1 of data) were excluded for clarity. Texas schools tend to draw recruits from shorter distances and have relatively low medians: Baylor(163 miles), Houston(179 miles) and TCU(221 miles). BYU, Arizona, Arizona State and Utah have higher medians ranging from 350-600 miles, largely driven by recruits from Hawaii. Overall, recruiting distance patterns appear relatively stable over time, with the 2025 class showing similar distance traveled to previous years. The one notable exception being UCF, which had no recruits from California in 2025.\n\n\n\n\nBig 12 Recruiting over Time (Table)\n\n\n\nThese tables summarize how recruiting talent has changed over time by region and position group. Players were assigned to regions based on the state where they attended high school. Recruits from outside the United States, as well as those who did not fall into selected position groups were excluded for clarity. Table A uses average player scores to assess how talent has changed over time. All regions showed increases in average scores for both position groups as seen by the darker colors in the more recent years. The Northeast recorded the highest average score in 2025 (89.3 ), although this reflects only three rated recruits for that year. Table B uses total counts of rated players to show talent changes in volume over time. The year 2025 was excluded because it does not represent a full three-year grouping. The Southwest and West had the most rated recruits (993 and 750 respectively) followed by the Southeast (616 ), Midwest (544 ) and Northeast (98 ). Overall, the number of rated recruits has declined over time while average ratings have increased which could be due to more selective recruiting and/or changes in how players have been rated over time.\n\n\n\n\nSolar Power Generation Change over Time\n\n\n\nThis faceted bar plot shows how total solar power generation has changed over the last six years. The year 2019 was chosen as the starting point because it marks the period when solar generation began increasing substantially. From 2019 to 2024, solar power generation rose across all selected countries, the largest being China, which increased from 224 TWh in 2019 to 839 TWh in 2024 (a 247% increase). In contrast, the second largest producer, the United States, increased from 107 TWh to 303 TWh over the same period (a 183% increase). The only change in ranking occurred in 2022 when India overtake Japan to become the third largest solar power generating country. Overall, total solar power generation has increased steadily over time.\n\n\n\n\nTop 10 CO2 Emitting Countries from Fossil Fuels\n\n\n\nThis bar plot shows the results of correctly vs incorrectly filtering the Ember Emissions data set to show examples of what should be filtered for, as well as what could happen if filtering is done incorrectly. The dark blue bars on the left show the data filtered correctly by units (mtCO2), category (Power sector emissions), variable (Gas and Other Fossil, Coal, Gas, Other Fossil) and subcategory not equal to “Aggregate fuel.” This was done because “Fuel” and “Aggregate fuel” overlap with each other for some countries. The yellow bars on the right shows the data incorrectly filtered (same filters for correct filter except not filtering for subcategory “Aggregate fuel”) which results in substantially higher total CO2 emissions. Each country was ranked from highest to lowest for each filter type. The correctly filtered data shows Germany as the 6th highest emitter of CO2 from fossil fuels, while the incorrectly filtered data shows Saudi Arabia as the 6th highest emitter."
   }
 ]

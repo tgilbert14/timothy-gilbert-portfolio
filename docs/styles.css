@@ -34,7 +34,7 @@
 }
 
 body {
-  background: linear-gradient(to right, rgb(13, 13, 86), rgb(1, 1, 118));
+  background: linear-gradient(to right, rgb(13, 13, 86), rgb(10, 10, 30));
   color: ivory;
   font-family: 'sans-serif', Arial, sans-serif;
 }
@@ -81,7 +81,7 @@ body {
 
 /* Individual card colors */
 .card-about {
-  background-color: lightsalmon;
+  background-color: turquoise;
 }
 
 .card-projects {
@@ -89,7 +89,7 @@ body {
 }
 
 .card-visualizations {
-  background-color: lightsalmon;
+  background-color: turquoise;
 }
 
 .card-resume {
@@ -125,7 +125,7 @@ body {
 
 /* Individual card colors */
 .contact-email {
-  background-color: lightsalmon;
+  background-color: turquoise;
 }
 
 .contact-git {
@@ -133,7 +133,7 @@ body {
 }
 
 .contact-coffee {
-  background-color: lightsalmon;
+  background-color: turquoise;
 }
 
 /* Individual contact hoover */
@@ -146,7 +146,7 @@ body {
    Exploring Section
    --------------------------------------------------- */
 .explore-text {
-  color: lightsalmon;
+  color: turquoise;
   margin-top: 1rem;
   background-color: rgb(28, 87, 121);
   padding: 1rem;
@@ -169,7 +169,7 @@ body {
 .viz-intro {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
-  color: lightsalmon;
+  color: turquoise;
 }
 
 .viz-intro {
@@ -225,7 +225,7 @@ body {
 .project-intro {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
-  color: lightsalmon;
+  color: turquoise;
 }
 
 .project-intro {
@@ -237,3 +237,7 @@ body {
   color: ivory;
 }
 */
+/*
+## color caption for images
+*/
+

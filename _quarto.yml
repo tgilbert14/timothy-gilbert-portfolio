@@ -3,25 +3,25 @@ project:
   output-dir: docs
 
 website:
-  title: "{ Tim Gilbert }"
+  title: ""
   favicon: assets/desertLeafShrimp.png
   navbar:
   
     left:
-      - text: Home
+      - text: '[Home]'
         href: index.qmd
         
-      - text: About
-        href: about.qmd
-        
-      - text: Shiny Apps
+      - text: '[Shiny Apps]'
         href: dashboards.qmd
         
-      - text: Other Projects
+      - text: '[Other Projects]'
         href: projects.qmd
 
     right:
-
+    
+      - text: '[About Me]'
+        href: about.qmd
+        
       - icon: github
         href: https://github.com/tgilbert14
         
