@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Tim Gilbert"
 format: html
 ---
 
@@ -7,10 +7,9 @@ format: html
 
 ------------------------------------------------------------------------
 
-**Timothy Gilbert**\
-*Data Scientist · Ecologist · IT Support Specialist*
+*Data Scientist · Ecologist · Founder of [Desert Data Labs](https://desertdatalabs.com/)*
 
-Welcome to my digital portfolio! I've built this quarto portfolio to help showcase some of my coding skills and convey what I do. I specialize in building R Shiny applications and managing relational databases through various versions of SQL. I have a degree in Natural Resources and am currently finishing up my Data Science Masters.
+Welcome to my digital portfolio! I'm a data scientist and ecologist specializing in R Shiny applications, relational databases, and custom data workflows. I hold a B.S. in Natural Resources and am completing my M.S. in Data Science at the University of Arizona. I also run [**Desert Data Labs LLC**](https://desertdatalabs.com/) — a small consulting studio that builds data collection apps, dashboards, and automation tools for environmental consultants, university labs, and small businesses.
 
 ------------------------------------------------------------------------
 

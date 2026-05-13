@@ -3,6 +3,20 @@ title: "Résumé/CV"
 format: html
 ---
 
+### *Founder & Lead Developer*
+
+**Desert Data Labs LLC \| Tucson, AZ**
+
+*2025--Present / Owner*
+
+-   Founded an independent data and technology consulting studio serving environmental consultants, university research labs, and small businesses
+
+-   Designs and delivers end-to-end data solutions: custom R Shiny and Python web apps, SQL/SQLite database architecture, ETL pipelines, automated reporting, and interactive dashboards
+
+-   Clients include USFS rangeland crews, NEON researchers, and university analysts; see [desertdatalabs.com](https://desertdatalabs.com/) for case studies
+
+------------------------------------------------------------------------
+
 ### *IT Computing Analyst I-III*
 
 **University of Arizona -- VGS Project \| Tucson, AZ**

@@ -98,7 +98,8 @@ body {
 
 /* contacts for HOME */
 .contact-container {
-  display: box;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: left;
   gap: 12px;
   padding: 12px 0;
@@ -240,4 +241,3 @@ body {
 /*
 ## color caption for images
 */
-

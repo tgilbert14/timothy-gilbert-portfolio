@@ -8,18 +8,18 @@ website:
   navbar:
   
     left:
-      - text: '[Home]'
+      - text: 'Home'
         href: index.qmd
         
-      - text: '[Shiny Apps]'
+      - text: 'Shiny Apps'
         href: dashboards.qmd
         
-      - text: '[Other Projects]'
+      - text: 'Other Projects'
         href: projects.qmd
 
     right:
     
-      - text: '[About Me]'
+      - text: 'About Me'
         href: about.qmd
         
       - icon: github
@@ -32,7 +32,10 @@ website:
         href: resume.qmd
         
       - icon: linkedin
-        href: www.linkedin.com/in/tgilbert14
+        href: https://www.linkedin.com/in/tgilbert14
+
+      - text: '🌵'
+        href: https://desertdatalabs.com/
         
       - icon: instagram
         href: https://www.instagram.com/timbogilbert/
