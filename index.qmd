@@ -1,37 +1,158 @@
 ---
-title: "Tim Gilbert"
-format: html
+title: ""
+pagetitle: "Tim Gilbert — Data Scientist & Ecologist"
+format:
+  html:
+    toc: false
+    page-layout: full
 ---
 
-<img src="assets/tim_gc.jpg" class="intro-image"/>
+```{=html}
+<section class="hero">
+  <span class="eyebrow">Data Scientist · Ecologist · Founder</span>
+  <div class="hero-avatar"><img src="assets/tim_gc.jpg" alt="Tim Gilbert"></div>
+  <h1>Turning <span class="accent">messy field data</span> into decisions.</h1>
+  <p class="lede">I build R&nbsp;Shiny apps, relational databases, and custom data workflows for environmental consultants, university labs, and small businesses. Ecologist by training, data engineer by trade.</p>
+  <div class="cta-row">
+    <a class="tg-btn tg-btn-primary" href="dashboards.qmd">Explore my apps</a>
+    <a class="tg-btn tg-btn-ghost" href="field-notes.qmd">Field notes</a>
+    <a class="tg-btn tg-btn-salmon" href="https://desertdatalabs.com/" target="_blank" rel="noopener">Desert Data Labs ↗</a>
+  </div>
+</section>
+```
 
-------------------------------------------------------------------------
-
-*Data Scientist · Ecologist · Founder of [Desert Data Labs](https://desertdatalabs.com/)*
-
-Welcome to my digital portfolio! I'm a data scientist and ecologist specializing in R Shiny applications, relational databases, and custom data workflows. I hold a B.S. in Natural Resources and am completing my M.S. in Data Science at the University of Arizona. I also run [**Desert Data Labs LLC**](https://desertdatalabs.com/) — a small consulting studio that builds data collection apps, dashboards, and automation tools for environmental consultants, university labs, and small businesses.
-
-------------------------------------------------------------------------
+::: {.tg-section style="padding-top:1rem;"}
+Welcome to my digital portfolio. I'm a data scientist and ecologist specializing in R Shiny applications, relational databases, and custom data workflows. I hold a B.S. in Natural Resources and am completing my M.S. in Data Science at the University of Arizona. I also run [**Desert Data Labs LLC**](https://desertdatalabs.com/) — a small consulting studio that builds data-collection apps, dashboards, and automation tools for environmental consultants, university labs, and small businesses.
 
 ::: card-container
-<a> </a> <a href="about.qmd" class="card card-about">ABOUT ME</a> <a href="dashboards.qmd" class="card card-visualizations">SHINY APPS</a> <a href="projects.qmd" class="card card-projects">PROJECTS</a> <a href="resume.qmd" class="card card-resume">RESUME/CV</a>
+<a></a>
+<a href="about.qmd" class="card card-about">ABOUT ME</a>
+<a href="dashboards.qmd" class="card card-visualizations">SHINY APPS</a>
+<a href="projects.qmd" class="card card-projects">PROJECTS</a>
+<a href="resume.qmd" class="card card-resume">RESUME/CV</a>
 :::
 
-------------------------------------------------------------------------
-
-::: explore-text
-## Fun things I love to work on...
+::: {.explore-text .reveal}
+## Fun things I love to work on…
 
 -   *Sports analytics and data visualization*
--   *Data entry applications with SQL back-end (local and web hosted)*
+-   *Data-entry applications with a SQL back-end (local and web-hosted)*
 -   *Ecological data management and visualization*
--   *Custom Web Scraping interactive tools*
+-   *Custom web-scraping interactive tools*
 -   *Machine learning for forecasting*
 :::
+:::
 
-## Fun Data Visualizations
+::: {.tg-section .reveal}
+```{=html}
+<section class="field-parallax">
+  <div class="fp-viewport"><img data-parallax="0.16" src="assets/photos/field-rangeland-walk.jpg" alt="Rangeland fieldwork in Arizona"></div>
+  <div class="fp-overlay">
+    <span class="eyebrow">From the field</span>
+    <h2>The work behind the data</h2>
+    <p>Before the dashboards, there was a lot of dirt — years of rangeland and desert fieldwork around Arizona, plus a wall of the plants I met along the way.</p>
+    <a class="tg-btn tg-btn-primary" href="field-notes.qmd">Open the field wall →</a>
+  </div>
+</section>
 
-### Big 12 Recruiting Distance Traveled by Recruits
+<div class="field-grid" style="margin-top:1rem;">
+  <figure class="field-shot"><img src="assets/photos/field-transect-collection.jpg" alt="Collecting transect data" loading="lazy"><figcaption>Transect data collection</figcaption></figure>
+  <figure class="field-shot"><img src="assets/photos/field-veg-survey.jpg" alt="Vegetation survey" loading="lazy"><figcaption>Vegetation survey</figcaption></figure>
+  <figure class="field-shot"><img src="assets/photos/field-crew.jpg" alt="Field crew" loading="lazy"><figcaption>The crew</figcaption></figure>
+  <figure class="field-shot"><img src="assets/photos/field-fenceline-monitoring.jpg" alt="Fenceline contrast monitoring" loading="lazy"><figcaption>Fenceline monitoring</figcaption></figure>
+</div>
+```
+:::
+
+::: {.tg-section .reveal}
+::: section-label
+Design & motion
+:::
+
+```{=html}
+<div class="sprout-section">
+  <div class="sprout-copy">
+    <h3>I design &amp; hand-animate things, too</h3>
+    <p>Not just dashboards. This is <strong>Sprout</strong> — a brand mark I designed and animated in pure SVG&nbsp;+&nbsp;CSS for Desert Data Labs. No images, no libraries; every vine draws itself and the leaves unfurl. <em>Hover or tap it to watch it grow.</em></p>
+  </div>
+  <div class="sprout-stage">
+    <span class="sprout-kicker">Brand mark · SVG + CSS</span>
+    <button class="logo" type="button" aria-label="Sprout logo — a seedling that grows when you hover or focus it">
+      <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <g id="leaf">
+            <path d="M0 0 C 9 -13 26 -16 38 -3 C 30 6 14 12 0 0 Z" fill="var(--leaf)"/>
+            <path d="M2 -1 C 13 -5 23 -6 33 -4" fill="none" stroke="#2a4f33" stroke-width="1.3" stroke-linecap="round" opacity=".5"/>
+          </g>
+          <radialGradient id="discFill" cx="50%" cy="38%" r="70%">
+            <stop offset="0%" stop-color="#fbf7ec"/>
+            <stop offset="70%" stop-color="#efe7d4"/>
+            <stop offset="100%" stop-color="#e4d8bd"/>
+          </radialGradient>
+        </defs>
+        <g stroke-linejoin="round">
+          <g class="v1">
+            <path class="stem" pathLength="1" d="M120 150 C 78.1 120.0 43.6 117.4 26.8 93.7"/>
+            <g class="sprout-leaf"><use href="#leaf" xlink:href="#leaf" transform="translate(50.5 112.9) rotate(-196.9) scale(0.92)"/></g>
+            <g class="sprout-leaf"><use href="#leaf" xlink:href="#leaf" transform="translate(33.6 101.4) rotate(-147.3) scale(0.74)"/></g>
+            <circle class="tip" cx="26.8" cy="93.7" r="5" fill="var(--sun)"/>
+          </g>
+          <g class="v2">
+            <path class="stem" pathLength="1" d="M120 150 C 89.4 120.0 64.2 94.0 51.9 53.5"/>
+            <g class="sprout-leaf"><use href="#leaf" xlink:href="#leaf" transform="translate(63.4 81.5) rotate(-169.1) scale(0.92)"/></g>
+            <g class="sprout-leaf"><use href="#leaf" xlink:href="#leaf" transform="translate(56.9 67.5) rotate(-120.2) scale(0.74)"/></g>
+            <circle class="tip" cx="51.9" cy="53.5" r="5" fill="var(--leaf-2)"/>
+          </g>
+          <g class="v3">
+            <path class="stem" pathLength="1" d="M120 150 C 108.6 120.0 99.2 80.0 94.6 29.3"/>
+            <g class="sprout-leaf"><use href="#leaf" xlink:href="#leaf" transform="translate(97.9 58.5) rotate(-134.6) scale(0.92)"/></g>
+            <g class="sprout-leaf"><use href="#leaf" xlink:href="#leaf" transform="translate(96.5 47.1) rotate(-89.0) scale(0.74)"/></g>
+            <circle class="tip" cx="94.6" cy="29.3" r="5" fill="var(--sun)"/>
+          </g>
+          <g class="v4">
+            <path class="stem" pathLength="1" d="M120 150 C 131.4 120.0 140.8 80.0 145.4 29.3"/>
+            <g class="sprout-leaf"><use href="#leaf" xlink:href="#leaf" transform="translate(142.1 58.5) rotate(-97.4) scale(0.92)"/></g>
+            <g class="sprout-leaf"><use href="#leaf" xlink:href="#leaf" transform="translate(143.5 47.1) rotate(-55.0) scale(0.74)"/></g>
+            <circle class="tip" cx="145.4" cy="29.3" r="5" fill="var(--leaf-2)"/>
+          </g>
+          <g class="v5">
+            <path class="stem" pathLength="1" d="M120 150 C 150.6 120.0 175.8 94.0 188.1 53.5"/>
+            <g class="sprout-leaf"><use href="#leaf" xlink:href="#leaf" transform="translate(176.6 81.5) rotate(-62.9) scale(0.92)"/></g>
+            <g class="sprout-leaf"><use href="#leaf" xlink:href="#leaf" transform="translate(183.1 67.5) rotate(-23.8) scale(0.74)"/></g>
+            <circle class="tip" cx="188.1" cy="53.5" r="5" fill="var(--sun)"/>
+          </g>
+          <g class="v6">
+            <path class="stem" pathLength="1" d="M120 150 C 161.9 120.0 196.4 117.4 213.2 93.7"/>
+            <g class="sprout-leaf"><use href="#leaf" xlink:href="#leaf" transform="translate(189.5 112.9) rotate(-35.1) scale(0.92)"/></g>
+            <g class="sprout-leaf"><use href="#leaf" xlink:href="#leaf" transform="translate(206.4 101.4) rotate(3.3) scale(0.74)"/></g>
+            <circle class="tip" cx="213.2" cy="93.7" r="5" fill="var(--leaf-2)"/>
+          </g>
+        </g>
+        <g class="disc">
+          <circle cx="120" cy="124" r="54" fill="url(#discFill)" stroke="#d8cbac" stroke-width="2"/>
+          <circle cx="120" cy="124" r="46" fill="none" stroke="#cdbf9d" stroke-width="1" opacity=".6"/>
+          <path d="M96 150 Q120 164 144 150 Q120 176 96 150 Z" fill="#caa86f" opacity=".55"/>
+          <ellipse cx="120" cy="148" rx="8" ry="6" fill="var(--seed)"/>
+          <path d="M120 148 C 120 135 120 121 120 107" fill="none" stroke="var(--moss)" stroke-width="5" stroke-linecap="round"/>
+          <g class="core-leaf l"><path d="M120 130 C 107 123 97 110 99 95 C 112 99 121 113 120 130 Z" fill="var(--leaf)"/></g>
+          <g class="core-leaf r"><path d="M120 127 C 133 118 142 105 140 91 C 127 95 118 110 120 127 Z" fill="var(--leaf-2)"/></g>
+          <circle cx="120" cy="93" r="4" fill="var(--sun)"/>
+        </g>
+      </svg>
+    </button>
+    <div class="sprout-word">Spr<em>ou</em>t</div>
+    <div class="sprout-tag">grow what you love</div>
+  </div>
+</div>
+```
+:::
+
+::: {.tg-section .reveal}
+::: section-label
+Fun data visualizations
+:::
+
+### Big 12 Recruiting — Distance Traveled by Recruits
 
 ![This box plot examines how far football recruits travel to join Big 12 football programs and whether that distance changed in the most recent recruiting cycle. Each symbol represents the distance a recruit traveled from their high school to their college (indicated by the logos on the left). Circles represent recruits for the 2025 season, while x symbols represent recruits that have been targeted from earlier classes (2016- 2024 ). The plot is ordered from top to bottom by smallest median distance (thick black line in each box plot). Twenty-eight extreme outliers (\~%1 of data) were excluded for clarity. Texas schools tend to draw recruits from shorter distances and have relatively low medians: Baylor(163 miles), Houston(179 miles) and TCU(221 miles). BYU, Arizona, Arizona State and Utah have higher medians ranging from 350-600 miles, largely driven by recruits from Hawaii. Overall, recruiting distance patterns appear relatively stable over time, with the 2025 class showing similar distance traveled to previous years. The one notable exception being UCF, which had no recruits from California in 2025.](assets/distance.png)
 
@@ -43,20 +164,17 @@ Welcome to my digital portfolio! I'm a data scientist and ecologist specializing
 
 ![This faceted bar plot shows how total solar power generation has changed over the last six years. The year 2019 was chosen as the starting point because it marks the period when solar generation began increasing substantially. From 2019 to 2024, solar power generation rose across all selected countries, the largest being China, which increased from 224 TWh in 2019 to 839 TWh in 2024 (a 247% increase). In contrast, the second largest producer, the United States, increased from 107 TWh to 303 TWh over the same period (a 183% increase). The only change in ranking occurred in 2022 when India overtake Japan to become the third largest solar power generating country. Overall, total solar power generation has increased steadily over time.](assets/solar.png)
 
-### Top 10 CO2 Emitting Countries from Fossil Fuels
+### Top 10 CO₂-Emitting Countries from Fossil Fuels
 
-![This bar plot shows the results of correctly vs incorrectly filtering the Ember Emissions data set to show examples of what should be filtered for, as well as what could happen if filtering is done incorrectly. The dark blue bars on the left show the data filtered correctly by units (mtCO2), category (Power sector emissions), variable (Gas and Other Fossil, Coal, Gas, Other Fossil) and subcategory not equal to “Aggregate fuel.” This was done because “Fuel” and “Aggregate fuel” overlap with each other for some countries. The yellow bars on the right shows the data incorrectly filtered (same filters for correct filter except not filtering for subcategory “Aggregate fuel”) which results in substantially higher total CO2 emissions. Each country was ranked from highest to lowest for each filter type. The correctly filtered data shows Germany as the 6th highest emitter of CO2 from fossil fuels, while the incorrectly filtered data shows Saudi Arabia as the 6th highest emitter.](assets/co2.png)
+![This bar plot shows the results of correctly vs incorrectly filtering the Ember Emissions data set to show examples of what should be filtered for, as well as what could happen if filtering is done incorrectly. The dark blue bars on the left show the data filtered correctly by units (mtCO2), category (Power sector emissions), variable (Gas and Other Fossil, Coal, Gas, Other Fossil) and subcategory not equal to "Aggregate fuel." This was done because "Fuel" and "Aggregate fuel" overlap with each other for some countries. The yellow bars on the right shows the data incorrectly filtered (same filters for correct filter except not filtering for subcategory "Aggregate fuel") which results in substantially higher total CO2 emissions. Each country was ranked from highest to lowest for each filter type. The correctly filtered data shows Germany as the 6th highest emitter of CO2 from fossil fuels, while the incorrectly filtered data shows Saudi Arabia as the 6th highest emitter.](assets/co2.png)
+:::
 
+::: {.tg-section .reveal}
 ## Contact Me
 
 ::: contact-container
-<a href="mailto:tsgilbert@arizona.edu" class="contact email">📧 Email Me </a>
-
-<a href="https://github.com/tgilbert14" class="contact git"> 🔗 My GitHub </a>
-
-<a href="https://www.buymeacoffee.com/tgilbert14" class="contact coffee"> ☕ Buy me a coffee </a>
+<a href="mailto:tsgilbert@arizona.edu" class="contact email">📧 Email me</a>
+<a href="https://github.com/tgilbert14" class="contact git">🔗 My GitHub</a>
+<a href="https://www.buymeacoffee.com/tgilbert14" class="contact coffee">☕ Buy me a coffee</a>
 :::
-
-<!-- 📧 [tsgilbert\@arizona.edu](mailto:tsgilbert@arizona.edu)\ -->
-
-<!-- 🔗 [GitHub](https://github.com/tgilbert14) -->
+:::

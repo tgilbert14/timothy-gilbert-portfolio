@@ -1,0 +1,139 @@
+---
+title: ""
+pagetitle: "Field Notes — Tim Gilbert"
+description: "A few years of Arizona rangeland & desert fieldwork."
+format:
+  html:
+    toc: false
+    page-layout: full
+---
+
+::: {.tg-section .reveal}
+<span class="eyebrow">From the field</span>
+
+# Field Notes {.section-title}
+
+::: section-subtitle
+Before the dashboards and databases, there was a lot of dirt. A few years of
+rangeland and desert fieldwork from around Arizona — small-mammal trapping,
+electro-fishing, vegetation transects, and the plants I met along the way.
+:::
+
+```{=html}
+<div class="field-grid">
+  <figure class="field-shot"><img src="assets/photos/field-rangeland-walk.jpg" alt="Walking a rangeland site" loading="lazy"><figcaption>Walking a site</figcaption></figure>
+  <figure class="field-shot"><img src="assets/photos/field-transect-collection.jpg" alt="Collecting transect data" loading="lazy"><figcaption>Transect data collection</figcaption></figure>
+  <figure class="field-shot"><img src="assets/photos/field-veg-survey.jpg" alt="Vegetation survey" loading="lazy"><figcaption>Vegetation survey</figcaption></figure>
+  <figure class="field-shot"><img src="assets/photos/field-crew.jpg" alt="Field crew" loading="lazy"><figcaption>The crew</figcaption></figure>
+  <figure class="field-shot"><img src="assets/photos/field-fenceline-monitoring.jpg" alt="Fenceline contrast monitoring" loading="lazy"><figcaption>Fenceline monitoring</figcaption></figure>
+  <figure class="field-shot"><img src="assets/photos/field-grazing.jpg" alt="Grazing and utilization" loading="lazy"><figcaption>Grazing &amp; utilization</figcaption></figure>
+</div>
+```
+:::
+
+::: {.wall-wrap .reveal}
+::: section-label
+The plant wall · 90 photos · tap any to enlarge
+:::
+
+```{=html}
+<div class="plant-wall">
+  <img src="assets/photos/plants/14CD1D5F-67A0-48D3-A5FB-FCE3B86C7A4F.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_3671.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8675.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_0951.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8441.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/A26A68DE-0564-4561-8709-B6560A35F21E.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_6280.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_9588.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_1984.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8626.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_0123.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_6585.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_9663.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_2815.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8661.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_0726.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_7053.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/PXL_20220111_170743333.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_3564.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8673.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_0950.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8440.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/20200724_112255_Original.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_5091.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8934.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_1752.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8624.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_0110.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_6582.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_9660.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_2153.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8656.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_0607.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_6596.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_9951.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_2990.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8672.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_0782.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8431.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/20200724_102335_Original.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_4095.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8923.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_1734.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8621.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_0100.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_6516.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_9654.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_2033.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8655.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_0317.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_6589.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_9759.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_2967.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8670.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_0773.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8426.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/20200511_074223.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_3834.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8696.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_1603.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8452.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_0068.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_6481.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_9626.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_1994.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8651.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_0168.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_6588.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_9691.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_2966.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8668.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_0770.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8224.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/20181211_095441_Original.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_3832.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8678.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_0959.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8451.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/F3348040-6DD8-4E1E-A221-A1BDF765BF38.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_6479.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_9589.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_1988.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8629.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_0126.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_6587.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_9675.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_2916.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8667.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_0766.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+  <img src="assets/photos/plants/IMG_8216.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy">
+</div>
+```
+:::
+
+::: {.tg-section .reveal}
+::: {style="text-align:center;"}
+<a href="index.qmd" class="tg-btn tg-btn-ghost">← Back home</a>  <a href="dashboards.qmd" class="tg-btn tg-btn-primary">See what I built with this data →</a>
+:::
+:::

@@ -9,12 +9,15 @@ Welcome! This repository contains the source code and content for my Quarto-base
 ## 📁 Structure
 
 - `_quarto.yml` – Site configuration: navigation, styling, metadata
-- `index.qmd` – Homepage with mission statement and clickable feature cards
+- `index.qmd` – Homepage: animated hero, feature cards, field-photo band, data-viz gallery
 - `about.qmd` – Overview of my professional journey and interests
-- `projects.qmd` – Featured dashboards, apps, and automation tools
-- `visualizations.qmd` – Maps, time-series plots, and ecological data stories
+- `dashboards.qmd` – Featured Shiny apps
+- `projects.qmd` – Other apps, scripts, and automation tools
+- `field-notes.qmd` – Arizona fieldwork: photo band + masonry "plant wall" (lightbox)
 - `resume.qmd` – Embedded résumé with highlights and download link
-- `assets/` – All images, icons, and PDF files
+- `styles.css` – Custom navy "desert night" theme layered on Quarto's flatly
+- `_foot.html` – Site-wide JS: scroll reveals, parallax, plant-wall lightbox
+- `assets/` – All images (incl. `assets/photos/`), icons, and PDF files
 
 ## ⚙️ Tech Stack
 

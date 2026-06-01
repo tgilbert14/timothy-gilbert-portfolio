@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>about</title>
+<title>about – Tim Gilbert</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,7 +24,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -79,6 +78,14 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/desertLeafShrimp.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Tim Gilbert</span>
+    </a>
+  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -87,21 +94,25 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./index.html"> 
-<span class="menu-text">[Home]</span></a>
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./dashboards.html"> 
-<span class="menu-text">[Shiny Apps]</span></a>
+<span class="menu-text">Shiny Apps</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./projects.html"> 
-<span class="menu-text">[Other Projects]</span></a>
+<span class="menu-text">Other Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./field-notes.html"> 
+<span class="menu-text">Field Notes</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./about.html" aria-current="page"> 
-<span class="menu-text">[About Me]</span></a>
+<span class="menu-text">About Me</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/tgilbert14"> <i class="bi bi-github" role="img">
@@ -210,6 +221,138 @@ ul.task-list li input[type="checkbox"] {
 </section>
 
 </main> <!-- /main -->
+<!-- Site-wide motion: scroll reveal, parallax, plant-wall lightbox.
+     Injected on every page via _quarto.yml include-after-body. -->
+<script>
+(function () {
+  // Mark JS as available so CSS can safely hide .reveal elements
+  // (no-JS users keep everything visible).
+  document.documentElement.classList.add('js');
+
+  var reduce = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Scroll reveal ----------
+     Plain scroll/resize/load handler (input-driven, works everywhere)
+     plus a safety timer so content is NEVER stranded hidden if scroll
+     events somehow never fire. Avoids depending on IntersectionObserver. */
+  var reveals = [].slice.call(document.querySelectorAll('.reveal'));
+  if (reduce) {
+    reveals.forEach(function (el) { el.classList.add('is-visible'); });
+  } else {
+    var revealInView = function () {
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      for (var i = reveals.length - 1; i >= 0; i--) {
+        if (reveals[i].getBoundingClientRect().top < vh * 0.88) {
+          reveals[i].classList.add('is-visible');
+          reveals.splice(i, 1);
+        }
+      }
+    };
+    revealInView();
+    window.addEventListener('scroll', revealInView, { passive: true });
+    window.addEventListener('resize', revealInView, { passive: true });
+    window.addEventListener('load', revealInView);
+    // Last-resort safety: reveal everything after a few seconds no matter what.
+    setTimeout(function () {
+      reveals.forEach(function (el) { el.classList.add('is-visible'); });
+    }, 3500);
+  }
+
+  /* ---------- Sprout brand mark: auto-play once when scrolled into view ---------- */
+  var sprout = document.querySelector('.sprout-stage');
+  if (sprout && !reduce) {
+    var played = false;
+    var maybePlay = function () {
+      if (played) return;
+      var r = sprout.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      if (r.top < vh * 0.8 && r.bottom > 0) {
+        played = true;
+        sprout.classList.add('grow');
+        setTimeout(function () { sprout.classList.remove('grow'); }, 2600);
+        window.removeEventListener('scroll', maybePlay);
+      }
+    };
+    maybePlay();
+    window.addEventListener('scroll', maybePlay, { passive: true });
+  }
+
+  /* ---------- Parallax ---------- */
+  if (!reduce) {
+    var pxEls = [].slice.call(document.querySelectorAll('[data-parallax]'));
+    if (pxEls.length) {
+      var ticking = false;
+      var run = function () {
+        var vh = window.innerHeight;
+        pxEls.forEach(function (el) {
+          var r = el.getBoundingClientRect();
+          if (r.bottom < -200 || r.top > vh + 200) return;
+          var speed = parseFloat(el.getAttribute('data-parallax')) || 0.15;
+          var offset = (r.top + r.height / 2 - vh / 2) * -speed;
+          el.style.transform = 'translate3d(0,' + offset.toFixed(1) + 'px,0)';
+        });
+        ticking = false;
+      };
+      var onScroll = function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(run); }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      run();
+    }
+  }
+
+  /* ---------- Lightbox (plant wall + any .lightboxable image) ---------- */
+  var imgs = [].slice.call(document.querySelectorAll('.plant-wall img, .lightboxable'));
+  if (imgs.length) {
+    var ov = document.createElement('div');
+    ov.className = 'lightbox';
+    ov.setAttribute('role', 'dialog');
+    ov.setAttribute('aria-label', 'Photo viewer');
+    ov.innerHTML =
+      '<button class="lb-close" aria-label="Close (Esc)">×</button>' +
+      '<button class="lb-nav lb-prev" aria-label="Previous">‹</button>' +
+      '<img alt="">' +
+      '<button class="lb-nav lb-next" aria-label="Next">›</button>';
+    document.body.appendChild(ov);
+
+    var lbImg = ov.querySelector('img');
+    var idx = 0;
+
+    function show(i) {
+      idx = (i + imgs.length) % imgs.length;
+      lbImg.src = imgs[idx].currentSrc || imgs[idx].src;
+      lbImg.alt = imgs[idx].alt || '';
+      ov.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function hide() {
+      ov.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    imgs.forEach(function (im, i) {
+      im.addEventListener('click', function () { show(i); });
+    });
+    ov.addEventListener('click', function (e) {
+      if (e.target === ov || e.target.classList.contains('lb-close')) hide();
+    });
+    ov.querySelector('.lb-prev').addEventListener('click', function (e) {
+      e.stopPropagation(); show(idx - 1);
+    });
+    ov.querySelector('.lb-next').addEventListener('click', function (e) {
+      e.stopPropagation(); show(idx + 1);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (!ov.classList.contains('open')) return;
+      if (e.key === 'Escape') hide();
+      else if (e.key === 'ArrowLeft') show(idx - 1);
+      else if (e.key === 'ArrowRight') show(idx + 1);
+    });
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

@@ -3,54 +3,57 @@ project:
   output-dir: docs
 
 website:
-  title: ""
+  title: "Tim Gilbert"
   favicon: assets/desertLeafShrimp.png
   navbar:
-  
+    logo: assets/desertLeafShrimp.png
+    pinned: true
+
     left:
       - text: 'Home'
         href: index.qmd
-        
+
       - text: 'Shiny Apps'
         href: dashboards.qmd
-        
+
       - text: 'Other Projects'
         href: projects.qmd
 
+      - text: 'Field Notes'
+        href: field-notes.qmd
+
     right:
-    
+
       - text: 'About Me'
         href: about.qmd
-        
+
       - icon: github
         href: https://github.com/tgilbert14
-        
+
       - icon: envelope
         href: mailto:tsgilbert@arizona.edu
-        
+
       - text: CV
         href: resume.qmd
-        
+
       - icon: linkedin
         href: https://www.linkedin.com/in/tgilbert14
 
       - text: '🌵'
         href: https://desertdatalabs.com/
-        
+
       - icon: instagram
         href: https://www.instagram.com/timbogilbert/
-        
+
       - icon: heart
         href: https://www.buymeacoffee.com/tgilbert14
-        
+
       - icon: gift
         href: https://account.venmo.com/u/tsgilbert
-
-        
-        
 
 format:
   html:
     theme: flatly
     css: styles.css
     toc: true
+    include-after-body: _foot.html
