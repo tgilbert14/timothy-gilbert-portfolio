@@ -30,23 +30,51 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Turning messy field data into decisions.",
+    "title": "Timothy Gilbert",
     "section": "",
     "text": "Data Scientist · Ecologist · Founder\n  \n  \n  I build R Shiny apps, relational databases, and custom data workflows for environmental consultants, university labs, and small businesses. Ecologist by training, data engineer by trade.\n  \n    Explore my apps\n    Field notes\n    Desert Data Labs ↗"
   },
   {
     "objectID": "index.html#fun-things-i-love-to-work-on",
     "href": "index.html#fun-things-i-love-to-work-on",
-    "title": "Turning messy field data into decisions.",
+    "title": "Timothy Gilbert",
     "section": "Fun things I love to work on…",
     "text": "Fun things I love to work on…\n\nSports analytics and data visualization\nData-entry applications with a SQL back-end (local and web-hosted)\nEcological data management and visualization\nCustom web-scraping interactive tools\nMachine learning for forecasting"
   },
   {
     "objectID": "index.html#contact-me",
     "href": "index.html#contact-me",
-    "title": "Turning messy field data into decisions.",
+    "title": "Timothy Gilbert",
     "section": "Contact Me",
-    "text": "Contact Me\n\n📧 Email me 🔗 My GitHub ☕ Buy me a coffee"
+    "text": "Contact Me\n\n  Email me\n  My GitHub\n  Buy me a coffee"
+  },
+  {
+    "objectID": "ecoplot.html",
+    "href": "ecoplot.html",
+    "title": "EcoPlot Mobile",
+    "section": "",
+    "text": "Flagship · Field data platform\n  EcoPlot Mobile\n  An offline-first app for collecting vegetation & ecological data in the field — then syncing it to a hosted database and turning it into reports. I architect and build it as the flagship platform for Desert Data Labs.\n  \n    Open the live app ↗\n    Office Portal demo ↗\n  \n\n\nThe successor to a decade of desktop rangeland-monitoring tools — rebuilt as a modern Progressive Web App so a field crew can collect data on a phone with no signal, an office analyst can review it from a desk, and a rancher or agency can get a report out the other end. Built on Azure, it runs in the browser on any device with no installer and no app store.\n\n\n\nWhat it does\n\n\n  Works fully offlineCollect deep in the backcountry with no signal — everything is stored on-device and syncs once you're back online. No dropped data.\n  Any device, no app storeIt's a PWA — runs in the browser on iOS, Android, tablet and desktop. Nothing to install, nothing to keep updated.\n  Syncs to the cloudOffline edits reconcile to a managed Azure SQL database — with delete propagation, delta downloads and concurrent-edit detection.\n  Built-in & custom protocolsFrequency, Line-Point Intercept, Cover, Dry-Weight Rank, Clipping / Production, Height — or build your own protocol from scratch.\n  Fast species entryA search box plus a \"bubble picker\" that resizes by frequency; color by growth habit, duration or native status; add qualifiers on the fly.\n  Photos, GPS & mapsGeotagged photos, site maps with live fire perimeters and land-ownership overlays, offline map tiles and marker clustering.\n  Office Data PortalA read-only desk companion: frequency trends over time, top-species charts, a site map and a filterable data inventory.\n  Reports & exportsProduction / stocking-rate and species PDFs, plus tidy long-format CSV exports ready to drop into R or Excel.\n  Multi-tenant & secureEach client gets an isolated database; per-workspace membership gating keeps every organization's data separated.\n\n\n\n\nFrom field to report\n\n\n  1CollectA crew taps through samples in the field — offline, one thumb, bad lighting.\n  2SyncBack on signal, edits reconcile to the hosted Azure SQL database.\n  3ReviewA PI, forester or ranch manager opens the Office Portal from a desk.\n  4ReportExport permit-ready PDFs and tidy CSVs — the deliverable, not raw data.\n\n\n\n\nA look inside\n\n\n  Collecting Line-Point Intercept data\n  Frequency collection — the bubble picker\n  Site view\n  Building a custom protocol\n  Workspace & event setup\n\n\n\n\nUnder the hood\n\n\n  Progressive Web App\n  Offline-first\n  Service Worker\n  IndexedDB\n  Azure Static Web Apps\n  Azure SQL\n  Azure Functions\n  Blob Storage (photos)\n  Leaflet maps\n  Multi-tenant\n\n\nTry the frequency demo ↗ See the fieldwork behind it →"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Tim Gilbert",
+    "section": "",
+    "text": "Hello! I’m an ecologist turned data scientist and the founder of Desert Data Labs LLC - a small consulting studio based in Tucson that builds data collection apps, dashboards, and automation tools for environmental consultants, nonprofits, and research teams. I also work for the University of Arizona on a data collection application and spend most of my time developing R and Python applications for interactive data visualizations. I am currently finishing up my masters in Data Science.\nI started my career collecting ecological data (small mammal trapping, electro-fishing, plant diversity, ect.) with the National Ecological Observatory Network and started to teach myself to code there for fun. Eventually I moved into data applications and began to learn more and more, and creating more (which you can check out on my other pages here).\nI also love the desert, hiking/running and spending time with my loved ones…"
+  },
+  {
+    "objectID": "about.html#ultra-running-snap-shot",
+    "href": "about.html#ultra-running-snap-shot",
+    "title": "Tim Gilbert",
+    "section": "Ultra Running Snap Shot",
+    "text": "Ultra Running Snap Shot"
+  },
+  {
+    "objectID": "about.html#contacts",
+    "href": "about.html#contacts",
+    "title": "Tim Gilbert",
+    "section": "Contacts",
+    "text": "Contacts\n📧 tsgilbert@arizona.edu\n📧 tim@desertdatalabs.com\n🌵 desertdatalabs.com\n💾 GitHub"
   },
   {
     "objectID": "dashboards.html",
@@ -84,32 +112,11 @@
     "text": "Older Applications\nUSFS Name Converter ⭆ Click for Stand Alone App\nWater Chemistry Analyte Viewer ⭆ Click for Stand Alone App\n\n\n  ABOUT ME SHINY APPS PROJECTS RESUME/CV"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Tim Gilbert",
-    "section": "",
-    "text": "Hello! I’m an ecologist turned data scientist and the founder of Desert Data Labs LLC - a small consulting studio based in Tucson that builds data collection apps, dashboards, and automation tools for environmental consultants, nonprofits, and research teams. I also work for the University of Arizona on a data collection application and spend most of my time developing R and Python applications for interactive data visualizations. I am currently finishing up my masters in Data Science.\nI started my career collecting ecological data (small mammal trapping, electro-fishing, plant diversity, ect.) with the National Ecological Observatory Network and started to teach myself to code there for fun. Eventually I moved into data applications and began to learn more and more, and creating more (which you can check out on my other pages here).\nI also love the desert, hiking/running and spending time with my loved ones…"
-  },
-  {
-    "objectID": "about.html#ultra-running-snap-shot",
-    "href": "about.html#ultra-running-snap-shot",
-    "title": "Tim Gilbert",
-    "section": "Ultra Running Snap Shot",
-    "text": "Ultra Running Snap Shot"
-  },
-  {
-    "objectID": "about.html#contacts",
-    "href": "about.html#contacts",
-    "title": "Tim Gilbert",
-    "section": "Contacts",
-    "text": "Contacts\n📧 tsgilbert@arizona.edu\n📧 tim@desertdatalabs.com\n🌵 desertdatalabs.com\n💾 GitHub"
-  },
-  {
     "objectID": "field-notes.html",
     "href": "field-notes.html",
-    "title": "Field Notes",
+    "title": "Flora Wall",
     "section": "",
-    "text": "From the field\n\nField Notes\n\nBefore the dashboards and databases, there was a lot of dirt. A few years of rangeland and desert fieldwork from around Arizona — small-mammal trapping, electro-fishing, vegetation transects, and the plants I met along the way.\n\n\n  Walking a site\n  Transect data collection\n  Vegetation survey\n  The crew\n  Fenceline monitoring\n  Grazing & utilization\n\n\n\n\n\nThe plant wall · 90 photos · tap any to enlarge\n\n\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n\n\n\n\n← Back home See what I built with this data →"
+    "text": "From the field\n\nFlora Wall\n\nBefore the dashboards and databases, there was a lot of dirt. A few years of rangeland and desert fieldwork from around Arizona — small-mammal trapping, electro-fishing, vegetation transects, and the plants I met along the way.\n\n\n  Walking a site\n  Transect data collection\n  Vegetation survey\n  The crew\n  Fenceline monitoring\n  Grazing & utilization\n\n\n\n\n\nThe flora wall · 90 photos · tap any to enlarge\n\n\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n\n\n\n\n← Back home See what I built with this data →"
   },
   {
     "objectID": "projects.html",

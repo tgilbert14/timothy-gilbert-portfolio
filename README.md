@@ -13,7 +13,8 @@ Welcome! This repository contains the source code and content for my Quarto-base
 - `about.qmd` – Overview of my professional journey and interests
 - `dashboards.qmd` – Featured Shiny apps
 - `projects.qmd` – Other apps, scripts, and automation tools
-- `field-notes.qmd` – Arizona fieldwork: photo band + masonry "plant wall" (lightbox)
+- `field-notes.qmd` – "Flora Wall": Arizona fieldwork photo band + masonry plant wall (lightbox)
+- `ecoplot.qmd` – EcoPlot Mobile flagship: capabilities, field→report flow, screenshots
 - `resume.qmd` – Embedded résumé with highlights and download link
 - `styles.css` – Custom navy "desert night" theme layered on Quarto's flatly
 - `_foot.html` – Site-wide JS: scroll reveals, parallax, plant-wall lightbox

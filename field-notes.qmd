@@ -1,7 +1,7 @@
 ---
 title: ""
-pagetitle: "Field Notes — Tim Gilbert"
-description: "A few years of Arizona rangeland & desert fieldwork."
+pagetitle: "Flora Wall — Tim Gilbert"
+description: "A wall of the desert & rangeland plants from years of Arizona fieldwork."
 format:
   html:
     toc: false
@@ -11,7 +11,7 @@ format:
 ::: {.tg-section .reveal}
 <span class="eyebrow">From the field</span>
 
-# Field Notes {.section-title}
+# Flora Wall {.section-title}
 
 ::: section-subtitle
 Before the dashboards and databases, there was a lot of dirt. A few years of
@@ -33,7 +33,7 @@ electro-fishing, vegetation transects, and the plants I met along the way.
 
 ::: {.wall-wrap .reveal}
 ::: section-label
-The plant wall · 90 photos · tap any to enlarge
+The flora wall · 90 photos · tap any to enlarge
 :::
 
 ```{=html}

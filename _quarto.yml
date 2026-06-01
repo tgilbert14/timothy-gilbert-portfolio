@@ -19,7 +19,10 @@ website:
       - text: 'Other Projects'
         href: projects.qmd
 
-      - text: 'Field Notes'
+      - text: 'EcoPlot'
+        href: ecoplot.qmd
+
+      - text: 'Flora Wall'
         href: field-notes.qmd
 
     right:
@@ -53,7 +56,9 @@ website:
 
 format:
   html:
-    theme: flatly
+    theme:
+      dark: darkly
+      light: flatly
     css: styles.css
     toc: true
     include-after-body: _foot.html
