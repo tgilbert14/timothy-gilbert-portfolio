@@ -1644,75 +1644,132 @@ body.quarto-light .navbar .quarto-color-scheme-toggle { color: #21302b; }
   background: radial-gradient(closest-side, transparent 52%, rgba(255, 59, 48, 0.5));
 }
 
+/* ---- thought bubble: rises up + toward center, glows, trails two dots ---- */
 .watcher-bubble {
-  --wb-border: rgba(45, 212, 191, 0.5);
+  --wb-border: rgba(94, 234, 212, 0.55);
+  --wb-bg: rgba(13, 27, 43, 0.96);
+  --wb-glow: rgba(45, 212, 191, 0.45);
   position: absolute;
+  bottom: calc(100% + 20px);
   width: max-content;
-  max-width: 232px;
-  background: rgba(11, 22, 36, 0.97);
-  border: 1px solid var(--wb-border);
-  border-radius: 14px;
-  padding: 0.6rem 0.8rem;
-  font-size: 0.86rem;
-  line-height: 1.4;
+  max-width: 230px;
+  background: var(--wb-bg);
+  border: 1.5px solid var(--wb-border);
+  border-radius: 18px;
+  padding: 0.62rem 0.85rem;
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.42;
   font-style: italic;
-  color: #dbe6f2;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 22px rgba(45, 212, 191, 0.16);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #eaf6f2;
+  text-shadow: 0 0 10px rgba(94, 234, 212, 0.25);
+  box-shadow:
+    0 0 0 4px rgba(45, 212, 191, 0.08),
+    0 10px 30px rgba(0, 0, 0, 0.45),
+    0 0 26px var(--wb-glow);
   opacity: 0;
-  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: scale(0.8);
+  transition: opacity 0.32s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   pointer-events: none;
 }
+.watcher-bubble::before,
 .watcher-bubble::after {
   content: "";
   position: absolute;
-  width: 11px;
-  height: 11px;
-  background: inherit;
+  border-radius: 50%;
+  background: var(--wb-bg);
+  border: 1.5px solid var(--wb-border);
+  box-shadow: 0 0 10px var(--wb-glow);
 }
-.watcher[data-edge="bottom"] .watcher-bubble {
-  left: 50%; bottom: calc(100% + 13px);
-  transform-origin: bottom center;
-  transform: translateX(-50%) scale(0.94);
-}
-.watcher[data-edge="bottom"].talking .watcher-bubble { transform: translateX(-50%) scale(1); }
-.watcher[data-edge="bottom"] .watcher-bubble::after {
-  left: 50%; bottom: 0;
-  transform: translate(-50%, 50%) rotate(45deg);
-  border-right: 1px solid var(--wb-border);
-  border-bottom: 1px solid var(--wb-border);
-}
-.watcher[data-edge="left"] .watcher-bubble {
-  left: calc(100% + 13px); top: 50%;
-  transform-origin: left center;
-  transform: translateY(-50%) scale(0.94);
-}
-.watcher[data-edge="left"].talking .watcher-bubble { transform: translateY(-50%) scale(1); }
-.watcher[data-edge="left"] .watcher-bubble::after {
-  left: 0; top: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
-  border-bottom: 1px solid var(--wb-border);
-  border-left: 1px solid var(--wb-border);
-}
-.watcher[data-edge="right"] .watcher-bubble {
-  right: calc(100% + 13px); top: 50%;
-  transform-origin: right center;
-  transform: translateY(-50%) scale(0.94);
-}
-.watcher[data-edge="right"].talking .watcher-bubble { transform: translateY(-50%) scale(1); }
-.watcher[data-edge="right"] .watcher-bubble::after {
-  right: 0; top: 50%;
-  transform: translate(50%, -50%) rotate(45deg);
-  border-top: 1px solid var(--wb-border);
-  border-right: 1px solid var(--wb-border);
-}
-.watcher.talking .watcher-bubble { opacity: 1; }
+.watcher-bubble::before { width: 11px; height: 11px; bottom: -9px; }
+.watcher-bubble::after  { width: 6px;  height: 6px;  bottom: -19px; }
+
+.watcher[data-side="l"] .watcher-bubble { left: -6px;  transform-origin: bottom left; }
+.watcher[data-side="r"] .watcher-bubble { right: -6px; transform-origin: bottom right; }
+.watcher[data-side="l"] .watcher-bubble::before { left: 16px; }
+.watcher[data-side="l"] .watcher-bubble::after  { left: 8px; }
+.watcher[data-side="r"] .watcher-bubble::before { right: 16px; }
+.watcher[data-side="r"] .watcher-bubble::after  { right: 8px; }
+
+.watcher.talking .watcher-bubble { opacity: 1; transform: scale(1); }
 .watcher.muted .watcher-bubble { opacity: 0 !important; }
 
 body.quarto-light .watcher-bubble {
-  --wb-border: rgba(31, 122, 61, 0.4);
-  background: #ffffff;
-  color: #1f2a37;
-  box-shadow: 0 12px 28px rgba(22, 39, 26, 0.18), 0 0 20px rgba(31, 122, 61, 0.12);
+  --wb-border: rgba(31, 122, 61, 0.5);
+  --wb-bg: #ffffff;
+  --wb-glow: rgba(31, 122, 61, 0.22);
+  color: #18241f;
+  text-shadow: none;
+}
+
+/* ---- wizard hat: drops on for Gandalf lines, then lifts off ---- */
+.watcher-hat {
+  position: absolute;
+  left: 50%;
+  bottom: 66%;
+  width: 80%;
+  z-index: 5;
+  transform: translateX(-50%) rotate(-12deg) translateY(10px) scale(0.3);
+  transform-origin: bottom center;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.45s cubic-bezier(0.34, 1.7, 0.5, 1);
+  pointer-events: none;
+  filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.4));
+}
+.watcher-hat svg { display: block; width: 100%; height: auto; }
+.watcher.has-hat .watcher-hat {
+  opacity: 1;
+  transform: translateX(-50%) rotate(-12deg) translateY(0) scale(1);
+}
+
+/* ---- monsoon strike: bolt flash → shake → vanish → reappear elsewhere ---- */
+.watcher-bolt {
+  position: absolute;
+  left: 50%;
+  bottom: 78%;
+  width: 46%;
+  z-index: 6;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 0 8px #fde047) drop-shadow(0 0 16px #ffffff);
+}
+.watcher-bolt svg { display: block; width: 100%; height: auto; }
+.watcher.zapped .watcher-bolt { animation: wBolt 0.7s steps(1, end); }
+@keyframes wBolt {
+  0%, 100% { opacity: 0; }
+  6%, 18%, 34% { opacity: 1; }
+  12%, 26%, 46% { opacity: 0.15; }
+}
+.watcher.zapped { animation: wShake 0.65s ease both; }
+@keyframes wShake {
+  0%   { transform: translate(var(--hangx, 0px), var(--hangy, 0px)) rotate(0); }
+  15%  { transform: translate(calc(var(--hangx, 0px) + 5px), var(--hangy, 0px)) rotate(5deg); }
+  30%  { transform: translate(calc(var(--hangx, 0px) - 5px), var(--hangy, 0px)) rotate(-5deg); }
+  45%  { transform: translate(calc(var(--hangx, 0px) + 4px), var(--hangy, 0px)) rotate(4deg); }
+  60%  { transform: translate(calc(var(--hangx, 0px) - 3px), var(--hangy, 0px)) rotate(-3deg); }
+  80%  { transform: translate(calc(var(--hangx, 0px) + 2px), var(--hangy, 0px)) rotate(2deg); }
+  100% { transform: translate(var(--hangx, 0px), var(--hangy, 0px)) rotate(0); }
+}
+.watcher.zapped .mark-card { animation: wFlash 0.65s ease both; }
+@keyframes wFlash {
+  0%   { filter: none; }
+  8%   { filter: brightness(3) saturate(0.3); }
+  30%  { filter: brightness(1.4); }
+  100% { filter: none; }
+}
+.watcher.gone {
+  opacity: 0;
+  transform: translate(var(--hangx, 0px), var(--hangy, 0px)) scale(0.2) rotate(-12deg);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  pointer-events: none;
+}
+.watcher.arriving { animation: wArrive 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+@keyframes wArrive {
+  0%   { opacity: 0; transform: translate(var(--hangx, 0px), var(--hangy, 0px)) scale(0.2); }
+  100% { opacity: 1; transform: translate(var(--hangx, 0px), var(--hangy, 0px)) scale(1); }
 }
 
 @media (hover: none) {
@@ -1723,5 +1780,5 @@ body.quarto-light .watcher-bubble {
 @media (max-width: 600px) {
   .watcher { width: 50px; height: 50px; }
   .watcher-mute { font-size: 1.3rem; }
-  .watcher-bubble { max-width: 168px; font-size: 0.8rem; }
+  .watcher-bubble { max-width: 170px; font-size: 0.84rem; }
 }

@@ -593,7 +593,7 @@ ul.task-list li input[type="checkbox"] {
 //      watches there), follows the cursor, over-shares trivia, click to mute. ----
 (function () {
   if (!document.body) return;
-  if (document.querySelector('.hero-avatar')) return;  // home: avatar already watches
+  // (now shows on home too — the hero avatar and the corner mascot coexist)
   if (document.querySelector('.watcher')) return;      // guard double-init
 
   var reduce = window.matchMedia &&
@@ -623,15 +623,31 @@ ul.task-list li input[type="checkbox"] {
       '<circle class="watcher-pupil" cx="60" cy="48" r="4.7" fill="#7ee0a0"/>' +
     '</svg>';
 
+  // wizard hat (drops on for Gandalf lines) + a lightning bolt (monsoon strike)
+  var HAT_SVG =
+    '<svg viewBox="0 0 100 70" fill="none" aria-hidden="true">' +
+      '<ellipse cx="50" cy="60" rx="40" ry="9" fill="#2e2570"/>' +
+      '<path d="M50 4 C55 24 60 46 72 60 L28 60 C40 46 45 24 50 4 Z" fill="#4a3bb0"/>' +
+      '<circle cx="50" cy="29" r="3.6" fill="#ffd34d"/>' +
+      '<circle cx="45" cy="43" r="2.3" fill="#ffe48a"/>' +
+      '<circle cx="56" cy="47" r="2.3" fill="#ffe48a"/>' +
+    '</svg>';
+  var BOLT_SVG =
+    '<svg viewBox="0 0 40 120" fill="none" aria-hidden="true">' +
+      '<path d="M23 0 L6 64 L18 64 L11 120 L38 50 L24 50 Z" fill="#fde047" stroke="#fffbeb" stroke-width="2" stroke-linejoin="round"/>' +
+    '</svg>';
+
   var el = document.createElement('div');
   el.className = 'watcher';
   el.setAttribute('aria-hidden', 'true');
   el.innerHTML =
     '<div class="watcher-bubble"><span class="watcher-bubble-text"></span></div>' +
     '<button class="watcher-mark" type="button" tabindex="-1">' +
+      '<span class="watcher-bolt" aria-hidden="true">' + BOLT_SVG + '</span>' +
       '<div class="mark-card">' + MARK_SVG +
         '<span class="holo"></span><span class="holo-glare"></span>' +
       '</div>' +
+      '<span class="watcher-hat" aria-hidden="true">' + HAT_SVG + '</span>' +
       '<span class="watcher-mute" aria-hidden="true">🔇</span>' +
     '</button>';
   document.body.appendChild(el);
@@ -639,29 +655,32 @@ ul.task-list li input[type="checkbox"] {
   var mark = el.querySelector('.watcher-mark');
   var bubbleText = el.querySelector('.watcher-bubble-text');
 
-  // cling to a random spot on the OUTSIDE edge (re-rolled every page load)
-  (function place() {
+  // cling to a random spot on the OUTSIDE edge (re-rolled on load + after a strike).
+  // data-side (l/r) tells the thought-bubble which way to open (up + toward center).
+  function place() {
     var edges = ['left', 'right', 'bottom', 'left', 'right', 'bottom'];
     var edge = edges[Math.floor(Math.random() * edges.length)];
     el.style.left = el.style.right = el.style.top = el.style.bottom = 'auto';
-    var hx = '0px', hy = '0px';
+    var hx = '0px', hy = '0px', side;
     if (edge === 'left') {
       el.style.left = '0px';
-      el.style.top = (14 + Math.random() * 60).toFixed(1) + 'vh';
-      hx = '-10px';
+      el.style.top = (30 + Math.random() * 42).toFixed(1) + 'vh';
+      hx = '-10px'; side = 'l';
     } else if (edge === 'right') {
       el.style.right = '0px';
-      el.style.top = (14 + Math.random() * 60).toFixed(1) + 'vh';
-      hx = '10px';
+      el.style.top = (30 + Math.random() * 42).toFixed(1) + 'vh';
+      hx = '10px'; side = 'r';
     } else {
+      var x = 18 + Math.random() * 60;
       el.style.bottom = '0px';
-      el.style.left = (25 + Math.random() * 50).toFixed(1) + 'vw';
-      hy = '10px';
+      el.style.left = x.toFixed(1) + 'vw';
+      hy = '10px'; side = (x < 50) ? 'l' : 'r';
     }
     el.style.setProperty('--hangx', hx);
     el.style.setProperty('--hangy', hy);
-    el.setAttribute('data-edge', edge);
-  })();
+    el.setAttribute('data-side', side);
+  }
+  place();
 
   // mute state persists across pages for the session
   var muted = false;
@@ -711,14 +730,13 @@ ul.task-list li input[type="checkbox"] {
     "Somewhere, a pivot table needs me...",
     "I named your cursor. It's Greg now...",
     "Just me and the uptime graph tonight...",
+    "My boss has a mullet... That's not a joke...",
     "The Eye is always watching...",
-    "You shall not pass... without validation...",
-    "Keep it secret. Keep it safe...",
-    "One does not simply walk into prod on a Friday...",
-    "My preciousss... a clean dataset...",
     "We wants the schema, precious. We needs it...",
-    "Not all who wander are lost... some are just debugging...",
-    "All we have to decide is what to do with the data we're given..."
+    { t: "You shall not pass...", next: "...just kidding...", hat: true },
+    { t: "Keep it secret. Keep it safe...", hat: true },
+    { t: "All we have to decide is what to do with the data we're given...", hat: true },
+    { t: "A data engineer is never late, Frodo Baggins. Nor is he early. He arrives precisely when he means to...", hat: true }
   ];
   var PAGE = {
     shiny: ["Tim built these in R. I watched...", "Click one. They actually run...", "So many reactive expressions..."],
@@ -744,24 +762,44 @@ ul.task-list li input[type="checkbox"] {
   }
   function choose(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 
-  var hideTimer, nextTimer, muteTimer;
+  var hideTimer, nextTimer, muteTimer, lineTimer, strikeTimer, returnTimer;
+  var struck = false;
+
   function forceSay(text, dwell) {
     if (document.hidden) return;
+    window.clearTimeout(lineTimer);
     bubbleText.textContent = text;
     el.classList.add('talking');
     window.clearTimeout(hideTimer);
     hideTimer = window.setTimeout(function () { el.classList.remove('talking'); }, dwell || 4000);
   }
-  function say() {
-    if (document.hidden || muted) return;
-    bubbleText.textContent = pick();
-    el.classList.add('talking');
+  // show a pool quip — handles {t, next, hat}: drops a wizard hat + plays a follow-up
+  function showQuip(q) {
+    var t = (typeof q === 'string') ? q : q.t;
+    var nxt = (typeof q === 'object') ? q.next : null;
+    var hat = (typeof q === 'object') && q.hat;
     window.clearTimeout(hideTimer);
-    hideTimer = window.setTimeout(function () { el.classList.remove('talking'); }, 8000);
+    window.clearTimeout(lineTimer);
+    bubbleText.textContent = t;
+    el.classList.add('talking');
+    if (hat) el.classList.add('has-hat');
+    function done() { el.classList.remove('talking'); el.classList.remove('has-hat'); }
+    if (nxt) {
+      lineTimer = window.setTimeout(function () {
+        bubbleText.textContent = nxt;
+        hideTimer = window.setTimeout(done, 3600);
+      }, 2600);
+    } else {
+      hideTimer = window.setTimeout(done, 8000);
+    }
+  }
+  function say() {
+    if (document.hidden || muted || struck) return;
+    showQuip(pick());
   }
   function schedule(first) {
     window.clearTimeout(nextTimer);
-    if (muted) return;
+    if (muted || struck) return;
     var delay = first ? 2500 : (22000 + Math.random() * 3000);
     nextTimer = window.setTimeout(function () { say(); schedule(false); }, delay);
   }
@@ -772,6 +810,7 @@ ul.task-list li input[type="checkbox"] {
       muted = true;
       try { sessionStorage.setItem('tg-watcher-muted', '1'); } catch (e) {}
       window.clearTimeout(nextTimer);
+      el.classList.remove('has-hat');
       el.classList.add('mad');
       forceSay(choose(OUCH), 1400);
       muteTimer = window.setTimeout(function () {
@@ -788,13 +827,43 @@ ul.task-list li input[type="checkbox"] {
     }
   }
 
+  // ---- monsoon: every ~45s a bolt strikes him; he vanishes, then pops up
+  //      somewhere new ~15s later. Skipped under reduced motion. ----
+  function scheduleStrike() {
+    window.clearTimeout(strikeTimer);
+    strikeTimer = window.setTimeout(strike, 45000);
+  }
+  function strike() {
+    if (document.hidden || muted) { scheduleStrike(); return; }
+    struck = true;
+    window.clearTimeout(nextTimer);
+    window.clearTimeout(hideTimer);
+    window.clearTimeout(lineTimer);
+    el.classList.remove('talking');
+    el.classList.remove('has-hat');
+    el.classList.add('zapped');
+    window.setTimeout(function () {
+      el.classList.remove('zapped');
+      el.classList.add('gone');
+    }, 750);
+    returnTimer = window.setTimeout(function () {
+      place();
+      el.classList.remove('gone');
+      el.classList.add('arriving');
+      window.setTimeout(function () { el.classList.remove('arriving'); }, 700);
+      struck = false;
+      schedule(false);
+      scheduleStrike();
+    }, 15000);
+  }
+
   // tell a real click (→ mute) from a drag attempt (→ psych gag)
   var downX = 0, downY = 0, pressed = false, dragged = false;
   mark.addEventListener('pointerdown', function (e) {
     pressed = true; dragged = false; downX = e.clientX; downY = e.clientY;
   });
   window.addEventListener('pointermove', function (e) {
-    if (!pressed || dragged || muted) return;
+    if (!pressed || dragged || muted || struck) return;
     if (Math.abs(e.clientX - downX) > 6 || Math.abs(e.clientY - downY) > 6) {
       dragged = true;
       forceSay(choose(PSYCH));
@@ -803,12 +872,13 @@ ul.task-list li input[type="checkbox"] {
   window.addEventListener('pointerup', function () { pressed = false; });
   mark.addEventListener('click', function () {
     if (dragged) { dragged = false; return; }
+    if (struck) return;
     setMuted(!muted);
   });
 
   document.addEventListener('visibilitychange', function () {
     if (document.hidden) { window.clearTimeout(nextTimer); }
-    else { schedule(false); }
+    else if (!muted && !struck) { schedule(false); }
   });
 
   // first appearance in the SESSION greets with "I see you..." (once, not per page)
@@ -824,6 +894,7 @@ ul.task-list li input[type="checkbox"] {
   } else {
     schedule(true);
   }
+  if (!reduce) scheduleStrike();
 })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
