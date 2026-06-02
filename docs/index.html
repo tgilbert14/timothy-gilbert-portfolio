@@ -565,468 +565,543 @@ ul.task-list li input[type="checkbox"] {
 <!-- Site-wide motion: scroll reveal, parallax, plant-wall lightbox.
      Injected on every page via _quarto.yml include-after-body. -->
 <script>
-(function () {
-  // Mark JS as available so CSS can safely hide .reveal elements
-  // (no-JS users keep everything visible).
-  document.documentElement.classList.add('js');
+  (function() {
+    // Mark JS as available so CSS can safely hide .reveal elements
+    // (no-JS users keep everything visible).
+    document.documentElement.classList.add('js');
 
-  var reduce = window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var reduce=window.matchMedia&&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- Scroll reveal ----------
-     Plain scroll/resize/load handler (input-driven, works everywhere)
-     plus a safety timer so content is NEVER stranded hidden if scroll
-     events somehow never fire. Avoids depending on IntersectionObserver. */
-  var reveals = [].slice.call(document.querySelectorAll('.reveal'));
-  if (reduce) {
-    reveals.forEach(function (el) { el.classList.add('is-visible'); });
-  } else {
-    var revealInView = function () {
-      var vh = window.innerHeight || document.documentElement.clientHeight;
-      for (var i = reveals.length - 1; i >= 0; i--) {
-        if (reveals[i].getBoundingClientRect().top < vh * 0.88) {
-          reveals[i].classList.add('is-visible');
-          reveals.splice(i, 1);
+    /* ---------- Scroll reveal ----------
+       Plain scroll/resize/load handler (input-driven, works everywhere)
+       plus a safety timer so content is NEVER stranded hidden if scroll
+       events somehow never fire. Avoids depending on IntersectionObserver. */
+    var reveals=[].slice.call(document.querySelectorAll('.reveal'));
+    if(reduce) {
+      reveals.forEach(function(el) {el.classList.add('is-visible');});
+    } else {
+      var revealInView=function() {
+        var vh=window.innerHeight||document.documentElement.clientHeight;
+        for(var i=reveals.length-1;i>=0;i--) {
+          if(reveals[i].getBoundingClientRect().top<vh*0.88) {
+            reveals[i].classList.add('is-visible');
+            reveals.splice(i,1);
+          }
         }
-      }
-    };
-    revealInView();
-    window.addEventListener('scroll', revealInView, { passive: true });
-    window.addEventListener('resize', revealInView, { passive: true });
-    window.addEventListener('load', revealInView);
-    // Last-resort safety: reveal everything after a few seconds no matter what.
-    setTimeout(function () {
-      reveals.forEach(function (el) { el.classList.add('is-visible'); });
-    }, 3500);
-  }
-
-  /* ---------- Sprout brand mark: auto-play once when scrolled into view ---------- */
-  var sprout = document.querySelector('.sprout-stage');
-  if (sprout && !reduce) {
-    var played = false;
-    var maybePlay = function () {
-      if (played) return;
-      var r = sprout.getBoundingClientRect();
-      var vh = window.innerHeight || document.documentElement.clientHeight;
-      if (r.top < vh * 0.8 && r.bottom > 0) {
-        played = true;
-        sprout.classList.add('grow');
-        setTimeout(function () { sprout.classList.remove('grow'); }, 2600);
-        window.removeEventListener('scroll', maybePlay);
-      }
-    };
-    maybePlay();
-    window.addEventListener('scroll', maybePlay, { passive: true });
-  }
-
-  /* ---------- Holographic avatar: cursor tilt + iridescent sheen ---------- */
-  var heroAvatar = document.querySelector('.hero-avatar');
-  if (heroAvatar && !reduce && window.matchMedia('(pointer: fine)').matches) {
-    var avMove = function (e) {
-      var rect = heroAvatar.getBoundingClientRect();
-      var px = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
-      var py = Math.min(1, Math.max(0, (e.clientY - rect.top) / rect.height));
-      heroAvatar.style.setProperty('--ax', ((px - 0.5) * 26).toFixed(2) + 'deg');
-      heroAvatar.style.setProperty('--ay', ((0.5 - py) * 26).toFixed(2) + 'deg');
-      heroAvatar.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
-      heroAvatar.style.setProperty('--my', (py * 100).toFixed(1) + '%');
-    };
-    var avReset = function () {
-      heroAvatar.style.setProperty('--ax', '0deg');
-      heroAvatar.style.setProperty('--ay', '0deg');
-      heroAvatar.style.setProperty('--mx', '50%');
-      heroAvatar.style.setProperty('--my', '50%');
-    };
-    heroAvatar.addEventListener('pointermove', avMove);
-    heroAvatar.addEventListener('pointerleave', avReset);
-  }
-
-  /* ---------- Parallax ---------- */
-  if (!reduce) {
-    var pxEls = [].slice.call(document.querySelectorAll('[data-parallax]'));
-    if (pxEls.length) {
-      var ticking = false;
-      var run = function () {
-        var vh = window.innerHeight;
-        pxEls.forEach(function (el) {
-          var r = el.getBoundingClientRect();
-          if (r.bottom < -200 || r.top > vh + 200) return;
-          var speed = parseFloat(el.getAttribute('data-parallax')) || 0.15;
-          var offset = (r.top + r.height / 2 - vh / 2) * -speed;
-          el.style.transform = 'translate3d(0,' + offset.toFixed(1) + 'px,0)';
-        });
-        ticking = false;
       };
-      var onScroll = function () {
-        if (!ticking) { ticking = true; requestAnimationFrame(run); }
+      revealInView();
+      window.addEventListener('scroll',revealInView,{passive: true});
+      window.addEventListener('resize',revealInView,{passive: true});
+      window.addEventListener('load',revealInView);
+      // Last-resort safety: reveal everything after a few seconds no matter what.
+      setTimeout(function() {
+        reveals.forEach(function(el) {el.classList.add('is-visible');});
+      },3500);
+    }
+
+    /* ---------- Sprout brand mark: auto-play once when scrolled into view ---------- */
+    var sprout=document.querySelector('.sprout-stage');
+    if(sprout&&!reduce) {
+      var played=false;
+      var maybePlay=function() {
+        if(played) return;
+        var r=sprout.getBoundingClientRect();
+        var vh=window.innerHeight||document.documentElement.clientHeight;
+        if(r.top<vh*0.8&&r.bottom>0) {
+          played=true;
+          sprout.classList.add('grow');
+          setTimeout(function() {sprout.classList.remove('grow');},2600);
+          window.removeEventListener('scroll',maybePlay);
+        }
       };
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', onScroll, { passive: true });
-      run();
-    }
-  }
-
-  /* ---------- Lightbox (plant wall + any .lightboxable image) ---------- */
-  var imgs = [].slice.call(document.querySelectorAll('.plant-wall img, .shot-grid img, .lightboxable'));
-  if (imgs.length) {
-    var ov = document.createElement('div');
-    ov.className = 'lightbox';
-    ov.setAttribute('role', 'dialog');
-    ov.setAttribute('aria-label', 'Photo viewer');
-    ov.innerHTML =
-      '<button class="lb-close" aria-label="Close (Esc)">×</button>' +
-      '<button class="lb-nav lb-prev" aria-label="Previous">‹</button>' +
-      '<img alt="">' +
-      '<button class="lb-nav lb-next" aria-label="Next">›</button>';
-    document.body.appendChild(ov);
-
-    var lbImg = ov.querySelector('img');
-    var idx = 0;
-
-    function show(i) {
-      idx = (i + imgs.length) % imgs.length;
-      lbImg.src = imgs[idx].currentSrc || imgs[idx].src;
-      lbImg.alt = imgs[idx].alt || '';
-      ov.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function hide() {
-      ov.classList.remove('open');
-      document.body.style.overflow = '';
+      maybePlay();
+      window.addEventListener('scroll',maybePlay,{passive: true});
     }
 
-    imgs.forEach(function (im, i) {
-      im.addEventListener('click', function () { show(i); });
-    });
-    ov.addEventListener('click', function (e) {
-      if (e.target === ov || e.target.classList.contains('lb-close')) hide();
-    });
-    ov.querySelector('.lb-prev').addEventListener('click', function (e) {
-      e.stopPropagation(); show(idx - 1);
-    });
-    ov.querySelector('.lb-next').addEventListener('click', function (e) {
-      e.stopPropagation(); show(idx + 1);
-    });
-    document.addEventListener('keydown', function (e) {
-      if (!ov.classList.contains('open')) return;
-      if (e.key === 'Escape') hide();
-      else if (e.key === 'ArrowLeft') show(idx - 1);
-      else if (e.key === 'ArrowRight') show(idx + 1);
-    });
-  }
-})();
-
-// ---- Persistent "watcher" mascot (ported from desertdatalabs.com): rides a
-//      random outside edge on every page EXCEPT home (the hero avatar already
-//      watches there), follows the cursor, over-shares trivia, click to mute. ----
-(function () {
-  if (!document.body) return;
-  // (now shows on home too — the hero avatar and the corner mascot coexist)
-  if (document.querySelector('.watcher')) return;      // guard double-init
-
-  var reduce = window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var fine = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
-
-  var MARK_SVG =
-    '<svg viewBox="0 0 120 120" fill="none" aria-hidden="true">' +
-      '<defs>' +
-        '<linearGradient id="tgw-edge" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2dd4bf"/><stop offset="100%" stop-color="#f97366"/></linearGradient>' +
-        '<linearGradient id="tgw-chip" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0a1830"/><stop offset="42%" stop-color="#0c2a2c"/><stop offset="72%" stop-color="#141430"/><stop offset="100%" stop-color="#1d1030"/></linearGradient>' +
-      '</defs>' +
-      '<rect x="7" y="7" width="106" height="106" rx="28" fill="url(#tgw-chip)" stroke="url(#tgw-edge)" stroke-width="3.5"/>' +
-      '<g class="rays" stroke="currentColor" stroke-width="4" stroke-linecap="round">' +
-        '<path class="ray" d="M74.1 31.1 L84.4 18.9"/>' +
-        '<path class="ray" d="M81.7 44.2 L97.4 41.4"/>' +
-        '<path class="ray" d="M79.1 59 L92.9 67"/>' +
-        '<path class="ray" d="M40.9 59 L27.1 67"/>' +
-        '<path class="ray" d="M38.3 44.2 L22.6 41.4"/>' +
-        '<path class="ray" d="M45.9 31.1 L35.6 18.9"/>' +
-      '</g>' +
-      '<g fill="none" stroke="#5fb56a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">' +
-        '<path d="M60 28 V96"/>' +
-        '<path d="M60 36 L74 48 L60 60 L46 48 Z"/>' +
-        '<path d="M44 96 H76"/>' +
-      '</g>' +
-      '<circle class="watcher-pupil" cx="60" cy="48" r="4.7" fill="#7ee0a0"/>' +
-    '</svg>';
-
-  // wizard hat (drops on for Gandalf lines) + a lightning bolt (monsoon strike)
-  var HAT_SVG =
-    '<svg viewBox="0 0 100 70" fill="none" aria-hidden="true">' +
-      '<ellipse cx="50" cy="60" rx="40" ry="9" fill="#2e2570"/>' +
-      '<path d="M50 4 C55 24 60 46 72 60 L28 60 C40 46 45 24 50 4 Z" fill="#4a3bb0"/>' +
-      '<circle cx="50" cy="29" r="3.6" fill="#ffd34d"/>' +
-      '<circle cx="45" cy="43" r="2.3" fill="#ffe48a"/>' +
-      '<circle cx="56" cy="47" r="2.3" fill="#ffe48a"/>' +
-    '</svg>';
-  var BOLT_SVG =
-    '<svg viewBox="0 0 40 120" fill="none" aria-hidden="true">' +
-      '<path d="M23 0 L6 64 L18 64 L11 120 L38 50 L24 50 Z" fill="#fde047" stroke="#fffbeb" stroke-width="2" stroke-linejoin="round"/>' +
-    '</svg>';
-
-  var el = document.createElement('div');
-  el.className = 'watcher';
-  el.setAttribute('aria-hidden', 'true');
-  el.innerHTML =
-    '<div class="watcher-bubble"><span class="watcher-bubble-text"></span></div>' +
-    '<button class="watcher-mark" type="button" tabindex="-1">' +
-      '<span class="watcher-bolt" aria-hidden="true">' + BOLT_SVG + '</span>' +
-      '<div class="mark-card">' + MARK_SVG +
-        '<span class="holo"></span><span class="holo-glare"></span>' +
-      '</div>' +
-      '<span class="watcher-hat" aria-hidden="true">' + HAT_SVG + '</span>' +
-      '<span class="watcher-mute" aria-hidden="true">🔇</span>' +
-    '</button>';
-  document.body.appendChild(el);
-
-  var mark = el.querySelector('.watcher-mark');
-  var bubbleText = el.querySelector('.watcher-bubble-text');
-
-  // cling to a random spot on the OUTSIDE edge (re-rolled on load + after a strike).
-  // data-side (l/r) tells the thought-bubble which way to open (up + toward center).
-  function place() {
-    var mobile = window.innerWidth < 600;
-    var inset = mobile ? '10px' : '0px';   // phones: sit IN from the edge (no cutoff)
-    var hang = mobile ? 0 : 10;            // ...and don't hang off-screen
-    var edges = ['left', 'right', 'bottom', 'left', 'right', 'bottom'];
-    var edge = edges[Math.floor(Math.random() * edges.length)];
-    el.style.left = el.style.right = el.style.top = el.style.bottom = 'auto';
-    var hx = '0px', hy = '0px', side;
-    if (edge === 'left') {
-      el.style.left = inset;
-      el.style.top = (30 + Math.random() * 42).toFixed(1) + 'vh';
-      hx = (-hang) + 'px'; side = 'l';
-    } else if (edge === 'right') {
-      el.style.right = inset;
-      el.style.top = (30 + Math.random() * 42).toFixed(1) + 'vh';
-      hx = hang + 'px'; side = 'r';
-    } else {
-      var x = 18 + Math.random() * 60;
-      el.style.bottom = inset;
-      el.style.left = x.toFixed(1) + 'vw';
-      hy = hang + 'px'; side = (x < 50) ? 'l' : 'r';
+    /* ---------- Holographic avatar: cursor tilt + iridescent sheen ---------- */
+    var heroAvatar=document.querySelector('.hero-avatar');
+    if(heroAvatar&&!reduce&&window.matchMedia('(pointer: fine)').matches) {
+      var avMove=function(e) {
+        var rect=heroAvatar.getBoundingClientRect();
+        var px=Math.min(1,Math.max(0,(e.clientX-rect.left)/rect.width));
+        var py=Math.min(1,Math.max(0,(e.clientY-rect.top)/rect.height));
+        heroAvatar.style.setProperty('--ax',((px-0.5)*26).toFixed(2)+'deg');
+        heroAvatar.style.setProperty('--ay',((0.5-py)*26).toFixed(2)+'deg');
+        heroAvatar.style.setProperty('--mx',(px*100).toFixed(1)+'%');
+        heroAvatar.style.setProperty('--my',(py*100).toFixed(1)+'%');
+      };
+      var avReset=function() {
+        heroAvatar.style.setProperty('--ax','0deg');
+        heroAvatar.style.setProperty('--ay','0deg');
+        heroAvatar.style.setProperty('--mx','50%');
+        heroAvatar.style.setProperty('--my','50%');
+      };
+      heroAvatar.addEventListener('pointermove',avMove);
+      heroAvatar.addEventListener('pointerleave',avReset);
     }
-    el.style.setProperty('--hangx', hx);
-    el.style.setProperty('--hangy', hy);
-    el.setAttribute('data-side', side);
-  }
-  place();
 
-  // mute state persists across pages for the session
-  var muted = false;
-  try { muted = sessionStorage.getItem('tg-watcher-muted') === '1'; } catch (e) {}
-
-  // cursor tracking: tilt + holo + pupil (fine pointer, motion ok; freezes when muted)
-  if (fine && !reduce) {
-    window.addEventListener('pointermove', function (e) {
-      if (muted) return;
-      var r = mark.getBoundingClientRect();
-      var cx = r.left + r.width / 2;
-      var cy = r.top + r.height / 2;
-      var nx = Math.max(-1, Math.min(1, (e.clientX - cx) / (window.innerWidth * 0.5)));
-      var ny = Math.max(-1, Math.min(1, (e.clientY - cy) / (window.innerHeight * 0.5)));
-      el.style.setProperty('--ax', (nx * 22).toFixed(2) + 'deg');
-      el.style.setProperty('--ay', (-ny * 22).toFixed(2) + 'deg');
-      el.style.setProperty('--mx', (50 + nx * 50).toFixed(1) + '%');
-      el.style.setProperty('--my', (50 + ny * 50).toFixed(1) + '%');
-      el.style.setProperty('--wpx', (nx * 4.6).toFixed(2) + 'px');
-      el.style.setProperty('--wpy', (ny * 4.6).toFixed(2) + 'px');
-    }, { passive: true });
-  }
-
-  // page-aware quips
-  var p = (location.pathname || '').toLowerCase();
-  var key = /dashboard/.test(p) ? 'shiny'
-    : /project/.test(p) ? 'projects'
-    : /ecoplot/.test(p) ? 'ecoplot'
-    : (/field-notes/.test(p) || /flora/.test(p)) ? 'flora'
-    : /about/.test(p) ? 'about'
-    : (/resume/.test(p) || /\bcv\b/.test(p)) ? 'resume'
-    : 'default';
-
-  // short, dry one-liners (not corny) — each trails off in "..." like he's not
-  // done. A couple are interactive (drag gag). Page lines mix into a shared pool.
-  var SHARED = [
-    "Man, I miss Clippy...",
-    "Mute me. I dare you...",
-    "Did you know you can drag me...",
-    "Mmmm... that sweet sweet creosote smell after the rain...",
-    "Saguaros can take like 75 years to grow one arm...",
-    "King Clone is a creosote, but almost 12,000 years old 😐...",
-    "Night-blooming cereus opens one night a year...",
-    "Jojoba oil basically helped save the whales...",
-    "Fun fact: Teddy-bear cholla is not for hugging...",
-    "I've been watching the data. It's fine...",
-    "Somewhere, a pivot table needs me...",
-    "I named your cursor. It's Greg now...",
-    "Just me and the uptime graph tonight...",
-    "My boss has a mullet... That's not a joke...",
-    "The Eye is always watching...",
-    "We wants the schema, precious. We needs it...",
-    { t: "You shall not pass...", next: "...just kidding...", hat: true },
-    { t: "Keep it secret. Keep it safe...", hat: true },
-    { t: "All we have to decide is what to do with the data we're given...", hat: true },
-    { t: "A data engineer is never late. Nor is he early. He arrives precisely when he means to...", hat: true }
-  ];
-  var PAGE = {
-    shiny: ["Tim built these in R. I watched...", "Click one. They actually run...", "So many reactive expressions..."],
-    projects: ["Real projects. I supervised. Loosely...", "He builds a lot of these...", "Pick one. I have notes..."],
-    ecoplot: ["EcoPlot. Field data, no clipboard...", "Offline-first. I find that romantic...", "This one's my favorite. Don't tell the others..."],
-    flora: ["That's a lot of plants. I know them...", "I count three saguaros from here...", "Tim met all of these. In person..."],
-    about: ["That's Tim. He's alright...", "Ask him about soil moisture. I dare you..."],
-    resume: ["Look at all those skills...", "Hire him. I get to keep watching..."],
-    default: ["I'm always watching... someone has to...", "Tim's around here somewhere...", "Let's talk soil moisture variance..."]
-  };
-  var OUCH  = ["Ouch!...", "Ow— fine...", "Rude...", "Hey! Okay, okay...", "...betrayal..."];
-  var BACK  = ["...okay, I'm back...", "Missed me...?", "Oh good, you returned...", "...as I was saying..."];
-  var PSYCH = ["Psych! Maybe next build...", "Nope. I live here now...", "I can't actually move... yet..."];
-
-  var pool = (PAGE[key] || PAGE.default).concat(SHARED);
-  var last = -1;
-  function pick() {
-    if (pool.length < 2) return pool[0];
-    var i;
-    do { i = Math.floor(Math.random() * pool.length); } while (i === last);
-    last = i;
-    return pool[i];
-  }
-  function choose(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
-
-  var hideTimer, nextTimer, muteTimer, lineTimer, strikeTimer, returnTimer;
-  var struck = false;
-
-  function forceSay(text, dwell) {
-    if (document.hidden) return;
-    window.clearTimeout(lineTimer);
-    bubbleText.textContent = text;
-    el.classList.add('talking');
-    window.clearTimeout(hideTimer);
-    hideTimer = window.setTimeout(function () { el.classList.remove('talking'); }, dwell || 6000);
-  }
-  // show a pool quip — handles {t, next, hat}: drops a wizard hat + plays a follow-up
-  function showQuip(q) {
-    var t = (typeof q === 'string') ? q : q.t;
-    var nxt = (typeof q === 'object') ? q.next : null;
-    var hat = (typeof q === 'object') && q.hat;
-    window.clearTimeout(hideTimer);
-    window.clearTimeout(lineTimer);
-    bubbleText.textContent = t;
-    el.classList.add('talking');
-    if (hat) el.classList.add('has-hat');
-    function done() { el.classList.remove('talking'); el.classList.remove('has-hat'); }
-    if (nxt) {
-      lineTimer = window.setTimeout(function () {
-        bubbleText.textContent = nxt;
-        hideTimer = window.setTimeout(done, 5500);
-      }, 3500);
-    } else {
-      hideTimer = window.setTimeout(done, 12000);
+    /* ---------- Parallax ---------- */
+    if(!reduce) {
+      var pxEls=[].slice.call(document.querySelectorAll('[data-parallax]'));
+      if(pxEls.length) {
+        var ticking=false;
+        var run=function() {
+          var vh=window.innerHeight;
+          pxEls.forEach(function(el) {
+            var r=el.getBoundingClientRect();
+            if(r.bottom<-200||r.top>vh+200) return;
+            var speed=parseFloat(el.getAttribute('data-parallax'))||0.15;
+            var offset=(r.top+r.height/2-vh/2)*-speed;
+            el.style.transform='translate3d(0,'+offset.toFixed(1)+'px,0)';
+          });
+          ticking=false;
+        };
+        var onScroll=function() {
+          if(!ticking) {ticking=true; requestAnimationFrame(run);}
+        };
+        window.addEventListener('scroll',onScroll,{passive: true});
+        window.addEventListener('resize',onScroll,{passive: true});
+        run();
+      }
     }
-  }
-  function say() {
-    if (document.hidden || muted || struck) return;
-    showQuip(pick());
-  }
-  function schedule(first) {
-    window.clearTimeout(nextTimer);
-    if (muted || struck) return;
-    var delay = first ? 2500 : (22000 + Math.random() * 3000);
-    nextTimer = window.setTimeout(function () { say(); schedule(false); }, delay);
-  }
 
-  function setMuted(m) {
-    window.clearTimeout(muteTimer);
-    if (m) {
-      muted = true;
-      try { sessionStorage.setItem('tg-watcher-muted', '1'); } catch (e) {}
+    /* ---------- Lightbox (plant wall + any .lightboxable image) ---------- */
+    var imgs=[].slice.call(document.querySelectorAll('.plant-wall img, .shot-grid img, .lightboxable'));
+    if(imgs.length) {
+      var ov=document.createElement('div');
+      ov.className='lightbox';
+      ov.setAttribute('role','dialog');
+      ov.setAttribute('aria-label','Photo viewer');
+      ov.innerHTML=
+        '<button class="lb-close" aria-label="Close (Esc)">×</button>'+
+        '<button class="lb-nav lb-prev" aria-label="Previous">‹</button>'+
+        '<img alt="">'+
+        '<button class="lb-nav lb-next" aria-label="Next">›</button>';
+      document.body.appendChild(ov);
+
+      var lbImg=ov.querySelector('img');
+      var idx=0;
+
+      function show(i) {
+        idx=(i+imgs.length)%imgs.length;
+        lbImg.src=imgs[idx].currentSrc||imgs[idx].src;
+        lbImg.alt=imgs[idx].alt||'';
+        ov.classList.add('open');
+        document.body.style.overflow='hidden';
+      }
+      function hide() {
+        ov.classList.remove('open');
+        document.body.style.overflow='';
+      }
+
+      imgs.forEach(function(im,i) {
+        im.addEventListener('click',function() {show(i);});
+      });
+      ov.addEventListener('click',function(e) {
+        if(e.target===ov||e.target.classList.contains('lb-close')) hide();
+      });
+      ov.querySelector('.lb-prev').addEventListener('click',function(e) {
+        e.stopPropagation(); show(idx-1);
+      });
+      ov.querySelector('.lb-next').addEventListener('click',function(e) {
+        e.stopPropagation(); show(idx+1);
+      });
+      document.addEventListener('keydown',function(e) {
+        if(!ov.classList.contains('open')) return;
+        if(e.key==='Escape') hide();
+        else if(e.key==='ArrowLeft') show(idx-1);
+        else if(e.key==='ArrowRight') show(idx+1);
+      });
+    }
+  })();
+
+  // ---- Persistent "watcher" mascot (ported from desertdatalabs.com): rides a
+  //      random outside edge on every page EXCEPT home (the hero avatar already
+  //      watches there), follows the cursor, over-shares trivia, click to mute. ----
+  (function() {
+    if(!document.body) return;
+    // (now shows on home too — the hero avatar and the corner mascot coexist)
+    if(document.querySelector('.watcher')) return;      // guard double-init
+
+    var reduce=window.matchMedia&&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var fine=window.matchMedia&&window.matchMedia('(pointer: fine)').matches;
+
+    var MARK_SVG=
+      '<svg viewBox="0 0 120 120" fill="none" aria-hidden="true">'+
+      '<defs>'+
+      '<linearGradient id="tgw-edge" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2dd4bf"/><stop offset="100%" stop-color="#f97366"/></linearGradient>'+
+      '<linearGradient id="tgw-chip" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0a1830"/><stop offset="42%" stop-color="#0c2a2c"/><stop offset="72%" stop-color="#141430"/><stop offset="100%" stop-color="#1d1030"/></linearGradient>'+
+      '</defs>'+
+      '<rect x="7" y="7" width="106" height="106" rx="28" fill="url(#tgw-chip)" stroke="url(#tgw-edge)" stroke-width="3.5"/>'+
+      '<g class="rays" stroke="currentColor" stroke-width="4" stroke-linecap="round">'+
+      '<path class="ray" d="M74.1 31.1 L84.4 18.9"/>'+
+      '<path class="ray" d="M81.7 44.2 L97.4 41.4"/>'+
+      '<path class="ray" d="M79.1 59 L92.9 67"/>'+
+      '<path class="ray" d="M40.9 59 L27.1 67"/>'+
+      '<path class="ray" d="M38.3 44.2 L22.6 41.4"/>'+
+      '<path class="ray" d="M45.9 31.1 L35.6 18.9"/>'+
+      '</g>'+
+      '<g fill="none" stroke="#5fb56a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">'+
+      '<path d="M60 28 V96"/>'+
+      '<path d="M60 36 L74 48 L60 60 L46 48 Z"/>'+
+      '<path d="M44 96 H76"/>'+
+      '</g>'+
+      '<circle class="watcher-pupil" cx="60" cy="48" r="4.7" fill="#7ee0a0"/>'+
+      '</svg>';
+
+    // wizard hat (drops on for Gandalf lines) + a lightning bolt (monsoon strike)
+    var HAT_SVG=
+      '<svg viewBox="0 0 100 70" fill="none" aria-hidden="true">'+
+      '<ellipse cx="50" cy="60" rx="40" ry="9" fill="#2e2570"/>'+
+      '<path d="M50 4 C55 24 60 46 72 60 L28 60 C40 46 45 24 50 4 Z" fill="#4a3bb0"/>'+
+      '<circle cx="50" cy="29" r="3.6" fill="#ffd34d"/>'+
+      '<circle cx="45" cy="43" r="2.3" fill="#ffe48a"/>'+
+      '<circle cx="56" cy="47" r="2.3" fill="#ffe48a"/>'+
+      '</svg>';
+    var BOLT_SVG=
+      '<svg viewBox="0 0 40 120" fill="none" aria-hidden="true">'+
+      '<path d="M23 0 L6 64 L18 64 L11 120 L38 50 L24 50 Z" fill="#fde047" stroke="#fffbeb" stroke-width="2" stroke-linejoin="round"/>'+
+      '</svg>';
+    // rain cloud (creosote line) + sunglasses (5-click easter egg)
+    var CLOUD_SVG=
+      '<svg viewBox="0 0 80 60" fill="none" aria-hidden="true">'+
+      '<g fill="#9fb3c8">'+
+      '<ellipse cx="30" cy="26" rx="19" ry="12"/><ellipse cx="50" cy="24" rx="17" ry="13"/><ellipse cx="40" cy="32" rx="23" ry="11"/>'+
+      '</g>'+
+      '<g class="rain" stroke="#7fd4e8" stroke-width="2.5" stroke-linecap="round">'+
+      '<line class="drop d1" x1="26" y1="42" x2="24" y2="50"/><line class="drop d2" x1="40" y1="44" x2="38" y2="52"/><line class="drop d3" x1="54" y1="42" x2="52" y2="50"/>'+
+      '</g>'+
+      '</svg>';
+    var SHADES_SVG=
+      '<svg viewBox="0 0 100 44" fill="none" aria-hidden="true">'+
+      '<path d="M8 9 H92" stroke="#0b0b0b" stroke-width="4" stroke-linecap="round"/>'+
+      '<rect x="10" y="11" width="34" height="24" rx="9" fill="#0b0b0b"/><rect x="56" y="11" width="34" height="24" rx="9" fill="#0b0b0b"/>'+
+      '<path d="M44 17 H56" stroke="#0b0b0b" stroke-width="5"/>'+
+      '<rect x="15" y="15" width="11" height="5" rx="2.5" fill="#46566a"/><rect x="61" y="15" width="11" height="5" rx="2.5" fill="#46566a"/>'+
+      '</svg>';
+
+    var el=document.createElement('div');
+    el.className='watcher';
+    el.setAttribute('aria-hidden','true');
+    el.innerHTML=
+      '<div class="watcher-bubble"><span class="watcher-bubble-text"></span></div>'+
+      '<button class="watcher-mark" type="button" tabindex="-1">'+
+      '<span class="watcher-bolt" aria-hidden="true">'+BOLT_SVG+'</span>'+
+      '<span class="watcher-cloud" aria-hidden="true">'+CLOUD_SVG+'</span>'+
+      '<div class="mark-card">'+MARK_SVG+
+      '<span class="holo"></span><span class="holo-glare"></span>'+
+      '</div>'+
+      '<span class="watcher-hat" aria-hidden="true">'+HAT_SVG+'</span>'+
+      '<span class="watcher-shades" aria-hidden="true">'+SHADES_SVG+'</span>'+
+      '<span class="watcher-mute" aria-hidden="true">🔇</span>'+
+      '</button>';
+    document.body.appendChild(el);
+    if(Math.random()<0.02) el.classList.add('shiny');   // ~1-in-50 iridescent variant
+
+    var mark=el.querySelector('.watcher-mark');
+    var bubbleText=el.querySelector('.watcher-bubble-text');
+
+    // cling to a random spot on the OUTSIDE edge (re-rolled on load + after a strike).
+    // data-side (l/r) tells the thought-bubble which way to open (up + toward center).
+    function place() {
+      var mobile=window.innerWidth<600;
+      var inset=mobile? '10px':'0px';   // phones: sit IN from the edge (no cutoff)
+      var hang=mobile? 0:10;            // ...and don't hang off-screen
+      var edges=['left','right','bottom','left','right','bottom'];
+      var edge=edges[Math.floor(Math.random()*edges.length)];
+      el.style.left=el.style.right=el.style.top=el.style.bottom='auto';
+      var hx='0px',hy='0px',side;
+      if(edge==='left') {
+        el.style.left=inset;
+        el.style.top=(30+Math.random()*42).toFixed(1)+'vh';
+        hx=(-hang)+'px'; side='l';
+      } else if(edge==='right') {
+        el.style.right=inset;
+        el.style.top=(30+Math.random()*42).toFixed(1)+'vh';
+        hx=hang+'px'; side='r';
+      } else {
+        var x=18+Math.random()*60;
+        el.style.bottom=inset;
+        el.style.left=x.toFixed(1)+'vw';
+        hy=hang+'px'; side=(x<50)? 'l':'r';
+      }
+      el.style.setProperty('--hangx',hx);
+      el.style.setProperty('--hangy',hy);
+      el.setAttribute('data-side',side);
+    }
+    place();
+
+    // mute state persists across pages for the session
+    var muted=false;
+    try {muted=sessionStorage.getItem('tg-watcher-muted')==='1';} catch(e) {}
+
+    // cursor tracking: tilt + holo + pupil (fine pointer, motion ok; freezes when muted)
+    if(fine&&!reduce) {
+      window.addEventListener('pointermove',function(e) {
+        if(muted) return;
+        var r=mark.getBoundingClientRect();
+        var cx=r.left+r.width/2;
+        var cy=r.top+r.height/2;
+        var nx=Math.max(-1,Math.min(1,(e.clientX-cx)/(window.innerWidth*0.5)));
+        var ny=Math.max(-1,Math.min(1,(e.clientY-cy)/(window.innerHeight*0.5)));
+        el.style.setProperty('--ax',(nx*22).toFixed(2)+'deg');
+        el.style.setProperty('--ay',(-ny*22).toFixed(2)+'deg');
+        el.style.setProperty('--mx',(50+nx*50).toFixed(1)+'%');
+        el.style.setProperty('--my',(50+ny*50).toFixed(1)+'%');
+        el.style.setProperty('--wpx',(nx*4.6).toFixed(2)+'px');
+        el.style.setProperty('--wpy',(ny*4.6).toFixed(2)+'px');
+      },{passive: true});
+    }
+
+    // page-aware quips
+    var p=(location.pathname||'').toLowerCase();
+    var key=/dashboard/.test(p)? 'shiny'
+      :/project/.test(p)? 'projects'
+        :/ecoplot/.test(p)? 'ecoplot'
+          :(/field-notes/.test(p)||/flora/.test(p))? 'flora'
+            :/about/.test(p)? 'about'
+              :(/resume/.test(p)||/\bcv\b/.test(p))? 'resume'
+                :'default';
+
+    // short, dry one-liners (not corny) — each trails off in "..." like he's not
+    // done. A couple are interactive (drag gag). Page lines mix into a shared pool.
+    var SHARED=[
+      "Man, I miss Clippy...",
+      "Mute me. I dare you...",
+      "Did you know you can drag me...",
+      {t: "Mmmm... that sweet sweet creosote smell after the rain...",fx: "rain"},
+      "Saguaros can take like 75 years to grow one arm...",
+      "King Clone is a creosote, but almost 12,000 years old 😐...",
+      "Night-blooming cereus opens one night a year...",
+      "Jojoba oil basically helped save the whales...",
+      "Fun fact: Teddy-bear cholla is not for hugging...",
+      "I've been watching the data. It's fine...",
+      "Somewhere, a pivot table needs me...",
+      "I named your cursor. It's Greg now...",
+      "Just me and the uptime graph tonight...",
+      "My boss has a mullet... That's not a joke...",
+      {t: "The Eye is always watching...",fx: "eye"},
+      "We wants the schema, precious. We needs it...",
+      {t: "You shall not pass...",next: "...just kidding...",hat: true},
+      {t: "Keep it secret. Keep it safe... the data...",hat: true},
+      {t: "All we have to decide is what to do with the data we're given...",hat: true},
+      {t: "A data engineer is never late. Nor is he early. He arrives precisely when he means to...",hat: true}
+    ];
+    var PAGE={
+      shiny: ["Tim built these in R. I watched...","Click one. They actually run...","So many reactive expressions..."],
+      projects: ["Real projects. I supervised. Loosely...","He builds a lot of these...","Pick one. I have notes..."],
+      ecoplot: ["EcoPlot. Field data, no clipboard...","Offline-first. I find that romantic...","This one's my favorite. Don't tell the others..."],
+      flora: ["That's a lot of plants. I know them...","I count three saguaros from here...","Tim met all of these. In person..."],
+      about: ["That's Tim. He's alright...","Ask him about soil moisture. I dare you..."],
+      resume: ["Look at all those skills...","Hire him. I get to keep watching..."],
+      default: ["I'm always watching... someone has to...","Tim's around here somewhere...","Let's talk soil moisture variance..."]
+    };
+    var OUCH=["Ouch!...","Ow— fine...","Rude...","Hey! Okay, okay...","...betrayal..."];
+    var BACK=["...okay, I'm back...","Missed me...?","Oh good, you returned...","...as I was saying..."];
+    var PSYCH=["Psych! Maybe next build...","Nope. I live here now...","I can't actually move... yet..."];
+
+    var pool=(PAGE[key]||PAGE.default).concat(SHARED);
+    // seasonal: more storm lines during AZ monsoon (Jul-Sep), night-only ones after dark
+    var MONSOON=["Smells like a storm coming...","Monsoon season... my favorite and most dangerous...","I love a dramatic desert sky...","Get the data inside, it's gonna pour..."];
+    var NIGHT=["It's late... I'll keep watch... go on...","Just me and the moths tonight...","The desert's quieter after dark... I like it..."];
+    var now=new Date();
+    var isMonsoon=now.getMonth()>=6&&now.getMonth()<=8;
+    var isNight=now.getHours()>=20||now.getHours()<5;
+    if(isMonsoon) pool=pool.concat(MONSOON);
+    if(isNight) pool=pool.concat(NIGHT);
+    var last=-1;
+    function pick() {
+      if(pool.length<2) return pool[0];
+      var i;
+      do {i=Math.floor(Math.random()*pool.length);} while(i===last);
+      last=i;
+      return pool[i];
+    }
+    function choose(arr) {return arr[Math.floor(Math.random()*arr.length)];}
+
+    var hideTimer,nextTimer,muteTimer,lineTimer,strikeTimer,returnTimer;
+    var struck=false;
+
+    function forceSay(text,dwell) {
+      if(document.hidden) return;
+      window.clearTimeout(lineTimer);
+      bubbleText.textContent=text;
+      el.classList.add('talking');
+      window.clearTimeout(hideTimer);
+      hideTimer=window.setTimeout(function() {el.classList.remove('talking');},dwell||6000);
+    }
+    // show a pool quip — handles {t, next, hat}: drops a wizard hat + plays a follow-up
+    function showQuip(q) {
+      var t=(typeof q==='string')? q:q.t;
+      var nxt=(typeof q==='object')? q.next:null;
+      var hat=(typeof q==='object')&&q.hat;
+      var fx=(typeof q==='object')? q.fx:null;   // 'eye' | 'rain'
+      window.clearTimeout(hideTimer);
+      window.clearTimeout(lineTimer);
+      bubbleText.textContent=t;
+      el.classList.add('talking');
+      if(hat) el.classList.add('has-hat');
+      if(fx) el.classList.add('fx-'+fx);
+      function done() {el.classList.remove('talking'); el.classList.remove('has-hat'); if(fx) el.classList.remove('fx-'+fx);}
+      if(nxt) {
+        lineTimer=window.setTimeout(function() {
+          bubbleText.textContent=nxt;
+          hideTimer=window.setTimeout(done,5500);
+        },3500);
+      } else {
+        hideTimer=window.setTimeout(done,12000);
+      }
+    }
+    function say() {
+      if(document.hidden||muted||struck) return;
+      showQuip(pick());
+    }
+    function schedule(first) {
       window.clearTimeout(nextTimer);
+      if(muted||struck) return;
+      var delay=first? 2500:(22000+Math.random()*3000);
+      nextTimer=window.setTimeout(function() {say(); schedule(false);},delay);
+    }
+
+    function setMuted(m) {
+      window.clearTimeout(muteTimer);
+      if(m) {
+        muted=true;
+        try {sessionStorage.setItem('tg-watcher-muted','1');} catch(e) {}
+        window.clearTimeout(nextTimer);
+        el.classList.remove('has-hat');
+        el.classList.add('mad');
+        forceSay(choose(OUCH),1400);
+        muteTimer=window.setTimeout(function() {
+          el.classList.add('muted');
+          el.classList.remove('talking');
+        },1300);
+      } else {
+        muted=false;
+        try {sessionStorage.setItem('tg-watcher-muted','0');} catch(e) {}
+        el.classList.remove('muted');
+        el.classList.remove('mad');
+        forceSay(choose(BACK));
+        schedule(false);
+      }
+    }
+
+    // ---- monsoon: every ~45s a bolt strikes him; he vanishes, then pops up
+    //      somewhere new ~15s later. Skipped under reduced motion. ----
+    function scheduleStrike() {
+      window.clearTimeout(strikeTimer);
+      strikeTimer=window.setTimeout(strike,isMonsoon? 32000:45000);   // more frequent in monsoon
+    }
+    function strike() {
+      if(document.hidden||muted) {scheduleStrike(); return;}
+      struck=true;
+      window.clearTimeout(nextTimer);
+      window.clearTimeout(hideTimer);
+      window.clearTimeout(lineTimer);
+      el.classList.remove('talking');
       el.classList.remove('has-hat');
+      el.classList.add('zapped');
+      window.setTimeout(function() {
+        el.classList.remove('zapped');
+        el.classList.add('gone');
+      },750);
+      returnTimer=window.setTimeout(function() {
+        place();
+        el.classList.remove('gone');
+        el.classList.add('arriving');
+        window.setTimeout(function() {el.classList.remove('arriving');},700);
+        struck=false;
+        schedule(false);
+        scheduleStrike();
+      },15000);
+    }
+
+    // tell a real click (→ mute) from a drag attempt (→ psych gag)
+    var downX=0,downY=0,pressed=false,dragged=false;
+    mark.addEventListener('pointerdown',function(e) {
+      pressed=true; dragged=false; downX=e.clientX; downY=e.clientY;
+    });
+    window.addEventListener('pointermove',function(e) {
+      if(!pressed||dragged||muted||struck) return;
+      if(Math.abs(e.clientX-downX)>6||Math.abs(e.clientY-downY)>6) {
+        dragged=true;
+        forceSay(choose(PSYCH));
+      }
+    },{passive: true});
+    window.addEventListener('pointerup',function() {pressed=false;});
+    // 5 fast clicks = sunglasses easter egg (instead of a 5th mute toggle)
+    var clickTimes=[];
+    function easterEgg() {
+      window.clearTimeout(muteTimer);
+      muted=false; el.classList.remove('muted'); el.classList.remove('mad');
+      try {sessionStorage.setItem('tg-watcher-muted','0');} catch(e) {}
+      el.classList.add('cool');
+      forceSay("you found the secret... there's no prize...",5000);
+      window.setTimeout(function() {el.classList.remove('cool');},5000);
+      schedule(false);
+    }
+    mark.addEventListener('click',function() {
+      if(dragged) {dragged=false; return;}
+      if(struck) return;
+      var t=Date.now();
+      clickTimes.push(t);
+      clickTimes=clickTimes.filter(function(x) {return t-x<1500;});
+      if(clickTimes.length>=5) {clickTimes=[]; easterEgg(); return;}
+      var prev=clickTimes[clickTimes.length-2];
+      if(prev&&t-prev<350) return;   // rapid mashing — skip the mute toggle
+      setMuted(!muted);
+    });
+
+    // ---- context-aware reactions ----
+    // idle check-in: ~60s without mouse movement (desktop)
+    var idleTimer;
+    function resetIdle() {
+      window.clearTimeout(idleTimer);
+      if(!fine||reduce) return;
+      idleTimer=window.setTimeout(function() {
+        if(!muted&&!struck&&!document.hidden) forceSay("still there...? blink twice...",7000);
+      },60000);
+    }
+    window.addEventListener('pointermove',resetIdle,{passive: true});
+    resetIdle();
+    // bottom-of-page reward (once per page)
+    var sawBottom=false;
+    window.addEventListener('scroll',function() {
+      if(sawBottom||muted||struck) return;
+      if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4) {
+        sawBottom=true;
+        forceSay("you scrolled the whole thing... a person of culture...",7000);
+      }
+    },{passive: true});
+    // email field focus -> he leans in
+    [].forEach.call(document.querySelectorAll('input[type=email]'),function(inp) {
+      inp.addEventListener('focus',function() {
+        if(!muted&&!struck) forceSay("ooh, emailing Tim...? put in a good word...",7000);
+      });
+    });
+
+    document.addEventListener('visibilitychange',function() {
+      if(document.hidden) {window.clearTimeout(nextTimer);}
+      else if(!muted&&!struck) {schedule(false);}
+    });
+
+    // first appearance in the SESSION greets with "I see you..." (once, not per page)
+    var greeted=false;
+    try {greeted=sessionStorage.getItem('tg-watcher-greeted')==='1';} catch(e) {}
+    if(muted) {
       el.classList.add('mad');
-      forceSay(choose(OUCH), 1400);
-      muteTimer = window.setTimeout(function () {
-        el.classList.add('muted');
-        el.classList.remove('talking');
-      }, 1300);
+      el.classList.add('muted');
+    } else if(!greeted) {
+      try {sessionStorage.setItem('tg-watcher-greeted','1');} catch(e) {}
+      window.setTimeout(function() {forceSay('I see you...',7000);},1500);
+      schedule(false);
     } else {
-      muted = false;
-      try { sessionStorage.setItem('tg-watcher-muted', '0'); } catch (e) {}
-      el.classList.remove('muted');
-      el.classList.remove('mad');
-      forceSay(choose(BACK));
-      schedule(false);
+      schedule(true);
     }
-  }
-
-  // ---- monsoon: every ~45s a bolt strikes him; he vanishes, then pops up
-  //      somewhere new ~15s later. Skipped under reduced motion. ----
-  function scheduleStrike() {
-    window.clearTimeout(strikeTimer);
-    strikeTimer = window.setTimeout(strike, 45000);
-  }
-  function strike() {
-    if (document.hidden || muted) { scheduleStrike(); return; }
-    struck = true;
-    window.clearTimeout(nextTimer);
-    window.clearTimeout(hideTimer);
-    window.clearTimeout(lineTimer);
-    el.classList.remove('talking');
-    el.classList.remove('has-hat');
-    el.classList.add('zapped');
-    window.setTimeout(function () {
-      el.classList.remove('zapped');
-      el.classList.add('gone');
-    }, 750);
-    returnTimer = window.setTimeout(function () {
-      place();
-      el.classList.remove('gone');
-      el.classList.add('arriving');
-      window.setTimeout(function () { el.classList.remove('arriving'); }, 700);
-      struck = false;
-      schedule(false);
-      scheduleStrike();
-    }, 15000);
-  }
-
-  // tell a real click (→ mute) from a drag attempt (→ psych gag)
-  var downX = 0, downY = 0, pressed = false, dragged = false;
-  mark.addEventListener('pointerdown', function (e) {
-    pressed = true; dragged = false; downX = e.clientX; downY = e.clientY;
-  });
-  window.addEventListener('pointermove', function (e) {
-    if (!pressed || dragged || muted || struck) return;
-    if (Math.abs(e.clientX - downX) > 6 || Math.abs(e.clientY - downY) > 6) {
-      dragged = true;
-      forceSay(choose(PSYCH));
-    }
-  }, { passive: true });
-  window.addEventListener('pointerup', function () { pressed = false; });
-  mark.addEventListener('click', function () {
-    if (dragged) { dragged = false; return; }
-    if (struck) return;
-    setMuted(!muted);
-  });
-
-  document.addEventListener('visibilitychange', function () {
-    if (document.hidden) { window.clearTimeout(nextTimer); }
-    else if (!muted && !struck) { schedule(false); }
-  });
-
-  // first appearance in the SESSION greets with "I see you..." (once, not per page)
-  var greeted = false;
-  try { greeted = sessionStorage.getItem('tg-watcher-greeted') === '1'; } catch (e) {}
-  if (muted) {
-    el.classList.add('mad');
-    el.classList.add('muted');
-  } else if (!greeted) {
-    try { sessionStorage.setItem('tg-watcher-greeted', '1'); } catch (e) {}
-    window.setTimeout(function () { forceSay('I see you...', 7000); }, 1500);
-    schedule(false);
-  } else {
-    schedule(true);
-  }
-  if (!reduce) scheduleStrike();
-})();
+    if(!reduce) scheduleStrike();
+  })();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

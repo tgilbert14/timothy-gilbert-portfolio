@@ -1772,6 +1772,71 @@ body.quarto-light .watcher-bubble {
   100% { opacity: 1; transform: translate(var(--hangx, 0px), var(--hangy, 0px)) scale(1); }
 }
 
+/* ---- rain cloud (on the creosote line) ---- */
+.watcher-cloud {
+  position: absolute;
+  left: 50%;
+  bottom: 70%;
+  width: 64%;
+  z-index: 5;
+  transform: translate(-50%, 8px) scale(0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.34, 1.6, 0.5, 1);
+  pointer-events: none;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.3));
+}
+.watcher-cloud svg { display: block; width: 100%; height: auto; }
+.watcher.fx-rain .watcher-cloud { opacity: 1; transform: translate(-50%, 0) scale(1); }
+.watcher-cloud .drop { opacity: 0; }
+.watcher.fx-rain .watcher-cloud .drop { animation: wDrop 0.9s linear infinite; }
+.watcher.fx-rain .watcher-cloud .d2 { animation-delay: 0.3s; }
+.watcher.fx-rain .watcher-cloud .d3 { animation-delay: 0.6s; }
+@keyframes wDrop {
+  0%   { opacity: 0; transform: translateY(-4px); }
+  25%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(12px); }
+}
+
+/* ---- the Eye (Sauron) on "The Eye is always watching..." ---- */
+.watcher.fx-eye .watcher-pupil {
+  fill: #ff2a1a;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scaleX(0.5);
+  filter: drop-shadow(0 0 3px #ff2a1a) drop-shadow(0 0 7px #ff7a00);
+}
+.watcher.fx-eye .mark-card { animation: wEyeGlow 1.3s ease-in-out infinite; }
+@keyframes wEyeGlow {
+  0%, 100% { filter: none; }
+  50%      { filter: drop-shadow(0 0 7px rgba(255, 60, 20, 0.65)); }
+}
+
+/* ---- sunglasses (5-fast-clicks easter egg) ---- */
+.watcher-shades {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  width: 76%;
+  z-index: 5;
+  transform: translate(-50%, -8px) scale(0.4) rotate(-3deg);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.35s cubic-bezier(0.34, 1.7, 0.5, 1);
+  pointer-events: none;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.45));
+}
+.watcher-shades svg { display: block; width: 100%; height: auto; }
+.watcher.cool .watcher-shades { opacity: 1; transform: translate(-50%, 0) scale(1) rotate(-3deg); }
+
+/* ---- rare shiny / foil variant (~1 in 50 loads) ---- */
+.watcher.shiny .holo { opacity: 0.6 !important; filter: saturate(1.8) brightness(1.2) !important; }
+.watcher.shiny .holo-glare { opacity: 0.7 !important; }
+.watcher.shiny .mark-card {
+  box-shadow: 0 0 0 1px rgba(255, 215, 90, 0.6), 0 16px 44px rgba(0, 0, 0, 0.42), 0 0 24px rgba(255, 200, 60, 0.6);
+}
+.watcher.shiny .watcher-mark::after {
+  background: radial-gradient(closest-side, transparent 52%, rgba(255, 200, 60, 0.55));
+}
+
 @media (hover: none) {
   .watcher .holo { opacity: 0.4; }
   .watcher-mark { animation: floatY 6s ease-in-out infinite, holoOrbit 7s ease-in-out infinite; }
