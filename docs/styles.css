@@ -1550,8 +1550,8 @@ body.quarto-light .navbar .quarto-color-scheme-toggle { color: #21302b; }
 .watcher {
   position: fixed;
   z-index: 1000;
-  width: 64px;
-  height: 64px;
+  width: 70px;
+  height: 70px;
   pointer-events: none;
   transform: translate(var(--hangx, 0px), var(--hangy, 0px));
   --ax: 0deg; --ay: 0deg; --mx: 50%; --my: 50%;
@@ -1778,7 +1778,7 @@ body.quarto-light .watcher-bubble {
 }
 
 @media (max-width: 600px) {
-  .watcher { width: 50px; height: 50px; }
-  .watcher-mute { font-size: 1.3rem; }
-  .watcher-bubble { max-width: 170px; font-size: 0.84rem; }
+  .watcher { width: 64px; height: 64px; }
+  .watcher-mute { font-size: 1.4rem; }
+  .watcher-bubble { max-width: 188px; font-size: 0.88rem; }
 }

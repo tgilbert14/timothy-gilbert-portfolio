@@ -617,23 +617,26 @@ ul.task-list li input[type="checkbox"] {
   // cling to a random spot on the OUTSIDE edge (re-rolled on load + after a strike).
   // data-side (l/r) tells the thought-bubble which way to open (up + toward center).
   function place() {
+    var mobile = window.innerWidth < 600;
+    var inset = mobile ? '10px' : '0px';   // phones: sit IN from the edge (no cutoff)
+    var hang = mobile ? 0 : 10;            // ...and don't hang off-screen
     var edges = ['left', 'right', 'bottom', 'left', 'right', 'bottom'];
     var edge = edges[Math.floor(Math.random() * edges.length)];
     el.style.left = el.style.right = el.style.top = el.style.bottom = 'auto';
     var hx = '0px', hy = '0px', side;
     if (edge === 'left') {
-      el.style.left = '0px';
+      el.style.left = inset;
       el.style.top = (30 + Math.random() * 42).toFixed(1) + 'vh';
-      hx = '-10px'; side = 'l';
+      hx = (-hang) + 'px'; side = 'l';
     } else if (edge === 'right') {
-      el.style.right = '0px';
+      el.style.right = inset;
       el.style.top = (30 + Math.random() * 42).toFixed(1) + 'vh';
-      hx = '10px'; side = 'r';
+      hx = hang + 'px'; side = 'r';
     } else {
       var x = 18 + Math.random() * 60;
-      el.style.bottom = '0px';
+      el.style.bottom = inset;
       el.style.left = x.toFixed(1) + 'vw';
-      hy = '10px'; side = (x < 50) ? 'l' : 'r';
+      hy = hang + 'px'; side = (x < 50) ? 'l' : 'r';
     }
     el.style.setProperty('--hangx', hx);
     el.style.setProperty('--hangy', hy);
@@ -730,7 +733,7 @@ ul.task-list li input[type="checkbox"] {
     bubbleText.textContent = text;
     el.classList.add('talking');
     window.clearTimeout(hideTimer);
-    hideTimer = window.setTimeout(function () { el.classList.remove('talking'); }, dwell || 4000);
+    hideTimer = window.setTimeout(function () { el.classList.remove('talking'); }, dwell || 6000);
   }
   // show a pool quip — handles {t, next, hat}: drops a wizard hat + plays a follow-up
   function showQuip(q) {
@@ -746,10 +749,10 @@ ul.task-list li input[type="checkbox"] {
     if (nxt) {
       lineTimer = window.setTimeout(function () {
         bubbleText.textContent = nxt;
-        hideTimer = window.setTimeout(done, 3600);
-      }, 2600);
+        hideTimer = window.setTimeout(done, 5500);
+      }, 3500);
     } else {
-      hideTimer = window.setTimeout(done, 8000);
+      hideTimer = window.setTimeout(done, 12000);
     }
   }
   function say() {
@@ -848,7 +851,7 @@ ul.task-list li input[type="checkbox"] {
     el.classList.add('muted');
   } else if (!greeted) {
     try { sessionStorage.setItem('tg-watcher-greeted', '1'); } catch (e) {}
-    window.setTimeout(function () { forceSay('I see you...', 5000); }, 1500);
+    window.setTimeout(function () { forceSay('I see you...', 7000); }, 1500);
     schedule(false);
   } else {
     schedule(true);
