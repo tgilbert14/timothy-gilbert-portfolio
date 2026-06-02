@@ -13,20 +13,12 @@ format:
 
 # Flora Wall {.section-title}
 
-::: section-subtitle
-Before the dashboards and databases, there was a lot of dirt. A few years of
-rangeland and desert fieldwork from around Arizona — small-mammal trapping,
-electro-fishing, vegetation transects, and the plants I met along the way.
-:::
 
 ```{=html}
 <div class="field-grid">
-  <figure class="field-shot"><img src="assets/photos/field-rangeland-walk.jpg" alt="Walking a rangeland site" loading="lazy"><figcaption>Walking a site</figcaption></figure>
-  <figure class="field-shot"><img src="assets/photos/field-transect-collection.jpg" alt="Collecting transect data" loading="lazy"><figcaption>Transect data collection</figcaption></figure>
-  <figure class="field-shot"><img src="assets/photos/field-veg-survey.jpg" alt="Vegetation survey" loading="lazy"><figcaption>Vegetation survey</figcaption></figure>
-  <figure class="field-shot"><img src="assets/photos/field-crew.jpg" alt="Field crew" loading="lazy"><figcaption>The crew</figcaption></figure>
-  <figure class="field-shot"><img src="assets/photos/field-fenceline-monitoring.jpg" alt="Fenceline contrast monitoring" loading="lazy"><figcaption>Fenceline monitoring</figcaption></figure>
-  <figure class="field-shot"><img src="assets/photos/field-grazing.jpg" alt="Grazing and utilization" loading="lazy"><figcaption>Grazing &amp; utilization</figcaption></figure>
+  <figure class="field-shot"><img src="assets/photos/field-rangeland-walk.jpg" alt="Electro fishing bout" loading="lazy"><figcaption>Electro fishing bout</figcaption></figure>
+  <figure class="field-shot"><img src="assets/photos/small-mammals.jpg" alt="Small Mammal surveys" loading="lazy"><figcaption>Small Mammal survey</figcaption></figure>
+  <figure class="field-shot"><img src="assets/photos/field-grazing.jpg" alt="Soil surveys" loading="lazy"><figcaption>Soil surveys</figcaption></figure>
 </div>
 ```
 :::
