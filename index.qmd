@@ -97,7 +97,7 @@ Welcome to my digital portfolio. I'm a data scientist and ecologist specializing
   <div class="fp-overlay">
     <span class="eyebrow">From the field</span>
     <h2>The work behind the data</h2>
-    <p>Before the dashboards, there were years of desert fieldwork around Arizona, plus all the plants along the way.</p>
+    <p>Experiences that taught me a lot about data collecting.</p>
     <a class="tg-btn tg-btn-primary" href="field-notes.qmd">Go to flora wall →</a>
   </div>
 </section>
