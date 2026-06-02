@@ -609,6 +609,239 @@ ul.task-list li input[type="checkbox"] {
     });
   }
 })();
+
+// ---- Persistent "watcher" mascot (ported from desertdatalabs.com): rides a
+//      random outside edge on every page EXCEPT home (the hero avatar already
+//      watches there), follows the cursor, over-shares trivia, click to mute. ----
+(function () {
+  if (!document.body) return;
+  if (document.querySelector('.hero-avatar')) return;  // home: avatar already watches
+  if (document.querySelector('.watcher')) return;      // guard double-init
+
+  var reduce = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+
+  var MARK_SVG =
+    '<svg viewBox="0 0 120 120" fill="none" aria-hidden="true">' +
+      '<defs>' +
+        '<linearGradient id="tgw-edge" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2dd4bf"/><stop offset="100%" stop-color="#f97366"/></linearGradient>' +
+        '<linearGradient id="tgw-chip" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0a1830"/><stop offset="42%" stop-color="#0c2a2c"/><stop offset="72%" stop-color="#141430"/><stop offset="100%" stop-color="#1d1030"/></linearGradient>' +
+      '</defs>' +
+      '<rect x="7" y="7" width="106" height="106" rx="28" fill="url(#tgw-chip)" stroke="url(#tgw-edge)" stroke-width="3.5"/>' +
+      '<g class="rays" stroke="currentColor" stroke-width="4" stroke-linecap="round">' +
+        '<path class="ray" d="M74.1 31.1 L84.4 18.9"/>' +
+        '<path class="ray" d="M81.7 44.2 L97.4 41.4"/>' +
+        '<path class="ray" d="M79.1 59 L92.9 67"/>' +
+        '<path class="ray" d="M40.9 59 L27.1 67"/>' +
+        '<path class="ray" d="M38.3 44.2 L22.6 41.4"/>' +
+        '<path class="ray" d="M45.9 31.1 L35.6 18.9"/>' +
+      '</g>' +
+      '<g fill="none" stroke="#5fb56a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">' +
+        '<path d="M60 28 V96"/>' +
+        '<path d="M60 36 L74 48 L60 60 L46 48 Z"/>' +
+        '<path d="M44 96 H76"/>' +
+      '</g>' +
+      '<circle class="watcher-pupil" cx="60" cy="48" r="4.7" fill="#7ee0a0"/>' +
+    '</svg>';
+
+  var el = document.createElement('div');
+  el.className = 'watcher';
+  el.setAttribute('aria-hidden', 'true');
+  el.innerHTML =
+    '<div class="watcher-bubble"><span class="watcher-bubble-text"></span></div>' +
+    '<button class="watcher-mark" type="button" tabindex="-1">' +
+      '<div class="mark-card">' + MARK_SVG +
+        '<span class="holo"></span><span class="holo-glare"></span>' +
+      '</div>' +
+      '<span class="watcher-mute" aria-hidden="true">🔇</span>' +
+    '</button>';
+  document.body.appendChild(el);
+
+  var mark = el.querySelector('.watcher-mark');
+  var bubbleText = el.querySelector('.watcher-bubble-text');
+
+  // cling to a random spot on the OUTSIDE edge (re-rolled every page load)
+  (function place() {
+    var edges = ['left', 'right', 'bottom', 'left', 'right', 'bottom'];
+    var edge = edges[Math.floor(Math.random() * edges.length)];
+    el.style.left = el.style.right = el.style.top = el.style.bottom = 'auto';
+    var hx = '0px', hy = '0px';
+    if (edge === 'left') {
+      el.style.left = '0px';
+      el.style.top = (14 + Math.random() * 60).toFixed(1) + 'vh';
+      hx = '-10px';
+    } else if (edge === 'right') {
+      el.style.right = '0px';
+      el.style.top = (14 + Math.random() * 60).toFixed(1) + 'vh';
+      hx = '10px';
+    } else {
+      el.style.bottom = '0px';
+      el.style.left = (25 + Math.random() * 50).toFixed(1) + 'vw';
+      hy = '10px';
+    }
+    el.style.setProperty('--hangx', hx);
+    el.style.setProperty('--hangy', hy);
+    el.setAttribute('data-edge', edge);
+  })();
+
+  // mute state persists across pages for the session
+  var muted = false;
+  try { muted = sessionStorage.getItem('tg-watcher-muted') === '1'; } catch (e) {}
+
+  // cursor tracking: tilt + holo + pupil (fine pointer, motion ok; freezes when muted)
+  if (fine && !reduce) {
+    window.addEventListener('pointermove', function (e) {
+      if (muted) return;
+      var r = mark.getBoundingClientRect();
+      var cx = r.left + r.width / 2;
+      var cy = r.top + r.height / 2;
+      var nx = Math.max(-1, Math.min(1, (e.clientX - cx) / (window.innerWidth * 0.5)));
+      var ny = Math.max(-1, Math.min(1, (e.clientY - cy) / (window.innerHeight * 0.5)));
+      el.style.setProperty('--ax', (nx * 22).toFixed(2) + 'deg');
+      el.style.setProperty('--ay', (-ny * 22).toFixed(2) + 'deg');
+      el.style.setProperty('--mx', (50 + nx * 50).toFixed(1) + '%');
+      el.style.setProperty('--my', (50 + ny * 50).toFixed(1) + '%');
+      el.style.setProperty('--wpx', (nx * 4.6).toFixed(2) + 'px');
+      el.style.setProperty('--wpy', (ny * 4.6).toFixed(2) + 'px');
+    }, { passive: true });
+  }
+
+  // page-aware quips
+  var p = (location.pathname || '').toLowerCase();
+  var key = /dashboard/.test(p) ? 'shiny'
+    : /project/.test(p) ? 'projects'
+    : /ecoplot/.test(p) ? 'ecoplot'
+    : (/field-notes/.test(p) || /flora/.test(p)) ? 'flora'
+    : /about/.test(p) ? 'about'
+    : (/resume/.test(p) || /\bcv\b/.test(p)) ? 'resume'
+    : 'default';
+
+  // short, dry one-liners (not corny) — each trails off in "..." like he's not
+  // done. A couple are interactive (drag gag). Page lines mix into a shared pool.
+  var SHARED = [
+    "Man, I miss Clippy...",
+    "Mute me. I dare you...",
+    "Did you know you can drag me...",
+    "Mmmm... that sweet, sweet creosote after the rain...",
+    "Saguaros can take 75 years to grow one arm...",
+    "Ocotillo isn't a cactus. People assume...",
+    "King Clone is a creosote almost 12,000 years old...",
+    "Agave blooms once, then dies. Bold...",
+    "Night-blooming cereus opens one night a year...",
+    "Jojoba oil basically helped save the whales...",
+    "Teddy-bear cholla is not for hugging...",
+    "Palo verde photosynthesizes through its bark...",
+    "I've been watching the data. It's fine...",
+    "Somewhere, a pivot table needs me...",
+    "I named your cursor. It's Greg now...",
+    "Just me and the uptime graph tonight..."
+  ];
+  var PAGE = {
+    shiny: ["Tim built these in R. I watched...", "Click one. They actually run...", "So many reactive expressions..."],
+    projects: ["Real projects. I supervised. Loosely...", "He builds a lot of these...", "Pick one. I have notes..."],
+    ecoplot: ["EcoPlot. Field data, no clipboard...", "Offline-first. I find that romantic...", "This one's my favorite. Don't tell the others..."],
+    flora: ["That's a lot of plants. I know them...", "I count three saguaros from here...", "Tim met all of these. In person..."],
+    about: ["That's Tim. He's alright...", "Ask him about soil moisture. I dare you...", "He's better with data than small talk. Same..."],
+    resume: ["Look at all those skills...", "He really can do all this. I checked...", "Hire him. I get to keep watching..."],
+    default: ["I'm always watching... someone has to...", "Tim's around here somewhere...", "Let's talk soil moisture variance..."]
+  };
+  var OUCH  = ["Ouch!...", "Ow— fine...", "Rude...", "Hey! Okay, okay...", "...betrayal..."];
+  var BACK  = ["...okay, I'm back...", "Missed me...?", "Oh good, you returned...", "...as I was saying..."];
+  var PSYCH = ["Psych! Maybe next build...", "Nope. I live here now...", "I can't actually move... yet..."];
+
+  var pool = (PAGE[key] || PAGE.default).concat(SHARED);
+  var last = -1;
+  function pick() {
+    if (pool.length < 2) return pool[0];
+    var i;
+    do { i = Math.floor(Math.random() * pool.length); } while (i === last);
+    last = i;
+    return pool[i];
+  }
+  function choose(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+  var hideTimer, nextTimer, muteTimer;
+  function forceSay(text, dwell) {
+    if (document.hidden) return;
+    bubbleText.textContent = text;
+    el.classList.add('talking');
+    window.clearTimeout(hideTimer);
+    hideTimer = window.setTimeout(function () { el.classList.remove('talking'); }, dwell || 4000);
+  }
+  function say() {
+    if (document.hidden || muted) return;
+    bubbleText.textContent = pick();
+    el.classList.add('talking');
+    window.clearTimeout(hideTimer);
+    hideTimer = window.setTimeout(function () { el.classList.remove('talking'); }, 8000);
+  }
+  function schedule(first) {
+    window.clearTimeout(nextTimer);
+    if (muted) return;
+    var delay = first ? 2500 : (22000 + Math.random() * 3000);
+    nextTimer = window.setTimeout(function () { say(); schedule(false); }, delay);
+  }
+
+  function setMuted(m) {
+    window.clearTimeout(muteTimer);
+    if (m) {
+      muted = true;
+      try { sessionStorage.setItem('tg-watcher-muted', '1'); } catch (e) {}
+      window.clearTimeout(nextTimer);
+      el.classList.add('mad');
+      forceSay(choose(OUCH), 1400);
+      muteTimer = window.setTimeout(function () {
+        el.classList.add('muted');
+        el.classList.remove('talking');
+      }, 1300);
+    } else {
+      muted = false;
+      try { sessionStorage.setItem('tg-watcher-muted', '0'); } catch (e) {}
+      el.classList.remove('muted');
+      el.classList.remove('mad');
+      forceSay(choose(BACK));
+      schedule(false);
+    }
+  }
+
+  // tell a real click (→ mute) from a drag attempt (→ psych gag)
+  var downX = 0, downY = 0, pressed = false, dragged = false;
+  mark.addEventListener('pointerdown', function (e) {
+    pressed = true; dragged = false; downX = e.clientX; downY = e.clientY;
+  });
+  window.addEventListener('pointermove', function (e) {
+    if (!pressed || dragged || muted) return;
+    if (Math.abs(e.clientX - downX) > 6 || Math.abs(e.clientY - downY) > 6) {
+      dragged = true;
+      forceSay(choose(PSYCH));
+    }
+  }, { passive: true });
+  window.addEventListener('pointerup', function () { pressed = false; });
+  mark.addEventListener('click', function () {
+    if (dragged) { dragged = false; return; }
+    setMuted(!muted);
+  });
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { window.clearTimeout(nextTimer); }
+    else { schedule(false); }
+  });
+
+  // first appearance in the SESSION greets with "I see you..." (once, not per page)
+  var greeted = false;
+  try { greeted = sessionStorage.getItem('tg-watcher-greeted') === '1'; } catch (e) {}
+  if (muted) {
+    el.classList.add('mad');
+    el.classList.add('muted');
+  } else if (!greeted) {
+    try { sessionStorage.setItem('tg-watcher-greeted', '1'); } catch (e) {}
+    window.setTimeout(function () { forceSay('I see you...', 5000); }, 1500);
+    schedule(false);
+  } else {
+    schedule(true);
+  }
+})();
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
