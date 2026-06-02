@@ -9,8 +9,54 @@ format:
 
 ```{=html}
 <section class="hero">
+  <div class="hero-circuit" aria-hidden="true">
+    <svg class="circuit-side circuit-left" viewBox="0 0 200 300" preserveAspectRatio="xMidYMax meet" fill="none">
+      <path class="trace rail" pathLength="1" d="M34 268 H182"/>
+      <g class="sag">
+        <path class="trace" pathLength="1" d="M58 268 V152"/>
+        <path class="trace" pathLength="1" d="M58 202 H86 V166"/>
+        <circle class="node" cx="58" cy="152" r="5"/>
+        <circle class="node" cx="86" cy="166" r="4.5"/>
+        <circle class="node base" cx="58" cy="268" r="3.5"/>
+      </g>
+      <g class="sag">
+        <path class="trace" pathLength="1" d="M138 268 V56"/>
+        <path class="trace" pathLength="1" d="M138 164 H104 V108"/>
+        <path class="trace" pathLength="1" d="M138 126 H174 V80"/>
+        <circle class="node" cx="138" cy="56" r="5.5"/>
+        <circle class="node" cx="104" cy="108" r="4.5"/>
+        <circle class="node" cx="174" cy="80" r="4.5"/>
+        <circle class="node base" cx="138" cy="268" r="3.5"/>
+      </g>
+    </svg>
+    <svg class="circuit-side circuit-right" viewBox="0 0 200 300" preserveAspectRatio="xMidYMax meet" fill="none">
+      <path class="trace rail" pathLength="1" d="M34 268 H182"/>
+      <g class="sag">
+        <path class="trace" pathLength="1" d="M58 268 V152"/>
+        <path class="trace" pathLength="1" d="M58 202 H86 V166"/>
+        <circle class="node" cx="58" cy="152" r="5"/>
+        <circle class="node" cx="86" cy="166" r="4.5"/>
+        <circle class="node base" cx="58" cy="268" r="3.5"/>
+      </g>
+      <g class="sag">
+        <path class="trace" pathLength="1" d="M138 268 V56"/>
+        <path class="trace" pathLength="1" d="M138 164 H104 V108"/>
+        <path class="trace" pathLength="1" d="M138 126 H174 V80"/>
+        <circle class="node" cx="138" cy="56" r="5.5"/>
+        <circle class="node" cx="104" cy="108" r="4.5"/>
+        <circle class="node" cx="174" cy="80" r="4.5"/>
+        <circle class="node base" cx="138" cy="268" r="3.5"/>
+      </g>
+    </svg>
+  </div>
   <span class="eyebrow">Data Scientist · Ecologist · Founder</span>
-  <div class="hero-avatar"><img src="assets/tim_gc.jpg" alt="Tim Gilbert"></div>
+  <div class="hero-avatar">
+    <div class="avatar-card">
+      <img src="assets/tim_gc.jpg" alt="Tim Gilbert">
+      <span class="holo" aria-hidden="true"></span>
+      <span class="holo-glare" aria-hidden="true"></span>
+    </div>
+  </div>
   <h1>Timothy <span class="accent">Gilbert</span></h1>
   <p class="lede">I build R&nbsp;Shiny apps, relational databases, and custom data workflows for environmental consultants, university labs, and small businesses. Ecologist by training, data engineer by trade.</p>
   <div class="cta-row">

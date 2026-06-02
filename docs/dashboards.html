@@ -450,6 +450,28 @@ ul.task-list li input[type="checkbox"] {
     window.addEventListener('scroll', maybePlay, { passive: true });
   }
 
+  /* ---------- Holographic avatar: cursor tilt + iridescent sheen ---------- */
+  var heroAvatar = document.querySelector('.hero-avatar');
+  if (heroAvatar && !reduce && window.matchMedia('(pointer: fine)').matches) {
+    var avMove = function (e) {
+      var rect = heroAvatar.getBoundingClientRect();
+      var px = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+      var py = Math.min(1, Math.max(0, (e.clientY - rect.top) / rect.height));
+      heroAvatar.style.setProperty('--ax', ((px - 0.5) * 26).toFixed(2) + 'deg');
+      heroAvatar.style.setProperty('--ay', ((0.5 - py) * 26).toFixed(2) + 'deg');
+      heroAvatar.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+      heroAvatar.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+    };
+    var avReset = function () {
+      heroAvatar.style.setProperty('--ax', '0deg');
+      heroAvatar.style.setProperty('--ay', '0deg');
+      heroAvatar.style.setProperty('--mx', '50%');
+      heroAvatar.style.setProperty('--my', '50%');
+    };
+    heroAvatar.addEventListener('pointermove', avMove);
+    heroAvatar.addEventListener('pointerleave', avReset);
+  }
+
   /* ---------- Parallax ---------- */
   if (!reduce) {
     var pxEls = [].slice.call(document.querySelectorAll('[data-parallax]'));

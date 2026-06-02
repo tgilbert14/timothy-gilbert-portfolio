@@ -339,8 +339,54 @@ ul.task-list li input[type="checkbox"] {
 
 
 <section class="hero">
+  <div class="hero-circuit" aria-hidden="true">
+    <svg class="circuit-side circuit-left" viewbox="0 0 200 300" preserveaspectratio="xMidYMax meet" fill="none">
+      <path class="trace rail" pathlength="1" d="M34 268 H182"></path>
+      <g class="sag">
+        <path class="trace" pathlength="1" d="M58 268 V152"></path>
+        <path class="trace" pathlength="1" d="M58 202 H86 V166"></path>
+        <circle class="node" cx="58" cy="152" r="5"></circle>
+        <circle class="node" cx="86" cy="166" r="4.5"></circle>
+        <circle class="node base" cx="58" cy="268" r="3.5"></circle>
+      </g>
+      <g class="sag">
+        <path class="trace" pathlength="1" d="M138 268 V56"></path>
+        <path class="trace" pathlength="1" d="M138 164 H104 V108"></path>
+        <path class="trace" pathlength="1" d="M138 126 H174 V80"></path>
+        <circle class="node" cx="138" cy="56" r="5.5"></circle>
+        <circle class="node" cx="104" cy="108" r="4.5"></circle>
+        <circle class="node" cx="174" cy="80" r="4.5"></circle>
+        <circle class="node base" cx="138" cy="268" r="3.5"></circle>
+      </g>
+    </svg>
+    <svg class="circuit-side circuit-right" viewbox="0 0 200 300" preserveaspectratio="xMidYMax meet" fill="none">
+      <path class="trace rail" pathlength="1" d="M34 268 H182"></path>
+      <g class="sag">
+        <path class="trace" pathlength="1" d="M58 268 V152"></path>
+        <path class="trace" pathlength="1" d="M58 202 H86 V166"></path>
+        <circle class="node" cx="58" cy="152" r="5"></circle>
+        <circle class="node" cx="86" cy="166" r="4.5"></circle>
+        <circle class="node base" cx="58" cy="268" r="3.5"></circle>
+      </g>
+      <g class="sag">
+        <path class="trace" pathlength="1" d="M138 268 V56"></path>
+        <path class="trace" pathlength="1" d="M138 164 H104 V108"></path>
+        <path class="trace" pathlength="1" d="M138 126 H174 V80"></path>
+        <circle class="node" cx="138" cy="56" r="5.5"></circle>
+        <circle class="node" cx="104" cy="108" r="4.5"></circle>
+        <circle class="node" cx="174" cy="80" r="4.5"></circle>
+        <circle class="node base" cx="138" cy="268" r="3.5"></circle>
+      </g>
+    </svg>
+  </div>
   <span class="eyebrow">Data Scientist · Ecologist · Founder</span>
-  <div class="hero-avatar"><img src="assets/tim_gc.jpg" alt="Tim Gilbert"></div>
+  <div class="hero-avatar">
+    <div class="avatar-card">
+      <img src="assets/tim_gc.jpg" alt="Tim Gilbert">
+      <span class="holo" aria-hidden="true"></span>
+      <span class="holo-glare" aria-hidden="true"></span>
+    </div>
+  </div>
   <h1>Timothy <span class="accent">Gilbert</span></h1>
   <p class="lede">I build R&nbsp;Shiny apps, relational databases, and custom data workflows for environmental consultants, university labs, and small businesses. Ecologist by training, data engineer by trade.</p>
   <div class="cta-row">
@@ -571,6 +617,28 @@ ul.task-list li input[type="checkbox"] {
     };
     maybePlay();
     window.addEventListener('scroll', maybePlay, { passive: true });
+  }
+
+  /* ---------- Holographic avatar: cursor tilt + iridescent sheen ---------- */
+  var heroAvatar = document.querySelector('.hero-avatar');
+  if (heroAvatar && !reduce && window.matchMedia('(pointer: fine)').matches) {
+    var avMove = function (e) {
+      var rect = heroAvatar.getBoundingClientRect();
+      var px = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+      var py = Math.min(1, Math.max(0, (e.clientY - rect.top) / rect.height));
+      heroAvatar.style.setProperty('--ax', ((px - 0.5) * 26).toFixed(2) + 'deg');
+      heroAvatar.style.setProperty('--ay', ((0.5 - py) * 26).toFixed(2) + 'deg');
+      heroAvatar.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+      heroAvatar.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+    };
+    var avReset = function () {
+      heroAvatar.style.setProperty('--ax', '0deg');
+      heroAvatar.style.setProperty('--ay', '0deg');
+      heroAvatar.style.setProperty('--mx', '50%');
+      heroAvatar.style.setProperty('--my', '50%');
+    };
+    heroAvatar.addEventListener('pointermove', avMove);
+    heroAvatar.addEventListener('pointerleave', avReset);
   }
 
   /* ---------- Parallax ---------- */

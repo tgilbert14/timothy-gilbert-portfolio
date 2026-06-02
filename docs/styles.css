@@ -210,10 +210,80 @@ html.js .reveal.stagger.is-visible > *:nth-child(6) { animation-delay: 0.35s; }
    Hero
    ------------------------------------------------------------- */
 .hero {
+  position: relative;
+  overflow: hidden;
   max-width: 880px;
   margin: 1rem auto 0;
   padding: 2.5rem 1.25rem 1rem;
   text-align: center;
+}
+
+/* hero content sits above the circuit backdrop */
+.hero > *:not(.hero-circuit) { position: relative; z-index: 1; }
+
+/* ---------- Saguaro circuit backdrop — flanks the photo (left + right),
+   raised base, draws in on load, gently "electric" ---------- */
+.hero-circuit {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.9;
+  transition: opacity 0.5s ease;
+}
+.hero:hover .hero-circuit { opacity: 1; }
+
+.hero-circuit svg.circuit-side {
+  position: absolute;
+  bottom: 15%;
+  height: 70%;
+  width: 32%;
+  overflow: visible;
+  display: block;
+}
+.hero-circuit .circuit-left { left: 0.5%; }
+.hero-circuit .circuit-right { right: 0.5%; transform: scaleX(-1); }
+
+.hero-circuit .trace {
+  stroke: var(--teal);
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.62;
+  filter: drop-shadow(0 0 2px rgba(var(--teal-rgb), 0.7));
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: drawTrace 1.4s ease forwards;
+}
+.hero-circuit .rail { opacity: 0.3; animation-delay: 0.15s; }
+.hero-circuit .node {
+  fill: var(--teal-bright);
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0);
+  filter: drop-shadow(0 0 3px rgba(var(--teal-rgb), 0.85));
+  animation:
+    popNode 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+    nodePulse 2.6s ease-in-out infinite;
+}
+
+.hero-circuit .sag:nth-of-type(1) { --sd: 0.4s; }
+.hero-circuit .sag:nth-of-type(2) { --sd: 0.55s; }
+.hero-circuit .circuit-right .sag:nth-of-type(1) { --sd: 0.6s; }
+.hero-circuit .circuit-right .sag:nth-of-type(2) { --sd: 0.75s; }
+.hero-circuit .sag .trace { animation-delay: var(--sd); }
+.hero-circuit .sag .trace:nth-child(2),
+.hero-circuit .sag .trace:nth-child(3) { animation-delay: calc(var(--sd) + 0.25s); }
+.hero-circuit .sag .node {
+  animation-delay: calc(var(--sd) + 0.95s), calc(var(--sd) + 1.3s);
+}
+
+@keyframes drawTrace { to { stroke-dashoffset: 0; } }
+@keyframes popNode { to { opacity: 0.95; transform: scale(1); } }
+@keyframes nodePulse {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(var(--teal-rgb), 0.5)); }
+  50%      { filter: drop-shadow(0 0 7px rgba(var(--teal-rgb), 1)); }
 }
 
 .hero .eyebrow,
@@ -238,6 +308,7 @@ html.js .reveal.stagger.is-visible > *:nth-child(6) { animation-delay: 0.35s; }
   height: 188px;
   margin: 0 auto 1.6rem;
   border-radius: 50%;
+  perspective: 620px;
   animation: floatY 6s ease-in-out infinite;
 }
 
@@ -263,15 +334,81 @@ html.js .reveal.stagger.is-visible > *:nth-child(6) { animation-delay: 0.35s; }
   z-index: -1;
 }
 
-.hero-avatar img {
+/* Holographic "trading card" — tilts toward the cursor; an iridescent
+   sheen + glare track the pointer (driven by --ax/--ay/--mx/--my in JS). */
+.avatar-card {
   position: relative;
   z-index: 1;
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  object-fit: cover;
+  overflow: hidden;
   border: 5px solid var(--bg-0);
   box-shadow: var(--shadow);
+  transform: rotateX(var(--ay, 0deg)) rotateY(var(--ax, 0deg));
+  transition: transform 0.45s ease;
+}
+.hero-avatar:hover .avatar-card { transition: transform 0.1s ease; }
+
+.avatar-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.avatar-card .holo,
+.avatar-card .holo-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+}
+.hero-avatar:hover .holo { opacity: 0.5; }
+.hero-avatar:hover .holo-glare { opacity: 0.85; }
+
+.avatar-card .holo {
+  background-image:
+    repeating-linear-gradient(110deg,
+      rgba(255, 119, 115, 0.55) 0%, rgba(255, 224, 138, 0.55) 12%,
+      rgba(120, 238, 224, 0.55) 25%, rgba(120, 148, 255, 0.55) 38%,
+      rgba(216, 117, 255, 0.55) 50%, rgba(255, 119, 115, 0.55) 62%),
+    repeating-linear-gradient(-42deg,
+      rgba(255, 255, 255, 0.10) 0 2px, transparent 2px 5px);
+  background-size: 280% 280%, 130px 130px;
+  background-position: var(--mx, 50%) var(--my, 50%);
+  mix-blend-mode: color-dodge;
+  filter: brightness(0.85) contrast(1.5) saturate(1.35);
+}
+
+.avatar-card .holo-glare {
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.12) 28%, transparent 56%);
+  mix-blend-mode: soft-light;
+}
+
+/* Register the sheen-position vars so they can be animated (touch auto-shimmer) */
+@property --mx { syntax: "<percentage>"; inherits: true; initial-value: 50%; }
+@property --my { syntax: "<percentage>"; inherits: true; initial-value: 50%; }
+
+/* Touch devices have no hover/cursor — auto-play the holo so the photo still
+   shimmers on a phone. */
+@media (hover: none) {
+  .avatar-card .holo { opacity: 0.42; }
+  .avatar-card .holo-glare { opacity: 0.5; }
+  .hero-avatar { animation: floatY 6s ease-in-out infinite, holoOrbit 7s ease-in-out infinite; }
+}
+@keyframes holoOrbit {
+  0%   { --mx: 26%; --my: 30%; }
+  25%  { --mx: 72%; --my: 26%; }
+  50%  { --mx: 74%; --my: 72%; }
+  75%  { --mx: 30%; --my: 68%; }
+  100% { --mx: 26%; --my: 30%; }
 }
 
 .hero h1 {
@@ -348,6 +485,39 @@ html.js .reveal.stagger.is-visible > *:nth-child(6) { animation-delay: 0.35s; }
   box-shadow: 0 8px 22px rgba(var(--salmon-rgb), 0.32);
 }
 .tg-btn-salmon:hover { color: #2a0c08; box-shadow: 0 12px 30px rgba(var(--salmon-rgb), 0.48); }
+
+/* ---------- Holographic sheen on buttons + nav cards + contacts ---------- */
+.tg-btn, .card, .contact { position: relative; overflow: hidden; isolation: isolate; }
+
+.tg-btn::after,
+.card::after,
+.contact::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(110deg,
+    rgba(255, 119, 115, 0.55), rgba(255, 224, 138, 0.55), rgba(120, 238, 224, 0.55),
+    rgba(120, 148, 255, 0.55), rgba(216, 117, 255, 0.55), rgba(255, 119, 115, 0.55));
+  background-size: 220% 100%;
+  background-position: 0% 0;
+  mix-blend-mode: soft-light;
+  opacity: 0.16;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.tg-btn:hover::after,
+.card:hover::after,
+.contact:hover::after {
+  opacity: 0.55;
+  animation: holoShift 2.6s linear infinite;
+}
+
+@keyframes holoShift {
+  from { background-position: 0% 0; }
+  to   { background-position: 220% 0; }
+}
 
 /* Quarto's .btn on the resume download link */
 .btn {
@@ -1179,6 +1349,12 @@ html.js .reveal.stagger.is-visible > *:nth-child(6) { animation-delay: 0.35s; }
   .hero-avatar { width: 150px; height: 150px; }
   .tg-section { padding: 2rem 1rem; }
   .field-parallax .fp-overlay { padding: 1.75rem 1.4rem; }
+
+  /* Saguaros: frame the photo (upper area), one taller one per side, a touch
+     subtler — so they don't crowd the stacked text on a narrow screen. */
+  .hero-circuit { opacity: 0.72; }
+  .hero-circuit svg.circuit-side { width: 37%; height: 37%; bottom: auto; top: 5%; }
+  .hero-circuit .circuit-side .sag:nth-of-type(1) { display: none; }
 }
 
 /* -------------------------------------------------------------
