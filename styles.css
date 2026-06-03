@@ -1837,6 +1837,38 @@ body.quarto-light .watcher-bubble {
   background: radial-gradient(closest-side, transparent 52%, rgba(255, 200, 60, 0.55));
 }
 
+/* ---- saguaro-circuit scroll spine (charges down the left edge as you scroll) ---- */
+.saguaro-spine {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 44px;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  --prog: 0;
+}
+.saguaro-spine svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.spine-dim .t-line {
+  stroke: rgba(45, 212, 191, 0.13);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.spine-dim .t-node { fill: rgba(45, 212, 191, 0.15); }
+.spine-lit {
+  clip-path: inset(0 0 calc((1 - var(--prog)) * 100%) 0);
+  filter: drop-shadow(0 0 4px rgba(45, 212, 191, 0.55));
+}
+.spine-lit .t-line {
+  stroke: var(--teal-bright, #5eead4);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.spine-lit .t-node { fill: var(--teal-bright, #5eead4); }
+@media (max-width: 1099px) { .saguaro-spine { display: none; } }
+
 @media (hover: none) {
   .watcher .holo { opacity: 0.4; }
   .watcher-mark { animation: floatY 6s ease-in-out infinite, holoOrbit 7s ease-in-out infinite; }
