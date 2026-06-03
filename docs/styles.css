@@ -1742,21 +1742,14 @@ body.quarto-light .watcher-bubble {
 .watcher.has-hat[data-side="l"] .watcher-staff { opacity: 1; transform: rotate(14deg) translateY(0) scale(1); }
 .watcher.has-hat[data-side="r"] .watcher-staff { opacity: 1; transform: rotate(-14deg) translateY(0) scale(1); }
 
-/* ---- umbrella (pairs with the rain cloud), hard hat, grad cap, saguaro buddy ---- */
-.watcher-umbrella, .watcher-hardhat, .watcher-grad, .watcher-cactus {
+/* ---- hard hat, grad cap, saguaro buddy (one-off costumes) ---- */
+.watcher-hardhat, .watcher-grad, .watcher-cactus {
   position: absolute;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.25s ease, transform 0.45s cubic-bezier(0.34, 1.6, 0.5, 1);
 }
-.watcher-umbrella svg, .watcher-hardhat svg, .watcher-grad svg, .watcher-cactus svg { display: block; width: 100%; height: auto; }
-
-.watcher-umbrella {
-  left: 50%; bottom: 46%; width: 88%; z-index: 4;
-  transform: translate(-50%, 8px) scale(0.4);
-  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
-}
-.watcher.fx-rain .watcher-umbrella { opacity: 1; transform: translate(-50%, 0) scale(1); }
+.watcher-hardhat svg, .watcher-grad svg, .watcher-cactus svg { display: block; width: 100%; height: auto; }
 
 .watcher-hardhat {
   left: 50%; bottom: 62%; width: 78%; z-index: 5;
@@ -1927,6 +1920,57 @@ body.quarto-light .watcher-bubble {
 }
 .spine-lit .t-node { fill: var(--teal-bright, #5eead4); }
 @media (max-width: 1099px) { .saguaro-spine { display: none; } }
+
+/* ---------- Other Projects: collapsible "more" dropdowns ---------- */
+.proj-more {
+  margin: 1rem 0 0;
+  border: 1px solid rgba(94, 234, 212, 0.18);
+  border-radius: 12px;
+  background: rgba(94, 234, 212, 0.04);
+  overflow: hidden;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.proj-more[open] {
+  border-color: rgba(94, 234, 212, 0.42);
+  background: rgba(94, 234, 212, 0.06);
+}
+.proj-more > summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--teal-bright, #5eead4);
+  transition: background 0.2s ease;
+}
+.proj-more > summary::-webkit-details-marker { display: none; }
+.proj-more > summary::after {
+  content: "+";
+  color: var(--salmon, #f08a6a);
+  font-weight: 800;
+  font-size: 1.3rem;
+  line-height: 1;
+}
+.proj-more[open] > summary::after { content: "\2212"; }
+.proj-more > summary:hover { background: rgba(94, 234, 212, 0.07); }
+.proj-more > *:not(summary) { margin-left: 1.1rem; margin-right: 1.1rem; }
+.proj-more > *:nth-of-type(1) { margin-top: 0.6rem; }
+.proj-more > *:last-child { margin-bottom: 1rem; }
+.proj-more img { max-width: 100%; height: auto; }
+
+body.quarto-light .proj-more {
+  border-color: rgba(14, 141, 125, 0.22);
+  background: rgba(255, 255, 255, 0.6);
+}
+body.quarto-light .proj-more[open] {
+  border-color: rgba(14, 141, 125, 0.5);
+  background: rgba(240, 248, 237, 0.9);
+}
+body.quarto-light .proj-more > summary { color: #0a7568; }
 
 @media (hover: none) {
   .watcher .holo { opacity: 0.4; }

@@ -13,142 +13,114 @@ Other Projects...
 
 ## *VGSLite*
 
-VGSLite is a R based helper application (.exe install) built to support VGS 5 Desktop on Windows devices that was build in R and packaged with Electron.
+An R-based helper application (.exe installer) built to support VGS 5 Desktop on Windows — written in R and packaged with Electron.
 
 -   **Code:** [GitHub (Private)](https://github.com/tgilbert14/VGSLite "Please contact me if you would like to view source code")
-
 -   **Live App:** Local-only
 
 ![](assets/VGSLite.png)
 
-#### ⭆ Installation Guide
+<details class="proj-more">
+<summary>Install guide, features &amp; usage</summary>
 
-To install VGSLite on your Windows device:
+**⭆ Installation Guide**
 
 1.  Download the latest release from [VGSLite](https://github.com/tgilbert14/VGSLite/releases/tag/VGSLite).
 2.  Unzip the folder and run **VGSLite Setup.exe**.
-3.  You may have to click "[*more info*]{.underline}" in order to install the application as it is not code certified.
+3.  You may have to click "[*more info*]{.underline}" to install, as the app is not code-certified.
 
-#### ⭆ Features
+**⭆ Features**
 
-✅ **Clean Database:** Cleans up any orphan data links that may exist to help prevent corrupt data. Often used before "Empty Tombstone" to troubleshoot sync issues.
+✅ **Clean Database:** Cleans up orphan data links that may exist to help prevent corrupt data. Often used before "Empty Tombstone" to troubleshoot sync issues.
 
 ✅ **Convert database to Local:** Moves cloud data into local folders. Not recommended unless you plan on only collecting data locally.
 
-✅ **Delete Unassigned data:** Deletes all data and sites inside the "Unassigned" bin at once instead of going though each event.
+✅ **Delete Unassigned data:** Deletes all data and sites inside the "Unassigned" bin at once instead of going through each event.
 
-✅ **Empty Tombstone:**E Clears deletion cache, often used to troubleshoot sync issues.
+✅ **Empty Tombstone:** Clears the deletion cache, often used to troubleshoot sync issues.
 
-✅ **Move Event:** Lets user move a single event from an existing site to another site. Often used when an event was put on the wrong site. This WILL NOT UPDATE SYNC STATE (i.e., cloud-to-local or local-to-cloud).
+✅ **Move Event:** Lets the user move a single event from one site to another — handy when an event was put on the wrong site. This WILL NOT UPDATE SYNC STATE (i.e., cloud-to-local or local-to-cloud).
 
-#### ⭆ Usage After launching the app:
+**⭆ Usage**
 
 ✅ Select a task from the drop-down (e.g., "Move Event").
 
-✅ Follow prompts (e.g., Select Site to move from, Site to move to, and date of Event to move, then confirm selections).
+✅ Follow the prompts (e.g., select the site to move from, the site to move to, and the date of the event, then confirm).
 
-✅ Click through confirmation pop-ups to see what is being done.
+✅ Click through the confirmation pop-ups to see what is being done.
 
-✅ Make sure to close out VGS 5 if open, and reopen it to confirm changes.
+✅ Close VGS 5 if it is open, then reopen it to confirm the changes.
+
+</details>
 
 ------------------------------------------------------------------------
 
 ## NCAA Sample Data Visualizations
 
-::: project-content
 Scripts to scrape recruiting data from multiple sports sites (e.g., 247Sports, On3) and visualize Big 12 football and basketball class rankings over time.
-:::
 
-⭆ [Big 12 College Basketball Recruiting Class Grades from 2016-2025](https://github.com/tgilbert14/UA-recruits-/blob/main/plots/basketball/comparisons/basketball_avgClassRatings_ALL_2025-07-09.png) ⬇️
+-   **Code:** [GitHub](https://github.com/tgilbert14/UA-recruits-)
+
+<details class="proj-more">
+<summary>Sample visualizations</summary>
+
+⭆ [Big 12 College Basketball Recruiting Class Grades, 2016–2025](https://github.com/tgilbert14/UA-recruits-/blob/main/plots/basketball/comparisons/basketball_avgClassRatings_ALL_2025-07-09.png)
 
 ![](assets/basketball_avgClassRatings_ALL.png)
 
-⭆ [University of Arizona vs ASU Basketball Recruit Comparisons](https://github.com/tgilbert14/UA-recruits-/blob/main/plots/basketball/comparisons/basketball_avgClassRatings_Filtered_2025-07-09.png) ⬇️
+⭆ [University of Arizona vs. ASU Basketball Recruit Comparisons](https://github.com/tgilbert14/UA-recruits-/blob/main/plots/basketball/comparisons/basketball_avgClassRatings_Filtered_2025-07-09.png)
 
 ![](assets/basketball_avgClassRatings_Filtered_2025-07-09.png)
+
+</details>
 
 ------------------------------------------------------------------------
 
 ## VGS Batch Importer
 
-An ETL pipeline built in R to ingest historical Excel datasheets into a SQLite database. Supports multiple vegetation protocols (e.g., point ground cover, line intercept, nested frequency) across transects and sites. The app parses data using key identifiers (e.g., SiteID), organizes metadata, and inserts structured records into a local [VGS](https://vgs.arizona.edu/) database. QA/QC checks are embedded to prevent corrupt or incomplete data from being ingested.
+An ETL pipeline built in R to ingest historical Excel datasheets into a SQLite database. It supports multiple vegetation protocols (point ground cover, line intercept, nested frequency) across transects and sites, parses data by key identifiers (e.g., SiteID), organizes metadata, and inserts structured records into a local [VGS](https://vgs.arizona.edu/) database — with QA/QC checks embedded to keep corrupt or incomplete data out.
 
 -   **Code:** [GitHub](https://github.com/tgilbert14/vgs-batch-importer)
 -   **Live App:** Local-only Shiny app
 
-### Applications Details ⬇️
-
 ![*Main UI View*](assets/mainUI.jpg)
 
-The app interface has options to select protocols available for ingest. It has various options depending on the import:
+<details class="proj-more">
+<summary>Full feature walkthrough &amp; screenshots</summary>
 
-#### Power Mode:
+The interface lets you select the protocols available for ingest, with options that depend on the import:
 
-*This check box bypasses errors by generating and opening a excel workbook to review. The errors are then fixed and eventually the import happens with this setting turned off.*
+**Power Mode:** Bypasses errors by generating and opening an Excel workbook to review. The errors are fixed, and eventually the import happens with this setting turned off.
 
-#### Species Replace:
+**Species Replace:** Enables a [SpeciesReplace.xlsx](assets/SpeciesReplace.xlsx) file to mass-update species codes across every file instead of editing each one individually. Helpful when a USDA code changes or a client uses the wrong code consistently.
 
-*This check box enables a [SpeciesReplace.xlsx](assets/SpeciesReplace.xlsx) file that can be used to mass update species codes for every file instead of going into each individual file and changing it individually. This is exceptionally helpful when a USDA code has had an update or a client uses the wrong code consistency.*
+**Select Protocol for Import:** Quantitative sampling protocols are hard-coded in the drop-down; qualitative surveys query the local VGS database to offer the surveys available on the device.
 
-#### Select Protocol for Import:
+**Batch Import Data:** Prompts a window to select the batch import files (multiple .xlsx files can be imported at once).
 
-*Sampling protocols (quantitative data collection through VGS) are hard-coded for the selection drop down list. Surveys (qualitative data collection through VGS) were designed later and query the local VGS database on your local machine to offer drop down selections for what surveys are available on the device to import data to.*
+**Species Count:** Queries the VGS database and counts the species at each site for an overview of the data collected.
 
-#### Batch Import Data:
+**Species Check:** Lets the client select the states the sites are located in, then compares the plant codes in the database to USDA plant lists by state (www/sp_lists_USDA) to catch inconsistencies and data-entry errors.
 
-*This prompts a pop up window to select the batch import files to import (multiple .xlsx files can be imported at once).*
+**Update Site Name:** Looks through all lat/long coordinates and checks them against a USFS enterprise shapefile to predict the folder (Allotment/Pasture) they belong in, then renames them per USFS conventions (Region-Forest-Ranger District-Allotment-Pasture-SiteID).
 
-#### Species Count:
+**Survey Log Input:** Offers survey (qualitative) import with pre-built surveys. *(Still under development.)*
 
-*This button queries that VGS database and counts the species at each site to provide an overview of the data that was collected.*
+**🦐:** A help button with the general workflow for batch-importing data.
 
-#### Species Check:
+*The app also generates a log text file in the 'www/' folder to track code flow and debug import issues.*
 
-*This button brings a pop up that lets the client select a list of states that the sites are located. It then compares the plant codes in the database to USDA plant lists by each state (www/sp_lists_USDA) to check for inconsistencies and data entry errors.*
+![*Power Mode*](assets/powerMode.jpg)
 
-#### Update Site Name:
+![*Species Replace*](assets/speciesReplace.jpg)
 
-*This links to a script that looks through all location lat/long coordinates and check them in a USFS enterprise shape file to help predict what folder (Allotment/Pasture) they belong in and rename them according to USFS naming conventions (numeric based off of Region-Forest-Ranger District-Allotment-Pasture-SiteID).*
+![*Species Count*](assets/speciesCount.jpg)
 
-#### Survey Log Input?:
-
-*This new feature offers survey (qualitative data) import with pre-built surveys. This section is still under development.*
-
-#### 🦐:
-
-*This is a help button that provides general workflow for batch importing data with this app.*
-
-##### Power Mode ⏬
-
-![](assets/powerMode.jpg)
-
-##### Species Replace ⏬
-
-![](assets/speciesReplace.jpg)
-
-##### Species Count ⏬
-
-![](assets/speciesCount.jpg)
-
-##### Species Check ⏬
-
-![](assets/speciesCheck.jpg)
-
-*This app also generates a log text file stored in the 'www/' folder to track code flow and debug import issues.* ⏬
+![*Species Check*](assets/speciesCheck.jpg)
 
 ![*www/r_output.txt log*](assets/logExample.jpg)
 
-------------------------------------------------------------------------
-
-
-
-------------------------------------------------------------------------
-
-
-
-------------------------------------------------------------------------
-
-
+</details>
 
 ------------------------------------------------------------------------
 
