@@ -784,7 +784,7 @@ ul.task-list li input[type="checkbox"] {
     };
     var OUCH=["Ouch!...","Ow— fine...","Rude...","Hey! Okay, okay...","...betrayal..."];
     var BACK=["...okay, I'm back...","Missed me...?","Oh good, you returned...","...as I was saying..."];
-    var PSYCH=["Psych! Maybe next build...","Nope. I live here now...","I can't actually move... yet..."];
+    var DRAG=["wheee...","okay, okay... moving...","fine, out of your way...","to the corner I go...","easy... put me down gently..."];
 
     var pool=(PAGE[key]||PAGE.default).concat(SHARED);
     // seasonal: more storm lines during AZ monsoon (Jul-Sep), night-only ones after dark
@@ -806,7 +806,7 @@ ul.task-list li input[type="checkbox"] {
     function choose(arr) {return arr[Math.floor(Math.random()*arr.length)];}
 
     var hideTimer,nextTimer,muteTimer,lineTimer,strikeTimer,returnTimer;
-    var struck=false;
+    var struck=false,parked=false;
 
     function forceSay(text,dwell) {
       if(document.hidden) return;
@@ -876,6 +876,7 @@ ul.task-list li input[type="checkbox"] {
     //      somewhere new ~15s later. Skipped under reduced motion. ----
     function scheduleStrike() {
       window.clearTimeout(strikeTimer);
+      if(parked) return;                  // user dragged him; he stays put
       strikeTimer=window.setTimeout(strike,isMonsoon? 32000:45000);   // more frequent in monsoon
     }
     function strike() {
@@ -902,19 +903,41 @@ ul.task-list li input[type="checkbox"] {
       },15000);
     }
 
-    // tell a real click (→ mute) from a drag attempt (→ psych gag)
-    var downX=0,downY=0,pressed=false,dragged=false;
+    // drag him out of the way (pointer-drag); a click with no drag = mute
+    var downX=0,downY=0,pressed=false,dragged=false,grabX=0,grabY=0;
     mark.addEventListener('pointerdown',function(e) {
+      if(muted||struck) return;
       pressed=true; dragged=false; downX=e.clientX; downY=e.clientY;
+      var r=el.getBoundingClientRect();
+      grabX=e.clientX-r.left; grabY=e.clientY-r.top;
+      try {mark.setPointerCapture(e.pointerId);} catch(_e) {}
     });
-    window.addEventListener('pointermove',function(e) {
-      if(!pressed||dragged||muted||struck) return;
-      if(Math.abs(e.clientX-downX)>6||Math.abs(e.clientY-downY)>6) {
+    mark.addEventListener('pointermove',function(e) {
+      if(!pressed||muted||struck) return;
+      if(!dragged&&Math.abs(e.clientX-downX)<5&&Math.abs(e.clientY-downY)<5) return;
+      if(!dragged) {
         dragged=true;
-        forceSay(choose(PSYCH));
+        el.classList.add('grabbing');
+        el.style.right='auto'; el.style.bottom='auto';
+        el.style.setProperty('--hangx','0px'); el.style.setProperty('--hangy','0px');
+        forceSay(choose(DRAG));
       }
-    },{passive: true});
-    window.addEventListener('pointerup',function() {pressed=false;});
+      e.preventDefault();
+      var ww=el.offsetWidth,hh=el.offsetHeight;
+      var nx=Math.min(window.innerWidth-ww-4,Math.max(4,e.clientX-grabX));
+      var ny=Math.min(window.innerHeight-hh-4,Math.max(4,e.clientY-grabY));
+      el.style.left=nx+'px'; el.style.top=ny+'px';
+      el.setAttribute('data-side',(nx+ww/2<window.innerWidth/2)? 'l':'r');
+    });
+    mark.addEventListener('pointerup',function(e) {
+      if(dragged) {
+        parked=true;                       // he stays where you put him
+        window.clearTimeout(strikeTimer);  // ...and stops wandering off
+        el.classList.remove('grabbing');
+      }
+      pressed=false;
+      try {mark.releasePointerCapture(e.pointerId);} catch(_e) {}
+    });
     // 5 fast clicks = sunglasses easter egg (instead of a 5th mute toggle)
     var clickTimes=[];
     function easterEgg() {

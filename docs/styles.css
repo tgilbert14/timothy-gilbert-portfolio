@@ -1567,7 +1567,8 @@ body.quarto-light .navbar .quarto-color-scheme-toggle { color: #21302b; }
   background: transparent;
   -webkit-appearance: none;
   appearance: none;
-  cursor: pointer;
+  cursor: grab;
+  touch-action: none;                 /* drag him on touch without scrolling the page */
   pointer-events: auto;
   perspective: 340px;
   animation: floatY 6s ease-in-out infinite;
@@ -1595,6 +1596,8 @@ body.quarto-light .navbar .quarto-color-scheme-toggle { color: #21302b; }
 }
 .watcher-mark:hover .holo { opacity: 0.6; }
 .watcher-mark:hover .holo-glare { opacity: 0.85; }
+.watcher .watcher-mark { cursor: grab; }
+.watcher.grabbing .watcher-mark { cursor: grabbing; }
 .watcher .mark-card { transition: transform 0.25s ease-out, filter 0.3s ease; }
 
 .watcher-pupil {
