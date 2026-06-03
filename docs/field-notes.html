@@ -682,6 +682,31 @@ ul.task-list li input[type="checkbox"] {
       '<circle cx="15" cy="10" r="7" fill="#a8ecff"/><circle cx="15" cy="10" r="7" fill="none" stroke="#eafbff" stroke-width="1.6"/>'+
       '<circle cx="13" cy="8" r="2" fill="#ffffff" opacity="0.85"/>'+
       '</svg>';
+    // more one-off costumes: umbrella (rain), hard hat (data-eng), grad cap (CV), saguaro buddy (plant)
+    var UMBRELLA_SVG=
+      '<svg viewBox="0 0 80 66" fill="none" aria-hidden="true">'+
+      '<path d="M8 34 A32 20 0 0 1 72 34 Z" fill="#e0566b"/>'+
+      '<path d="M40 14 V34 M40 34 Q31 26 23 34 M40 34 Q49 26 57 34" stroke="#b23a4e" stroke-width="1.8" fill="none"/>'+
+      '<path d="M40 34 V56 q0 7 8 7" stroke="#6b4a30" stroke-width="3.6" fill="none" stroke-linecap="round"/>'+
+      '</svg>';
+    var HARDHAT_SVG=
+      '<svg viewBox="0 0 100 56" fill="none" aria-hidden="true">'+
+      '<path d="M18 44 H82 Q82 14 50 14 Q18 14 18 44 Z" fill="#f3b500"/>'+
+      '<rect x="8" y="42" width="84" height="9" rx="4.5" fill="#e0a200"/>'+
+      '<rect x="46" y="14" width="8" height="30" rx="3" fill="#e0a200"/>'+
+      '</svg>';
+    var GRAD_SVG=
+      '<svg viewBox="0 0 100 64" fill="none" aria-hidden="true">'+
+      '<path d="M50 38 L28 45 V53 Q50 63 72 53 V45 Z" fill="#2a3142"/>'+
+      '<path d="M50 22 L94 38 L50 54 L6 38 Z" fill="#12151d"/>'+
+      '<circle cx="50" cy="38" r="2.6" fill="#0a0c11"/>'+
+      '<path d="M50 38 L88 41 V53" stroke="#f2c84b" stroke-width="2" fill="none"/>'+
+      '<circle cx="88" cy="55" r="3.5" fill="#f2c84b"/>'+
+      '</svg>';
+    var CACTUS_SVG=
+      '<svg viewBox="0 0 60 90" fill="none" stroke="#43b35f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">'+
+      '<path d="M30 86 V20"/><path d="M30 54 H17 V38"/><path d="M30 46 H44 V30"/>'+
+      '</svg>';
 
     var el=document.createElement('div');
     el.className='watcher';
@@ -696,6 +721,10 @@ ul.task-list li input[type="checkbox"] {
       '</div>'+
       '<span class="watcher-hat" aria-hidden="true">'+HAT_SVG+'</span>'+
       '<span class="watcher-staff" aria-hidden="true">'+STAFF_SVG+'</span>'+
+      '<span class="watcher-umbrella" aria-hidden="true">'+UMBRELLA_SVG+'</span>'+
+      '<span class="watcher-hardhat" aria-hidden="true">'+HARDHAT_SVG+'</span>'+
+      '<span class="watcher-grad" aria-hidden="true">'+GRAD_SVG+'</span>'+
+      '<span class="watcher-cactus" aria-hidden="true">'+CACTUS_SVG+'</span>'+
       '<span class="watcher-shades" aria-hidden="true">'+SHADES_SVG+'</span>'+
       '<span class="watcher-mute" aria-hidden="true">🔇</span>'+
       '</button>';
@@ -774,13 +803,14 @@ ul.task-list li input[type="checkbox"] {
       "Mute me. I dare you...",
       "Did you know you can drag me...",
       {t: "Mmmm... that sweet sweet creosote smell after the rain...",fx: "rain"},
-      "Saguaros can take like 75 years to grow one arm...",
+      {t: "Saguaros can take like 75 years to grow one arm...",fx: "cactus"},
       "King Clone is a creosote, but almost 12,000 years old 😐...",
       "Night-blooming cereus opens one night a year...",
       "Jojoba oil basically helped save the whales...",
       "Fun fact: Teddy-bear cholla is not for hugging...",
       "I've been watching the data. It's fine...",
       "Somewhere, a pivot table needs me...",
+      {t: "Patching a leaky data pipe... give me a sec...",fx: "hardhat"},
       "I named your cursor. It's Greg now...",
       "Just me and the uptime graph tonight...",
       "My boss has a mullet... That's not a joke...",
@@ -797,7 +827,7 @@ ul.task-list li input[type="checkbox"] {
       ecoplot: ["EcoPlot. Field data, no clipboard...","Offline-first. I find that romantic...","This one's my favorite. Don't tell the others..."],
       flora: ["That's a lot of plants. I know them...","I count three saguaros from here...","Tim met all of these. In person..."],
       about: ["That's Tim. He's alright...","Ask him about soil moisture. I dare you..."],
-      resume: ["Look at all those skills...","Hire him. I get to keep watching..."],
+      resume: [{t: "Look at all those skills...",fx: "grad"},"Hire him. I get to keep watching..."],
       default: ["I'm always watching... someone has to...","Tim's around here somewhere...","Let's talk soil moisture variance..."]
     };
     var OUCH=["Ouch!...","Ow— fine...","Rude...","Hey! Okay, okay...","...betrayal..."];

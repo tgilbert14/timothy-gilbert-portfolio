@@ -1742,6 +1742,47 @@ body.quarto-light .watcher-bubble {
 .watcher.has-hat[data-side="l"] .watcher-staff { opacity: 1; transform: rotate(14deg) translateY(0) scale(1); }
 .watcher.has-hat[data-side="r"] .watcher-staff { opacity: 1; transform: rotate(-14deg) translateY(0) scale(1); }
 
+/* ---- umbrella (pairs with the rain cloud), hard hat, grad cap, saguaro buddy ---- */
+.watcher-umbrella, .watcher-hardhat, .watcher-grad, .watcher-cactus {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.45s cubic-bezier(0.34, 1.6, 0.5, 1);
+}
+.watcher-umbrella svg, .watcher-hardhat svg, .watcher-grad svg, .watcher-cactus svg { display: block; width: 100%; height: auto; }
+
+.watcher-umbrella {
+  left: 50%; bottom: 46%; width: 88%; z-index: 4;
+  transform: translate(-50%, 8px) scale(0.4);
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
+}
+.watcher.fx-rain .watcher-umbrella { opacity: 1; transform: translate(-50%, 0) scale(1); }
+
+.watcher-hardhat {
+  left: 50%; bottom: 62%; width: 78%; z-index: 5;
+  transform-origin: bottom center;
+  transform: translate(-50%, 10px) scale(0.3);
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
+}
+.watcher.fx-hardhat .watcher-hardhat { opacity: 1; transform: translate(-50%, 0) scale(1); }
+
+.watcher-grad {
+  left: 50%; bottom: 60%; width: 84%; z-index: 5;
+  transform-origin: bottom center;
+  transform: translate(-50%, 10px) scale(0.3) rotate(-4deg);
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
+}
+.watcher.fx-grad .watcher-grad { opacity: 1; transform: translate(-50%, 0) scale(1) rotate(-4deg); }
+
+.watcher-cactus {
+  bottom: -6%; width: 38%; z-index: 4;
+  transform-origin: bottom center;
+  filter: drop-shadow(0 0 4px rgba(67, 179, 95, 0.5));
+}
+.watcher[data-side="l"] .watcher-cactus { right: -24%; transform: translateY(10px) scale(0.3); }
+.watcher[data-side="r"] .watcher-cactus { left: -24%; transform: translateY(10px) scale(0.3); }
+.watcher.fx-cactus .watcher-cactus { opacity: 1; transform: translateY(0) scale(1); }
+
 /* ---- monsoon strike: bolt flash → shake → vanish → reappear elsewhere ---- */
 .watcher-bolt {
   position: absolute;
