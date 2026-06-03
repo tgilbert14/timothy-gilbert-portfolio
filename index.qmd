@@ -49,7 +49,7 @@ format:
       </g>
     </svg>
   </div>
-  <span class="eyebrow">Data Scientist · Ecologist · Founder</span>
+  <span class="eyebrow">Data Scientist · Ecologist</span>
   <div class="hero-avatar">
     <div class="avatar-card">
       <img src="assets/tim_gc.jpg" alt="Tim Gilbert">

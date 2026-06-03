@@ -675,6 +675,13 @@ ul.task-list li input[type="checkbox"] {
       '<path d="M44 17 H56" stroke="#0b0b0b" stroke-width="5"/>'+
       '<rect x="15" y="15" width="11" height="5" rx="2.5" fill="#46566a"/><rect x="61" y="15" width="11" height="5" rx="2.5" fill="#46566a"/>'+
       '</svg>';
+    // wizard staff (rides along with the hat on Gandalf lines)
+    var STAFF_SVG=
+      '<svg viewBox="0 0 30 104" fill="none" aria-hidden="true">'+
+      '<path d="M15 100 C12 76 19 56 14 34 C11 24 17 18 15 12" stroke="#7c5a32" stroke-width="4.5" stroke-linecap="round"/>'+
+      '<circle cx="15" cy="10" r="7" fill="#a8ecff"/><circle cx="15" cy="10" r="7" fill="none" stroke="#eafbff" stroke-width="1.6"/>'+
+      '<circle cx="13" cy="8" r="2" fill="#ffffff" opacity="0.85"/>'+
+      '</svg>';
 
     var el=document.createElement('div');
     el.className='watcher';
@@ -688,6 +695,7 @@ ul.task-list li input[type="checkbox"] {
       '<span class="holo"></span><span class="holo-glare"></span>'+
       '</div>'+
       '<span class="watcher-hat" aria-hidden="true">'+HAT_SVG+'</span>'+
+      '<span class="watcher-staff" aria-hidden="true">'+STAFF_SVG+'</span>'+
       '<span class="watcher-shades" aria-hidden="true">'+SHADES_SVG+'</span>'+
       '<span class="watcher-mute" aria-hidden="true">🔇</span>'+
       '</button>';
