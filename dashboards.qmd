@@ -21,10 +21,10 @@ This app visualizes **every Big 12 recruit's height, weight, and rating — 2016
 
 ------------------------------------------------------------------------
 
-## Small Mammal Tracker
+## NEON Small Mammal Tracker
 
 ::: explore-text
-This shiny application uses National Ecological Observatory Network (<https://data.neonscience.org/>) data to compare **small mammal capture data** across various NEON sites based on a location and date range selection, then ranks them in order of total number captures by identifying tags of individuals. Individuals can be picked out to look at patterns and capture history. Capture summary plots by site and other site level plots are also available.
+This shiny application turns National Ecological Observatory Network (<https://data.neonscience.org/>) box-trapping records into the **life history of every small mammal NEON has caught** across 46 field sites. Pick a state, a site, and a date window, and the app rebuilds each individual from its ear-tag: a **Hall of Fame** ranking the most-caught animals (re-sortable by captures, weight, career length, and roaming, with rarity tiers), a satellite **site map** colored by species diversity, measurement-over-time and body-size views, and population indices — **MNKA, catch-per-unit-effort, and a species-accumulation curve with a Chao1 richness estimate.** Methods are stated honestly: reused tags are flagged and the size index is an adult weight percentile. Each site loads instantly from a pre-bundled, compressed dataset, with a live NEON download as the fallback. A complete redesign of my original tracker.
 :::
 
 ⭆ [Click for Stand Alone App](https://t-lama.shinyapps.io/RatTrapHistory/ "https://t-lama.shinyapps.io/RatTrapHistory/")
