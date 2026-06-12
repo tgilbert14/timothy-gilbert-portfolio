@@ -9,15 +9,15 @@ Shiny Applications...
 
 ------------------------------------------------------------------------
 
-## Where Do Big 12 Recruits Come From?
+## Big 12 Girth Index — Recruiting Size Analytics
 
 ::: explore-text
-This app allows you to **visualize Big 12 football and basketball recruiting classes.** You can explore where recruits came from (distance from high school to college destinations) via a map by selecting *'Distance Traveled by Recruits'* and calculate distance traveled for each recruit. *'Distance Traveled Over Time'* creates a scatter plot showing distance traveled by recruits. To get started, **click a team**.
+This app visualizes **every Big 12 recruit's height, weight, and rating — 2016 to 2026, football and basketball, all 16 programs.** Plot any roster on the Body Map (height × weight, tap a dot to pin a player card), compare position-group weight distributions against the conference in Position DNA, project incoming defenders onto 3-3-5 odd-stack roles in the War Room, and track class ratings across coaching eras. Recruiting classes and rosters are scraped from 247Sports, with season records and SP+ from CollegeFootballData. A relaunch and major expansion of my earlier *Big-12 Talent Pathways* app.
 :::
 
-⭆ [Click for Stand Alone App](https://t-lama.shinyapps.io/Big-12-Talent-Pathways/ "https://t-lama.shinyapps.io/Big-12-Talent-Pathways/")
+⭆ [Click for Stand Alone App](https://girthindex.desertdatalab.com/ "https://girthindex.desertdatalab.com/")
 
-![](assets/big12.png) ![](assets/big12ex1.png)
+![](assets/arizona-football-size-lab-2023-2026-pinned.png) ![](assets/arizona-football-war-room-3-3-5-2023-2026-pinned.png)
 
 ------------------------------------------------------------------------
 

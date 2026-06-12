@@ -808,7 +808,6 @@ ul.task-list li input[type="checkbox"] {
       "Just me and the uptime graph tonight...",
       "My boss has a mullet... That's not a joke...",
       {t: "The Eye is always watching...",fx: "eye"},
-      "We wants the schema, precious. We needs it...",
       {t: "You shall not pass...",next: "...just kidding...",hat: true},
       {t: "Keep it secret. Keep it safe... the data...",hat: true},
       {t: "All we have to decide is what to do with the data we're given...",hat: true},
@@ -1084,7 +1083,7 @@ ul.task-list li input[type="checkbox"] {
       sp.style.setProperty('--prog',prog.toFixed(4));
       ticking=false;
     }
-    window.addEventListener('scroll',function() {if(!ticking){ticking=true;requestAnimationFrame(update);}},{passive: true});
+    window.addEventListener('scroll',function() {if(!ticking) {ticking=true; requestAnimationFrame(update);} },{passive: true});
     window.addEventListener('resize',update,{passive: true});
     update();
   })();

@@ -84,11 +84,11 @@
     "text": "Shiny Applications…"
   },
   {
-    "objectID": "dashboards.html#where-do-big-12-recruits-come-from",
-    "href": "dashboards.html#where-do-big-12-recruits-come-from",
+    "objectID": "dashboards.html#big-12-girth-index-recruiting-size-analytics",
+    "href": "dashboards.html#big-12-girth-index-recruiting-size-analytics",
     "title": "Tim Gilbert",
-    "section": "Where Do Big 12 Recruits Come From?",
-    "text": "Where Do Big 12 Recruits Come From?\n\nThis app allows you to visualize Big 12 football and basketball recruiting classes. You can explore where recruits came from (distance from high school to college destinations) via a map by selecting ‘Distance Traveled by Recruits’ and calculate distance traveled for each recruit. ‘Distance Traveled Over Time’ creates a scatter plot showing distance traveled by recruits. To get started, click a team.\n\n⭆ Click for Stand Alone App"
+    "section": "Big 12 Girth Index — Recruiting Size Analytics",
+    "text": "Big 12 Girth Index — Recruiting Size Analytics\n\nThis app visualizes every Big 12 recruit’s height, weight, and rating — 2016 to 2026, football and basketball, all 16 programs. Plot any roster on the Body Map (height × weight, tap a dot to pin a player card), compare position-group weight distributions against the conference in Position DNA, project incoming defenders onto 3-3-5 odd-stack roles in the War Room, and track class ratings across coaching eras. Recruiting classes and rosters are scraped from 247Sports, with season records and SP+ from CollegeFootballData. A relaunch and major expansion of my earlier Big-12 Talent Pathways app.\n\n⭆ Click for Stand Alone App"
   },
   {
     "objectID": "dashboards.html#small-mammal-tracker",
@@ -137,7 +137,7 @@
     "href": "projects.html#ncaa-sample-data-visualizations",
     "title": "Tim Gilbert",
     "section": "NCAA Sample Data Visualizations",
-    "text": "NCAA Sample Data Visualizations\nScripts to scrape recruiting data from multiple sports sites (e.g., 247Sports, On3) and visualize Big 12 football and basketball class rankings over time.\n\nCode: GitHub\n\n\n\nSample visualizations\n\n⭆ Big 12 College Basketball Recruiting Class Grades, 2016–2025\n\n⭆ University of Arizona vs. ASU Basketball Recruit Comparisons"
+    "text": "NCAA Sample Data Visualizations\nScripts to scrape recruiting data from multiple sports sites (e.g., 247Sports, On3) and visualize Big 12 football and basketball class rankings over time. These scrapers now feed the live Big 12 Girth Index app.\n\nCode: GitHub\nLive app: Big 12 Girth Index\n\n\n\nSample visualizations\n\n⭆ Big 12 College Basketball Recruiting Class Grades, 2016–2025\n\n⭆ University of Arizona vs. ASU Basketball Recruit Comparisons"
   },
   {
     "objectID": "projects.html#vgs-batch-importer",

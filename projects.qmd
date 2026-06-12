@@ -57,9 +57,10 @@ An R-based helper application (.exe installer) built to support VGS 5 Desktop on
 
 ## NCAA Sample Data Visualizations
 
-Scripts to scrape recruiting data from multiple sports sites (e.g., 247Sports, On3) and visualize Big 12 football and basketball class rankings over time.
+Scripts to scrape recruiting data from multiple sports sites (e.g., 247Sports, On3) and visualize Big 12 football and basketball class rankings over time. These scrapers now feed the live **Big 12 Girth Index** app.
 
 -   **Code:** [GitHub](https://github.com/tgilbert14/UA-recruits-)
+-   **Live app:** [Big 12 Girth Index](https://girthindex.desertdatalab.com/)
 
 <details class="proj-more">
 <summary>Sample visualizations</summary>

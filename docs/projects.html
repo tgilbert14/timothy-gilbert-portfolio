@@ -379,9 +379,10 @@ Install guide, features &amp; usage
 </section>
 <section id="ncaa-sample-data-visualizations" class="level2">
 <h2 class="anchored" data-anchor-id="ncaa-sample-data-visualizations">NCAA Sample Data Visualizations</h2>
-<p>Scripts to scrape recruiting data from multiple sports sites (e.g., 247Sports, On3) and visualize Big 12 football and basketball class rankings over time.</p>
+<p>Scripts to scrape recruiting data from multiple sports sites (e.g., 247Sports, On3) and visualize Big 12 football and basketball class rankings over time. These scrapers now feed the live <strong>Big 12 Girth Index</strong> app.</p>
 <ul>
 <li><strong>Code:</strong> <a href="https://github.com/tgilbert14/UA-recruits-">GitHub</a></li>
+<li><strong>Live app:</strong> <a href="https://girthindex.desertdatalab.com/">Big 12 Girth Index</a></li>
 </ul>
 <details class="proj-more">
 <summary>
@@ -817,7 +818,6 @@ Full feature walkthrough &amp; screenshots
       "Just me and the uptime graph tonight...",
       "My boss has a mullet... That's not a joke...",
       {t: "The Eye is always watching...",fx: "eye"},
-      "We wants the schema, precious. We needs it...",
       {t: "You shall not pass...",next: "...just kidding...",hat: true},
       {t: "Keep it secret. Keep it safe... the data...",hat: true},
       {t: "All we have to decide is what to do with the data we're given...",hat: true},
@@ -1093,7 +1093,7 @@ Full feature walkthrough &amp; screenshots
       sp.style.setProperty('--prog',prog.toFixed(4));
       ticking=false;
     }
-    window.addEventListener('scroll',function() {if(!ticking){ticking=true;requestAnimationFrame(update);}},{passive: true});
+    window.addEventListener('scroll',function() {if(!ticking) {ticking=true; requestAnimationFrame(update);} },{passive: true});
     window.addEventListener('resize',update,{passive: true});
     update();
   })();

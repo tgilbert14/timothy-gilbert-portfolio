@@ -335,7 +335,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#where-do-big-12-recruits-come-from" id="toc-where-do-big-12-recruits-come-from" class="nav-link active" data-scroll-target="#where-do-big-12-recruits-come-from">Where Do Big 12 Recruits Come From?</a></li>
+  <li><a href="#big-12-girth-index-recruiting-size-analytics" id="toc-big-12-girth-index-recruiting-size-analytics" class="nav-link active" data-scroll-target="#big-12-girth-index-recruiting-size-analytics">Big 12 Girth Index — Recruiting Size Analytics</a></li>
   <li><a href="#small-mammal-tracker" id="toc-small-mammal-tracker" class="nav-link" data-scroll-target="#small-mammal-tracker">Small Mammal Tracker</a></li>
   <li><a href="#which-states-flora-matches-each-movie-world-best" id="toc-which-states-flora-matches-each-movie-world-best" class="nav-link" data-scroll-target="#which-states-flora-matches-each-movie-world-best">Which State’s Flora Matches Each Movie World Best?</a></li>
   <li><a href="#older-applications" id="toc-older-applications" class="nav-link" data-scroll-target="#older-applications">Older Applications</a></li>
@@ -353,13 +353,13 @@ ul.task-list li input[type="checkbox"] {
 <p>Shiny Applications…</p>
 </div>
 <hr>
-<section id="where-do-big-12-recruits-come-from" class="level2">
-<h2 class="anchored" data-anchor-id="where-do-big-12-recruits-come-from">Where Do Big 12 Recruits Come From?</h2>
+<section id="big-12-girth-index-recruiting-size-analytics" class="level2">
+<h2 class="anchored" data-anchor-id="big-12-girth-index-recruiting-size-analytics">Big 12 Girth Index — Recruiting Size Analytics</h2>
 <div class="explore-text">
-<p>This app allows you to&nbsp;<strong>visualize Big 12 football and basketball recruiting classes.</strong>&nbsp;You can explore where recruits came from (distance from high school to college destinations) via a map by selecting&nbsp;<em>‘Distance Traveled by Recruits’</em>&nbsp;and calculate distance traveled for each recruit.&nbsp;<em>‘Distance Traveled Over Time’</em>&nbsp;creates a scatter plot showing distance traveled by recruits. To get started,&nbsp;<strong>click a team</strong>.</p>
+<p>This app visualizes <strong>every Big 12 recruit’s height, weight, and rating — 2016 to 2026, football and basketball, all 16 programs.</strong> Plot any roster on the Body Map (height × weight, tap a dot to pin a player card), compare position-group weight distributions against the conference in Position DNA, project incoming defenders onto 3-3-5 odd-stack roles in the War Room, and track class ratings across coaching eras. Recruiting classes and rosters are scraped from 247Sports, with season records and SP+ from CollegeFootballData. A relaunch and major expansion of my earlier <em>Big-12 Talent Pathways</em> app.</p>
 </div>
-<p>⭆ <a href="https://t-lama.shinyapps.io/Big-12-Talent-Pathways/" title="https://t-lama.shinyapps.io/Big-12-Talent-Pathways/">Click for Stand Alone App</a></p>
-<p><img src="assets/big12.png" class="img-fluid"> <img src="assets/big12ex1.png" class="img-fluid"></p>
+<p>⭆ <a href="https://girthindex.desertdatalab.com/" title="https://girthindex.desertdatalab.com/">Click for Stand Alone App</a></p>
+<p><img src="assets/arizona-football-size-lab-2023-2026-pinned.png" class="img-fluid"> <img src="assets/arizona-football-war-room-3-3-5-2023-2026-pinned.png" class="img-fluid"></p>
 <hr>
 </section>
 <section id="small-mammal-tracker" class="level2">
@@ -745,7 +745,6 @@ ul.task-list li input[type="checkbox"] {
       "Just me and the uptime graph tonight...",
       "My boss has a mullet... That's not a joke...",
       {t: "The Eye is always watching...",fx: "eye"},
-      "We wants the schema, precious. We needs it...",
       {t: "You shall not pass...",next: "...just kidding...",hat: true},
       {t: "Keep it secret. Keep it safe... the data...",hat: true},
       {t: "All we have to decide is what to do with the data we're given...",hat: true},
@@ -1021,7 +1020,7 @@ ul.task-list li input[type="checkbox"] {
       sp.style.setProperty('--prog',prog.toFixed(4));
       ticking=false;
     }
-    window.addEventListener('scroll',function() {if(!ticking){ticking=true;requestAnimationFrame(update);}},{passive: true});
+    window.addEventListener('scroll',function() {if(!ticking) {ticking=true; requestAnimationFrame(update);} },{passive: true});
     window.addEventListener('resize',update,{passive: true});
     update();
   })();
