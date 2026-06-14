@@ -27,7 +27,7 @@ This app visualizes **every Big 12 recruit's height, weight, and rating — 2016
 This shiny application turns National Ecological Observatory Network (<https://data.neonscience.org/>) box-trapping records into the **life history of every small mammal NEON has caught** across 46 field sites. It opens on a **tap-a-site national map** — pick a site to see who lives there, or flip to **"by species"** to map where one animal turns up across the country. Open any site for a **Hall of Fame** of the most-caught individuals (re-sortable, with rarity tiers), trap-grid **home-range** heatmaps, a **Hill-number diversity** profile, and **detection-corrected abundance** — closed-capture estimates (Schnabel / Chapman) that count the animals the traps missed, shown alongside MNKA. Plus shareable trading-card profiles, a two-site compare, and a printable report card. Methods are stated honestly: reused tags are flagged, Chao1 is a bias-corrected lower bound, and the size index is an adult weight percentile. Each site loads instantly from a pre-bundled, compressed dataset. A complete redesign of my original tracker.
 :::
 
-⭆ [Click for Stand Alone App](https://019ec337-7100-317e-5052-c3bf32ffcb79.share.connect.posit.cloud/ "NEON Small Mammal Tracker")
+⭆ [Open the project](https://tgilbert14.github.io/NEON-Small-Mammal-Tracker-App/ "NEON Small Mammal Tracker")
 
 ![](assets/mam0.png) ![](assets/mam1.png)
 
@@ -39,7 +39,7 @@ This shiny application turns National Ecological Observatory Network (<https://d
 This Shiny app compares **surface-water chemistry across 34 NEON aquatic field sites** — from desert streams to Alaskan lakes to Puerto Rican rivers. Pick any two analytes and see how they move together through time, how they relate, what else they correlate with, and their seasonal pattern, on roughly **197,000 real measurements** with statistics that show their work: a normalized or dual-axis **time series**, a least-squares **relationship** fit with R²/p/n and a temporal-autocorrelation flag, a **Spearman correlation** screen with per-row sample sizes, a real **STL seasonal decomposition** (the measured cycle, not a synthetic sine wave), and a small **predictor** that estimates an analyte from its best-correlated neighbors, scored against a mean-only baseline. Chemistry names and units are correct, below-detection values are flagged rather than hidden, and every statistic shows its *n*. Loads instantly from a pre-bundled dataset — no live API waits.
 :::
 
-⭆ [Click for Stand Alone App](https://019ebf59-b2ff-a20a-cb35-6d227ca6261a.share.connect.posit.cloud/ "Water Chemistry Analyte Viewer")
+⭆ [Open the project](https://tgilbert14.github.io/NEON-WaterChemistry-Analyte-Viewer-App/ "Water Chemistry Analyte Viewer")
 
 ![](assets/ComparisonReport.jpg) ![](assets/CorrelationReport.jpg)
 
