@@ -24,10 +24,10 @@ This app visualizes **every Big 12 recruit's height, weight, and rating — 2016
 ## NEON Small Mammal Tracker
 
 ::: explore-text
-This shiny application turns National Ecological Observatory Network (<https://data.neonscience.org/>) box-trapping records into the **life history of every small mammal NEON has caught** across 46 field sites. Pick a state, a site, and a date window, and the app rebuilds each individual from its ear-tag: a **Hall of Fame** ranking the most-caught animals (re-sortable by captures, weight, career length, and roaming, with rarity tiers), a satellite **site map** colored by species diversity, measurement-over-time and body-size views, and population indices — **MNKA, catch-per-unit-effort, and a species-accumulation curve with a Chao1 richness estimate.** Methods are stated honestly: reused tags are flagged and the size index is an adult weight percentile. Each site loads instantly from a pre-bundled, compressed dataset, with a live NEON download as the fallback. A complete redesign of my original tracker.
+This shiny application turns National Ecological Observatory Network (<https://data.neonscience.org/>) box-trapping records into the **life history of every small mammal NEON has caught** across 46 field sites. It opens on a **tap-a-site national map** — pick a site to see who lives there, or flip to **"by species"** to map where one animal turns up across the country. Open any site for a **Hall of Fame** of the most-caught individuals (re-sortable, with rarity tiers), trap-grid **home-range** heatmaps, a **Hill-number diversity** profile, and **detection-corrected abundance** — closed-capture estimates (Schnabel / Chapman) that count the animals the traps missed, shown alongside MNKA. Plus shareable trading-card profiles, a two-site compare, and a printable report card. Methods are stated honestly: reused tags are flagged, Chao1 is a bias-corrected lower bound, and the size index is an adult weight percentile. Each site loads instantly from a pre-bundled, compressed dataset. A complete redesign of my original tracker.
 :::
 
-⭆ [Click for Stand Alone App](https://t-lama.shinyapps.io/RatTrapHistory/ "https://t-lama.shinyapps.io/RatTrapHistory/")
+⭆ [Click for Stand Alone App](https://019ec337-7100-317e-5052-c3bf32ffcb79.share.connect.posit.cloud/ "NEON Small Mammal Tracker")
 
 ![](assets/mam0.png) ![](assets/mam1.png)
 
@@ -49,7 +49,7 @@ This shiny app creates a chord diagram that shows the number of shared species b
 
 ***USFS Name Converter*** ⭆ [Click for Stand Alone App](https://t-lama.shinyapps.io/App-VGS-USFS-Name2VGS/ "https://t-lama.shinyapps.io/App-VGS-USFS-Name2VGS/")
 
-***Water Chemistry Analyte Viewer*** ⭆ [Click for Stand Alone App](https://t-lama.shinyapps.io/AnalyteViewer/ "https://t-lama.shinyapps.io/AnalyteViewer/")
+***Water Chemistry Analyte Viewer*** ⭆ [Click for Stand Alone App](https://019ebf59-b2ff-a20a-cb35-6d227ca6261a.share.connect.posit.cloud/ "Water Chemistry Analyte Viewer")
 
 ------------------------------------------------------------------------
 
