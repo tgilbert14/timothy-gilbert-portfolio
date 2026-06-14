@@ -33,6 +33,18 @@ This shiny application turns National Ecological Observatory Network (<https://d
 
 ------------------------------------------------------------------------
 
+## Water Chemistry Analyte Viewer
+
+::: explore-text
+This Shiny app compares **surface-water chemistry across 34 NEON aquatic field sites** — from desert streams to Alaskan lakes to Puerto Rican rivers. Pick any two analytes and see how they move together through time, how they relate, what else they correlate with, and their seasonal pattern, on roughly **197,000 real measurements** with statistics that show their work: a normalized or dual-axis **time series**, a least-squares **relationship** fit with R²/p/n and a temporal-autocorrelation flag, a **Spearman correlation** screen with per-row sample sizes, a real **STL seasonal decomposition** (the measured cycle, not a synthetic sine wave), and a small **predictor** that estimates an analyte from its best-correlated neighbors, scored against a mean-only baseline. Chemistry names and units are correct, below-detection values are flagged rather than hidden, and every statistic shows its *n*. Loads instantly from a pre-bundled dataset — no live API waits.
+:::
+
+⭆ [Click for Stand Alone App](https://019ebf59-b2ff-a20a-cb35-6d227ca6261a.share.connect.posit.cloud/ "Water Chemistry Analyte Viewer")
+
+![](assets/ComparisonReport.jpg) ![](assets/CorrelationReport.jpg)
+
+------------------------------------------------------------------------
+
 ## Which State's Flora Matches Each Movie World Best?
 
 ::: explore-text
@@ -48,8 +60,6 @@ This shiny app creates a chord diagram that shows the number of shared species b
 ## Older Applications
 
 ***USFS Name Converter*** ⭆ [Click for Stand Alone App](https://t-lama.shinyapps.io/App-VGS-USFS-Name2VGS/ "https://t-lama.shinyapps.io/App-VGS-USFS-Name2VGS/")
-
-***Water Chemistry Analyte Viewer*** ⭆ [Click for Stand Alone App](https://019ebf59-b2ff-a20a-cb35-6d227ca6261a.share.connect.posit.cloud/ "Water Chemistry Analyte Viewer")
 
 ------------------------------------------------------------------------
 
