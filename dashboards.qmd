@@ -48,12 +48,12 @@ This Shiny app compares **surface-water chemistry across 34 NEON aquatic field s
 ## Which State's Flora Matches Each Movie World Best?
 
 ::: explore-text
-This shiny app creates a chord diagram that shows the number of shared species between states selected and the movie themed worlds **Dune (*Arrakis*)**, **Lord of the Rings (*Middle-Earth*) and Jurassic Park (Isla Nublar).** Percent gauge plots are also created showing the portions of the newest selected state divided among movie-themed biomes and the other selected states.
+This Shiny app asks which U.S. state's plant life best fits three movie worlds — **Dune (*Arrakis*)**, **The Lord of the Rings (*Middle-earth*)**, and **Jurassic Park (*Isla Nublar*)** — each defined by a curated set of plant families (desert & succulent, cool-forest & alpine, and ancient ferns & conifers). Pick any states and an **interactive bar chart** ranks their flora against each world; **tap a bar** to see exactly which families drive the score, and toggle **Raw counts → Fair share** to control for the fact that big, species-rich states and giant plant families — *Asteraceae* alone is ~65% of Arizona's "Middle-earth" score — would otherwise dominate. A **chord diagram** then maps the species each state shares with every world, and with the other states. Built on ~250,000 USDA PLANTS records precomputed into an ~11 KB bundle so it loads instantly. A full rebuild of the original — an honest, size-adjusted metric and a botanical field-guide redesign.
 :::
 
-⭆ [Click for Stand Alone App](https://t-lama.shinyapps.io/PlantsInMovies/ "https://t-lama.shinyapps.io/PlantsInMovies/")
+⭆ [Open the app](https://019ecc91-3c6c-bee2-f824-0ea23fc60ac6.share.connect.posit.cloud/ "Plants in Movies")
 
-![](assets/f1.png) ![](assets/f2.png)
+![](assets/plants-in-movies-chart.png) ![](assets/plants-in-movies-chord.png)
 
 ------------------------------------------------------------------------
 

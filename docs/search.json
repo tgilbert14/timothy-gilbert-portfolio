@@ -102,7 +102,7 @@
     "href": "dashboards.html#which-states-flora-matches-each-movie-world-best",
     "title": "Tim Gilbert",
     "section": "Which State’s Flora Matches Each Movie World Best?",
-    "text": "Which State’s Flora Matches Each Movie World Best?\n\nThis shiny app creates a chord diagram that shows the number of shared species between states selected and the movie themed worlds Dune (Arrakis), Lord of the Rings (Middle-Earth) and Jurassic Park (Isla Nublar). Percent gauge plots are also created showing the portions of the newest selected state divided among movie-themed biomes and the other selected states.\n\n⭆ Click for Stand Alone App"
+    "text": "Which State’s Flora Matches Each Movie World Best?\n\nThis Shiny app asks which U.S. state’s plant life best fits three movie worlds — Dune (Arrakis), The Lord of the Rings (Middle-earth), and Jurassic Park (Isla Nublar) — each defined by a curated set of plant families (desert & succulent, cool-forest & alpine, and ancient ferns & conifers). Pick any states and an interactive bar chart ranks their flora against each world; tap a bar to see exactly which families drive the score, and toggle Raw counts → Fair share to control for the fact that big, species-rich states and giant plant families — Asteraceae alone is ~65% of Arizona’s “Middle-earth” score — would otherwise dominate. A chord diagram then maps the species each state shares with every world, and with the other states. Built on ~250,000 USDA PLANTS records precomputed into an ~11 KB bundle so it loads instantly. A full rebuild of the original — an honest, size-adjusted metric and a botanical field-guide redesign.\n\n⭆ Open the app"
   },
   {
     "objectID": "dashboards.html#older-applications",
