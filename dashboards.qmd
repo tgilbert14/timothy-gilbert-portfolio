@@ -41,7 +41,7 @@ This Shiny app compares **surface-water chemistry across 34 NEON aquatic field s
 
 ⭆ [Open the project](https://tgilbert14.github.io/NEON-WaterChemistry-Analyte-Viewer-App/ "Water Chemistry Analyte Viewer")
 
-![](assets/ComparisonReport.jpg) ![](assets/CorrelationReport.jpg)
+![](assets/wc-sitemap.png) ![](assets/wc-compare.png)
 
 ------------------------------------------------------------------------
 
