@@ -196,15 +196,17 @@ html.js .reveal.is-visible {
   transform: none;
 }
 
-/* Stagger children when a container is revealed */
-html.js .reveal.stagger.is-visible > * {
+/* Stagger children when a container is revealed.
+   :not(.plant-wall) so the 6-cap ladder never collides with the Flora Wall's
+   own per-tile cascade (driven by view() / JS in _foot.html, defined later). */
+html.js .reveal.stagger:not(.plant-wall).is-visible > * {
   animation: fadeIn 0.6s ease both;
 }
-html.js .reveal.stagger.is-visible > *:nth-child(2) { animation-delay: 0.07s; }
-html.js .reveal.stagger.is-visible > *:nth-child(3) { animation-delay: 0.14s; }
-html.js .reveal.stagger.is-visible > *:nth-child(4) { animation-delay: 0.21s; }
-html.js .reveal.stagger.is-visible > *:nth-child(5) { animation-delay: 0.28s; }
-html.js .reveal.stagger.is-visible > *:nth-child(6) { animation-delay: 0.35s; }
+html.js .reveal.stagger:not(.plant-wall).is-visible > *:nth-child(2) { animation-delay: 0.07s; }
+html.js .reveal.stagger:not(.plant-wall).is-visible > *:nth-child(3) { animation-delay: 0.14s; }
+html.js .reveal.stagger:not(.plant-wall).is-visible > *:nth-child(4) { animation-delay: 0.21s; }
+html.js .reveal.stagger:not(.plant-wall).is-visible > *:nth-child(5) { animation-delay: 0.28s; }
+html.js .reveal.stagger:not(.plant-wall).is-visible > *:nth-child(6) { animation-delay: 0.35s; }
 
 /* -------------------------------------------------------------
    Hero
@@ -839,11 +841,28 @@ html.js .reveal.stagger.is-visible > *:nth-child(6) { animation-delay: 0.35s; }
 .field-shot figcaption {
   position: absolute;
   inset: auto 0 0 0;
-  padding: 28px 14px 12px;
+  padding: 32px 14px 12px;
   font-size: 0.82rem;
   font-weight: 600;
   color: #fff;
-  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.8));
+  /* Eased multi-stop scrim tinted to --bg-1 (desert-night, not flat black) so
+     the caption clears 4.5:1 at the brightest pixel; multi-stop removes the
+     single-gradient banding edge. text-shadow is the load-failure safety net. */
+  background: linear-gradient(180deg,
+      rgba(7, 10, 31, 0) 0%,
+      rgba(7, 10, 31, 0.18) 32%,
+      rgba(7, 10, 31, 0.55) 64%,
+      rgba(7, 10, 31, 0.86) 100%);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+}
+
+/* Optional motion-gated teal edge-glow when hovering an intro shot. */
+@media (prefers-reduced-motion: no-preference) {
+  .field-shot { transition: box-shadow 0.4s ease, border-color 0.4s ease; }
+  .field-shot:hover {
+    border-color: rgba(var(--teal-rgb), 0.5);
+    box-shadow: var(--shadow), 0 0 26px 2px rgba(var(--teal-rgb), 0.22);
+  }
 }
 
 /* -------------------------------------------------------------
@@ -915,32 +934,94 @@ html.js .reveal.stagger.is-visible > *:nth-child(6) { animation-delay: 0.35s; }
 }
 
 .plant-wall {
-  column-count: 4;
-  column-gap: 12px;
+  /* CSS grid (row flow) instead of column-count: with the uniform 3/4 tiles, this
+     makes DOM order == visual reading order, so the lightbox "n / 90" counter
+     matches the photo you actually clicked (column-count fills top-to-bottom,
+     which made the number look random across a row). */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
   margin-top: 1.75rem;
 }
 
 .plant-wall img {
   width: 100%;
   display: block;
-  margin: 0 0 12px;
   border-radius: 12px;
   border: 1px solid rgba(var(--teal-rgb), 0.2);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.32);
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
   cursor: zoom-in;
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  /* CLS fix: reserve each box BEFORE the mixed-orientation JPEG decodes so the
+     masonry columns never reflow. A single 3/4 default + cover crop keeps the
+     wall even without per-image dimensions. */
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  /* Teal/salmon-tinted skeleton the photo fades up from (site tokens only). */
+  background-color: rgba(var(--teal-rgb), 0.06);
+  background-image: linear-gradient(135deg,
+      rgba(var(--teal-rgb), 0.10), rgba(var(--salmon-rgb), 0.07));
+  transition: transform 0.35s ease, box-shadow 0.35s ease,
+              border-color 0.35s ease, opacity 0.5s ease, filter 0.5s ease;
 }
 
-.plant-wall img:hover {
-  transform: translateY(-4px) scale(1.015);
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.42);
-  border-color: rgba(var(--teal-rgb), 0.55);
+/* Blur-up / fade-in on load — gated to no-preference so reduced-motion users
+   (and the global @1363 backstop) keep every tile at opacity 1 immediately. */
+@media (prefers-reduced-motion: no-preference) {
+  html.js .plant-wall img { opacity: 0; filter: blur(8px); }
+  html.js .plant-wall img.loaded { opacity: 1; filter: blur(0); }
 }
 
-@media (max-width: 1100px) { .plant-wall { column-count: 3; } }
-@media (max-width: 720px)  { .plant-wall { column-count: 2; column-gap: 9px; } }
+.plant-wall img:hover,
+.plant-wall img:focus-visible {
+  /* Vera's premium lift + dual teal/salmon holographic ring (bare img, no
+     pseudo): the lift is the motion, the ring is the identity sheen. */
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(var(--teal-rgb), 0.6);
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.46),
+    0 0 0 1px rgba(var(--teal-rgb), 0.55),
+    0 0 22px 2px rgba(var(--teal-rgb), 0.30),
+    0 0 30px 4px rgba(var(--salmon-rgb), 0.20);
+  filter: saturate(1.06);
+}
+.plant-wall img:focus-visible {
+  outline: 2px solid rgba(var(--teal-rgb), 0.85);
+  outline-offset: 3px;
+}
+
+/* Under reduced motion: keep the holographic ring (identity) but drop the lift. */
+@media (prefers-reduced-motion: reduce) {
+  .plant-wall img:hover,
+  .plant-wall img:focus-visible { transform: none; }
+}
+
+/* Per-tile scroll reveal via native scroll-driven animation — 0 KB JS, runs on
+   the compositor. Triple-gated: html.js + @supports + no-preference. Falls
+   through to the existing .reveal/.is-visible behavior when unsupported, and the
+   JS in _foot.html still drives a capped per-tile animation-delay cascade. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    html.js .plant-wall.stagger img {
+      animation: fadeIn 0.55s ease both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 22%;
+    }
+  }
+}
+
+/* Fallback per-tile cascade for browsers without scroll-driven animations.
+   The _foot.html reveal handler adds .is-visible to .plant-wall and writes a
+   capped inline animation-delay onto each tile (last tile <= ~0.9s) so it reads
+   as a sweep, not a stall. Gated under no-preference; the global @1363 rule and
+   the html.js opacity:1 backstop neutralize it under reduced motion. */
+@supports not (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    html.js .plant-wall.stagger.is-visible img { animation: fadeIn 0.55s ease both; }
+  }
+}
+
+@media (max-width: 1100px) { .plant-wall { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 720px)  { .plant-wall { grid-template-columns: repeat(2, 1fr); gap: 9px; } }
 
 /* -------------------------------------------------------------
    Lightbox (built by _foot.html JS)
@@ -952,7 +1033,10 @@ html.js .reveal.stagger.is-visible > *:nth-child(6) { animation-delay: 0.35s; }
   display: none;
   align-items: center;
   justify-content: center;
-  background: rgba(4, 6, 18, 0.92);
+  /* Teal-tinted base + radial vignette to focus the eye on the photo (zero JS). */
+  background:
+    radial-gradient(120% 120% at 50% 45%,
+      rgba(4, 6, 18, 0.78) 0%, rgba(4, 6, 18, 0.95) 70%, rgba(2, 3, 10, 0.97) 100%);
   backdrop-filter: blur(6px);
   opacity: 0;
   transition: opacity 0.25s ease;
@@ -961,11 +1045,33 @@ html.js .reveal.stagger.is-visible > *:nth-child(6) { animation-delay: 0.35s; }
 
 .lightbox img {
   max-width: 90vw;
-  max-height: 86vh;
+  max-height: 82vh;
   border-radius: 12px;
   border: 1px solid rgba(var(--teal-rgb), 0.35);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.7);
+  /* Teal + salmon photo edge-glow (identity sheen) layered over the drop shadow. */
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(var(--teal-rgb), 0.30),
+    0 0 36px 4px rgba(var(--teal-rgb), 0.18),
+    0 0 46px 8px rgba(var(--salmon-rgb), 0.10);
   animation: fadeIn 0.3s ease;
+}
+
+/* Understated position counter / caption (inert until _foot.html injects it). */
+.lightbox .lb-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  background: rgba(var(--teal-rgb), 0.10);
+  border: 1px solid rgba(var(--teal-rgb), 0.22);
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  pointer-events: none;
 }
 
 .lightbox .lb-close,
@@ -1369,6 +1475,9 @@ html.js .reveal.stagger.is-visible > *:nth-child(6) { animation-delay: 0.35s; }
   .hero-avatar { animation: none; }
   .hero-avatar::before { animation: none; }
   html.js .reveal { opacity: 1; transform: none; }
+  /* Flora Wall: every tile fully visible at rest under reduced motion — no
+     blur-up, no per-tile cascade, no scroll-driven animation. */
+  html.js .plant-wall img { opacity: 1 !important; filter: none !important; animation: none !important; }
 }
 
 /* =============================================================
@@ -1487,6 +1596,38 @@ body.quarto-light .sprout-stage {
 /* Plant-wall + field-shot shadows are tuned dark — lighten on cream */
 body.quarto-light .plant-wall img { box-shadow: 0 6px 16px rgba(60, 70, 60, 0.18); }
 body.quarto-light .field-shot { box-shadow: 0 10px 26px rgba(60, 70, 60, 0.16); }
+
+/* Cream theme: retune the new Flora Wall hover/lightbox shadows so the navy
+   drop-shadows don't muddy the warm-sand surface. Teal/salmon rgb already
+   resolve to the deepened cream values via body.quarto-light tokens. */
+body.quarto-light .plant-wall img:hover,
+body.quarto-light .plant-wall img:focus-visible {
+  box-shadow:
+    0 16px 30px rgba(60, 70, 60, 0.22),
+    0 0 0 1px rgba(var(--teal-rgb), 0.5),
+    0 0 20px 2px rgba(var(--teal-rgb), 0.24),
+    0 0 26px 4px rgba(var(--salmon-rgb), 0.16);
+}
+body.quarto-light .field-shot:hover {
+  box-shadow: 0 10px 26px rgba(60, 70, 60, 0.16), 0 0 24px 2px rgba(var(--teal-rgb), 0.20);
+}
+/* Warm-sand vignette + lighter photo glow for the cream lightbox. */
+body.quarto-light .lightbox {
+  background: radial-gradient(120% 120% at 50% 45%,
+      rgba(40, 30, 18, 0.62) 0%, rgba(30, 22, 12, 0.86) 70%, rgba(22, 16, 8, 0.9) 100%);
+}
+body.quarto-light .lightbox img {
+  box-shadow:
+    0 24px 60px rgba(40, 30, 18, 0.4),
+    0 0 0 1px rgba(var(--teal-rgb), 0.34),
+    0 0 30px 4px rgba(var(--teal-rgb), 0.18),
+    0 0 40px 8px rgba(var(--salmon-rgb), 0.10);
+}
+body.quarto-light .lightbox .lb-caption {
+  color: var(--ink);
+  background: rgba(var(--teal-rgb), 0.12);
+  border-color: rgba(var(--teal-rgb), 0.3);
+}
 
 /* Quarto color-scheme toggle: match nav text */
 body.quarto-light .navbar .quarto-color-scheme-toggle { color: #21302b; }
