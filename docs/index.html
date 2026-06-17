@@ -342,9 +342,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="hero-circuit" aria-hidden="true">
     <svg class="circuit-side circuit-left" viewbox="0 0 200 300" preserveaspectratio="xMidYMax meet" fill="none">
       <path class="trace rail" pathlength="1" d="M34 268 H182"></path>
+      <path class="trace rail flow" pathlength="1" d="M34 268 H182"></path>
       <g class="sag">
         <path class="trace" pathlength="1" d="M58 268 V152"></path>
         <path class="trace" pathlength="1" d="M58 202 H86 V166"></path>
+        <path class="trace flow" pathlength="1" d="M58 268 V152"></path>
+        <path class="trace flow" pathlength="1" d="M58 202 H86 V166"></path>
         <circle class="node" cx="58" cy="152" r="5"></circle>
         <circle class="node" cx="86" cy="166" r="4.5"></circle>
         <circle class="node base" cx="58" cy="268" r="3.5"></circle>
@@ -353,6 +356,9 @@ ul.task-list li input[type="checkbox"] {
         <path class="trace" pathlength="1" d="M138 268 V56"></path>
         <path class="trace" pathlength="1" d="M138 164 H104 V108"></path>
         <path class="trace" pathlength="1" d="M138 126 H174 V80"></path>
+        <path class="trace flow" pathlength="1" d="M138 268 V56"></path>
+        <path class="trace flow" pathlength="1" d="M138 164 H104 V108"></path>
+        <path class="trace flow" pathlength="1" d="M138 126 H174 V80"></path>
         <circle class="node" cx="138" cy="56" r="5.5"></circle>
         <circle class="node" cx="104" cy="108" r="4.5"></circle>
         <circle class="node" cx="174" cy="80" r="4.5"></circle>
@@ -361,9 +367,12 @@ ul.task-list li input[type="checkbox"] {
     </svg>
     <svg class="circuit-side circuit-right" viewbox="0 0 200 300" preserveaspectratio="xMidYMax meet" fill="none">
       <path class="trace rail" pathlength="1" d="M34 268 H182"></path>
+      <path class="trace rail flow" pathlength="1" d="M34 268 H182"></path>
       <g class="sag">
         <path class="trace" pathlength="1" d="M58 268 V152"></path>
         <path class="trace" pathlength="1" d="M58 202 H86 V166"></path>
+        <path class="trace flow" pathlength="1" d="M58 268 V152"></path>
+        <path class="trace flow" pathlength="1" d="M58 202 H86 V166"></path>
         <circle class="node" cx="58" cy="152" r="5"></circle>
         <circle class="node" cx="86" cy="166" r="4.5"></circle>
         <circle class="node base" cx="58" cy="268" r="3.5"></circle>
@@ -372,6 +381,9 @@ ul.task-list li input[type="checkbox"] {
         <path class="trace" pathlength="1" d="M138 268 V56"></path>
         <path class="trace" pathlength="1" d="M138 164 H104 V108"></path>
         <path class="trace" pathlength="1" d="M138 126 H174 V80"></path>
+        <path class="trace flow" pathlength="1" d="M138 268 V56"></path>
+        <path class="trace flow" pathlength="1" d="M138 164 H104 V108"></path>
+        <path class="trace flow" pathlength="1" d="M138 126 H174 V80"></path>
         <circle class="node" cx="138" cy="56" r="5.5"></circle>
         <circle class="node" cx="104" cy="108" r="4.5"></circle>
         <circle class="node" cx="174" cy="80" r="4.5"></circle>
@@ -398,7 +410,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <div class="tg-section" style="padding-top:1rem;">
 <p>Welcome to my digital portfolio. I’m a data scientist and ecologist specializing in R Shiny applications, relational databases, and custom data workflows. I hold a B.S. in Natural Resources and am completing my M.S. in Data Science at the University of Arizona. I also run <a href="https://desertdatalabs.com/"><strong>Desert Data Labs LLC</strong></a> — a small consulting studio that builds data-collection apps, dashboards, and automation tools for environmental consultants, university labs, and small businesses.</p>
-<div class="card-container">
+<div class="card-container reveal stagger">
 <p><a></a> <a href="./about.html" class="card card-about">ABOUT ME</a> <a href="./dashboards.html" class="card card-visualizations">SHINY APPS</a> <a href="./projects.html" class="card card-projects">PROJECTS</a> <a href="./resume.html" class="card card-resume">RESUME/CV</a></p>
 </div>
 <section id="fun-things-i-love-to-work-on" class="level2 explore-text reveal">
@@ -437,7 +449,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="sprout-section">
   <div class="sprout-copy">
     <h3 class="anchored">Design &amp; motion, too</h3>
-    <p>Not just dashboards. This is <strong>Sprout</strong> — a brand mark for Desert Data Labs, built in pure SVG&nbsp;+&nbsp;CSS. No images, no libraries; every vine draws itself and the leaves unfurl. <em>Hover or tap it to watch it grow.</em></p>
+    <p>Not just dashboards! Making animations is fun too... <em>Hover or tap it to watch it grow.</em></p>
   </div>
   <div class="sprout-stage">
     <span class="sprout-kicker">Brand mark · SVG + CSS</span>
@@ -513,11 +525,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="section-label">
 <p>Fun data visualizations</p>
 </div>
+<div class="viz-figs reveal stagger">
 <section id="big-12-recruiting-distance-traveled-by-recruits" class="level3">
 <h3 class="anchored" data-anchor-id="big-12-recruiting-distance-traveled-by-recruits">Big 12 Recruiting — Distance Traveled by Recruits</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="assets/distance.png" class="img-fluid figure-img"></p>
+<p><img src="assets/distance.png" class="lightboxable img-fluid figure-img"></p>
 <figcaption>This box plot examines how far football recruits travel to join Big 12 football programs and whether that distance changed in the most recent recruiting cycle. Each symbol represents the distance a recruit traveled from their high school to their college (indicated by the logos on the left). Circles represent recruits for the 2025 season, while x symbols represent recruits that have been targeted from earlier classes (2016- 2024 ). The plot is ordered from top to bottom by smallest median distance (thick black line in each box plot). Twenty-eight extreme outliers (~%1 of data) were excluded for clarity. Texas schools tend to draw recruits from shorter distances and have relatively low medians: Baylor(163 miles), Houston(179 miles) and TCU(221 miles). BYU, Arizona, Arizona State and Utah have higher medians ranging from 350-600 miles, largely driven by recruits from Hawaii. Overall, recruiting distance patterns appear relatively stable over time, with the 2025 class showing similar distance traveled to previous years. The one notable exception being UCF, which had no recruits from California in 2025.</figcaption>
 </figure>
 </div>
@@ -526,7 +539,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="big-12-recruiting-over-time-table">Big 12 Recruiting over Time (Table)</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="assets/table.png" class="img-fluid figure-img"></p>
+<p><img src="assets/table.png" class="lightboxable img-fluid figure-img"></p>
 <figcaption>These tables summarize how recruiting talent has changed over time by region and position group. Players were assigned to regions based on the state where they attended high school. Recruits from outside the United States, as well as those who did not fall into selected position groups were excluded for clarity. Table A uses average player scores to assess how talent has changed over time. All regions showed increases in average scores for both position groups as seen by the darker colors in the more recent years. The Northeast recorded the highest average score in 2025 (89.3 ), although this reflects only three rated recruits for that year. Table B uses total counts of rated players to show talent changes in volume over time. The year 2025 was excluded because it does not represent a full three-year grouping. The Southwest and West had the most rated recruits (993 and 750 respectively) followed by the Southeast (616 ), Midwest (544 ) and Northeast (98 ). Overall, the number of rated recruits has declined over time while average ratings have increased which could be due to more selective recruiting and/or changes in how players have been rated over time.</figcaption>
 </figure>
 </div>
@@ -535,20 +548,12 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="solar-power-generation-change-over-time">Solar Power Generation Change over Time</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="assets/solar.png" class="img-fluid figure-img"></p>
+<p><img src="assets/solar.png" class="lightboxable img-fluid figure-img"></p>
 <figcaption>This faceted bar plot shows how total solar power generation has changed over the last six years. The year 2019 was chosen as the starting point because it marks the period when solar generation began increasing substantially. From 2019 to 2024, solar power generation rose across all selected countries, the largest being China, which increased from 224 TWh in 2019 to 839 TWh in 2024 (a 247% increase). In contrast, the second largest producer, the United States, increased from 107 TWh to 303 TWh over the same period (a 183% increase). The only change in ranking occurred in 2022 when India overtake Japan to become the third largest solar power generating country. Overall, total solar power generation has increased steadily over time.</figcaption>
 </figure>
 </div>
 </section>
-<section id="top-10-co₂-emitting-countries-from-fossil-fuels" class="level3">
-<h3 class="anchored" data-anchor-id="top-10-co₂-emitting-countries-from-fossil-fuels">Top 10 CO₂-Emitting Countries from Fossil Fuels</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/co2.png" class="img-fluid figure-img"></p>
-<figcaption>This bar plot shows the results of correctly vs incorrectly filtering the Ember Emissions data set to show examples of what should be filtered for, as well as what could happen if filtering is done incorrectly. The dark blue bars on the left show the data filtered correctly by units (mtCO2), category (Power sector emissions), variable (Gas and Other Fossil, Coal, Gas, Other Fossil) and subcategory not equal to “Aggregate fuel.” This was done because “Fuel” and “Aggregate fuel” overlap with each other for some countries. The yellow bars on the right shows the data incorrectly filtered (same filters for correct filter except not filtering for subcategory “Aggregate fuel”) which results in substantially higher total CO2 emissions. Each country was ranked from highest to lowest for each filter type. The correctly filtered data shows Germany as the 6th highest emitter of CO2 from fossil fuels, while the incorrectly filtered data shows Saudi Arabia as the 6th highest emitter.</figcaption>
-</figure>
 </div>
-</section>
 </div>
 <section id="contact-me" class="level2 tg-section reveal">
 <h2 class="anchored" data-anchor-id="contact-me">Contact Me</h2>
@@ -577,7 +582,7 @@ ul.task-list li input[type="checkbox"] {
        Plain scroll/resize/load handler (input-driven, works everywhere)
        plus a safety timer so content is NEVER stranded hidden if scroll
        events somehow never fire. Avoids depending on IntersectionObserver. */
-    var reveals=[].slice.call(document.querySelectorAll('.reveal'));
+    var reveals=[].slice.call(document.querySelectorAll('.reveal, .reveal-left'));
     if(reduce) {
       reveals.forEach(function(el) {el.classList.add('is-visible');});
     } else {
@@ -671,6 +676,44 @@ ul.task-list li input[type="checkbox"] {
       heroAvatar.addEventListener('pointerleave',avReset);
     }
 
+    /* ---------- Living hero: circuit parallax depth ----------
+       Writes its OWN --cx/--cy on .hero-circuit only (never avMove's
+       --ax/--ay/--mx/--my on .hero-avatar). Pointer drift is fine-pointer +
+       motion-ok only; scroll drift runs whenever motion is ok. The CSS at
+       styles.css maps --cx/--cy to opposite-sign translates on the two sides
+       and preserves the right side's scaleX(-1) mirror. */
+    var heroCircuit=document.querySelector('.hero-circuit');
+    if(heroCircuit&&!reduce) {
+      var cScrollY=0,cPointerY=0;
+      if(window.matchMedia('(pointer: fine)').matches) {
+        var hero=heroCircuit.closest('.hero')||heroCircuit;
+        hero.addEventListener('pointermove',function(e) {
+          var rect=hero.getBoundingClientRect();
+          if(!rect.width||!rect.height) return;
+          var px=Math.min(1,Math.max(0,(e.clientX-rect.left)/rect.width));
+          var py=Math.min(1,Math.max(0,(e.clientY-rect.top)/rect.height));
+          heroCircuit.style.setProperty('--cx',((px-0.5)*2).toFixed(3));
+          cPointerY=(py-0.5)*2;
+          heroCircuit.style.setProperty('--cy',(cPointerY+cScrollY).toFixed(3));
+        },{passive: true});
+        hero.addEventListener('pointerleave',function() {
+          cPointerY=0;
+          heroCircuit.style.setProperty('--cx','0');
+          heroCircuit.style.setProperty('--cy',cScrollY.toFixed(3));
+        });
+      }
+      var cTicking=false;
+      var cScroll=function() {
+        cScrollY=Math.min(0.6,Math.max(-0.6,window.pageYOffset/600));
+        heroCircuit.style.setProperty('--cy',(cPointerY+cScrollY).toFixed(3));
+        cTicking=false;
+      };
+      window.addEventListener('scroll',function() {
+        if(!cTicking) {cTicking=true; requestAnimationFrame(cScroll);}
+      },{passive: true});
+      cScroll();
+    }
+
     /* ---------- Parallax ---------- */
     if(!reduce) {
       var pxEls=[].slice.call(document.querySelectorAll('[data-parallax]'));
@@ -697,7 +740,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     /* ---------- Lightbox (plant wall + any .lightboxable image) ---------- */
-    var imgs=[].slice.call(document.querySelectorAll('.plant-wall img, .shot-grid img, .lightboxable'));
+    var imgs=[].slice.call(document.querySelectorAll('.plant-wall img, .shot-grid img, .viz-figs img, .lightboxable'));
     if(imgs.length) {
       var ov=document.createElement('div');
       ov.className='lightbox';

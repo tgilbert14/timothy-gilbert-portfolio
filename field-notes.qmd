@@ -19,7 +19,6 @@ format:
 :::
 
 ::: {.wall-wrap .reveal}
-<span class="eyebrow">From the field</span>
 
 # Flora Wall {.section-title}
 

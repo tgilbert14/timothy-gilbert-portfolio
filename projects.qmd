@@ -11,6 +11,8 @@ Other Projects...
 
 ------------------------------------------------------------------------
 
+::: {.reveal}
+
 ## *VGSLite*
 
 An R-based helper application (.exe installer) built to support VGS 5 Desktop on Windows — written in R and packaged with Electron.
@@ -18,7 +20,7 @@ An R-based helper application (.exe installer) built to support VGS 5 Desktop on
 -   **Code:** [GitHub (Private)](https://github.com/tgilbert14/VGSLite "Please contact me if you would like to view source code")
 -   **Live App:** Local-only
 
-![](assets/VGSLite.png)
+![](assets/VGSLite.png){.lightboxable}
 
 <details class="proj-more">
 <summary>Install guide, features &amp; usage</summary>
@@ -53,7 +55,11 @@ An R-based helper application (.exe installer) built to support VGS 5 Desktop on
 
 </details>
 
+:::
+
 ------------------------------------------------------------------------
+
+::: {.reveal}
 
 ## NCAA Sample Data Visualizations
 
@@ -75,7 +81,11 @@ Scripts to scrape recruiting data from multiple sports sites (e.g., 247Sports, O
 
 </details>
 
+:::
+
 ------------------------------------------------------------------------
+
+::: {.reveal}
 
 ## VGS Batch Importer
 
@@ -84,7 +94,7 @@ An ETL pipeline built in R to ingest historical Excel datasheets into a SQLite d
 -   **Code:** [GitHub](https://github.com/tgilbert14/vgs-batch-importer)
 -   **Live App:** Local-only Shiny app
 
-![*Main UI View*](assets/mainUI.jpg)
+![*Main UI View*](assets/mainUI.jpg){.lightboxable}
 
 <details class="proj-more">
 <summary>Full feature walkthrough &amp; screenshots</summary>
@@ -123,9 +133,11 @@ The interface lets you select the protocols available for ingest, with options t
 
 </details>
 
+:::
+
 ------------------------------------------------------------------------
 
-::: card-container
+::: {.card-container .reveal .stagger}
 <a> </a> <a href="about.qmd" class="card card-about">ABOUT ME</a> <a href="dashboards.qmd" class="card card-visualizations">SHINY APPS</a> <a href="projects.qmd" class="card card-projects">PROJECTS</a> <a href="resume.qmd" class="card card-resume">RESUME/CV</a>
 :::
 

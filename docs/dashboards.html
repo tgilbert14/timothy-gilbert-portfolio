@@ -354,52 +354,52 @@ ul.task-list li input[type="checkbox"] {
 <p>Shiny Applications…</p>
 </div>
 <hr>
-<section id="big-12-girth-index-recruiting-size-analytics" class="level2">
+<section id="big-12-girth-index-recruiting-size-analytics" class="level2 reveal">
 <h2 class="anchored" data-anchor-id="big-12-girth-index-recruiting-size-analytics">Big 12 Girth Index — Recruiting Size Analytics</h2>
 <div class="explore-text">
 <p>This app visualizes <strong>every Big 12 recruit’s height, weight, and rating — 2016 to 2026, football and basketball, all 16 programs.</strong> Plot any roster on the Body Map (height × weight, tap a dot to pin a player card), compare position-group weight distributions against the conference in Position DNA, project incoming defenders onto 3-3-5 odd-stack roles in the War Room, and track class ratings across coaching eras. Recruiting classes and rosters are scraped from 247Sports, with season records and SP+ from CollegeFootballData. A relaunch and major expansion of my earlier <em>Big-12 Talent Pathways</em> app.</p>
 </div>
 <p>⭆ <a href="https://girthindex.desertdatalab.com/" title="https://girthindex.desertdatalab.com/">Click for Stand Alone App</a></p>
-<p><img src="assets/arizona-football-size-lab-2023-2026-pinned.png" class="img-fluid"> <img src="assets/arizona-football-war-room-3-3-5-2023-2026-pinned.png" class="img-fluid"></p>
-<hr>
+<p><img src="assets/arizona-football-size-lab-2023-2026-pinned.png" class="lightboxable img-fluid"> <img src="assets/arizona-football-war-room-3-3-5-2023-2026-pinned.png" class="lightboxable img-fluid"></p>
 </section>
-<section id="neon-small-mammal-tracker" class="level2">
+<hr>
+<section id="neon-small-mammal-tracker" class="level2 reveal">
 <h2 class="anchored" data-anchor-id="neon-small-mammal-tracker">NEON Small Mammal Tracker</h2>
 <div class="explore-text">
 <p>This shiny application turns National Ecological Observatory Network (<a href="https://data.neonscience.org/" class="uri">https://data.neonscience.org/</a>) box-trapping records into the <strong>life history of every small mammal NEON has caught</strong> across 46 field sites. It opens on a <strong>tap-a-site national map</strong> — pick a site to see who lives there, or flip to <strong>“by species”</strong> to map where one animal turns up across the country. Open any site for a <strong>Hall of Fame</strong> of the most-caught individuals (re-sortable, with rarity tiers), trap-grid <strong>home-range</strong> heatmaps, a <strong>Hill-number diversity</strong> profile, and <strong>detection-corrected abundance</strong> — closed-capture estimates (Schnabel / Chapman) that count the animals the traps missed, shown alongside MNKA. Plus shareable trading-card profiles, a two-site compare, and a printable report card. Methods are stated honestly: reused tags are flagged, Chao1 is a bias-corrected lower bound, and the size index is an adult weight percentile. Each site loads instantly from a pre-bundled, compressed dataset. A complete redesign of my original tracker.</p>
 </div>
 <p>⭆ <a href="https://tgilbert14.github.io/NEON-Small-Mammal-Tracker-App/" title="NEON Small Mammal Tracker">Open the project</a></p>
-<p><img src="assets/mam0.png" class="img-fluid"> <img src="assets/mam1.png" class="img-fluid"></p>
-<hr>
+<p><img src="assets/mam0.png" class="lightboxable img-fluid"> <img src="assets/mam1.png" class="lightboxable img-fluid"></p>
 </section>
-<section id="water-chemistry-analyte-viewer" class="level2">
+<hr>
+<section id="water-chemistry-analyte-viewer" class="level2 reveal">
 <h2 class="anchored" data-anchor-id="water-chemistry-analyte-viewer">Water Chemistry Analyte Viewer</h2>
 <div class="explore-text">
 <p>This Shiny app compares <strong>surface-water chemistry across 34 NEON aquatic field sites</strong> — from desert streams to Alaskan lakes to Puerto Rican rivers. Pick any two analytes and see how they move together through time, how they relate, what else they correlate with, and their seasonal pattern, on roughly <strong>197,000 real measurements</strong> with statistics that show their work: a normalized or dual-axis <strong>time series</strong>, a least-squares <strong>relationship</strong> fit with R²/p/n and a temporal-autocorrelation flag, a <strong>Spearman correlation</strong> screen with per-row sample sizes, a real <strong>STL seasonal decomposition</strong> (the measured cycle, not a synthetic sine wave), and a small <strong>predictor</strong> that estimates an analyte from its best-correlated neighbors, scored against a mean-only baseline. Chemistry names and units are correct, below-detection values are flagged rather than hidden, and every statistic shows its <em>n</em>. Loads instantly from a pre-bundled dataset — no live API waits.</p>
 </div>
 <p>⭆ <a href="https://tgilbert14.github.io/NEON-WaterChemistry-Analyte-Viewer-App/" title="Water Chemistry Analyte Viewer">Open the project</a></p>
-<p><img src="assets/wc-sitemap.png" class="img-fluid"> <img src="assets/wc-compare.png" class="img-fluid"></p>
-<hr>
+<p><img src="assets/wc-sitemap.png" class="lightboxable img-fluid"> <img src="assets/wc-compare.png" class="lightboxable img-fluid"></p>
 </section>
-<section id="which-states-flora-matches-each-movie-world-best" class="level2">
+<hr>
+<section id="which-states-flora-matches-each-movie-world-best" class="level2 reveal">
 <h2 class="anchored" data-anchor-id="which-states-flora-matches-each-movie-world-best">Which State’s Flora Matches Each Movie World Best?</h2>
 <div class="explore-text">
 <p>This Shiny app asks which U.S. state’s plant life best fits three movie worlds — <strong>Dune (<em>Arrakis</em>)</strong>, <strong>The Lord of the Rings (<em>Middle-earth</em>)</strong>, and <strong>Jurassic Park (<em>Isla Nublar</em>)</strong> — each defined by a curated set of plant families (desert &amp; succulent, cool-forest &amp; alpine, and ancient ferns &amp; conifers). Pick any states and an <strong>interactive bar chart</strong> ranks their flora against each world; <strong>tap a bar</strong> to see exactly which families drive the score, and toggle <strong>Raw counts → Fair share</strong> to control for the fact that big, species-rich states and giant plant families — <em>Asteraceae</em> alone is ~65% of Arizona’s “Middle-earth” score — would otherwise dominate. A <strong>chord diagram</strong> then maps the species each state shares with every world, and with the other states. Built on ~250,000 USDA PLANTS records precomputed into an ~11 KB bundle so it loads instantly. A full rebuild of the original — an honest, size-adjusted metric and a botanical field-guide redesign.</p>
 </div>
 <p>⭆ <a href="https://019ecc91-3c6c-bee2-f824-0ea23fc60ac6.share.connect.posit.cloud/" title="Plants in Movies">Open the app</a></p>
-<p><img src="assets/plants-in-movies-chart.png" class="img-fluid"> <img src="assets/plants-in-movies-chord.png" class="img-fluid"></p>
-<hr>
+<p><img src="assets/plants-in-movies-chart.png" class="lightboxable img-fluid"> <img src="assets/plants-in-movies-chord.png" class="lightboxable img-fluid"></p>
 </section>
-<section id="older-applications" class="level2">
+<hr>
+<section id="older-applications" class="level2 reveal">
 <h2 class="anchored" data-anchor-id="older-applications">Older Applications</h2>
 <p><strong><em>USFS Name Converter</em></strong> ⭆ <a href="https://t-lama.shinyapps.io/App-VGS-USFS-Name2VGS/" title="https://t-lama.shinyapps.io/App-VGS-USFS-Name2VGS/">Click for Stand Alone App</a></p>
+</section>
 <hr>
-<div class="card-container">
+<div class="card-container reveal stagger">
 <p><a> </a> <a href="./about.html" class="card card-about">ABOUT ME</a> <a href="./dashboards.html" class="card card-visualizations">SHINY APPS</a> <a href="./projects.html" class="card card-projects">PROJECTS</a> <a href="./resume.html" class="card card-resume">RESUME/CV</a></p>
 </div>
 
 
-</section>
 
 </main> <!-- /main -->
 <!-- Site-wide motion: scroll reveal, parallax, plant-wall lightbox.
@@ -417,7 +417,7 @@ ul.task-list li input[type="checkbox"] {
        Plain scroll/resize/load handler (input-driven, works everywhere)
        plus a safety timer so content is NEVER stranded hidden if scroll
        events somehow never fire. Avoids depending on IntersectionObserver. */
-    var reveals=[].slice.call(document.querySelectorAll('.reveal'));
+    var reveals=[].slice.call(document.querySelectorAll('.reveal, .reveal-left'));
     if(reduce) {
       reveals.forEach(function(el) {el.classList.add('is-visible');});
     } else {
@@ -511,6 +511,44 @@ ul.task-list li input[type="checkbox"] {
       heroAvatar.addEventListener('pointerleave',avReset);
     }
 
+    /* ---------- Living hero: circuit parallax depth ----------
+       Writes its OWN --cx/--cy on .hero-circuit only (never avMove's
+       --ax/--ay/--mx/--my on .hero-avatar). Pointer drift is fine-pointer +
+       motion-ok only; scroll drift runs whenever motion is ok. The CSS at
+       styles.css maps --cx/--cy to opposite-sign translates on the two sides
+       and preserves the right side's scaleX(-1) mirror. */
+    var heroCircuit=document.querySelector('.hero-circuit');
+    if(heroCircuit&&!reduce) {
+      var cScrollY=0,cPointerY=0;
+      if(window.matchMedia('(pointer: fine)').matches) {
+        var hero=heroCircuit.closest('.hero')||heroCircuit;
+        hero.addEventListener('pointermove',function(e) {
+          var rect=hero.getBoundingClientRect();
+          if(!rect.width||!rect.height) return;
+          var px=Math.min(1,Math.max(0,(e.clientX-rect.left)/rect.width));
+          var py=Math.min(1,Math.max(0,(e.clientY-rect.top)/rect.height));
+          heroCircuit.style.setProperty('--cx',((px-0.5)*2).toFixed(3));
+          cPointerY=(py-0.5)*2;
+          heroCircuit.style.setProperty('--cy',(cPointerY+cScrollY).toFixed(3));
+        },{passive: true});
+        hero.addEventListener('pointerleave',function() {
+          cPointerY=0;
+          heroCircuit.style.setProperty('--cx','0');
+          heroCircuit.style.setProperty('--cy',cScrollY.toFixed(3));
+        });
+      }
+      var cTicking=false;
+      var cScroll=function() {
+        cScrollY=Math.min(0.6,Math.max(-0.6,window.pageYOffset/600));
+        heroCircuit.style.setProperty('--cy',(cPointerY+cScrollY).toFixed(3));
+        cTicking=false;
+      };
+      window.addEventListener('scroll',function() {
+        if(!cTicking) {cTicking=true; requestAnimationFrame(cScroll);}
+      },{passive: true});
+      cScroll();
+    }
+
     /* ---------- Parallax ---------- */
     if(!reduce) {
       var pxEls=[].slice.call(document.querySelectorAll('[data-parallax]'));
@@ -537,7 +575,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     /* ---------- Lightbox (plant wall + any .lightboxable image) ---------- */
-    var imgs=[].slice.call(document.querySelectorAll('.plant-wall img, .shot-grid img, .lightboxable'));
+    var imgs=[].slice.call(document.querySelectorAll('.plant-wall img, .shot-grid img, .viz-figs img, .lightboxable'));
     if(imgs.length) {
       var ov=document.createElement('div');
       ov.className='lightbox';

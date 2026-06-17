@@ -345,14 +345,14 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="project-content">
 <hr>
-<section id="vgslite" class="level2">
+<section id="vgslite" class="level2 reveal">
 <h2 class="anchored" data-anchor-id="vgslite"><em>VGSLite</em></h2>
 <p>An R-based helper application (.exe installer) built to support VGS 5 Desktop on Windows — written in R and packaged with Electron.</p>
 <ul>
 <li><strong>Code:</strong> <a href="https://github.com/tgilbert14/VGSLite" title="Please contact me if you would like to view source code">GitHub (Private)</a></li>
 <li><strong>Live App:</strong> Local-only</li>
 </ul>
-<p><img src="assets/VGSLite.png" class="img-fluid"></p>
+<p><img src="assets/VGSLite.png" class="lightboxable img-fluid"></p>
 <details class="proj-more">
 <summary>
 Install guide, features &amp; usage
@@ -375,9 +375,9 @@ Install guide, features &amp; usage
 <p>✅ Click through the confirmation pop-ups to see what is being done.</p>
 <p>✅ Close VGS 5 if it is open, then reopen it to confirm the changes.</p>
 </details>
-<hr>
 </section>
-<section id="ncaa-sample-data-visualizations" class="level2">
+<hr>
+<section id="ncaa-sample-data-visualizations" class="level2 reveal">
 <h2 class="anchored" data-anchor-id="ncaa-sample-data-visualizations">NCAA Sample Data Visualizations</h2>
 <p>Scripts to scrape recruiting data from multiple sports sites (e.g., 247Sports, On3) and visualize Big 12 football and basketball class rankings over time. These scrapers now feed the live <strong>Big 12 Girth Index</strong> app.</p>
 <ul>
@@ -393,9 +393,9 @@ Sample visualizations
 <p>⭆ <a href="https://github.com/tgilbert14/UA-recruits-/blob/main/plots/basketball/comparisons/basketball_avgClassRatings_Filtered_2025-07-09.png">University of Arizona vs.&nbsp;ASU Basketball Recruit Comparisons</a></p>
 <p><img src="assets/basketball_avgClassRatings_Filtered_2025-07-09.png" class="img-fluid"></p>
 </details>
-<hr>
 </section>
-<section id="vgs-batch-importer" class="level2">
+<hr>
+<section id="vgs-batch-importer" class="level2 reveal">
 <h2 class="anchored" data-anchor-id="vgs-batch-importer">VGS Batch Importer</h2>
 <p>An ETL pipeline built in R to ingest historical Excel datasheets into a SQLite database. It supports multiple vegetation protocols (point ground cover, line intercept, nested frequency) across transects and sites, parses data by key identifiers (e.g., SiteID), organizes metadata, and inserts structured records into a local <a href="https://vgs.arizona.edu/">VGS</a> database — with QA/QC checks embedded to keep corrupt or incomplete data out.</p>
 <ul>
@@ -404,7 +404,7 @@ Sample visualizations
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="assets/mainUI.jpg" class="img-fluid figure-img"></p>
+<p><img src="assets/mainUI.jpg" class="lightboxable img-fluid figure-img"></p>
 <figcaption><em>Main UI View</em></figcaption>
 </figure>
 </div>
@@ -454,13 +454,13 @@ Full feature walkthrough &amp; screenshots
 </figure>
 </div>
 </details>
+</section>
 <hr>
-<div class="card-container">
+<div class="card-container reveal stagger">
 <p><a> </a> <a href="./about.html" class="card card-about">ABOUT ME</a> <a href="./dashboards.html" class="card card-visualizations">SHINY APPS</a> <a href="./projects.html" class="card card-projects">PROJECTS</a> <a href="./resume.html" class="card card-resume">RESUME/CV</a></p>
 </div>
 <hr>
 <p><em>Contact me @ <a href="mailto:tsgilbert@arizona.edu">tsgilbert@arizona.edu</a> for questions, feedback, suggestions, or if you want to collaborate!</em></p>
-</section>
 </div>
 
 
@@ -481,7 +481,7 @@ Full feature walkthrough &amp; screenshots
        Plain scroll/resize/load handler (input-driven, works everywhere)
        plus a safety timer so content is NEVER stranded hidden if scroll
        events somehow never fire. Avoids depending on IntersectionObserver. */
-    var reveals=[].slice.call(document.querySelectorAll('.reveal'));
+    var reveals=[].slice.call(document.querySelectorAll('.reveal, .reveal-left'));
     if(reduce) {
       reveals.forEach(function(el) {el.classList.add('is-visible');});
     } else {
@@ -575,6 +575,44 @@ Full feature walkthrough &amp; screenshots
       heroAvatar.addEventListener('pointerleave',avReset);
     }
 
+    /* ---------- Living hero: circuit parallax depth ----------
+       Writes its OWN --cx/--cy on .hero-circuit only (never avMove's
+       --ax/--ay/--mx/--my on .hero-avatar). Pointer drift is fine-pointer +
+       motion-ok only; scroll drift runs whenever motion is ok. The CSS at
+       styles.css maps --cx/--cy to opposite-sign translates on the two sides
+       and preserves the right side's scaleX(-1) mirror. */
+    var heroCircuit=document.querySelector('.hero-circuit');
+    if(heroCircuit&&!reduce) {
+      var cScrollY=0,cPointerY=0;
+      if(window.matchMedia('(pointer: fine)').matches) {
+        var hero=heroCircuit.closest('.hero')||heroCircuit;
+        hero.addEventListener('pointermove',function(e) {
+          var rect=hero.getBoundingClientRect();
+          if(!rect.width||!rect.height) return;
+          var px=Math.min(1,Math.max(0,(e.clientX-rect.left)/rect.width));
+          var py=Math.min(1,Math.max(0,(e.clientY-rect.top)/rect.height));
+          heroCircuit.style.setProperty('--cx',((px-0.5)*2).toFixed(3));
+          cPointerY=(py-0.5)*2;
+          heroCircuit.style.setProperty('--cy',(cPointerY+cScrollY).toFixed(3));
+        },{passive: true});
+        hero.addEventListener('pointerleave',function() {
+          cPointerY=0;
+          heroCircuit.style.setProperty('--cx','0');
+          heroCircuit.style.setProperty('--cy',cScrollY.toFixed(3));
+        });
+      }
+      var cTicking=false;
+      var cScroll=function() {
+        cScrollY=Math.min(0.6,Math.max(-0.6,window.pageYOffset/600));
+        heroCircuit.style.setProperty('--cy',(cPointerY+cScrollY).toFixed(3));
+        cTicking=false;
+      };
+      window.addEventListener('scroll',function() {
+        if(!cTicking) {cTicking=true; requestAnimationFrame(cScroll);}
+      },{passive: true});
+      cScroll();
+    }
+
     /* ---------- Parallax ---------- */
     if(!reduce) {
       var pxEls=[].slice.call(document.querySelectorAll('[data-parallax]'));
@@ -601,7 +639,7 @@ Full feature walkthrough &amp; screenshots
     }
 
     /* ---------- Lightbox (plant wall + any .lightboxable image) ---------- */
-    var imgs=[].slice.call(document.querySelectorAll('.plant-wall img, .shot-grid img, .lightboxable'));
+    var imgs=[].slice.call(document.querySelectorAll('.plant-wall img, .shot-grid img, .viz-figs img, .lightboxable'));
     if(imgs.length) {
       var ov=document.createElement('div');
       ov.className='lightbox';

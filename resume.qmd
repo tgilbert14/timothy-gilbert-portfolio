@@ -3,19 +3,29 @@ title: "Résumé/CV"
 format: html
 ---
 
+::: {.reveal}
+
 ### *Founder & Lead Developer*
 
 **Desert Data Labs LLC \| Tucson, AZ**
 
 *2025--Present / Owner*
 
--   Founded an independent data and technology consulting studio serving environmental consultants, university research labs, and small businesses
+-   Founded an Arizona LLC delivering custom dashboards, databases, and data pipelines for small businesses, nonprofits, and research teams without in-house software support
 
--   Designs and delivers end-to-end data solutions: custom R Shiny and Python web apps, SQL/SQLite database architecture, ETL pipelines, automated reporting, and interactive dashboards
+-   Design and build production R Shiny applications, SQL databases (Azure SQL, PostgreSQL, SQL Server, SQLite), and ETL/integration pipelines with embedded QA/QC
 
--   Clients include USFS rangeland crews, NEON researchers, and university analysts; see [desertdatalabs.com](https://desertdatalabs.com/) for case studies
+-   Developing EcoPlot Mobile, an offline-capable field-data collection web app (PWA) on Azure (Static Web Apps + managed SQL), as a modern successor to legacy desktop field tools
+
+-   Build and maintain the company marketing site in Quarto with automated CI/CD deployment via GitHub Actions
+
+-   Established the service catalog, fixed-scope SOW process, hosting/maintenance tiers, and a sliding-scale “Mission Pricing” program providing reduced-rate and pro bono data infrastructure to under-resourced ecology and conservation labs
+
+:::
 
 ------------------------------------------------------------------------
+
+::: {.reveal}
 
 ### *IT Computing Analyst I-III*
 
@@ -51,26 +61,42 @@ format: html
 
 *(See Résumé/CV below for complete work history)*
 
+:::
+
 ------------------------------------------------------------------------
+
+::: {.reveal}
 
 ## Programming Projects
 
 <a href="projects.qmd" class="card card-projects">PROJECTS</a>
 
+:::
+
 ------------------------------------------------------------------------
+
+::: {.reveal}
 
 ## Education
 
 -   **University of Arizona**\
     *B.S. Natural Resources: Wildlife Conservation & Management (May 2017)*
 
+:::
+
 ------------------------------------------------------------------------
+
+::: {.reveal}
 
 ## References
 
 *Available upon request or view at the bottom of the Résumé/CV PDF.*
 
+:::
+
 ------------------------------------------------------------------------
+
+::: {.reveal}
 
 You can download the my Résumé/CV: [CLICK ME!](assets/Gilbert_ResumeCV.pdf){.btn}
 
@@ -80,9 +106,11 @@ This browser does not support PDFs. Please download the PDF to view it: <a href=
 
 </iframe>
 
+:::
+
 ------------------------------------------------------------------------
 
-::: card-container
+::: {.card-container .reveal .stagger}
 
 <a> </a> <a href="about.qmd" class="card card-about">ABOUT ME</a> <a href="dashboards.qmd" class="card card-visualizations">SHINY APPS</a> <a href="projects.qmd" class="card card-projects">PROJECTS</a> <a href="resume.qmd" class="card card-resume">RESUME/CV</a>
 :::

@@ -339,6 +339,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<p><span class="eyebrow">From the field</span></p>
 <div class="tg-section reveal">
 <div class="field-grid">
   <figure class="field-shot figure"><img src="assets/photos/field-rangeland-walk.jpg" alt="Electro fishing bout" fetchpriority="high" decoding="async" class="figure-img"><figcaption>Electro fishing bout</figcaption></figure>
@@ -346,9 +347,7 @@ ul.task-list li input[type="checkbox"] {
   <figure class="field-shot figure"><img src="assets/photos/field-grazing.jpg" alt="Soil surveys" fetchpriority="high" decoding="async" class="figure-img"><figcaption>Soil surveys</figcaption></figure>
 </div>
 </div>
-<div class="wall-wrap reveal">
-<p><span class="eyebrow">From the field</span></p>
-<section id="flora-wall" class="level1 section-title">
+<section id="flora-wall" class="level1 section-title wall-wrap reveal">
 <h1 class="section-title">Flora Wall</h1>
 <div class="section-label">
 <p>90 photos · tap any to enlarge</p>
@@ -446,7 +445,6 @@ ul.task-list li input[type="checkbox"] {
   <img src="assets/photos/plants/IMG_8216.jpg" alt="Desert / rangeland plant, Arizona fieldwork" loading="lazy" decoding="async">
 </div>
 </section>
-</div>
 <div class="tg-section reveal">
 <div style="text-align:center;">
 <p><a href="./index.html" class="tg-btn tg-btn-ghost">← Back home</a> <a href="./dashboards.html" class="tg-btn tg-btn-primary">See what I built with this data →</a></p>
@@ -471,7 +469,7 @@ ul.task-list li input[type="checkbox"] {
        Plain scroll/resize/load handler (input-driven, works everywhere)
        plus a safety timer so content is NEVER stranded hidden if scroll
        events somehow never fire. Avoids depending on IntersectionObserver. */
-    var reveals=[].slice.call(document.querySelectorAll('.reveal'));
+    var reveals=[].slice.call(document.querySelectorAll('.reveal, .reveal-left'));
     if(reduce) {
       reveals.forEach(function(el) {el.classList.add('is-visible');});
     } else {
@@ -565,6 +563,44 @@ ul.task-list li input[type="checkbox"] {
       heroAvatar.addEventListener('pointerleave',avReset);
     }
 
+    /* ---------- Living hero: circuit parallax depth ----------
+       Writes its OWN --cx/--cy on .hero-circuit only (never avMove's
+       --ax/--ay/--mx/--my on .hero-avatar). Pointer drift is fine-pointer +
+       motion-ok only; scroll drift runs whenever motion is ok. The CSS at
+       styles.css maps --cx/--cy to opposite-sign translates on the two sides
+       and preserves the right side's scaleX(-1) mirror. */
+    var heroCircuit=document.querySelector('.hero-circuit');
+    if(heroCircuit&&!reduce) {
+      var cScrollY=0,cPointerY=0;
+      if(window.matchMedia('(pointer: fine)').matches) {
+        var hero=heroCircuit.closest('.hero')||heroCircuit;
+        hero.addEventListener('pointermove',function(e) {
+          var rect=hero.getBoundingClientRect();
+          if(!rect.width||!rect.height) return;
+          var px=Math.min(1,Math.max(0,(e.clientX-rect.left)/rect.width));
+          var py=Math.min(1,Math.max(0,(e.clientY-rect.top)/rect.height));
+          heroCircuit.style.setProperty('--cx',((px-0.5)*2).toFixed(3));
+          cPointerY=(py-0.5)*2;
+          heroCircuit.style.setProperty('--cy',(cPointerY+cScrollY).toFixed(3));
+        },{passive: true});
+        hero.addEventListener('pointerleave',function() {
+          cPointerY=0;
+          heroCircuit.style.setProperty('--cx','0');
+          heroCircuit.style.setProperty('--cy',cScrollY.toFixed(3));
+        });
+      }
+      var cTicking=false;
+      var cScroll=function() {
+        cScrollY=Math.min(0.6,Math.max(-0.6,window.pageYOffset/600));
+        heroCircuit.style.setProperty('--cy',(cPointerY+cScrollY).toFixed(3));
+        cTicking=false;
+      };
+      window.addEventListener('scroll',function() {
+        if(!cTicking) {cTicking=true; requestAnimationFrame(cScroll);}
+      },{passive: true});
+      cScroll();
+    }
+
     /* ---------- Parallax ---------- */
     if(!reduce) {
       var pxEls=[].slice.call(document.querySelectorAll('[data-parallax]'));
@@ -591,7 +627,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     /* ---------- Lightbox (plant wall + any .lightboxable image) ---------- */
-    var imgs=[].slice.call(document.querySelectorAll('.plant-wall img, .shot-grid img, .lightboxable'));
+    var imgs=[].slice.call(document.querySelectorAll('.plant-wall img, .shot-grid img, .viz-figs img, .lightboxable'));
     if(imgs.length) {
       var ov=document.createElement('div');
       ov.className='lightbox';

@@ -349,14 +349,14 @@ ul.task-list li input[type="checkbox"] {
     <a class="tg-btn tg-btn-ghost" href="https://app.desertdatacollection.com/office-portal.html?demo=1" target="_blank" rel="noopener">Office Portal demo ↗</a>
   </div>
 </section>
-<div class="tg-section" style="padding-top:0;">
+<div class="tg-section reveal" style="padding-top:0;">
 <p>The successor to a decade of desktop rangeland-monitoring tools — rebuilt as a modern <strong>Progressive Web App</strong> so a field crew can collect data on a phone with no signal, an office analyst can review it from a desk, and a rancher or agency can get a report out the other end. Built on Azure, it runs in the browser on any device with <strong>no installer and no app store</strong>.</p>
 </div>
 <div class="tg-section reveal">
 <div class="section-label">
 <p>What it does</p>
 </div>
-<div class="cap-grid">
+<div class="cap-grid reveal stagger">
   <div class="cap-card"><span class="cap-ico"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h.01"></path><path d="M8.5 16.429a5 5 0 0 1 7 0"></path><path d="M5 12.859a10 10 0 0 1 5.17-2.69"></path><path d="M19 12.859a10 10 0 0 0-2.007-1.523"></path><path d="M2 8.82a15 15 0 0 1 4.177-2.643"></path><path d="M22 8.82a15 15 0 0 0-11.288-3.764"></path><path d="m2 2 20 20"></path></svg></span><h3 class="anchored">Works fully offline</h3><p>Collect deep in the backcountry with no signal — everything is stored on-device and syncs once you're back online. No dropped data.</p></div>
   <div class="cap-card"><span class="cap-ico"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg></span><h3 class="anchored">Any device, no app store</h3><p>It's a PWA — runs in the browser on iOS, Android, tablet and desktop. Nothing to install, nothing to keep updated.</p></div>
   <div class="cap-card"><span class="cap-ico"><svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13v8"></path><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="m8 17 4-4 4 4"></path></svg></span><h3 class="anchored">Syncs to the cloud</h3><p>Offline edits reconcile to a managed Azure SQL database — with delete propagation, delta downloads and concurrent-edit detection.</p></div>
@@ -388,7 +388,6 @@ ul.task-list li input[type="checkbox"] {
   <figure class="figure"><img src="assets/ecoplot/ecoPlot_5_collectingFrequencyDataWithBubblePick.png" alt="Frequency collection with the bubble picker" loading="lazy" class="figure-img"><figcaption>Frequency collection — the bubble picker</figcaption></figure>
   <figure class="figure"><img src="assets/ecoplot/ecoPlot_3_siteView.png" alt="EcoPlot site view" loading="lazy" class="figure-img"><figcaption>Site view</figcaption></figure>
   <figure class="figure"><img src="assets/ecoplot/ecoPlot_4_creatingCustomProtocols.png" alt="Building a custom protocol in EcoPlot" loading="lazy" class="figure-img"><figcaption>Building a custom protocol</figcaption></figure>
-  <figure class="figure"><img src="assets/ecoplot/ecoPlot_2_setupPage.png" alt="EcoPlot workspace and event setup" loading="lazy" class="figure-img"><figcaption>Workspace &amp; event setup</figcaption></figure>
 </div>
 </div>
 <div class="tg-section reveal">
@@ -430,7 +429,7 @@ ul.task-list li input[type="checkbox"] {
        Plain scroll/resize/load handler (input-driven, works everywhere)
        plus a safety timer so content is NEVER stranded hidden if scroll
        events somehow never fire. Avoids depending on IntersectionObserver. */
-    var reveals=[].slice.call(document.querySelectorAll('.reveal'));
+    var reveals=[].slice.call(document.querySelectorAll('.reveal, .reveal-left'));
     if(reduce) {
       reveals.forEach(function(el) {el.classList.add('is-visible');});
     } else {
@@ -524,6 +523,44 @@ ul.task-list li input[type="checkbox"] {
       heroAvatar.addEventListener('pointerleave',avReset);
     }
 
+    /* ---------- Living hero: circuit parallax depth ----------
+       Writes its OWN --cx/--cy on .hero-circuit only (never avMove's
+       --ax/--ay/--mx/--my on .hero-avatar). Pointer drift is fine-pointer +
+       motion-ok only; scroll drift runs whenever motion is ok. The CSS at
+       styles.css maps --cx/--cy to opposite-sign translates on the two sides
+       and preserves the right side's scaleX(-1) mirror. */
+    var heroCircuit=document.querySelector('.hero-circuit');
+    if(heroCircuit&&!reduce) {
+      var cScrollY=0,cPointerY=0;
+      if(window.matchMedia('(pointer: fine)').matches) {
+        var hero=heroCircuit.closest('.hero')||heroCircuit;
+        hero.addEventListener('pointermove',function(e) {
+          var rect=hero.getBoundingClientRect();
+          if(!rect.width||!rect.height) return;
+          var px=Math.min(1,Math.max(0,(e.clientX-rect.left)/rect.width));
+          var py=Math.min(1,Math.max(0,(e.clientY-rect.top)/rect.height));
+          heroCircuit.style.setProperty('--cx',((px-0.5)*2).toFixed(3));
+          cPointerY=(py-0.5)*2;
+          heroCircuit.style.setProperty('--cy',(cPointerY+cScrollY).toFixed(3));
+        },{passive: true});
+        hero.addEventListener('pointerleave',function() {
+          cPointerY=0;
+          heroCircuit.style.setProperty('--cx','0');
+          heroCircuit.style.setProperty('--cy',cScrollY.toFixed(3));
+        });
+      }
+      var cTicking=false;
+      var cScroll=function() {
+        cScrollY=Math.min(0.6,Math.max(-0.6,window.pageYOffset/600));
+        heroCircuit.style.setProperty('--cy',(cPointerY+cScrollY).toFixed(3));
+        cTicking=false;
+      };
+      window.addEventListener('scroll',function() {
+        if(!cTicking) {cTicking=true; requestAnimationFrame(cScroll);}
+      },{passive: true});
+      cScroll();
+    }
+
     /* ---------- Parallax ---------- */
     if(!reduce) {
       var pxEls=[].slice.call(document.querySelectorAll('[data-parallax]'));
@@ -550,7 +587,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     /* ---------- Lightbox (plant wall + any .lightboxable image) ---------- */
-    var imgs=[].slice.call(document.querySelectorAll('.plant-wall img, .shot-grid img, .lightboxable'));
+    var imgs=[].slice.call(document.querySelectorAll('.plant-wall img, .shot-grid img, .viz-figs img, .lightboxable'));
     if(imgs.length) {
       var ov=document.createElement('div');
       ov.className='lightbox';

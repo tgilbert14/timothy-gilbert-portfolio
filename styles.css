@@ -34,6 +34,20 @@
   --radius-lg: 22px;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.38);
   --shadow-lg: 0 22px 50px rgba(0, 0, 0, 0.45);
+
+  /* Section rhythm — uniform vertical spacing across pages. .tg-section and
+     .section-label derive from these (see @634), so a single edit retunes the
+     whole site's cadence. Mobile drops to the -sm step via the 600px query. */
+  --section-gap: 3rem;
+  --section-gap-sm: 2rem;
+
+  /* Unified hover-lift elevation — one shadow ladder for cards/chips/figures,
+     so every interactive surface lifts with the same teal-ringed glow. The
+     light theme overrides this token below for a softer cream-friendly cast. */
+  --lift-shadow:
+    0 16px 38px rgba(0, 0, 0, 0.40),
+    0 0 0 1px rgba(var(--teal-rgb), 0.45),
+    0 0 22px 2px rgba(var(--teal-rgb), 0.22);
 }
 
 /* -------------------------------------------------------------
@@ -208,6 +222,27 @@ html.js .reveal.stagger:not(.plant-wall).is-visible > *:nth-child(4) { animation
 html.js .reveal.stagger:not(.plant-wall).is-visible > *:nth-child(5) { animation-delay: 0.28s; }
 html.js .reveal.stagger:not(.plant-wall).is-visible > *:nth-child(6) { animation-delay: 0.35s; }
 
+/* ---------- Reveal vocabulary: slide-from-left variant ----------
+   Reuses the same easing as .reveal; reuses the long-idle fadeInSide
+   keyframe (@158) conceptually as a horizontal companion. Driven by the
+   same _foot.html handler (its querySelectorAll now also matches
+   .reveal-left) — .is-visible is toggled identically. Gated on html.js
+   so no-JS users see everything; reduced-motion backstop near @1634. */
+html.js .reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+html.js .reveal-left.is-visible { opacity: 1; transform: none; }
+
+/* Evenly-spaced revealed blocks (uses the section-rhythm tokens @634). */
+.reveal-stack > * + * { margin-top: var(--section-gap); }
+@media (max-width: 600px) {
+  .reveal-stack > * + * { margin-top: var(--section-gap-sm); }
+}
+
 /* -------------------------------------------------------------
    Hero
    ------------------------------------------------------------- */
@@ -287,6 +322,89 @@ html.js .reveal.stagger:not(.plant-wall).is-visible > *:nth-child(6) { animation
   0%, 100% { filter: drop-shadow(0 0 2px rgba(var(--teal-rgb), 0.5)); }
   50%      { filter: drop-shadow(0 0 7px rgba(var(--teal-rgb), 1)); }
 }
+
+/* ---------- LIVING HERO (additive) ---------------------------------------
+   Three layers on top of the saguaro circuit's draw-in/pop/pulse, each
+   reduced-motion gated. (a) a teal "current" sweeps each trace on a sibling
+   .flow twin AFTER the base draw; (b) a soft desert-night gradient drift sits
+   behind the hero content; (c) pointer/scroll parallax depth on the circuit
+   layers via --cx/--cy (own vars; never touches avMove's --ax/--ay/--mx/--my).
+   The base .trace draw-in, .node pop/pulse, and the holo avatar card are all
+   left exactly as defined above. ------------------------------------------- */
+
+/* (a) Flowing-energy current. The .flow twin fully overrides the base trace's
+   dasharray/offset/animation: a 0.12-lit segment sweeps the full pathLength=1
+   stroke, starting after the base draw, looping forever, off under reduce. */
+.hero-circuit .trace.flow {
+  stroke: var(--teal-bright);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  opacity: 0;
+  stroke-dasharray: 0.12 0.88;
+  stroke-dashoffset: 0.12;
+  filter: drop-shadow(0 0 4px rgba(var(--teal-rgb), 0.95));
+  animation: flowFade 0.6s ease forwards, flowCurrent 3.2s linear infinite;
+  animation-delay: 2.3s, 2.3s;
+}
+.hero-circuit .sag .trace.flow {
+  animation-delay: calc(var(--sd) + 1.6s), calc(var(--sd) + 1.6s);
+}
+.hero-circuit .rail.flow { animation-delay: 1.7s, 1.7s; }
+
+@keyframes flowFade { to { opacity: 0.9; } }
+@keyframes flowCurrent { to { stroke-dashoffset: -0.88; } }
+
+.hero:hover .hero-circuit .trace.flow { stroke-width: 2.7; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-circuit .trace.flow { animation: none; opacity: 0; }
+}
+
+/* (b) Low-contrast desert-night gradient drift behind the hero content.
+   z-index 0 keeps it under the hero content (.hero > *:not(.hero-circuit) is
+   z-index 1). Only background-position animates. Warms automatically in light
+   mode via the rgb tokens; static under reduced motion. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(38% 50% at 22% 28%, rgba(var(--teal-rgb), 0.10), transparent 70%),
+    radial-gradient(34% 46% at 80% 22%, rgba(99, 102, 241, 0.10), transparent 70%),
+    radial-gradient(46% 52% at 60% 88%, rgba(var(--salmon-rgb), 0.06), transparent 70%);
+  background-size: 160% 160%, 160% 160%, 160% 160%;
+  background-position: 0% 0%, 100% 0%, 50% 100%;
+  filter: blur(8px);
+  animation: heroDrift 26s ease-in-out infinite alternate;
+}
+
+@keyframes heroDrift {
+  to { background-position: 30% 18%, 72% 12%, 40% 84%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before { animation: none; }
+}
+
+/* (c) Pointer/scroll parallax depth on the circuit layers. Drives its own
+   --cx/--cy on .hero-circuit (set in _foot.html). The right side keeps its
+   scaleX(-1) mirror; the translate is appended so the mirror is preserved. */
+.hero-circuit .circuit-left {
+  transform: translate3d(calc(var(--cx, 0) * 10px), calc(var(--cy, 0) * 6px), 0);
+  transition: transform 0.25s ease-out;
+}
+.hero-circuit .circuit-right {
+  transform: scaleX(-1) translate3d(calc(var(--cx, 0) * -10px), calc(var(--cy, 0) * 6px), 0);
+  transition: transform 0.25s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-circuit .circuit-left { transform: none; }
+  .hero-circuit .circuit-right { transform: scaleX(-1); }
+}
+/* ---------- end LIVING HERO ---------------------------------------------- */
 
 .hero .eyebrow,
 .eyebrow {
@@ -551,7 +669,7 @@ html.js .reveal.stagger:not(.plant-wall).is-visible > *:nth-child(6) { animation
 .tg-section {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 3rem 1.25rem;
+  padding: var(--section-gap) 1.25rem;
 }
 
 .section-title:is(h1, h2, h3, h4) {
@@ -573,7 +691,8 @@ html.js .reveal.stagger:not(.plant-wall).is-visible > *:nth-child(6) { animation
   display: flex;
   align-items: center;
   gap: 0.85rem;
-  margin: 2.5rem 0 1.25rem;
+  /* derived from the section-gap token (2.5rem ≈ --section-gap * .85) */
+  margin: calc(var(--section-gap) * 0.85) 0 1.25rem;
   font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   font-size: 0.72rem;
   letter-spacing: 0.22em;
@@ -806,6 +925,80 @@ html.js .reveal.stagger:not(.plant-wall).is-visible > *:nth-child(6) { animation
   font-size: 0.85rem;
   text-align: center;
   margin-top: 0.4rem;
+}
+
+/* -------------------------------------------------------------
+   Living viz gallery (home "Fun data visualizations")
+   The four ### + Markdown-image units are wrapped in a fenced
+   .viz-figs .reveal .stagger div; Quarto still emits each as
+   <figure><img><figcaption>. Two-up grid, one column < 720px.
+   The cap-6 .reveal.stagger cascade (@202) sweeps the children in.
+   Hover lift + dual teal/salmon ring mirror .plant-wall img (@1057),
+   and the figures join the existing _foot.html lightbox via the
+   .viz-figs img selector + per-image {.lightboxable}.
+   ------------------------------------------------------------- */
+.viz-figs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem 1.4rem;
+  align-items: start;
+  margin-top: 1.5rem;
+}
+/* The per-figure ### spans the grid as a full-width sub-label. */
+.viz-figs > h3 {
+  grid-column: 1 / -1;
+  margin: 1.4rem 0 0.2rem;
+  font-size: 1.06rem;
+  color: var(--teal-bright);
+}
+.viz-figs figure { margin: 0; }
+
+/* Base frame for the chart images (supersedes the generic content-image
+   rule @874 for these four; the generic hover @881 is outranked below by
+   scoping under #quarto-document-content so this lift wins). */
+.viz-figs img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  cursor: zoom-in;
+  transition: transform 0.35s ease, box-shadow 0.35s ease,
+              border-color 0.35s ease, filter 0.35s ease;
+}
+/* Flora-Wall premium lift + dual teal/salmon holographic ring. ID-prefixed
+   so it outranks #quarto-document-content figure:not(.field-shot) img:hover. */
+#quarto-document-content .viz-figs img:hover,
+#quarto-document-content .viz-figs img:focus-visible {
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(var(--teal-rgb), 0.6);
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.46),
+    0 0 0 1px rgba(var(--teal-rgb), 0.55),
+    0 0 22px 2px rgba(var(--teal-rgb), 0.30),
+    0 0 30px 4px rgba(var(--salmon-rgb), 0.20);
+  filter: saturate(1.06);
+}
+#quarto-document-content .viz-figs img:focus-visible {
+  outline: 2px solid rgba(var(--teal-rgb), 0.85);
+  outline-offset: 3px;
+}
+/* Under reduced motion: keep the identity ring, drop the lift. */
+@media (prefers-reduced-motion: reduce) {
+  #quarto-document-content .viz-figs img:hover,
+  #quarto-document-content .viz-figs img:focus-visible { transform: none; }
+}
+/* The long analytical alt becomes the figcaption — keep it readable, left-set. */
+.viz-figs figcaption {
+  color: var(--dim);
+  font-size: 0.84rem;
+  line-height: 1.5;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+@media (max-width: 720px) {
+  .viz-figs { grid-template-columns: 1fr; }
 }
 
 /* -------------------------------------------------------------
@@ -1435,6 +1628,76 @@ html.js .reveal.stagger:not(.plant-wall).is-visible > *:nth-child(6) { animation
   background: var(--card);
   border: 1px solid var(--line);
   color: var(--muted);
+  transition: transform 0.2s ease, border-color 0.2s ease,
+              background 0.2s ease, color 0.2s ease;
+}
+/* Subtle chip life — the only previously-static interactive-looking row. */
+.chip:hover {
+  transform: translateY(-2px);
+  border-color: rgba(var(--teal-rgb), 0.5);
+  background: rgba(var(--teal-rgb), 0.10);
+  color: var(--teal-bright);
+}
+
+/* =============================================================
+   COHESION — unified teal hover-lift system
+   One elevation language for cards, chips, figures, links and
+   buttons. Consolidates the near-identical transform+shadow that
+   was repeated across .card / .contact / .tg-btn / .cap-card /
+   .shot-grid hovers. Components keep their own per-accent borders;
+   this just standardizes the lift + glow + reduced-motion behavior.
+   ============================================================= */
+
+/* Drop-in utility for any future card/tile that should lift on hover. */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.hover-lift:hover,
+.hover-lift:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: var(--lift-shadow);
+  border-color: rgba(var(--teal-rgb), 0.6);
+}
+
+/* Point the existing component hovers at the shared elevation token so they
+   all glow with the same teal-ringed shadow (additive — their translate and
+   per-accent border colors already exist above/below). */
+.cap-card:hover { box-shadow: var(--lift-shadow); }
+.shot-grid figure:hover { box-shadow: var(--lift-shadow); }
+
+/* .eco-step had no hover state — give the flow cards the same subtle lift as
+   their cap-card / shot-grid siblings so the page feels uniformly alive. */
+.eco-step {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.eco-step:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--lift-shadow);
+  border-color: rgba(var(--teal-rgb), 0.5);
+}
+
+/* Inline content links: an underline that grows in on hover (skips the styled
+   card/contact/button anchors, which have their own treatments). */
+#quarto-document-content a:not(.card):not(.contact):not(.tg-btn):not(.btn) {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.25s ease;
+  text-decoration: none;
+}
+#quarto-document-content a:not(.card):not(.contact):not(.tg-btn):not(.btn):hover,
+#quarto-document-content a:not(.card):not(.contact):not(.tg-btn):not(.btn):focus-visible {
+  background-size: 100% 1px;
+}
+
+/* Reduced motion: keep the ring/border/underline-grow affordance, drop the
+   vertical lift (mirrors the site's existing reduced-motion discipline). */
+@media (prefers-reduced-motion: reduce) {
+  .hover-lift:hover,
+  .hover-lift:focus-visible,
+  .eco-step:hover,
+  .chip:hover { transform: none; }
 }
 
 /* -------------------------------------------------------------
@@ -1453,7 +1716,7 @@ html.js .reveal.stagger:not(.plant-wall).is-visible > *:nth-child(6) { animation
 @media (max-width: 600px) {
   .hero { padding: 1.5rem 1rem 0.5rem; }
   .hero-avatar { width: 150px; height: 150px; }
-  .tg-section { padding: 2rem 1rem; }
+  .tg-section { padding: var(--section-gap-sm) 1rem; }
   .field-parallax .fp-overlay { padding: 1.75rem 1.4rem; }
 
   /* Saguaros: frame the photo (upper area), one taller one per side, a touch
@@ -1475,6 +1738,7 @@ html.js .reveal.stagger:not(.plant-wall).is-visible > *:nth-child(6) { animation
   .hero-avatar { animation: none; }
   .hero-avatar::before { animation: none; }
   html.js .reveal { opacity: 1; transform: none; }
+  html.js .reveal-left { opacity: 1; transform: none; }
   /* Flora Wall: every tile fully visible at rest under reduced motion — no
      blur-up, no per-tile cascade, no scroll-driven animation. */
   html.js .plant-wall img { opacity: 1 !important; filter: none !important; animation: none !important; }
@@ -1509,6 +1773,11 @@ body.quarto-light {
   --line: rgba(40, 64, 52, 0.16);
   --shadow: 0 10px 28px rgba(60, 70, 60, 0.12);
   --shadow-lg: 0 22px 48px rgba(60, 70, 60, 0.16);
+  /* hover-lift, softened for cream (teal-rgb above is already the deepened day value) */
+  --lift-shadow:
+    0 16px 34px rgba(60, 70, 60, 0.16),
+    0 0 0 1px rgba(var(--teal-rgb), 0.40),
+    0 0 20px 2px rgba(var(--teal-rgb), 0.20);
   color: var(--ink);
 }
 
@@ -1610,6 +1879,16 @@ body.quarto-light .plant-wall img:focus-visible {
 }
 body.quarto-light .field-shot:hover {
   box-shadow: 0 10px 26px rgba(60, 70, 60, 0.16), 0 0 24px 2px rgba(var(--teal-rgb), 0.20);
+}
+/* Cream theme: retune the viz-gallery hover shadow so the navy drops don't
+   muddy the warm sand (mirrors the .plant-wall img cream override @1686). */
+body.quarto-light #quarto-document-content .viz-figs img:hover,
+body.quarto-light #quarto-document-content .viz-figs img:focus-visible {
+  box-shadow:
+    0 16px 30px rgba(60, 70, 60, 0.22),
+    0 0 0 1px rgba(var(--teal-rgb), 0.5),
+    0 0 20px 2px rgba(var(--teal-rgb), 0.24),
+    0 0 26px 4px rgba(var(--salmon-rgb), 0.16);
 }
 /* Warm-sand vignette + lighter photo glow for the cream lightbox. */
 body.quarto-light .lightbox {

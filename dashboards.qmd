@@ -9,6 +9,8 @@ Shiny Applications...
 
 ------------------------------------------------------------------------
 
+::: {.reveal}
+
 ## Big 12 Girth Index — Recruiting Size Analytics
 
 ::: explore-text
@@ -17,9 +19,13 @@ This app visualizes **every Big 12 recruit's height, weight, and rating — 2016
 
 ⭆ [Click for Stand Alone App](https://girthindex.desertdatalab.com/ "https://girthindex.desertdatalab.com/")
 
-![](assets/arizona-football-size-lab-2023-2026-pinned.png) ![](assets/arizona-football-war-room-3-3-5-2023-2026-pinned.png)
+![](assets/arizona-football-size-lab-2023-2026-pinned.png){.lightboxable} ![](assets/arizona-football-war-room-3-3-5-2023-2026-pinned.png){.lightboxable}
+
+:::
 
 ------------------------------------------------------------------------
+
+::: {.reveal}
 
 ## NEON Small Mammal Tracker
 
@@ -29,9 +35,13 @@ This shiny application turns National Ecological Observatory Network (<https://d
 
 ⭆ [Open the project](https://tgilbert14.github.io/NEON-Small-Mammal-Tracker-App/ "NEON Small Mammal Tracker")
 
-![](assets/mam0.png) ![](assets/mam1.png)
+![](assets/mam0.png){.lightboxable} ![](assets/mam1.png){.lightboxable}
+
+:::
 
 ------------------------------------------------------------------------
+
+::: {.reveal}
 
 ## Water Chemistry Analyte Viewer
 
@@ -41,9 +51,13 @@ This Shiny app compares **surface-water chemistry across 34 NEON aquatic field s
 
 ⭆ [Open the project](https://tgilbert14.github.io/NEON-WaterChemistry-Analyte-Viewer-App/ "Water Chemistry Analyte Viewer")
 
-![](assets/wc-sitemap.png) ![](assets/wc-compare.png)
+![](assets/wc-sitemap.png){.lightboxable} ![](assets/wc-compare.png){.lightboxable}
+
+:::
 
 ------------------------------------------------------------------------
+
+::: {.reveal}
 
 ## Which State's Flora Matches Each Movie World Best?
 
@@ -53,16 +67,22 @@ This Shiny app asks which U.S. state's plant life best fits three movie worlds �
 
 ⭆ [Open the app](https://019ecc91-3c6c-bee2-f824-0ea23fc60ac6.share.connect.posit.cloud/ "Plants in Movies")
 
-![](assets/plants-in-movies-chart.png) ![](assets/plants-in-movies-chord.png)
+![](assets/plants-in-movies-chart.png){.lightboxable} ![](assets/plants-in-movies-chord.png){.lightboxable}
+
+:::
 
 ------------------------------------------------------------------------
+
+::: {.reveal}
 
 ## Older Applications
 
 ***USFS Name Converter*** ⭆ [Click for Stand Alone App](https://t-lama.shinyapps.io/App-VGS-USFS-Name2VGS/ "https://t-lama.shinyapps.io/App-VGS-USFS-Name2VGS/")
 
+:::
+
 ------------------------------------------------------------------------
 
-::: card-container
+::: {.card-container .reveal .stagger}
 <a> </a> <a href="about.qmd" class="card card-about">ABOUT ME</a> <a href="dashboards.qmd" class="card card-visualizations">SHINY APPS</a> <a href="projects.qmd" class="card card-projects">PROJECTS</a> <a href="resume.qmd" class="card card-resume">RESUME/CV</a>
 :::
