@@ -1215,6 +1215,134 @@ ul.task-list li input[type="checkbox"] {
     update();
   })();
 </script>
+
+<!-- NEON Driver Cascade radial spider menu: hub fans out the 7 explorers,
+     then a second hub click opens the capstone. Progressive enhancement. -->
+<script>
+(function () {
+  "use strict";
+
+  var root = document.querySelector("[data-neon-spider]");
+  if (!root) return;
+
+  var hub = root.querySelector("[data-neon-hub]");
+  var hubState = root.querySelector("[data-neon-hub-state]");
+  var hubLink = root.querySelector("[data-neon-hub-link]");
+  var nodesWrap = root.querySelector("[data-neon-nodes]");
+  var tracesG = root.querySelector(".neon-spider__traces-g");
+  if (!hub || !hubLink || !nodesWrap) return;
+
+  var nodes = Array.prototype.slice.call(nodesWrap.querySelectorAll(".neon-spider__node"));
+  var links = nodes.map(function (n) { return n.querySelector(".neon-spider__link"); });
+
+  var reduceMQ = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  // Promote from the no-JS fallback into the interactive widget.
+  root.classList.remove("is-noscript");
+
+  var LABEL_EXPAND = "Tap to explore";
+  var LABEL_OPEN = "Open the Cascade →";
+
+  // Build the SVG connecting traces (hub center -> each node).
+  function buildTraces() {
+    if (!tracesG) return;
+    var n = nodes.length;
+    var r = 200; // viewBox units
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < n; i++) {
+      var theta = (i * (360 / n) - 90) * (Math.PI / 180);
+      var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("x1", "0");
+      line.setAttribute("y1", "0");
+      line.setAttribute("x2", (Math.cos(theta) * r).toFixed(1));
+      line.setAttribute("y2", (Math.sin(theta) * r).toFixed(1));
+      line.setAttribute("pathLength", "1");
+      line.style.setProperty("--i", String(i));
+      frag.appendChild(line);
+    }
+    tracesG.appendChild(frag);
+  }
+  buildTraces();
+
+  function setChildrenReachable(reachable) {
+    nodes.forEach(function (node, idx) {
+      var link = links[idx];
+      if (!link) return;
+      if (reachable) {
+        link.removeAttribute("tabindex");
+        link.removeAttribute("aria-hidden");
+      } else {
+        link.setAttribute("tabindex", "-1");
+        link.setAttribute("aria-hidden", "true");
+      }
+    });
+  }
+
+  // Reduced-motion: render the ring statically, hub opens in one click.
+  if (reduceMQ.matches) {
+    root.classList.add("is-static");
+    hub.setAttribute("aria-expanded", "true");
+    hubState.textContent = LABEL_OPEN;
+    setChildrenReachable(true);
+    hub.addEventListener("click", function () {
+      window.location.href = hubLink.getAttribute("href");
+    });
+    return;
+  }
+
+  var isOpen = false;
+  setChildrenReachable(false);
+
+  function open() {
+    if (isOpen) return;
+    isOpen = true;
+    root.classList.add("is-open");
+    hub.setAttribute("aria-expanded", "true");
+    hubState.textContent = LABEL_OPEN;
+    setChildrenReachable(true);
+    document.addEventListener("click", onOutsideClick, true);
+    document.addEventListener("keydown", onKeydown, true);
+  }
+
+  function collapse(returnFocus) {
+    if (!isOpen) return;
+    isOpen = false;
+    root.classList.remove("is-open");
+    hub.setAttribute("aria-expanded", "false");
+    hubState.textContent = LABEL_EXPAND;
+    setChildrenReachable(false);
+    document.removeEventListener("click", onOutsideClick, true);
+    document.removeEventListener("keydown", onKeydown, true);
+    if (returnFocus) hub.focus();
+  }
+
+  // The hub is a <button>, so Enter/Space natively fire click: one handler
+  // covers mouse + keyboard. 1st activate fans out; 2nd opens the capstone.
+  hub.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (!isOpen) { open(); }
+    else { window.location.href = hubLink.getAttribute("href"); }
+  });
+
+  function onOutsideClick(e) { if (!root.contains(e.target)) collapse(false); }
+  function onKeydown(e) {
+    if (e.key === "Escape" || e.key === "Esc") { e.preventDefault(); collapse(true); }
+  }
+
+  // Fail safe to static if reduced-motion turns on mid-session.
+  if (typeof reduceMQ.addEventListener === "function") {
+    reduceMQ.addEventListener("change", function (e) {
+      if (e.matches) {
+        collapse(false);
+        root.classList.add("is-static");
+        hub.setAttribute("aria-expanded", "true");
+        hubState.textContent = LABEL_OPEN;
+        setChildrenReachable(true);
+      }
+    });
+  }
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

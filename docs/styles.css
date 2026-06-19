@@ -867,201 +867,379 @@ html.js .reveal-left.is-visible { opacity: 1; transform: none; }
 .explore-text li { color: var(--muted); }
 .explore-text em { color: var(--ink); font-style: italic; }
 
-/* -------------------------------------------------------------
-   NEON open-data suite — themed sibling buttons + a "more apps"
-   disclosure so the similar NEON dashboards don't read as three
-   near-identical sections in a row. Small Mammal stays the lead
-   showcase; Ground Beetle + Water Chemistry tuck into the collapsible.
-   Each button is themed by a per-button --nh hue (amber mammals /
-   green beetles / blue water); text stays `inherit` for both themes.
-   ------------------------------------------------------------- */
-.neon-suite {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem 1rem;
-  flex-wrap: wrap;
-  margin: 1.25rem 0 0.25rem;
+/* ===========================================================
+   NEON Driver Cascade radial "spider" menu (the suite centerpiece)
+   The capstone hub sits centered + super clickable. Click it once to
+   fan the 7 explorers out into a radial ring (traces draw hub->node);
+   the hub then arms (coral + "Open the Cascade") so a second click opens
+   the capstone. Progressive enhancement: with no JS this is a plain,
+   fully-reachable list of all 8 links. Palette teal/coral.
+   =========================================================== */
+.neon-spider {
+  --neon-teal: #2dd4bf;
+  --neon-bright: #5eead4;
+  --neon-coral: #fb8a7e;
+  --neon-ink: #e9fbf6;
+  --neon-radius: 220px;          /* desktop ring radius */
+  --neon-node-size: 132px;
+  --neon-hub-size: 168px;
+  --neon-stagger: 55ms;
+  margin: 3rem auto;
+  max-width: 640px;
+  color: var(--neon-ink);
 }
 
-.neon-suite-label {
-  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--dim);
-  white-space: nowrap;
+.neon-spider__intro {
+  text-align: center;
+  margin: 0 auto 1.5rem;
+  max-width: 48ch;
+  font-size: 0.95rem;
+  opacity: 0.82;
 }
 
-.neon-suite-btns {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
+/* -- NO-JS / fallback: plain centered list of all links (is-noscript
+   is present until the JS removes it). -- */
+.neon-spider.is-noscript .neon-spider__traces { display: none; }
 
-.neon-sib {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  line-height: 1;
-  padding: 0.5rem 0.85rem;
-  border-radius: 999px;
-  border: 1px solid rgba(var(--nh), 0.45);
-  background: rgba(var(--nh), 0.10);
-  color: inherit;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-}
-
-.neon-sib:hover {
-  background: rgba(var(--nh), 0.2);
-  border-color: rgba(var(--nh), 0.85);
-  transform: translateY(-1px);
-}
-
-.neon-sib:active { transform: translateY(0); }
-
-.neon-sib:focus-visible {
-  outline: 2px solid rgba(var(--nh), 0.85);
-  outline-offset: 2px;
-}
-
-.neon-sib.is-current {
-  background: rgba(var(--nh), 0.22);
-  border-color: rgba(var(--nh), 0.9);
-  box-shadow: inset 0 0 0 1px rgba(var(--nh), 0.4);
-}
-
-.neon-sib--mammal   { --nh: 230, 179, 77; }
-.neon-sib--bird     { --nh: 129, 140, 248; }
-.neon-sib--beetle   { --nh: 108, 194, 74; }
-.neon-sib--plantdiv { --nh: 180, 210, 80; }
-.neon-sib--pheno    { --nh: 244, 114, 182; }
-.neon-sib--veg      { --nh: 190, 150, 95; }
-.neon-sib--water    { --nh: 67, 184, 232; }
-
-/* The NEON Driver Cascade — the capstone, deliberately set apart from the
-   flat pills: multi-hue gradient (all the explorers, combined), a rainbow
-   clipped title, soft glow, slow shimmer. Uses portfolio vars so it adapts
-   to the light/dark toggle. */
-.neon-cascade {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  margin: 1rem 0 0.25rem;
-  padding: 0.7rem 1.15rem;
-  border-radius: var(--radius);
-  text-decoration: none;
-  color: inherit;
-  border: 1px solid var(--line);
-  background:
-    linear-gradient(100deg,
-      rgba(230, 179, 77, 0.18), rgba(108, 194, 74, 0.16),
-      rgba(67, 184, 232, 0.18), rgba(129, 140, 248, 0.18),
-      rgba(244, 114, 182, 0.16));
-  background-size: 220% 100%;
-  background-position: 0% 0;
-  box-shadow: var(--shadow);
-  transition: transform 0.18s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.neon-cascade:hover {
-  transform: translateY(-1px);
-  border-color: rgba(45, 212, 191, 0.55);
-  box-shadow: var(--shadow-lg);
-}
-
-.neon-cascade:focus-visible {
-  outline: 2px solid rgba(129, 140, 248, 0.85);
-  outline-offset: 3px;
-}
-
-.neon-cascade-bolt {
-  font-size: 1.4rem;
-  line-height: 1;
-  filter: drop-shadow(0 0 6px rgba(255, 210, 74, 0.6));
-}
-
-.neon-cascade-copy {
+.neon-spider.is-noscript .neon-spider__stage {
   display: flex;
   flex-direction: column;
-  gap: 0.12rem;
-}
-
-.neon-cascade-title {
-  font-weight: 800;
-  font-size: 0.98rem;
-  letter-spacing: 0.01em;
-  background: linear-gradient(100deg, #ffd24a, #6cc24a, #43b8e8, #818cf8, #f472b6);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.neon-cascade-sub {
-  font-size: 0.76rem;
-  color: var(--dim);
-  font-weight: 500;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .neon-cascade { animation: neonCascadeFlow 9s linear infinite; }
-}
-
-@keyframes neonCascadeFlow {
-  to { background-position: 220% 0; }
-}
-
-/* "More NEON apps" collapsible — a quiet card that matches .explore-text */
-.neon-more {
-  margin: 1.5rem 0;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--card);
-  overflow: hidden;
-}
-
-.neon-more > summary {
-  cursor: pointer;
-  list-style: none;
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 1.4rem;
-  font-weight: 600;
-  color: var(--teal-bright);
+  gap: 0.75rem;
 }
 
-.neon-more > summary::-webkit-details-marker { display: none; }
-
-.neon-more > summary::after {
-  content: "+";
-  color: var(--salmon);
-  font-weight: 800;
-  font-size: 1.2rem;
-  line-height: 1;
+.neon-spider.is-noscript .neon-spider__hub,
+.neon-spider.is-noscript .neon-spider__hub-fallback {
+  position: static;
+  transform: none;
 }
 
-.neon-more[open] > summary::after { content: "\2212"; }
-
-.neon-more[open] { border-color: rgba(45, 212, 191, 0.4); }
-
-.neon-more > :not(summary) {
-  margin-left: 1.4rem;
-  margin-right: 1.4rem;
+.neon-spider.is-noscript .neon-spider__nodes {
+  position: static;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  width: 100%;
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
 }
 
-.neon-more > :last-child { margin-bottom: 1.2rem; }
+.neon-spider.is-noscript .neon-spider__node {
+  position: static;
+  transform: none;
+  opacity: 1;
+}
 
-.neon-more-title {
-  display: block;
-  margin: 1.5rem 0 0.4rem;
-  font-size: 1.15rem;
+.neon-spider.is-noscript .neon-spider__hub-fallback {
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+/* -- Interactive stage (JS-enhanced) -- */
+.neon-spider:not(.is-noscript) .neon-spider__stage {
+  position: relative;
+  width: 100%;
+  min-height: calc(var(--neon-radius) * 2 + var(--neon-node-size));
+  display: grid;
+  place-items: center;
+}
+
+.neon-spider__traces {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: calc(var(--neon-radius) * 2 + var(--neon-node-size));
+  height: calc(var(--neon-radius) * 2 + var(--neon-node-size));
+  pointer-events: none;
+  overflow: visible;
+  z-index: 0;
+}
+
+.neon-spider__traces line {
+  stroke: var(--neon-teal);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  opacity: 0;
+  stroke-dasharray: 1;          /* pathLength normalized to 1 in markup */
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 480ms ease, opacity 320ms ease;
+  transition-delay: calc(var(--i, 0) * var(--neon-stagger));
+}
+
+.neon-spider:not(.is-noscript).is-open .neon-spider__traces line {
+  opacity: 0.55;
+  stroke-dashoffset: 0;
+}
+
+/* -- CENTER HUB -- */
+.neon-spider__hub {
+  position: relative;
+  z-index: 3;
+  width: var(--neon-hub-size);
+  height: var(--neon-hub-size);
+  border-radius: 50%;
+  border: 2px solid var(--neon-bright);
+  background: radial-gradient(circle at 50% 38%, rgba(94, 234, 212, 0.28), rgba(13, 28, 26, 0.92) 70%);
+  color: var(--neon-ink);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  box-shadow:
+    0 0 0 6px rgba(45, 212, 191, 0.10),
+    0 0 28px rgba(45, 212, 191, 0.45),
+    inset 0 0 22px rgba(94, 234, 212, 0.25);
+  transition: transform 220ms ease, box-shadow 300ms ease, border-color 300ms ease;
+}
+
+.neon-spider__hub:hover,
+.neon-spider__hub:focus-visible {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 0 6px rgba(45, 212, 191, 0.16),
+    0 0 40px rgba(94, 234, 212, 0.65),
+    inset 0 0 26px rgba(94, 234, 212, 0.35);
+  outline: none;
+}
+
+.neon-spider__hub-core {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0 0.6rem;
+  text-align: center;
+}
+
+.neon-spider__hub-title {
   font-weight: 700;
-  color: var(--teal-bright);
+  font-size: 0.92rem;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+}
+
+.neon-spider__hub-state {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--neon-bright);
+  opacity: 0.9;
+}
+
+.neon-spider__hub-pulse {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid var(--neon-bright);
+  opacity: 0;
+  pointer-events: none;
+  animation: neon-pulse 2.4s ease-out infinite;
+}
+
+@keyframes neon-pulse {
+  0%   { transform: scale(1);    opacity: 0.55; }
+  70%  { transform: scale(1.35); opacity: 0; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+/* When open, the hub arms to "open the capstone" (coral cue) */
+.neon-spider.is-open .neon-spider__hub {
+  border-color: var(--neon-coral);
+  box-shadow:
+    0 0 0 6px rgba(251, 138, 126, 0.12),
+    0 0 34px rgba(251, 138, 126, 0.55),
+    inset 0 0 24px rgba(251, 138, 126, 0.30);
+}
+
+.neon-spider.is-open .neon-spider__hub-state { color: var(--neon-coral); }
+
+.neon-spider.is-open .neon-spider__hub-pulse { animation: none; opacity: 0; }
+
+/* -- CHILD NODES: rotate to angle, push out by radius, counter-rotate label -- */
+.neon-spider:not(.is-noscript) .neon-spider__nodes {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.neon-spider:not(.is-noscript) .neon-spider__node {
+  --angle: calc(var(--i) * (360deg / var(--n)) - 90deg);
+  position: absolute;
+  width: var(--neon-node-size);
+  height: var(--neon-node-size);
+  display: grid;
+  place-items: center;
+  transform: rotate(var(--angle)) translateX(0) rotate(calc(-1 * var(--angle))) scale(0.3);
+  opacity: 0;
+  transition:
+    transform 460ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 320ms ease;
+  transition-delay: calc(var(--i) * var(--neon-stagger));
+}
+
+.neon-spider:not(.is-noscript).is-open .neon-spider__node {
+  transform:
+    rotate(var(--angle))
+    translateX(var(--neon-radius))
+    rotate(calc(-1 * var(--angle)))
+    scale(1);
+  opacity: 1;
+}
+
+.neon-spider:not(.is-noscript).is-open .neon-spider__node .neon-spider__link {
+  pointer-events: auto;
+}
+
+.neon-spider__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  color: var(--neon-ink);
+  background: radial-gradient(circle at 50% 40%, rgba(45, 212, 191, 0.18), rgba(10, 22, 20, 0.95) 72%);
+  border: 1.5px solid rgba(94, 234, 212, 0.55);
+  box-shadow: 0 0 16px rgba(45, 212, 191, 0.28), inset 0 0 14px rgba(45, 212, 191, 0.18);
+  transition: transform 200ms ease, box-shadow 260ms ease, border-color 260ms ease;
+}
+
+.neon-spider__link:hover,
+.neon-spider__link:focus-visible {
+  transform: scale(1.08);
+  border-color: var(--neon-bright);
+  box-shadow: 0 0 26px rgba(94, 234, 212, 0.6), inset 0 0 18px rgba(94, 234, 212, 0.3);
+  outline: none;
+}
+
+.neon-spider__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--neon-bright);
+  box-shadow: 0 0 10px var(--neon-bright);
+}
+
+.neon-spider__label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+/* hub-fallback link: visible no-JS; visually hidden (kept in DOM) when JS active */
+.neon-spider:not(.is-noscript) .neon-spider__hub-fallback {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* -- LIGHT THEME -- */
+body.quarto-light .neon-spider { --neon-ink: #0c2b27; }
+
+body.quarto-light .neon-spider__hub {
+  background: radial-gradient(circle at 50% 38%, rgba(94, 234, 212, 0.35), #f3fffb 72%);
+  box-shadow: 0 0 0 6px rgba(45, 212, 191, 0.12), 0 0 24px rgba(45, 212, 191, 0.35);
+}
+
+body.quarto-light .neon-spider__link {
+  background: radial-gradient(circle at 50% 40%, rgba(94, 234, 212, 0.28), #f3fffb 72%);
+  color: #0c2b27;
+  box-shadow: 0 0 12px rgba(45, 212, 191, 0.22), inset 0 0 10px rgba(45, 212, 191, 0.14);
+}
+
+body.quarto-light .neon-spider__traces line { opacity: 0; }
+body.quarto-light .neon-spider:not(.is-noscript).is-open .neon-spider__traces line { opacity: 0.4; }
+
+/* -- MOBILE / NARROW: shrink the ring, then drop to a readable grid -- */
+@media (max-width: 720px) {
+  .neon-spider {
+    --neon-radius: 150px;
+    --neon-node-size: 104px;
+    --neon-hub-size: 140px;
+  }
+  .neon-spider__label { font-size: 0.7rem; }
+}
+
+@media (max-width: 520px) {
+  .neon-spider:not(.is-noscript) .neon-spider__stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 0;
+  }
+  .neon-spider:not(.is-noscript) .neon-spider__traces { display: none; }
+  .neon-spider:not(.is-noscript) .neon-spider__nodes {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+    width: 100%;
+    pointer-events: auto;
+  }
+  .neon-spider:not(.is-noscript) .neon-spider__node {
+    position: static;
+    width: 100%;
+    height: auto;
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none;
+  }
+  .neon-spider:not(.is-noscript) .neon-spider__link {
+    flex-direction: row;
+    gap: 0.5rem;
+    height: auto;
+    border-radius: 14px;
+    padding: 0.7rem 0.9rem;
+    justify-content: flex-start;
+  }
+  .neon-spider__hub { position: static; }
+}
+
+/* -- REDUCED MOTION: no flight, no pulse. Children sit on the ring statically. -- */
+@media (prefers-reduced-motion: reduce) {
+  .neon-spider__hub-pulse { animation: none; opacity: 0; }
+
+  .neon-spider:not(.is-noscript) .neon-spider__node {
+    transition: none !important;
+    transition-delay: 0ms !important;
+  }
+  .neon-spider:not(.is-noscript) .neon-spider__traces line {
+    transition: none !important;
+    transition-delay: 0ms !important;
+  }
+
+  .neon-spider:not(.is-noscript).is-static .neon-spider__node {
+    --angle: calc(var(--i) * (360deg / var(--n)) - 90deg);
+    transform:
+      rotate(var(--angle))
+      translateX(var(--neon-radius))
+      rotate(calc(-1 * var(--angle)))
+      scale(1);
+    opacity: 1;
+  }
+  .neon-spider:not(.is-noscript).is-static .neon-spider__node .neon-spider__link {
+    pointer-events: auto;
+  }
+  .neon-spider:not(.is-noscript).is-static .neon-spider__traces line {
+    opacity: 0.45;
+    stroke-dashoffset: 0;
+  }
 }
 
 .project-intro, .viz-intro {
