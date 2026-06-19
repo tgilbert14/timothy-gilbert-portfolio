@@ -867,6 +867,127 @@ html.js .reveal-left.is-visible { opacity: 1; transform: none; }
 .explore-text li { color: var(--muted); }
 .explore-text em { color: var(--ink); font-style: italic; }
 
+/* -------------------------------------------------------------
+   NEON open-data suite — themed sibling buttons + a "more apps"
+   disclosure so the similar NEON dashboards don't read as three
+   near-identical sections in a row. Small Mammal stays the lead
+   showcase; Ground Beetle + Water Chemistry tuck into the collapsible.
+   Each button is themed by a per-button --nh hue (amber mammals /
+   green beetles / blue water); text stays `inherit` for both themes.
+   ------------------------------------------------------------- */
+.neon-suite {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem 1rem;
+  flex-wrap: wrap;
+  margin: 1.25rem 0 0.25rem;
+}
+
+.neon-suite-label {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+  white-space: nowrap;
+}
+
+.neon-suite-btns {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.neon-sib {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(var(--nh), 0.45);
+  background: rgba(var(--nh), 0.10);
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.neon-sib:hover {
+  background: rgba(var(--nh), 0.2);
+  border-color: rgba(var(--nh), 0.85);
+  transform: translateY(-1px);
+}
+
+.neon-sib:active { transform: translateY(0); }
+
+.neon-sib:focus-visible {
+  outline: 2px solid rgba(var(--nh), 0.85);
+  outline-offset: 2px;
+}
+
+.neon-sib.is-current {
+  background: rgba(var(--nh), 0.22);
+  border-color: rgba(var(--nh), 0.9);
+  box-shadow: inset 0 0 0 1px rgba(var(--nh), 0.4);
+}
+
+.neon-sib--mammal { --nh: 230, 179, 77; }
+.neon-sib--beetle { --nh: 108, 194, 74; }
+.neon-sib--water  { --nh: 67, 184, 232; }
+
+/* "More NEON apps" collapsible — a quiet card that matches .explore-text */
+.neon-more {
+  margin: 1.5rem 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  overflow: hidden;
+}
+
+.neon-more > summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.4rem;
+  font-weight: 600;
+  color: var(--teal-bright);
+}
+
+.neon-more > summary::-webkit-details-marker { display: none; }
+
+.neon-more > summary::after {
+  content: "+";
+  color: var(--salmon);
+  font-weight: 800;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.neon-more[open] > summary::after { content: "\2212"; }
+
+.neon-more[open] { border-color: rgba(45, 212, 191, 0.4); }
+
+.neon-more > :not(summary) {
+  margin-left: 1.4rem;
+  margin-right: 1.4rem;
+}
+
+.neon-more > :last-child { margin-bottom: 1.2rem; }
+
+.neon-more-title {
+  display: block;
+  margin: 1.5rem 0 0.4rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--teal-bright);
+}
+
 .project-intro, .viz-intro {
   font-size: 1.15rem;
   font-weight: 600;

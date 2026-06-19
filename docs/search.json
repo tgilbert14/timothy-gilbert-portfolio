@@ -4,7 +4,7 @@
     "href": "resume.html",
     "title": "Résumé/CV",
     "section": "",
-    "text": "Desert Data Labs LLC | Tucson, AZ\n2025–Present / Owner\n\nFounded an independent data and technology consulting studio serving environmental consultants, university research labs, and small businesses\nDesigns and delivers end-to-end data solutions: custom R Shiny and Python web apps, SQL/SQLite database architecture, ETL pipelines, automated reporting, and interactive dashboards\nClients include USFS rangeland crews, NEON researchers, and university analysts; see desertdatalabs.com for case studies"
+    "text": "Desert Data Labs LLC | Tucson, AZ\n2025–Present / Owner\n\nFounded an Arizona LLC delivering custom dashboards, databases, and data pipelines for small businesses, nonprofits, and research teams without in-house software support\nDesign and build production R Shiny applications, SQL databases (Azure SQL, PostgreSQL, SQL Server, SQLite), and ETL/integration pipelines with embedded QA/QC\nDeveloping EcoPlot Mobile, an offline-capable field-data collection web app (PWA) on Azure (Static Web Apps + managed SQL), as a modern successor to legacy desktop field tools\nBuild and maintain the company marketing site in Quarto with automated CI/CD deployment via GitHub Actions\nEstablished the service catalog, fixed-scope SOW process, hosting/maintenance tiers, and a sliding-scale “Mission Pricing” program providing reduced-rate and pro bono data infrastructure to under-resourced ecology and conservation labs"
   },
   {
     "objectID": "resume.html#programming-projects",
@@ -74,7 +74,7 @@
     "href": "dashboards.html",
     "title": "Tim Gilbert",
     "section": "",
-    "text": "Shiny Applications…"
+    "text": "Shiny Applications…\nThese two are built the same way — NEON open data, pre-bundled so they load instantly. Tap to dig in, or use the buttons above to open any of the three."
   },
   {
     "objectID": "dashboards.html#big-12-girth-index-recruiting-size-analytics",
@@ -88,14 +88,7 @@
     "href": "dashboards.html#neon-small-mammal-tracker",
     "title": "Tim Gilbert",
     "section": "NEON Small Mammal Tracker",
-    "text": "NEON Small Mammal Tracker\n\nThis shiny application turns National Ecological Observatory Network (https://data.neonscience.org/) box-trapping records into the life history of every small mammal NEON has caught across 46 field sites. It opens on a tap-a-site national map — pick a site to see who lives there, or flip to “by species” to map where one animal turns up across the country. Open any site for a Hall of Fame of the most-caught individuals (re-sortable, with rarity tiers), trap-grid home-range heatmaps, a Hill-number diversity profile, and detection-corrected abundance — closed-capture estimates (Schnabel / Chapman) that count the animals the traps missed, shown alongside MNKA. Plus shareable trading-card profiles, a two-site compare, and a printable report card. Methods are stated honestly: reused tags are flagged, Chao1 is a bias-corrected lower bound, and the size index is an adult weight percentile. Each site loads instantly from a pre-bundled, compressed dataset. A complete redesign of my original tracker.\n\n⭆ Open the project"
-  },
-  {
-    "objectID": "dashboards.html#water-chemistry-analyte-viewer",
-    "href": "dashboards.html#water-chemistry-analyte-viewer",
-    "title": "Tim Gilbert",
-    "section": "Water Chemistry Analyte Viewer",
-    "text": "Water Chemistry Analyte Viewer\n\nThis Shiny app compares surface-water chemistry across 34 NEON aquatic field sites — from desert streams to Alaskan lakes to Puerto Rican rivers. Pick any two analytes and see how they move together through time, how they relate, what else they correlate with, and their seasonal pattern, on roughly 197,000 real measurements with statistics that show their work: a normalized or dual-axis time series, a least-squares relationship fit with R²/p/n and a temporal-autocorrelation flag, a Spearman correlation screen with per-row sample sizes, a real STL seasonal decomposition (the measured cycle, not a synthetic sine wave), and a small predictor that estimates an analyte from its best-correlated neighbors, scored against a mean-only baseline. Chemistry names and units are correct, below-detection values are flagged rather than hidden, and every statistic shows its n. Loads instantly from a pre-bundled dataset — no live API waits.\n\n⭆ Open the project"
+    "text": "NEON Small Mammal Tracker\n\nThis shiny application turns National Ecological Observatory Network (https://data.neonscience.org/) box-trapping records into the life history of every small mammal NEON has caught across 46 field sites. It opens on a tap-a-site national map — pick a site to see who lives there, or flip to “by species” to map where one animal turns up across the country. Open any site for a Hall of Fame of the most-caught individuals (re-sortable, with rarity tiers), trap-grid home-range heatmaps, a Hill-number diversity profile, and detection-corrected abundance — closed-capture estimates (Schnabel / Chapman) that count the animals the traps missed, shown alongside MNKA. Plus shareable trading-card profiles, a two-site compare, and a printable report card. Methods are stated honestly: reused tags are flagged, Chao1 is a bias-corrected lower bound, and the size index is an adult weight percentile. Each site loads instantly from a pre-bundled, compressed dataset. A complete redesign of my original tracker.\n\n⭆ Open the project\n \n\nExplore the NEON suite\n\n🐭 Small Mammals\n🪲 Ground Beetles\n💧 Water Chemistry"
   },
   {
     "objectID": "dashboards.html#which-states-flora-matches-each-movie-world-best",
@@ -116,7 +109,7 @@
     "href": "field-notes.html",
     "title": "Flora Wall",
     "section": "",
-    "text": "From the field\n\n\n  Electro fishing bout\n  Small Mammal survey\n  Soil surveys\n\n\n\nFlora Wall\n\n90 photos · tap any to enlarge\n\n\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n\n\n\n\n← Back home See what I built with this data →"
+    "text": "Electro fishing bout\n  Small Mammal survey\n  Soil surveys\n\n\n\nFlora Wall\n\n90 photos · tap any to enlarge\n\n\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n\n\n\n\n← Back home See what I built with this data →"
   },
   {
     "objectID": "projects.html",

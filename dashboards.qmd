@@ -37,13 +37,37 @@ This shiny application turns National Ecological Observatory Network (<https://d
 
 ![](assets/mam0.png){.lightboxable} ![](assets/mam1.png){.lightboxable}
 
+```{=html}
+<div class="neon-suite">
+<span class="neon-suite-label">Explore the NEON suite</span>
+<span class="neon-suite-btns">
+<a class="neon-sib neon-sib--mammal is-current" href="https://tgilbert14.github.io/NEON-Small-Mammal-Tracker-App/" target="_blank" rel="noopener">🐭 Small Mammals</a>
+<a class="neon-sib neon-sib--beetle" href="https://tgilbert14.github.io/NEON-Ground-Beetle-Tracker/" target="_blank" rel="noopener">🪲 Ground Beetles</a>
+<a class="neon-sib neon-sib--water" href="https://tgilbert14.github.io/NEON-WaterChemistry-Analyte-Viewer-App/" target="_blank" rel="noopener">💧 Water Chemistry</a>
+</span>
+</div>
+```
+
 :::
 
 ------------------------------------------------------------------------
 
-::: {.reveal}
+These two are built the same way — NEON open data, pre-bundled so they load instantly. Tap to dig in, or use the buttons above to open any of the three.
 
-## Water Chemistry Analyte Viewer
+<details class="neon-more">
+<summary>More NEON apps · Ground Beetle Tracker + Water Chemistry Viewer</summary>
+
+[🪲 NEON Ground Beetle Tracker]{.neon-more-title}
+
+::: explore-text
+This Shiny app turns NEON pitfall-trap sampling into a tour of **ground beetles (Carabidae) as bioindicators across 46 NEON terrestrial sites**. Rank a site's species by effort-adjusted abundance (catch per 100 trap-nights), trace diversity with **Hill numbers**, **Hurlbert rarefaction**, and species-accumulation curves, read each species' monthly **activity-density**, and follow inter-annual catch-per-effort **trends** with an OLS fit that states the direction and rate with a p-value. A **biogeography** tab adds a national richness map, species range maps, a Bray-Curtis **PCoA** ordination, and Dufrêne-Legendre indicator-species analysis. Counts are effort-normalized, richness excludes genus- and family-only records, and all 46 sites are precomputed into a bundled dataset so it loads instantly.
+:::
+
+⭆ [Open the project](https://tgilbert14.github.io/NEON-Ground-Beetle-Tracker/ "NEON Ground Beetle Tracker")
+
+![](assets/beetle-community.png){.lightboxable} ![](assets/beetle-trends.png){.lightboxable}
+
+[💧 Water Chemistry Analyte Viewer]{.neon-more-title}
 
 ::: explore-text
 This Shiny app compares **surface-water chemistry across 34 NEON aquatic field sites** — from desert streams to Alaskan lakes to Puerto Rican rivers. Pick any two analytes and see how they move together through time, how they relate, what else they correlate with, and their seasonal pattern, on roughly **197,000 real measurements** with statistics that show their work: a normalized or dual-axis **time series**, a least-squares **relationship** fit with R²/p/n and a temporal-autocorrelation flag, a **Spearman correlation** screen with per-row sample sizes, a real **STL seasonal decomposition** (the measured cycle, not a synthetic sine wave), and a small **predictor** that estimates an analyte from its best-correlated neighbors, scored against a mean-only baseline. Chemistry names and units are correct, below-detection values are flagged rather than hidden, and every statistic shows its *n*. Loads instantly from a pre-bundled dataset — no live API waits.
@@ -53,7 +77,7 @@ This Shiny app compares **surface-water chemistry across 34 NEON aquatic field s
 
 ![](assets/wc-sitemap.png){.lightboxable} ![](assets/wc-compare.png){.lightboxable}
 
-:::
+</details>
 
 ------------------------------------------------------------------------
 

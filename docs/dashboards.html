@@ -337,7 +337,6 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#big-12-girth-index-recruiting-size-analytics" id="toc-big-12-girth-index-recruiting-size-analytics" class="nav-link active" data-scroll-target="#big-12-girth-index-recruiting-size-analytics">Big 12 Girth Index — Recruiting Size Analytics</a></li>
   <li><a href="#neon-small-mammal-tracker" id="toc-neon-small-mammal-tracker" class="nav-link" data-scroll-target="#neon-small-mammal-tracker">NEON Small Mammal Tracker</a></li>
-  <li><a href="#water-chemistry-analyte-viewer" id="toc-water-chemistry-analyte-viewer" class="nav-link" data-scroll-target="#water-chemistry-analyte-viewer">Water Chemistry Analyte Viewer</a></li>
   <li><a href="#which-states-flora-matches-each-movie-world-best" id="toc-which-states-flora-matches-each-movie-world-best" class="nav-link" data-scroll-target="#which-states-flora-matches-each-movie-world-best">Which State’s Flora Matches Each Movie World Best?</a></li>
   <li><a href="#older-applications" id="toc-older-applications" class="nav-link" data-scroll-target="#older-applications">Older Applications</a></li>
   </ul>
@@ -370,16 +369,34 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>⭆ <a href="https://tgilbert14.github.io/NEON-Small-Mammal-Tracker-App/" title="NEON Small Mammal Tracker">Open the project</a></p>
 <p><img src="assets/mam0.png" class="lightboxable img-fluid"> <img src="assets/mam1.png" class="lightboxable img-fluid"></p>
+<div class="neon-suite">
+<span class="neon-suite-label">Explore the NEON suite</span>
+<span class="neon-suite-btns">
+<a class="neon-sib neon-sib--mammal is-current" href="https://tgilbert14.github.io/NEON-Small-Mammal-Tracker-App/" target="_blank" rel="noopener">🐭 Small Mammals</a>
+<a class="neon-sib neon-sib--beetle" href="https://tgilbert14.github.io/NEON-Ground-Beetle-Tracker/" target="_blank" rel="noopener">🪲 Ground Beetles</a>
+<a class="neon-sib neon-sib--water" href="https://tgilbert14.github.io/NEON-WaterChemistry-Analyte-Viewer-App/" target="_blank" rel="noopener">💧 Water Chemistry</a>
+</span>
+</div>
 </section>
 <hr>
-<section id="water-chemistry-analyte-viewer" class="level2 reveal">
-<h2 class="anchored" data-anchor-id="water-chemistry-analyte-viewer">Water Chemistry Analyte Viewer</h2>
+<p>These two are built the same way — NEON open data, pre-bundled so they load instantly. Tap to dig in, or use the buttons above to open any of the three.</p>
+<details class="neon-more">
+<summary>
+More NEON apps · Ground Beetle Tracker + Water Chemistry Viewer
+</summary>
+<p><span class="neon-more-title">🪲 NEON Ground Beetle Tracker</span></p>
+<div class="explore-text">
+<p>This Shiny app turns NEON pitfall-trap sampling into a tour of <strong>ground beetles (Carabidae) as bioindicators across 46 NEON terrestrial sites</strong>. Rank a site’s species by effort-adjusted abundance (catch per 100 trap-nights), trace diversity with <strong>Hill numbers</strong>, <strong>Hurlbert rarefaction</strong>, and species-accumulation curves, read each species’ monthly <strong>activity-density</strong>, and follow inter-annual catch-per-effort <strong>trends</strong> with an OLS fit that states the direction and rate with a p-value. A <strong>biogeography</strong> tab adds a national richness map, species range maps, a Bray-Curtis <strong>PCoA</strong> ordination, and Dufrêne-Legendre indicator-species analysis. Counts are effort-normalized, richness excludes genus- and family-only records, and all 46 sites are precomputed into a bundled dataset so it loads instantly.</p>
+</div>
+<p>⭆ <a href="https://tgilbert14.github.io/NEON-Ground-Beetle-Tracker/" title="NEON Ground Beetle Tracker">Open the project</a></p>
+<p><img src="assets/beetle-community.png" class="lightboxable img-fluid"> <img src="assets/beetle-trends.png" class="lightboxable img-fluid"></p>
+<p><span class="neon-more-title">💧 Water Chemistry Analyte Viewer</span></p>
 <div class="explore-text">
 <p>This Shiny app compares <strong>surface-water chemistry across 34 NEON aquatic field sites</strong> — from desert streams to Alaskan lakes to Puerto Rican rivers. Pick any two analytes and see how they move together through time, how they relate, what else they correlate with, and their seasonal pattern, on roughly <strong>197,000 real measurements</strong> with statistics that show their work: a normalized or dual-axis <strong>time series</strong>, a least-squares <strong>relationship</strong> fit with R²/p/n and a temporal-autocorrelation flag, a <strong>Spearman correlation</strong> screen with per-row sample sizes, a real <strong>STL seasonal decomposition</strong> (the measured cycle, not a synthetic sine wave), and a small <strong>predictor</strong> that estimates an analyte from its best-correlated neighbors, scored against a mean-only baseline. Chemistry names and units are correct, below-detection values are flagged rather than hidden, and every statistic shows its <em>n</em>. Loads instantly from a pre-bundled dataset — no live API waits.</p>
 </div>
 <p>⭆ <a href="https://tgilbert14.github.io/NEON-WaterChemistry-Analyte-Viewer-App/" title="Water Chemistry Analyte Viewer">Open the project</a></p>
 <p><img src="assets/wc-sitemap.png" class="lightboxable img-fluid"> <img src="assets/wc-compare.png" class="lightboxable img-fluid"></p>
-</section>
+</details>
 <hr>
 <section id="which-states-flora-matches-each-movie-world-best" class="level2 reveal">
 <h2 class="anchored" data-anchor-id="which-states-flora-matches-each-movie-world-best">Which State’s Flora Matches Each Movie World Best?</h2>
