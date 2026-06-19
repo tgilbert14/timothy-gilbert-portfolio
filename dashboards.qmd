@@ -46,9 +46,9 @@ This shiny application turns National Ecological Observatory Network (<https://d
 ```{=html}
 <div class="neon-spider is-noscript" data-neon-spider aria-label="NEON explorer suite">
   <p class="neon-spider__intro" id="neon-spider-intro">
-    Eight open-data explorers, one family. Click the <strong>Driver Cascade</strong> in the
-    center to fan out the seven explorers, then click it again to open the capstone. Or tap
-    any explorer to open it.
+    Click the <strong>Driver Cascade</strong> to explore its sibling NEON flora, fauna, and
+    aquatic apps. It fans the seven explorers out around the hub; click again to open the
+    capstone itself, or tap any sibling to dive in.
   </p>
 
   <div class="neon-spider__stage" style="--n: 7;">
