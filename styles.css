@@ -934,9 +934,85 @@ html.js .reveal-left.is-visible { opacity: 1; transform: none; }
   box-shadow: inset 0 0 0 1px rgba(var(--nh), 0.4);
 }
 
-.neon-sib--mammal { --nh: 230, 179, 77; }
-.neon-sib--beetle { --nh: 108, 194, 74; }
-.neon-sib--water  { --nh: 67, 184, 232; }
+.neon-sib--mammal   { --nh: 230, 179, 77; }
+.neon-sib--bird     { --nh: 129, 140, 248; }
+.neon-sib--beetle   { --nh: 108, 194, 74; }
+.neon-sib--plantdiv { --nh: 180, 210, 80; }
+.neon-sib--pheno    { --nh: 244, 114, 182; }
+.neon-sib--veg      { --nh: 190, 150, 95; }
+.neon-sib--water    { --nh: 67, 184, 232; }
+
+/* The NEON Driver Cascade — the capstone, deliberately set apart from the
+   flat pills: multi-hue gradient (all the explorers, combined), a rainbow
+   clipped title, soft glow, slow shimmer. Uses portfolio vars so it adapts
+   to the light/dark toggle. */
+.neon-cascade {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 1rem 0 0.25rem;
+  padding: 0.7rem 1.15rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(100deg,
+      rgba(230, 179, 77, 0.18), rgba(108, 194, 74, 0.16),
+      rgba(67, 184, 232, 0.18), rgba(129, 140, 248, 0.18),
+      rgba(244, 114, 182, 0.16));
+  background-size: 220% 100%;
+  background-position: 0% 0;
+  box-shadow: var(--shadow);
+  transition: transform 0.18s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.neon-cascade:hover {
+  transform: translateY(-1px);
+  border-color: rgba(45, 212, 191, 0.55);
+  box-shadow: var(--shadow-lg);
+}
+
+.neon-cascade:focus-visible {
+  outline: 2px solid rgba(129, 140, 248, 0.85);
+  outline-offset: 3px;
+}
+
+.neon-cascade-bolt {
+  font-size: 1.4rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 6px rgba(255, 210, 74, 0.6));
+}
+
+.neon-cascade-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+}
+
+.neon-cascade-title {
+  font-weight: 800;
+  font-size: 0.98rem;
+  letter-spacing: 0.01em;
+  background: linear-gradient(100deg, #ffd24a, #6cc24a, #43b8e8, #818cf8, #f472b6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.neon-cascade-sub {
+  font-size: 0.76rem;
+  color: var(--dim);
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .neon-cascade { animation: neonCascadeFlow 9s linear infinite; }
+}
+
+@keyframes neonCascadeFlow {
+  to { background-position: 220% 0; }
+}
 
 /* "More NEON apps" collapsible — a quiet card that matches .explore-text */
 .neon-more {

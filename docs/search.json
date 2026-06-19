@@ -74,7 +74,7 @@
     "href": "dashboards.html",
     "title": "Tim Gilbert",
     "section": "",
-    "text": "Shiny Applications…\nThese two are built the same way — NEON open data, pre-bundled so they load instantly. Tap to dig in, or use the buttons above to open any of the three."
+    "text": "Shiny Applications…\nSeven NEON explorers, all built the same way — open data, pre-bundled so they load instantly, with the Driver Cascade weaving them together. Use the buttons above to open any of them, or dig into two here:"
   },
   {
     "objectID": "dashboards.html#big-12-girth-index-recruiting-size-analytics",
@@ -88,7 +88,7 @@
     "href": "dashboards.html#neon-small-mammal-tracker",
     "title": "Tim Gilbert",
     "section": "NEON Small Mammal Tracker",
-    "text": "NEON Small Mammal Tracker\n\nThis shiny application turns National Ecological Observatory Network (https://data.neonscience.org/) box-trapping records into the life history of every small mammal NEON has caught across 46 field sites. It opens on a tap-a-site national map — pick a site to see who lives there, or flip to “by species” to map where one animal turns up across the country. Open any site for a Hall of Fame of the most-caught individuals (re-sortable, with rarity tiers), trap-grid home-range heatmaps, a Hill-number diversity profile, and detection-corrected abundance — closed-capture estimates (Schnabel / Chapman) that count the animals the traps missed, shown alongside MNKA. Plus shareable trading-card profiles, a two-site compare, and a printable report card. Methods are stated honestly: reused tags are flagged, Chao1 is a bias-corrected lower bound, and the size index is an adult weight percentile. Each site loads instantly from a pre-bundled, compressed dataset. A complete redesign of my original tracker.\n\n⭆ Open the project\n \n\nExplore the NEON suite\n\n🐭 Small Mammals\n🪲 Ground Beetles\n💧 Water Chemistry"
+    "text": "NEON Small Mammal Tracker\n\nThis shiny application turns National Ecological Observatory Network (https://data.neonscience.org/) box-trapping records into the life history of every small mammal NEON has caught across 46 field sites. It opens on a tap-a-site national map — pick a site to see who lives there, or flip to “by species” to map where one animal turns up across the country. Open any site for a Hall of Fame of the most-caught individuals (re-sortable, with rarity tiers), trap-grid home-range heatmaps, a Hill-number diversity profile, and detection-corrected abundance — closed-capture estimates (Schnabel / Chapman) that count the animals the traps missed, shown alongside MNKA. Plus shareable trading-card profiles, a two-site compare, and a printable report card. Methods are stated honestly: reused tags are flagged, Chao1 is a bias-corrected lower bound, and the size index is an adult weight percentile. Each site loads instantly from a pre-bundled, compressed dataset. A complete redesign of my original tracker.\n\n⭆ Open the project\n \n\nExplore the NEON suite\n\n🐭 Small Mammals\n🐦 Breeding Birds\n🪲 Ground Beetles\n🌿 Plant Diversity\n🌸 Plant Phenology\n🌲 Veg Structure\n💧 Water Chemistry\n\n\n\n⚡\nThe NEON Driver Cascadethe capstone that ties all seven explorers into one story →"
   },
   {
     "objectID": "dashboards.html#which-states-flora-matches-each-movie-world-best",
