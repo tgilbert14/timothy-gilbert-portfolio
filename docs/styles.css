@@ -1132,6 +1132,30 @@ html.js .reveal-left.is-visible { opacity: 1; transform: none; }
   box-shadow: 0 0 10px var(--neon-bright);
 }
 
+/* suite mascots ride the spider nodes (each NEON app's creature) */
+.neon-spider__dot.has-critter {
+  width: 54px;
+  height: 54px;
+  background: none;
+  box-shadow: none;
+  display: grid;
+  place-items: center;
+}
+.neon-spider__dot.has-critter .mascot {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 3px 7px rgba(0, 0, 0, 0.4));
+  transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.neon-spider__link:hover .has-critter .mascot,
+.neon-spider__link:focus-visible .has-critter .mascot {
+  transform: scale(1.15) rotate(-3deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .neon-spider__dot.has-critter .mascot { transition: none; }
+}
+
 .neon-spider__label {
   font-size: 0.78rem;
   font-weight: 600;
