@@ -129,7 +129,7 @@ This shiny application turns National Ecological Observatory Network (<https://d
 This Shiny app asks which U.S. state's plant life best fits three movie worlds — **Dune (*Arrakis*)**, **The Lord of the Rings (*Middle-earth*)**, and **Jurassic Park (*Isla Nublar*)** — each defined by a curated set of plant families (desert & succulent, cool-forest & alpine, and ancient ferns & conifers). Pick any states and an **interactive bar chart** ranks their flora against each world; **tap a bar** to see exactly which families drive the score, and toggle **Raw counts → Fair share** to control for the fact that big, species-rich states and giant plant families — *Asteraceae* alone is ~65% of Arizona's "Middle-earth" score — would otherwise dominate. A **chord diagram** then maps the species each state shares with every world, and with the other states. Built on ~250,000 USDA PLANTS records precomputed into an ~11 KB bundle so it loads instantly. A full rebuild of the original — an honest, size-adjusted metric and a botanical field-guide redesign.
 :::
 
-⭆ [Open the app](https://019ecc91-3c6c-bee2-f824-0ea23fc60ac6.share.connect.posit.cloud/ "Plants in Movies")
+⭆ [Open the app](https://tgilbert14.github.io/PlantsInMovies/ "Plants in Movies")
 
 ![](assets/plants-in-movies-chart.png){.lightboxable} ![](assets/plants-in-movies-chord.png){.lightboxable}
 
