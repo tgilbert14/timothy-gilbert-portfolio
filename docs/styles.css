@@ -594,6 +594,12 @@ html.js .reveal-left.is-visible { opacity: 1; transform: none; }
   font-weight: 800;
   line-height: 1.08;
   margin: 0 0 1rem;
+  /* Lift the headline off the outrun-sun backdrop (works with the
+     gradient-clipped .accent, unlike text-shadow). */
+  filter: drop-shadow(0 2px 14px rgba(11, 6, 26, 0.6));
+}
+body.quarto-light .hero h1 {
+  filter: drop-shadow(0 2px 12px rgba(255, 244, 236, 0.85));
 }
 
 .hero h1 .accent {
@@ -2998,4 +3004,411 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   .watcher { width: 64px; height: 64px; }
   .watcher-mute { font-size: 1.4rem; }
   .watcher-bubble { max-width: 188px; font-size: 0.88rem; }
+}
+
+/* =============================================================
+   SYNTH-FM — the retro VHS / Vice City radio deck (top-right).
+   A self-contained floating tuner: a compact launcher chip that
+   opens a neon cassette deck you can power on and tune across
+   four WebAudio-synthesized synthwave stations. All audio is
+   generated in _foot.html; this is the surface. Dark device
+   chrome in BOTH themes (a real deck looks good on cream too).
+   --acc is set per-station from JS (station accent color).
+   ============================================================= */
+.vhs-radio {
+  position: fixed;
+  top: 66px;
+  right: 14px;
+  z-index: 1035;
+  --acc: #ff2d95;
+  --acc2: #2de2e6;
+  font-family: ui-monospace, "SFMono-Regular", "Cascadia Code", Menlo, Consolas, monospace;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ---- Launcher chip (collapsed state) ---- */
+.vhs-radio__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.7rem;
+  border: 1px solid rgba(255, 45, 149, 0.55);
+  border-radius: 999px;
+  background:
+    linear-gradient(160deg, rgba(26, 16, 48, 0.94), rgba(12, 8, 32, 0.94));
+  color: #ffe9f6;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(45, 226, 230, 0.18),
+    0 0 16px rgba(255, 45, 149, 0.28);
+  transition: transform 0.16s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+}
+.vhs-radio__toggle:hover {
+  transform: translateY(-1px);
+  border-color: rgba(45, 226, 230, 0.7);
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.46),
+    0 0 0 1px rgba(45, 226, 230, 0.4),
+    0 0 26px rgba(255, 45, 149, 0.45);
+}
+.vhs-radio__toggle-ico { font-size: 0.95rem; line-height: 1; filter: drop-shadow(0 0 6px rgba(255, 45, 149, 0.6)); }
+.vhs-radio__toggle-lbl {
+  background: linear-gradient(90deg, #ff2d95, #ffd24a 55%, #2de2e6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* A slow pulse ring so people notice it's interactive. */
+.vhs-radio__toggle::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 45, 149, 0.5);
+  opacity: 0;
+  pointer-events: none;
+}
+.vhs-radio.is-open .vhs-radio__toggle { display: none; }
+
+/* ---- The deck (expanded) ---- */
+.vhs-radio__deck {
+  width: 216px;
+  border-radius: 14px;
+  padding: 8px;
+  background:
+    linear-gradient(200deg, #241041 0%, #150a2e 46%, #0b0620 100%);
+  border: 1px solid rgba(255, 45, 149, 0.4);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(45, 226, 230, 0.12),
+    0 0 30px rgba(255, 45, 149, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  transform-origin: top right;
+  animation: vhsDeckIn 0.28s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+}
+@keyframes vhsDeckIn {
+  from { opacity: 0; transform: translateY(-8px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+/* Faint scanlines across the whole deck face. */
+.vhs-radio__deck::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 3px);
+  mix-blend-mode: overlay;
+  opacity: 0.5;
+  border-radius: inherit;
+}
+
+.vhs-radio__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  position: relative;
+  z-index: 1;
+}
+.vhs-radio__brand {
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  color: #9fe9ec;
+  text-shadow: 0 0 8px rgba(45, 226, 230, 0.6);
+}
+.vhs-radio__close {
+  width: 20px; height: 20px;
+  display: grid; place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.25);
+  color: #ffbcdf;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+.vhs-radio__close:hover { color: #fff; border-color: var(--acc); background: rgba(255, 45, 149, 0.2); }
+
+/* ---- The screen ---- */
+.vhs-radio__screen {
+  position: relative;
+  border-radius: 9px;
+  padding: 8px 9px 9px;
+  background:
+    radial-gradient(120% 100% at 50% 0%, rgba(45, 226, 230, 0.1), transparent 60%),
+    linear-gradient(180deg, #071018 0%, #04080f 100%);
+  border: 1px solid rgba(45, 226, 230, 0.28);
+  box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  z-index: 1;
+}
+.vhs-radio__static {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  transition: opacity 0.08s linear;
+}
+.vhs-radio.is-bursting .vhs-radio__static { opacity: 0.62; }
+
+.vhs-radio__screen-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  position: relative;
+  z-index: 1;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+.vhs-radio__ch {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--acc2);
+  text-shadow: 0 0 8px currentColor;
+}
+.vhs-radio__freq {
+  font-size: 0.66rem;
+  color: #ffd24a;
+  text-shadow: 0 0 7px rgba(255, 210, 74, 0.55);
+  margin-right: auto;
+}
+.vhs-radio__onair {
+  font-size: 0.54rem;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: #5b6472;
+  text-shadow: none;
+  transition: color 0.2s ease;
+}
+.vhs-radio.is-playing .vhs-radio__onair {
+  color: #ff5470;
+  text-shadow: 0 0 9px rgba(255, 84, 112, 0.8);
+  animation: vhsBlink 1.4s steps(1) infinite;
+}
+@keyframes vhsBlink { 50% { opacity: 0.35; } }
+
+.vhs-radio__name {
+  margin-top: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+  height: 1.15em;
+}
+.vhs-radio__marq {
+  display: inline-block;
+  font-size: 0.66rem;
+  color: #cfeff1;
+  text-shadow: 0 0 6px rgba(45, 226, 230, 0.4);
+}
+.vhs-radio.is-playing .vhs-radio__marq {
+  padding-left: 100%;
+  animation: vhsMarq 11s linear infinite;
+}
+@keyframes vhsMarq { to { transform: translateX(-100%); } }
+
+/* ---- EQ bars ---- */
+.vhs-radio__eq {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 20px;
+  margin-top: 7px;
+  position: relative;
+  z-index: 1;
+}
+.vhs-radio__eq i {
+  flex: 1;
+  height: 12%;
+  border-radius: 1px;
+  background: linear-gradient(180deg, var(--acc), var(--acc2));
+  opacity: 0.28;
+  transform-origin: bottom;
+}
+.vhs-radio.is-playing .vhs-radio__eq i {
+  opacity: 0.95;
+  animation: vhsEq 0.9s ease-in-out infinite;
+}
+.vhs-radio__eq i:nth-child(1) { animation-delay: -0.1s; }
+.vhs-radio__eq i:nth-child(2) { animation-delay: -0.45s; }
+.vhs-radio__eq i:nth-child(3) { animation-delay: -0.25s; }
+.vhs-radio__eq i:nth-child(4) { animation-delay: -0.7s; }
+.vhs-radio__eq i:nth-child(5) { animation-delay: -0.35s; }
+.vhs-radio__eq i:nth-child(6) { animation-delay: -0.55s; }
+.vhs-radio__eq i:nth-child(7) { animation-delay: -0.15s; }
+@keyframes vhsEq {
+  0%, 100% { height: 18%; }
+  25% { height: 92%; }
+  50% { height: 42%; }
+  75% { height: 70%; }
+}
+
+/* ---- Controls ---- */
+.vhs-radio__controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+.vhs-radio__btn {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(40, 22, 66, 0.9), rgba(18, 10, 36, 0.9));
+  color: #e9d6f2;
+  font-family: inherit;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  padding: 0.4rem 0.5rem;
+  transition: transform 0.12s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+.vhs-radio__btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--acc);
+  color: #fff;
+  box-shadow: 0 0 14px rgba(255, 45, 149, 0.4);
+}
+.vhs-radio__btn:active { transform: translateY(0); }
+.vhs-radio__power { flex: 1; }
+.vhs-radio.is-playing .vhs-radio__power {
+  border-color: var(--acc2);
+  color: #d7fbfc;
+  box-shadow: 0 0 14px rgba(45, 226, 230, 0.4), inset 0 0 10px rgba(45, 226, 230, 0.12);
+}
+.vhs-radio__tune { display: flex; gap: 4px; }
+.vhs-radio__seek { padding: 0.4rem 0.42rem; font-size: 0.6rem; }
+
+/* Mobile: shrink the deck, keep it clear of the thumb-heavy bottom. */
+@media (max-width: 560px) {
+  .vhs-radio { top: 60px; right: 8px; }
+  .vhs-radio__deck { width: 190px; }
+  .vhs-radio__toggle { padding: 0.36rem 0.56rem; font-size: 0.66rem; }
+}
+
+/* Motion-safe: no marquee, EQ, static churn, or deck spring for
+   reduced-motion users. Audio itself stays fully available. */
+@media (prefers-reduced-motion: reduce) {
+  .vhs-radio__deck { animation: none; }
+  .vhs-radio.is-playing .vhs-radio__marq { animation: none; padding-left: 0; }
+  .vhs-radio.is-playing .vhs-radio__eq i { animation: none; height: 55%; }
+  .vhs-radio.is-playing .vhs-radio__onair { animation: none; }
+}
+
+/* =============================================================
+   Hero synthwave backdrop — the "crazier" Vice City pop.
+   An outrun sun (banded disc) rising over a perspective neon
+   grid, layered BEHIND the hero content and the saguaro circuit.
+   Pure CSS, GPU-cheap, and fully disabled for reduced-motion.
+   ============================================================= */
+/* `.hero > .hero-sun` (0,2,0) ties + beats the generic
+   `.hero > *:not(.hero-circuit){z-index:1}` rule since it's later in the
+   file — keeps the sun pinned behind the hero content. */
+.hero > .hero-sun {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0.9;
+}
+/* The sun disc: a hot pink→gold gradient circle, clipped by the
+   horizon, with dark "scan gaps" cut across its lower half. */
+.hero-sun__disc {
+  position: absolute;
+  left: 50%;
+  bottom: 26%;
+  width: 300px;
+  height: 300px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background:
+    linear-gradient(180deg, #ffe45e 0%, #ff9a3d 34%, #ff2d95 74%, #a01c76 100%);
+  -webkit-mask:
+    linear-gradient(#000 0 0);
+  filter: drop-shadow(0 0 40px rgba(255, 45, 149, 0.5));
+}
+/* Scan gaps: repeating transparent bands over the sun's lower ~55%. */
+.hero-sun__disc::after {
+  content: "";
+  position: absolute;
+  left: -4%;
+  right: -4%;
+  top: 46%;
+  bottom: -4%;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0 7px,
+    rgba(11, 6, 26, 0.92) 7px 12px);
+}
+/* The perspective grid: two gradients faked into a floor plane. */
+.hero-sun__grid {
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  bottom: 0;
+  height: 42%;
+  background-image:
+    linear-gradient(rgba(45, 226, 230, 0.55) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 45, 149, 0.45) 1px, transparent 1px);
+  background-size: 48px 34px, 48px 34px;
+  background-position: center bottom;
+  transform: perspective(340px) rotateX(64deg);
+  transform-origin: center bottom;
+  -webkit-mask: linear-gradient(180deg, transparent, #000 34%);
+  mask: linear-gradient(180deg, transparent, #000 34%);
+  animation: heroGrid 5.5s linear infinite;
+}
+@keyframes heroGrid { to { background-position: center calc(100% + 34px); } }
+/* A thin neon horizon line where sun meets grid. */
+.hero-sun__horizon {
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 42%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #2de2e6 20%, #ff2d95 80%, transparent);
+  box-shadow: 0 0 14px rgba(45, 226, 230, 0.7), 0 0 22px rgba(255, 45, 149, 0.5);
+}
+/* Top/bottom fade + a soft central scrim so hero text stays legible
+   over the brightest part of the sun. */
+.hero-sun::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(70% 42% at 50% 62%, rgba(11, 6, 26, 0.5), transparent 70%),
+    linear-gradient(180deg, var(--bg-0) 0%, transparent 22%, transparent 70%, rgba(11, 6, 26, 0.35) 100%);
+}
+body.quarto-light .hero-sun { opacity: 0.85; }
+body.quarto-light .hero-sun__grid {
+  background-image:
+    linear-gradient(rgba(12, 147, 168, 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(226, 21, 133, 0.42) 1px, transparent 1px);
+}
+body.quarto-light .hero-sun::after {
+  background:
+    radial-gradient(70% 42% at 50% 62%, rgba(255, 244, 236, 0.55), transparent 70%),
+    linear-gradient(180deg, #fff4ec 0%, transparent 24%, transparent 72%, rgba(255, 233, 225, 0.5) 100%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-sun__grid { animation: none; }
+}
+@media (max-width: 700px) {
+  .hero-sun__disc { width: 210px; height: 210px; bottom: 30%; }
 }

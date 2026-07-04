@@ -1328,6 +1328,400 @@ ul.task-list li input[type="checkbox"] {
   }
 })();
 </script>
+
+<!-- ============================================================
+     SYNTH-FM — a retro VHS / Vice City radio deck, top-right.
+     Every note is synthesized live in WebAudio (no audio files):
+     kick / snare / hats / bass / pad / arp / lead sequenced on a
+     16-step clock, per-station chord tables, tape hiss + a dotted
+     feedback delay. Four stations you can tune across with a
+     static burst between. Off by default; starts only on a click.
+     ============================================================ -->
+<script>
+(function () {
+  if (document.querySelector('[data-vhs]')) return;
+  var RM = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Build the deck DOM ---------- */
+  var root = document.createElement('div');
+  root.className = 'vhs-radio is-off';
+  root.setAttribute('data-vhs', '');
+  root.innerHTML =
+    '<button class="vhs-radio__toggle" data-vhs-toggle aria-expanded="false" aria-label="Open the SYNTH-FM radio">' +
+      '<span class="vhs-radio__toggle-ico" aria-hidden="true">&#9673;</span>' +
+      '<span class="vhs-radio__toggle-lbl">SYNTH-FM</span>' +
+    '</button>' +
+    '<div class="vhs-radio__deck" data-vhs-deck role="region" aria-label="SYNTH-FM synthwave radio" hidden>' +
+      '<div class="vhs-radio__top">' +
+        '<span class="vhs-radio__brand">&#9673; SYNTH-FM</span>' +
+        '<button class="vhs-radio__close" data-vhs-close aria-label="Close radio">&#10005;</button>' +
+      '</div>' +
+      '<div class="vhs-radio__screen">' +
+        '<canvas class="vhs-radio__static" data-vhs-static width="120" height="66" aria-hidden="true"></canvas>' +
+        '<div class="vhs-radio__screen-row">' +
+          '<span class="vhs-radio__ch" data-vhs-ch>CH 01</span>' +
+          '<span class="vhs-radio__freq" data-vhs-freq>99.9 FM</span>' +
+          '<span class="vhs-radio__onair" data-vhs-onair>&#9679; STANDBY</span>' +
+        '</div>' +
+        '<div class="vhs-radio__name"><span class="vhs-radio__marq" data-vhs-name>press play to tune in</span></div>' +
+        '<div class="vhs-radio__eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>' +
+      '</div>' +
+      '<div class="vhs-radio__controls">' +
+        '<button class="vhs-radio__btn vhs-radio__power" data-vhs-power aria-pressed="false">&#9205; Tune In</button>' +
+        '<div class="vhs-radio__tune">' +
+          '<button class="vhs-radio__btn vhs-radio__seek" data-vhs-prev aria-label="Previous station">&#9664;&#9664;</button>' +
+          '<button class="vhs-radio__btn vhs-radio__seek" data-vhs-next aria-label="Next station">&#9654;&#9654;</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  document.body.appendChild(root);
+
+  var elToggle = root.querySelector('[data-vhs-toggle]');
+  var elDeck   = root.querySelector('[data-vhs-deck]');
+  var elClose  = root.querySelector('[data-vhs-close]');
+  var elPower  = root.querySelector('[data-vhs-power]');
+  var elPrev   = root.querySelector('[data-vhs-prev]');
+  var elNext   = root.querySelector('[data-vhs-next]');
+  var elCh     = root.querySelector('[data-vhs-ch]');
+  var elFreq   = root.querySelector('[data-vhs-freq]');
+  var elName   = root.querySelector('[data-vhs-name]');
+  var elOnair  = root.querySelector('[data-vhs-onair]');
+  var elStatic = root.querySelector('[data-vhs-static]');
+
+  /* ---------- Stations ----------
+     Each: display meta, tempo, feature flags, and a 4-chord loop
+     (one chord per bar). Pads are stacked note names; the arp is
+     generated from the pad an octave up, so it's always in key. */
+  var STATIONS = [
+    { num: '01', freq: '99.9',  name: 'SUNSET DRIVE', track: 'Chrome Horizon · Vela Nova',
+      acc: '#ff2d95', acc2: '#2de2e6', bpm: 102, kick: 1, snare: 1, hats: 1, lead: 1,
+      chords: [
+        { pad: ['A2','E3','A3','C4'], root: 'A1' },
+        { pad: ['F2','C3','F3','A3'], root: 'F1' },
+        { pad: ['C3','G3','C4','E4'], root: 'C2' },
+        { pad: ['G2','D3','G3','B3'], root: 'G1' }
+      ] },
+    { num: '02', freq: '104.5', name: 'MIAMI HEAT', track: 'Customs After Dark · The Passport Club',
+      acc: '#ff6a3d', acc2: '#ffd24a', bpm: 112, kick: 1, snare: 1, hats: 1, lead: 0,
+      chords: [
+        { pad: ['D2','A2','D3','F3'],  root: 'D1' },
+        { pad: ['A#2','F3','A#3','D4'], root: 'A#1' },
+        { pad: ['F2','C3','F3','A3'],  root: 'F1' },
+        { pad: ['A2','E3','A3','C4'],  root: 'A1' }
+      ] },
+    { num: '03', freq: '88.6',  name: 'CHROME BLVD', track: 'Tradewind Runner · Lena Meridian',
+      acc: '#ffd24a', acc2: '#a01c76', bpm: 86, kick: 1, snare: 0, hats: 1, lead: 1,
+      chords: [
+        { pad: ['C3','G3','B3','E4'], root: 'C2' },
+        { pad: ['A2','E3','G3','C4'], root: 'A1' },
+        { pad: ['F2','C3','E3','A3'], root: 'F1' },
+        { pad: ['G2','D3','F3','B3'], root: 'G1' }
+      ] },
+    { num: '04', freq: '120.0', name: 'VICE GRID', track: 'Open Water Drive · Konvoy 86',
+      acc: '#2de2e6', acc2: '#ff2d95', bpm: 126, kick: 1, snare: 1, hats: 1, lead: 0,
+      chords: [
+        { pad: ['E2','B2','E3','G3'],  root: 'E1' },
+        { pad: ['C3','G3','C4','E4'],  root: 'C2' },
+        { pad: ['G2','D3','G3','B3'],  root: 'G1' },
+        { pad: ['D3','A3','D4','F#4'], root: 'D2' }
+      ] }
+  ];
+  var chIdx = 0;
+  try {
+    var saved = parseInt(localStorage.getItem('tg-radio-ch'), 10);
+    if (saved >= 0 && saved < STATIONS.length) chIdx = saved;
+  } catch (e) {}
+  function cur() { return STATIONS[chIdx]; }
+
+  /* ---------- Note helpers ---------- */
+  var NOTE = { 'C':0,'C#':1,'D':2,'D#':3,'E':4,'F':5,'F#':6,'G':7,'G#':8,'A':9,'A#':10,'B':11 };
+  function freq(n) {
+    var m = /^([A-G]#?)(\d)$/.exec(n);
+    return 440 * Math.pow(2, ((NOTE[m[1]] + (parseInt(m[2], 10) + 1) * 12) - 69) / 12);
+  }
+  var KICK  = [1,0,0,0, 1,0,0,0, 1,0,0,0, 1,0,0,0];
+  var SNARE = [0,0,0,0, 1,0,0,0, 0,0,0,0, 1,0,0,0];
+  var HAT   = [1,0,1,0, 1,0,1,0, 1,0,1,0, 1,0,2,0];
+  var BASS  = [0,2,4,6, 8,10,12,14];
+  var ARPSEQ = [0,1,2,3, 3,2,1,2]; /* index into a 4-note pad, up/down */
+
+  /* ---------- Audio engine ---------- */
+  var ac = null, master = null, comp = null, musicBus = null, sfxBus = null;
+  var delaySend = null, dly = null, noiseBuf = null;
+  var SPB = 60 / cur().bpm / 4;
+  var timer = null, step = 0, nextT = 0, on = false, wanted = false;
+
+  function build() {
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return false;
+    ac = new AC();
+    master = ac.createGain(); master.gain.value = 0.11; master.connect(ac.destination);
+    comp = ac.createDynamicsCompressor();
+    comp.threshold.value = -20; comp.knee.value = 15; comp.ratio.value = 4;
+    comp.attack.value = 0.004; comp.release.value = 0.25; comp.connect(master);
+    musicBus = ac.createGain(); musicBus.gain.value = 0.0001; musicBus.connect(comp);
+    sfxBus = ac.createGain(); sfxBus.gain.value = 0.6; sfxBus.connect(comp);
+
+    delaySend = ac.createGain(); delaySend.gain.value = 1;
+    dly = ac.createDelay(1); dly.delayTime.value = SPB * 3;
+    var fbHp = ac.createBiquadFilter(); fbHp.type = 'highpass'; fbHp.frequency.value = 500;
+    var fb = ac.createGain(); fb.gain.value = 0.34;
+    delaySend.connect(dly); dly.connect(fbHp); fbHp.connect(fb); fb.connect(dly);
+    var wet = ac.createGain(); wet.gain.value = 0.28; dly.connect(wet); wet.connect(musicBus);
+
+    var nlen = ac.sampleRate;
+    noiseBuf = ac.createBuffer(1, nlen, ac.sampleRate);
+    var nd = noiseBuf.getChannelData(0);
+    for (var i = 0; i < nlen; i++) nd[i] = Math.random() * 2 - 1;
+
+    var hlen = 2 * ac.sampleRate;
+    var hbuf = ac.createBuffer(1, hlen, ac.sampleRate);
+    var hd = hbuf.getChannelData(0);
+    for (var j = 0; j < hlen; j++) hd[j] = Math.random() * 2 - 1;
+    var hiss = ac.createBufferSource(); hiss.buffer = hbuf; hiss.loop = true;
+    var hf = ac.createBiquadFilter(); hf.type = 'lowpass'; hf.frequency.value = 6000;
+    var hg = ac.createGain(); hg.gain.value = 0.009;
+    hiss.connect(hf); hf.connect(hg); hg.connect(comp); hiss.start();
+    return true;
+  }
+
+  function noiseVoice(t, dur, type, cut, q, peak, dest) {
+    var s = ac.createBufferSource(); s.buffer = noiseBuf;
+    var f = ac.createBiquadFilter(); f.type = type; f.frequency.value = cut; f.Q.value = q || 0.7;
+    var g = ac.createGain();
+    g.gain.setValueAtTime(peak, t);
+    g.gain.exponentialRampToValueAtTime(0.001, t + dur);
+    s.connect(f); f.connect(g); g.connect(dest || musicBus);
+    s.start(t); s.stop(t + dur + 0.02);
+  }
+  function vKick(t) {
+    var o = ac.createOscillator(); o.type = 'sine';
+    o.frequency.setValueAtTime(150, t);
+    o.frequency.exponentialRampToValueAtTime(45, t + 0.09);
+    var g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(0.85, t + 0.002);
+    g.gain.exponentialRampToValueAtTime(0.001, t + 0.18);
+    o.connect(g); g.connect(musicBus); o.start(t); o.stop(t + 0.22);
+  }
+  function vSnare(t) {
+    noiseVoice(t, 0.12, 'highpass', 1800, 0.7, 0.45, musicBus);
+    var o = ac.createOscillator(); o.type = 'triangle'; o.frequency.value = 190;
+    var g = ac.createGain();
+    g.gain.setValueAtTime(0.28, t);
+    g.gain.exponentialRampToValueAtTime(0.001, t + 0.08);
+    o.connect(g); g.connect(musicBus); o.start(t); o.stop(t + 0.1);
+  }
+  function vHat(t, open) { noiseVoice(t, open ? 0.22 : 0.035, 'highpass', 7000, 0.7, open ? 0.2 : 0.16, musicBus); }
+  function vBass(t, f, len) {
+    var o1 = ac.createOscillator(); o1.type = 'sawtooth'; o1.frequency.value = f;
+    var o2 = ac.createOscillator(); o2.type = 'square'; o2.frequency.value = f / 2;
+    var g2 = ac.createGain(); g2.gain.value = 0.4;
+    var lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.Q.value = 1.2;
+    lp.frequency.setValueAtTime(1150, t);
+    lp.frequency.exponentialRampToValueAtTime(650, t + 0.08);
+    var g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(0.42, t + 0.004);
+    g.gain.linearRampToValueAtTime(0.42 * 0.55, t + 0.1);
+    g.gain.setValueAtTime(0.42 * 0.55, t + len);
+    g.gain.linearRampToValueAtTime(0.0001, t + len + 0.05);
+    o1.connect(lp); o2.connect(g2); g2.connect(lp); lp.connect(g); g.connect(musicBus);
+    o1.start(t); o2.start(t); o1.stop(t + len + 0.1); o2.stop(t + len + 0.1);
+  }
+  function vPad(t, notes, len) {
+    var lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 1100; lp.Q.value = 0.6;
+    var g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(0.26, t + 0.7);
+    g.gain.linearRampToValueAtTime(0.26 * 0.8, t + 1.2);
+    g.gain.setValueAtTime(0.26 * 0.8, t + len - 0.2);
+    g.gain.linearRampToValueAtTime(0.0001, t + len + 1.2);
+    lp.connect(g); g.connect(musicBus);
+    notes.forEach(function (n) {
+      var f = freq(n);
+      [['sawtooth', -7], ['sawtooth', 7], ['triangle', 0]].forEach(function (sp) {
+        var o = ac.createOscillator(); o.type = sp[0]; o.frequency.value = f; o.detune.value = sp[1];
+        var og = ac.createGain(); og.gain.value = 1 / (notes.length * 2.4);
+        o.connect(og); og.connect(lp); o.start(t); o.stop(t + len + 1.3);
+      });
+    });
+  }
+  function vArp(t, f) {
+    var o = ac.createOscillator(); o.type = 'square'; o.frequency.value = f;
+    var lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 2500; lp.Q.value = 1;
+    var g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(0.14, t + 0.002);
+    g.gain.exponentialRampToValueAtTime(0.001, t + 0.12);
+    o.connect(lp); lp.connect(g); g.connect(musicBus);
+    var send = ac.createGain(); send.gain.value = 0.28; g.connect(send); send.connect(delaySend);
+    o.start(t); o.stop(t + 0.16);
+  }
+  function vLead(t, f, len) {
+    var g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(0.26, t + 0.01);
+    g.gain.linearRampToValueAtTime(0.26 * 0.6, t + 0.2);
+    g.gain.setValueAtTime(0.26 * 0.6, t + len);
+    g.gain.linearRampToValueAtTime(0.0001, t + len + 0.22);
+    var lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 3200;
+    lp.connect(g); g.connect(musicBus);
+    var send = ac.createGain(); send.gain.value = 0.5; g.connect(send); send.connect(delaySend);
+    [['sawtooth', 0], ['triangle', 5]].forEach(function (sp) {
+      var o = ac.createOscillator(); o.type = sp[0]; o.frequency.value = f; o.detune.value = sp[1];
+      o.connect(lp); o.start(t); o.stop(t + len + 0.28);
+    });
+  }
+
+  function playStep(s, t) {
+    var st = cur();
+    var bar = Math.floor(s / 16) % st.chords.length;
+    var i = s % 16;
+    var chord = st.chords[bar];
+    if (st.kick && KICK[i]) vKick(t);
+    if (st.snare && SNARE[i]) vSnare(t);
+    if (st.hats && HAT[i]) vHat(t, HAT[i] === 2);
+    var bi = BASS.indexOf(i);
+    if (bi !== -1) vBass(t, freq(chord.root) * (bi % 2 ? 2 : 1), SPB * 1.8);
+    if (i === 0) vPad(t, chord.pad, SPB * 16);
+    /* arp: skip a couple slots per bar so it breathes */
+    if (i !== 3 && i !== 11) {
+      var pad = chord.pad;
+      var note = pad[ARPSEQ[i % ARPSEQ.length] % pad.length];
+      vArp(t, freq(note) * 2);
+    }
+    if (st.lead && bar % 2 === 1 && (i === 0 || i === 6 || i === 10)) {
+      vLead(t, freq(chord.pad[chord.pad.length - 1]) * 2, SPB * 3);
+    }
+  }
+  function schedule() {
+    var now = ac.currentTime;
+    if (nextT < now - 0.2) nextT = now + 0.03;
+    while (nextT < now + 0.12) {
+      playStep(step, nextT);
+      nextT += SPB;
+      step = (step + 1) % (cur().chords.length * 16);
+    }
+  }
+
+  /* ---------- Screen ---------- */
+  function paintScreen() {
+    var st = cur();
+    root.style.setProperty('--acc', st.acc);
+    root.style.setProperty('--acc2', st.acc2);
+    elCh.textContent = 'CH ' + st.num;
+    elFreq.textContent = st.freq + ' FM';
+    elName.textContent = on ? (st.name + '  ·  ' + st.track) : st.name;
+  }
+
+  /* ---------- Static burst on tune ---------- */
+  var sctx = elStatic ? elStatic.getContext('2d') : null;
+  var bursting = false;
+  function burst() {
+    if (RM || !sctx || bursting) return;
+    bursting = true;
+    root.classList.add('is-bursting');
+    if (on) blip();
+    var w = elStatic.width, h = elStatic.height;
+    var img = sctx.createImageData(w, h);
+    var data = img.data;
+    var start = performance.now();
+    (function frame() {
+      for (var i = 0; i < data.length; i += 4) {
+        var v = (Math.random() * 255) | 0;
+        data[i] = v; data[i + 1] = v; data[i + 2] = v; data[i + 3] = 255;
+      }
+      sctx.putImageData(img, 0, 0);
+      if (performance.now() - start > 280) {
+        root.classList.remove('is-bursting');
+        bursting = false;
+        return;
+      }
+      requestAnimationFrame(frame);
+    })();
+  }
+  function blip() {
+    if (!ac || !on) return;
+    noiseVoice(ac.currentTime, 0.08, 'bandpass', 1400, 0.8, 0.22, sfxBus);
+  }
+
+  /* ---------- Transport ---------- */
+  function radioOn() {
+    if (timer) return;
+    SPB = 60 / cur().bpm / 4;
+    if (dly) dly.delayTime.value = SPB * 3;
+    step = 0; nextT = ac.currentTime + 0.06;
+    musicBus.gain.setTargetAtTime(0.5, ac.currentTime, 0.12);
+    timer = setInterval(schedule, 25);
+  }
+  function radioOff() {
+    if (timer) { clearInterval(timer); timer = null; }
+    if (musicBus) musicBus.gain.setTargetAtTime(0.0001, ac.currentTime, 0.1);
+  }
+  function applyUI() {
+    root.classList.toggle('is-playing', on);
+    elPower.setAttribute('aria-pressed', on ? 'true' : 'false');
+    elPower.innerHTML = on ? '&#10073;&#10073; Playing' : '&#9205; Tune In';
+    elOnair.innerHTML = on ? '&#9679; ON AIR' : '&#9679; STANDBY';
+    paintScreen();
+  }
+  function setAudio(want) {
+    wanted = want;
+    if (!want) { if (ac) radioOff(); on = false; applyUI(); return; }
+    if (!ac && !build()) return;
+    var settle = function () {
+      if (ac.state === 'running') { radioOn(); on = true; applyUI(); return true; }
+      return false;
+    };
+    var p = ac.resume();
+    if (settle()) return;
+    if (p && p.then) p.then(settle).catch(function () {});
+  }
+  function tune(dir) {
+    chIdx = (chIdx + dir + STATIONS.length) % STATIONS.length;
+    try { localStorage.setItem('tg-radio-ch', String(chIdx)); } catch (e) {}
+    burst();
+    if (on) {
+      SPB = 60 / cur().bpm / 4;
+      if (dly) dly.delayTime.value = SPB * 3;
+      step = 0; nextT = ac.currentTime + 0.05;
+    }
+    paintScreen();
+  }
+
+  /* ---------- Open / close ---------- */
+  function openDeck(start) {
+    root.classList.add('is-open');
+    elToggle.setAttribute('aria-expanded', 'true');
+    elDeck.hidden = false;
+    if (start) setAudio(true);
+    else applyUI();
+  }
+  function closeDeck() {
+    setAudio(false);
+    root.classList.remove('is-open');
+    elToggle.setAttribute('aria-expanded', 'false');
+    elDeck.hidden = true;
+    elToggle.focus();
+  }
+
+  elToggle.addEventListener('click', function () { openDeck(true); });
+  elClose.addEventListener('click', closeDeck);
+  elPower.addEventListener('click', function () { setAudio(!on); });
+  elPrev.addEventListener('click', function () { tune(-1); });
+  elNext.addEventListener('click', function () { tune(1); });
+
+  document.addEventListener('visibilitychange', function () {
+    if (!ac) return;
+    if (document.hidden) { ac.suspend(); }
+    else if (on) { ac.resume(); nextT = Math.max(nextT, ac.currentTime + 0.05); }
+  });
+
+  paintScreen();
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right

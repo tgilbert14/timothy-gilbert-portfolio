@@ -9,6 +9,11 @@ format:
 
 ```{=html}
 <section class="hero">
+  <div class="hero-sun" aria-hidden="true">
+    <div class="hero-sun__grid"></div>
+    <div class="hero-sun__disc"></div>
+    <div class="hero-sun__horizon"></div>
+  </div>
   <div class="hero-circuit" aria-hidden="true">
     <svg class="circuit-side circuit-left" viewBox="0 0 200 300" preserveAspectRatio="xMidYMax meet" fill="none">
       <path class="trace rail" pathLength="1" d="M34 268 H182"/>
