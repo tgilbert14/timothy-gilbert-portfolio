@@ -909,23 +909,33 @@
   root.setAttribute('data-vhs', '');
   root.innerHTML =
     '<button class="vhs-radio__toggle" data-vhs-toggle aria-expanded="false" aria-label="Open the SYNTH-FM radio">' +
-      '<span class="vhs-radio__toggle-ico" aria-hidden="true">&#9673;</span>' +
-      '<span class="vhs-radio__toggle-lbl">SYNTH-FM</span>' +
+      '<span class="bb-rec" aria-hidden="true"></span>' +
+      '<span class="bb-spk" aria-hidden="true"></span>' +
+      '<span class="bb-osd" aria-hidden="true">' +
+        '<span class="bb-freq" data-vhs-lfreq>99.9 FM</span>' +
+        '<span class="bb-tick"><span data-vhs-lname>SUNSET DRIVE &#183; Chrome Horizon &#183; </span></span>' +
+      '</span>' +
+      '<span class="bb-spk" aria-hidden="true"></span>' +
     '</button>' +
     '<div class="vhs-radio__deck" data-vhs-deck role="region" aria-label="SYNTH-FM synthwave radio" hidden>' +
+      '<span class="vhs-radio__handle" aria-hidden="true"></span>' +
       '<div class="vhs-radio__top">' +
         '<span class="vhs-radio__brand">&#9673; SYNTH-FM</span>' +
         '<button class="vhs-radio__close" data-vhs-close aria-label="Close radio">&#10005;</button>' +
       '</div>' +
-      '<div class="vhs-radio__screen">' +
-        '<canvas class="vhs-radio__static" data-vhs-static width="120" height="66" aria-hidden="true"></canvas>' +
-        '<div class="vhs-radio__screen-row">' +
-          '<span class="vhs-radio__ch" data-vhs-ch>CH 01</span>' +
-          '<span class="vhs-radio__freq" data-vhs-freq>99.9 FM</span>' +
-          '<span class="vhs-radio__onair" data-vhs-onair>&#9679; STANDBY</span>' +
+      '<div class="vhs-radio__deckrow">' +
+        '<span class="vhs-radio__grille" aria-hidden="true"></span>' +
+        '<div class="vhs-radio__screen">' +
+          '<canvas class="vhs-radio__static" data-vhs-static width="120" height="66" aria-hidden="true"></canvas>' +
+          '<div class="vhs-radio__screen-row">' +
+            '<span class="vhs-radio__ch" data-vhs-ch>CH 01</span>' +
+            '<span class="vhs-radio__freq" data-vhs-freq>99.9 FM</span>' +
+            '<span class="vhs-radio__onair" data-vhs-onair>&#9679; STANDBY</span>' +
+          '</div>' +
+          '<div class="vhs-radio__name"><span class="vhs-radio__marq" data-vhs-name>press play to tune in</span></div>' +
+          '<div class="vhs-radio__eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>' +
         '</div>' +
-        '<div class="vhs-radio__name"><span class="vhs-radio__marq" data-vhs-name>press play to tune in</span></div>' +
-        '<div class="vhs-radio__eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>' +
+        '<span class="vhs-radio__grille" aria-hidden="true"></span>' +
       '</div>' +
       '<div class="vhs-radio__controls">' +
         '<button class="vhs-radio__btn vhs-radio__power" data-vhs-power aria-pressed="false">&#9205; Tune In</button>' +
@@ -954,7 +964,8 @@
      (one chord per bar). Pads are stacked note names; the arp is
      generated from the pad an octave up, so it's always in key. */
   var STATIONS = [
-    { num: '01', freq: '99.9',  name: 'SUNSET DRIVE', track: 'Chrome Horizon · Vela Nova',
+    /* ---- Synthwave (the originals) ---- */
+    { num: '01', freq: '99.9',  name: 'SUNSET DRIVE', genre: 'synthwave', track: 'Chrome Horizon · Vela Nova',
       acc: '#ff2d95', acc2: '#2de2e6', bpm: 102, kick: 1, snare: 1, hats: 1, lead: 1,
       chords: [
         { pad: ['A2','E3','A3','C4'], root: 'A1' },
@@ -962,7 +973,7 @@
         { pad: ['C3','G3','C4','E4'], root: 'C2' },
         { pad: ['G2','D3','G3','B3'], root: 'G1' }
       ] },
-    { num: '02', freq: '104.5', name: 'MIAMI HEAT', track: 'Customs After Dark · The Passport Club',
+    { num: '02', freq: '104.5', name: 'MIAMI HEAT', genre: 'synthwave', track: 'Customs After Dark · The Passport Club',
       acc: '#ff6a3d', acc2: '#ffd24a', bpm: 112, kick: 1, snare: 1, hats: 1, lead: 0,
       chords: [
         { pad: ['D2','A2','D3','F3'],  root: 'D1' },
@@ -970,7 +981,51 @@
         { pad: ['F2','C3','F3','A3'],  root: 'F1' },
         { pad: ['A2','E3','A3','C4'],  root: 'A1' }
       ] },
-    { num: '03', freq: '88.6',  name: 'CHROME BLVD', track: 'Tradewind Runner · Lena Meridian',
+    { num: '03', freq: '120.0', name: 'VICE GRID', genre: 'synthwave', track: 'Open Water Drive · Konvoy 86',
+      acc: '#2de2e6', acc2: '#ff2d95', bpm: 126, kick: 1, snare: 1, hats: 1, lead: 0,
+      chords: [
+        { pad: ['E2','B2','E3','G3'],  root: 'E1' },
+        { pad: ['C3','G3','C4','E4'],  root: 'C2' },
+        { pad: ['G2','D3','G3','B3'],  root: 'G1' },
+        { pad: ['D3','A3','D4','F#4'], root: 'D2' }
+      ] },
+    /* ---- Vice City oldies (80s Miami synth-pop) — brighter pad ---- */
+    { num: '04', freq: '103.5', name: 'SUNSET AND OCEAN', genre: 'oldies', track: 'Chrome & Coral · Lita Marquez',
+      acc: '#ffb347', acc2: '#38e1c6', bpm: 108, kick: 1, snare: 1, hats: 1, lead: 1, padCut: 2200,
+      chords: [
+        { pad: ['C3','E3','G3','B3'], root: 'C2' },
+        { pad: ['A2','E3','G3','B3'], root: 'A1' },
+        { pad: ['F2','A2','C3','E3'], root: 'F1' },
+        { pad: ['G2','D3','G3','C4'], root: 'G1' }
+      ] },
+    { num: '05', freq: '98.7', name: 'MIAMI AFTER DARK', genre: 'oldies', track: 'Neon Tide · The Biscayne Set',
+      acc: '#ff5e8a', acc2: '#22c3e6', bpm: 104, kick: 1, snare: 1, hats: 1, lead: 1, padCut: 2200,
+      chords: [
+        { pad: ['D3','E3','A3','D4'],  root: 'D2' },
+        { pad: ['B2','D3','F#3','A3'], root: 'B1' },
+        { pad: ['G2','B2','D3','F#3'], root: 'G1' },
+        { pad: ['A2','E3','G3','D4'],  root: 'A1' }
+      ] },
+    /* ---- Cyberpunk — driven / hollow, with grit ---- */
+    { num: '06', freq: '106.6', name: 'NEON GUTTER', genre: 'cyberpunk', track: 'Ghost in the Gutter · SPRAWL_07',
+      acc: '#39ff14', acc2: '#ff073a', bpm: 132, kick: 1, snare: 1, hats: 1, lead: 1, drive: 0.4, crackle: 0.22,
+      chords: [
+        { pad: ['E2','G2','B2','E3'], root: 'E1' },
+        { pad: ['F2','A2','C3','F3'], root: 'F1' },
+        { pad: ['G2','B2','D3','G3'], root: 'G1' },
+        { pad: ['D2','F2','A2','D3'], root: 'D1' }
+      ] },
+    { num: '07', freq: '92.3', name: 'RAIN CIRCUIT', genre: 'cyberpunk', track: 'Rain on the Server Farm · V/OID',
+      acc: '#00e5ff', acc2: '#a03cff', bpm: 92, kick: 1, snare: 0, hats: 1, lead: 1, crackle: 0.5,
+      tone: { type: 'lowpass', freq: 2500, q: 0.7, makeup: 1.15 },
+      chords: [
+        { pad: ['D2','F2','A2','E3'],  root: 'D1' },
+        { pad: ['A#1','D3','F3','A3'], root: 'A#1' },
+        { pad: ['G2','A#2','D3','G3'], root: 'G1' },
+        { pad: ['A2','C3','E3','A3'],  root: 'A1' }
+      ] },
+    /* ---- Synthwave (moody, snareless) ---- */
+    { num: '08', freq: '88.6',  name: 'CHROME BLVD', genre: 'synthwave', track: 'Tradewind Runner · Lena Meridian',
       acc: '#ffd24a', acc2: '#a01c76', bpm: 86, kick: 1, snare: 0, hats: 1, lead: 1,
       chords: [
         { pad: ['C3','G3','B3','E4'], root: 'C2' },
@@ -978,13 +1033,24 @@
         { pad: ['F2','C3','E3','A3'], root: 'F1' },
         { pad: ['G2','D3','F3','B3'], root: 'G1' }
       ] },
-    { num: '04', freq: '120.0', name: 'VICE GRID', track: 'Open Water Drive · Konvoy 86',
-      acc: '#2de2e6', acc2: '#ff2d95', bpm: 126, kick: 1, snare: 1, hats: 1, lead: 0,
+    /* ---- Retro radio — warm lounge + boxy AM ---- */
+    { num: '09', freq: '88.3', name: 'AFTER HOURS', genre: 'retro', track: 'Silk & Static · Odell Rivers',
+      acc: '#e08a9a', acc2: '#d7a24c', bpm: 82, kick: 1, snare: 1, hats: 1, lead: 1, padCut: 1600,
+      tone: { type: 'lowpass', freq: 5500, q: 0.7, makeup: 1.06 },
       chords: [
-        { pad: ['E2','B2','E3','G3'],  root: 'E1' },
-        { pad: ['C3','G3','C4','E4'],  root: 'C2' },
-        { pad: ['G2','D3','G3','B3'],  root: 'G1' },
-        { pad: ['D3','A3','D4','F#4'], root: 'D2' }
+        { pad: ['F2','A2','C3','E3'],  root: 'F1' },
+        { pad: ['D2','A2','C3','F3'],  root: 'D1' },
+        { pad: ['G2','A#2','D3','F3'], root: 'G1' },
+        { pad: ['C3','E3','G3','A#3'], root: 'C2' }
+      ] },
+    { num: '10', freq: '1220', band: 'AM', name: 'GOLD RADIO', genre: 'retro', track: 'Moonglow Boulevard · The Velvetones',
+      acc: '#f2b155', acc2: '#4bb8a9', bpm: 96, kick: 1, snare: 0, hats: 1, lead: 0, crackle: 0.6,
+      tone: { type: 'bandpass', freq: 1400, q: 0.9, makeup: 1.8 },
+      chords: [
+        { pad: ['C3','E3','G3','C4'], root: 'C2' },
+        { pad: ['A2','E3','A3','C4'], root: 'A1' },
+        { pad: ['F2','A2','C3','F3'], root: 'F1' },
+        { pad: ['G2','B2','D3','G3'], root: 'G1' }
       ] }
   ];
   var chIdx = 0;
@@ -1009,6 +1075,9 @@
   /* ---------- Audio engine ---------- */
   var ac = null, master = null, comp = null, musicBus = null, sfxBus = null;
   var delaySend = null, dly = null, noiseBuf = null;
+  /* per-station tone chain: musicBus -> shaper(drive) -> toneFilter -> toneOut(makeup) -> comp */
+  var shaper = null, toneFilter = null, toneOut = null, crackleGain = null;
+  var curPadCut = 1100;
   var SPB = 60 / cur().bpm / 4;
   var timer = null, step = 0, nextT = 0, on = false, wanted = false;
 
@@ -1020,7 +1089,14 @@
     comp = ac.createDynamicsCompressor();
     comp.threshold.value = -20; comp.knee.value = 15; comp.ratio.value = 4;
     comp.attack.value = 0.004; comp.release.value = 0.25; comp.connect(master);
-    musicBus = ac.createGain(); musicBus.gain.value = 0.0001; musicBus.connect(comp);
+    musicBus = ac.createGain(); musicBus.gain.value = 0.0001;
+    /* Per-station tone chain: drive (WaveShaper) -> tone BiquadFilter -> makeup gain.
+       Defaults are transparent (linear curve, wide-open lowpass, unity gain) so the
+       synthwave stations are unaffected; applyTone() reshapes it per station. */
+    shaper = ac.createWaveShaper(); shaper.curve = driveCurve(0);
+    toneFilter = ac.createBiquadFilter(); toneFilter.type = 'lowpass'; toneFilter.frequency.value = 20000; toneFilter.Q.value = 0.7;
+    toneOut = ac.createGain(); toneOut.gain.value = 1;
+    musicBus.connect(shaper); shaper.connect(toneFilter); toneFilter.connect(toneOut); toneOut.connect(comp);
     sfxBus = ac.createGain(); sfxBus.gain.value = 0.6; sfxBus.connect(comp);
 
     delaySend = ac.createGain(); delaySend.gain.value = 1;
@@ -1035,6 +1111,13 @@
     var nd = noiseBuf.getChannelData(0);
     for (var i = 0; i < nlen; i++) nd[i] = Math.random() * 2 - 1;
 
+    /* Vinyl/AM surface-noise bed — a looped, band-limited hiss the retro &
+       cyberpunk stations dial up (applyTone sets crackleGain per station). */
+    crackleGain = ac.createGain(); crackleGain.gain.value = 0;
+    var cn = ac.createBufferSource(); cn.buffer = noiseBuf; cn.loop = true;
+    var cf = ac.createBiquadFilter(); cf.type = 'bandpass'; cf.frequency.value = 1650; cf.Q.value = 0.5;
+    cn.connect(cf); cf.connect(crackleGain); crackleGain.connect(comp); cn.start();
+
     var hlen = 2 * ac.sampleRate;
     var hbuf = ac.createBuffer(1, hlen, ac.sampleRate);
     var hd = hbuf.getChannelData(0);
@@ -1044,6 +1127,31 @@
     var hg = ac.createGain(); hg.gain.value = 0.009;
     hiss.connect(hf); hf.connect(hg); hg.connect(comp); hiss.start();
     return true;
+  }
+
+  /* WaveShaper transfer curve. amount<=0 => identity (transparent);
+     otherwise a normalized tanh soft-clip for cyberpunk grit. */
+  function driveCurve(amount) {
+    var n = 512, c = new Float32Array(n), i, x;
+    if (!amount || amount <= 0) { for (i = 0; i < n; i++) c[i] = (i / (n - 1)) * 2 - 1; return c; }
+    var k = 1 + amount * 28;
+    for (i = 0; i < n; i++) { x = (i / (n - 1)) * 2 - 1; c[i] = Math.tanh(k * x) / Math.tanh(k); }
+    return c;
+  }
+
+  /* Reshape the per-station tone chain: pad brightness, drive, master
+     filter/makeup, and the crackle bed. Defaults keep synthwave clean. */
+  function applyTone(st) {
+    if (!ac) return;
+    var t = ac.currentTime;
+    curPadCut = st.padCut || 1100;
+    shaper.curve = driveCurve(st.drive || 0);
+    var tn = st.tone;
+    toneFilter.type = tn ? tn.type : 'lowpass';
+    toneFilter.frequency.setTargetAtTime(tn ? tn.freq : 20000, t, 0.05);
+    toneFilter.Q.setTargetAtTime(tn ? (tn.q || 0.7) : 0.7, t, 0.05);
+    toneOut.gain.setTargetAtTime(tn ? (tn.makeup || 1) : 1, t, 0.05);
+    if (crackleGain) crackleGain.gain.setTargetAtTime((st.crackle || 0) * 0.03, t, 0.1);
   }
 
   function noiseVoice(t, dur, type, cut, q, peak, dest) {
@@ -1091,7 +1199,7 @@
     o1.start(t); o2.start(t); o1.stop(t + len + 0.1); o2.stop(t + len + 0.1);
   }
   function vPad(t, notes, len) {
-    var lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 1100; lp.Q.value = 0.6;
+    var lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = curPadCut; lp.Q.value = 0.6;
     var g = ac.createGain();
     g.gain.setValueAtTime(0.0001, t);
     g.gain.linearRampToValueAtTime(0.26, t + 0.7);
@@ -1169,11 +1277,17 @@
   /* ---------- Screen ---------- */
   function paintScreen() {
     var st = cur();
+    var band = st.band || 'FM';
     root.style.setProperty('--acc', st.acc);
     root.style.setProperty('--acc2', st.acc2);
     elCh.textContent = 'CH ' + st.num;
-    elFreq.textContent = st.freq + ' FM';
+    elFreq.textContent = st.freq + ' ' + band;
     elName.textContent = on ? (st.name + '  ·  ' + st.track) : st.name;
+    /* keep the collapsed boombox launcher showing the same station */
+    var lf = root.querySelector('[data-vhs-lfreq]');
+    if (lf) lf.textContent = st.freq + ' ' + band;
+    var ln = root.querySelector('[data-vhs-lname]');
+    if (ln) { var s = st.name + ' · ' + st.track + ' · '; ln.textContent = s + s; }
   }
 
   /* ---------- Static burst on tune ---------- */
@@ -1212,6 +1326,7 @@
     if (timer) return;
     SPB = 60 / cur().bpm / 4;
     if (dly) dly.delayTime.value = SPB * 3;
+    applyTone(cur());
     step = 0; nextT = ac.currentTime + 0.06;
     musicBus.gain.setTargetAtTime(0.5, ac.currentTime, 0.12);
     timer = setInterval(schedule, 25);
@@ -1246,6 +1361,7 @@
     if (on) {
       SPB = 60 / cur().bpm / 4;
       if (dly) dly.delayTime.value = SPB * 3;
+      applyTone(cur());
       step = 0; nextT = ac.currentTime + 0.05;
     }
     paintScreen();

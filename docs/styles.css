@@ -3026,70 +3026,112 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   -webkit-tap-highlight-color: transparent;
 }
 
-/* ---- Launcher chip (collapsed state) ---- */
+/* ---- Launcher: a mini-boombox that pulses to catch the eye (collapsed) ---- */
 .vhs-radio__toggle {
-  display: inline-flex;
+  position: relative;
+  display: flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.42rem 0.7rem;
-  border: 1px solid rgba(255, 45, 149, 0.55);
-  border-radius: 999px;
-  background:
-    linear-gradient(160deg, rgba(26, 16, 48, 0.94), rgba(12, 8, 32, 0.94));
+  gap: 7px;
+  width: 152px;
+  height: 52px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 11px 11px 9px 9px;             /* flatter bottom = sits on a surface */
+  background: linear-gradient(180deg, #39404f 0%, #262b3a 44%, #181c28 100%);
   color: #ffe9f6;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
   cursor: pointer;
   box-shadow:
-    0 6px 18px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(45, 226, 230, 0.18),
-    0 0 16px rgba(255, 45, 149, 0.28);
-  transition: transform 0.16s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -3px 7px rgba(0, 0, 0, 0.5),
+    0 8px 20px rgba(0, 0, 0, 0.5),
+    0 0 16px -6px var(--acc);
+  animation: bb-pulse 2.6s ease-in-out infinite; /* the eye-catcher */
+  will-change: box-shadow;
+  transition: transform 0.16s ease;
 }
-.vhs-radio__toggle:hover {
-  transform: translateY(-1px);
-  border-color: rgba(45, 226, 230, 0.7);
-  box-shadow:
-    0 10px 24px rgba(0, 0, 0, 0.46),
-    0 0 0 1px rgba(45, 226, 230, 0.4),
-    0 0 26px rgba(255, 45, 149, 0.45);
-}
-.vhs-radio__toggle-ico { font-size: 0.95rem; line-height: 1; filter: drop-shadow(0 0 6px rgba(255, 45, 149, 0.6)); }
-.vhs-radio__toggle-lbl {
-  background: linear-gradient(90deg, #ff2d95, #ffd24a 55%, #2de2e6);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-/* A slow pulse ring so people notice it's interactive. */
-.vhs-radio__toggle::after {
+.vhs-radio__toggle:hover { transform: translateY(-1px); }
+.vhs-radio__toggle:focus-visible { outline: 2px solid var(--acc2); outline-offset: 3px; }
+/* carry-handle arc */
+.vhs-radio__toggle::before {
   content: "";
   position: absolute;
-  inset: -4px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 45, 149, 0.5);
-  opacity: 0;
-  pointer-events: none;
+  top: -8px; left: 50%; transform: translateX(-50%);
+  width: 56px; height: 14px;
+  border: 2px solid #2b3141; border-bottom: none;
+  border-radius: 9px 9px 0 0;
+  box-shadow: 0 0 6px -2px var(--acc);
 }
+@keyframes bb-pulse {
+  0%, 100% { box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.18), inset 0 -3px 7px rgba(0,0,0,.5),
+    0 8px 20px rgba(0,0,0,.5),
+    0 0 16px -6px var(--acc),
+    0 0 0 0 color-mix(in srgb, var(--acc) 50%, transparent); }
+  50% { box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.18), inset 0 -3px 7px rgba(0,0,0,.5),
+    0 10px 24px rgba(0,0,0,.55),
+    0 0 28px -3px var(--acc),
+    0 0 0 7px color-mix(in srgb, var(--acc) 0%, transparent); }  /* sonar ring pushes out + fades */
+}
+/* speaker dots */
+.bb-spk {
+  width: 20px; height: 20px; border-radius: 50%; flex: none;
+  background:
+    radial-gradient(circle at 50% 50%, #05070d 0 18%, transparent 18%),
+    repeating-radial-gradient(circle at 50% 50%, #0a0d16 0 2px, #232a3a 2px 3.4px),
+    #0c0f18;
+  box-shadow: inset 0 0 0 2px #2a3040, inset 0 0 8px #000, 0 0 6px -2px var(--acc);
+}
+/* OSD readout slit */
+.bb-osd {
+  position: relative; flex: 1; min-width: 0; height: 30px; overflow: hidden;
+  background: #05121a;
+  border: 1px solid var(--acc); border-left: 2px solid var(--acc);
+  border-radius: 4px; padding: 0 5px;
+  box-shadow: inset 0 0 8px rgba(45, 226, 230, 0.18), inset 0 0 0 1px rgba(0, 0, 0, 0.5);
+  display: flex; flex-direction: column; justify-content: center; gap: 2px;
+}
+.bb-osd::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(45, 226, 230, 0.06) 0 1px, transparent 1px 2px);
+}
+.bb-freq {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.03em; line-height: 1.05;
+  color: var(--vc-gold);                          /* gold OSD ink — never retunes */
+  text-shadow: 0 0 6px rgba(255, 210, 74, 0.5); white-space: nowrap;
+}
+.bb-freq b { color: var(--acc2); font-size: 8.5px; font-weight: 700; margin-left: 4px; }
+.bb-tick { overflow: hidden; height: 10px; white-space: nowrap; }
+.bb-tick span {
+  display: inline-block; font-size: 7.5px; letter-spacing: 0.05em;
+  color: color-mix(in srgb, var(--acc2) 78%, #fff);
+  text-shadow: 0 0 5px var(--acc2);
+  animation: bb-scroll 9s linear infinite;
+}
+@keyframes bb-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.bb-rec {
+  position: absolute; top: 5px; right: 6px; width: 5px; height: 5px; border-radius: 50%;
+  background: #ff2d2d; box-shadow: 0 0 6px #ff2d2d; z-index: 2;
+  animation: bb-rec 1.2s steps(1) infinite;
+}
+@keyframes bb-rec { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0.15; } }
 .vhs-radio.is-open .vhs-radio__toggle { display: none; }
 
-/* ---- The deck (expanded) ---- */
+/* ---- The deck (expanded) — a molded-plastic boombox ---- */
 .vhs-radio__deck {
-  width: 216px;
-  border-radius: 14px;
-  padding: 8px;
-  background:
-    linear-gradient(200deg, #241041 0%, #150a2e 46%, #0b0620 100%);
-  border: 1px solid rgba(255, 45, 149, 0.4);
+  width: 300px;
+  border-radius: 16px 16px 12px 12px;
+  padding: 8px 10px 10px;
+  background: linear-gradient(180deg, #39404f 0%, #262b3a 42%, #181c28 100%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   box-shadow:
-    0 18px 44px rgba(0, 0, 0, 0.55),
-    0 0 0 1px rgba(45, 226, 230, 0.12),
-    0 0 30px rgba(255, 45, 149, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    inset 0 -2px 6px rgba(0, 0, 0, 0.5);
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -3px 8px rgba(0, 0, 0, 0.55),
+    0 18px 42px rgba(0, 0, 0, 0.55),
+    0 0 30px -8px var(--acc);                 /* per-station rim-light */
   position: relative;
-  overflow: hidden;
+  overflow: visible;                          /* let the carry handle sit above */
   transform-origin: top right;
   animation: vhsDeckIn 0.28s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
 }
@@ -3097,17 +3139,46 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   from { opacity: 0; transform: translateY(-8px) scale(0.9); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
-/* Faint scanlines across the whole deck face. */
+/* reflective-plastic diagonal sheen (rounded to its own box, so no clip needed) */
 .vhs-radio__deck::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: repeating-linear-gradient(
-    0deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 3px);
-  mix-blend-mode: overlay;
-  opacity: 0.5;
   border-radius: inherit;
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, 0.08) 45%, transparent 60%);
+}
+/* carry handle arc above the body */
+.vhs-radio__handle {
+  position: absolute;
+  top: -11px; left: 50%; transform: translateX(-50%);
+  width: 118px; height: 22px;
+  border: 3px solid #2b3141; border-bottom: none;
+  border-radius: 14px 14px 0 0;
+  box-shadow: 0 0 8px -3px var(--acc);
+  z-index: 0;
+}
+/* the speaker-flanked middle row */
+.vhs-radio__deckrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+/* concentric-ring speaker driver (pure CSS, zero images) */
+.vhs-radio__grille {
+  width: 44px; height: 44px; border-radius: 50%; flex: none;
+  background:
+    radial-gradient(circle at 50% 50%, #05070d 0 6%, transparent 6%),
+    repeating-radial-gradient(circle at 50% 50%, #0a0d16 0 2.4px, #232838 2.4px 4.4px, #0a0d16 4.4px 5.4px),
+    radial-gradient(circle at 38% 32%, rgba(255, 255, 255, 0.14), transparent 45%),
+    #0c0f18;
+  box-shadow:
+    inset 0 0 0 3px #2a3040,
+    inset 0 0 14px #000,
+    inset 0 3px 6px rgba(255, 255, 255, 0.07),
+    0 0 8px -2px var(--acc);
 }
 
 .vhs-radio__top {
@@ -3138,18 +3209,31 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
 }
 .vhs-radio__close:hover { color: #fff; border-color: var(--acc); background: rgba(255, 45, 149, 0.2); }
 
-/* ---- The screen ---- */
+/* ---- The screen (cassette window) ---- */
 .vhs-radio__screen {
   position: relative;
+  flex: 1;
+  min-width: 0;
   border-radius: 9px;
   padding: 8px 9px 9px;
   background:
     radial-gradient(120% 100% at 50% 0%, rgba(45, 226, 230, 0.1), transparent 60%),
     linear-gradient(180deg, #071018 0%, #04080f 100%);
   border: 1px solid rgba(45, 226, 230, 0.28);
+  border-left: 2px solid var(--acc);           /* tuned-tick, matches the launcher */
   box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(0, 0, 0, 0.4);
   overflow: hidden;
   z-index: 1;
+}
+/* faint CRT scanlines over the glass */
+.vhs-radio__screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  border-radius: inherit;
+  background: repeating-linear-gradient(0deg, rgba(45, 226, 230, 0.055) 0 1px, transparent 1px 3px);
 }
 .vhs-radio__static {
   position: absolute;
@@ -3166,28 +3250,28 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
 .vhs-radio__screen-row {
   display: flex;
   align-items: baseline;
-  gap: 0.4rem;
+  gap: 0.28rem;
   position: relative;
   z-index: 1;
   flex-wrap: nowrap;
   white-space: nowrap;
 }
 .vhs-radio__ch {
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   color: var(--acc2);
   text-shadow: 0 0 8px currentColor;
 }
 .vhs-radio__freq {
-  font-size: 0.66rem;
+  font-size: 0.6rem;
   color: #ffd24a;
   text-shadow: 0 0 7px rgba(255, 210, 74, 0.55);
   margin-right: auto;
 }
 .vhs-radio__onair {
-  font-size: 0.54rem;
-  letter-spacing: 0.12em;
+  font-size: 0.48rem;
+  letter-spacing: 0.08em;
   font-weight: 700;
   color: #5b6472;
   text-shadow: none;
@@ -3249,6 +3333,9 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
 .vhs-radio__eq i:nth-child(5) { animation-delay: -0.35s; }
 .vhs-radio__eq i:nth-child(6) { animation-delay: -0.55s; }
 .vhs-radio__eq i:nth-child(7) { animation-delay: -0.15s; }
+.vhs-radio__eq i:nth-child(8) { animation-delay: -0.6s; }
+.vhs-radio__eq i:nth-child(9) { animation-delay: -0.3s; }
+.vhs-radio__eq i:nth-child(10) { animation-delay: -0.5s; }
 @keyframes vhsEq {
   0%, 100% { height: 18%; }
   25% { height: 92%; }
@@ -3266,25 +3353,31 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   z-index: 1;
 }
 .vhs-radio__btn {
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
-  background: linear-gradient(180deg, rgba(40, 22, 66, 0.9), rgba(18, 10, 36, 0.9));
+  background: linear-gradient(180deg, #2e3444 0%, #1b2030 100%);
   color: #e9d6f2;
   font-family: inherit;
   font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   cursor: pointer;
-  padding: 0.4rem 0.5rem;
+  padding: 0.44rem 0.5rem;
+  /* molded, pressable plastic key */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), inset 0 -2px 4px rgba(0, 0, 0, 0.45), 0 2px 5px rgba(0, 0, 0, 0.35);
   transition: transform 0.12s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
 }
 .vhs-radio__btn:hover {
   transform: translateY(-1px);
   border-color: var(--acc);
   color: #fff;
-  box-shadow: 0 0 14px rgba(255, 45, 149, 0.4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 0 14px rgba(255, 45, 149, 0.4);
 }
-.vhs-radio__btn:active { transform: translateY(0); }
+.vhs-radio__btn:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+.vhs-radio__btn:focus-visible { outline: 2px solid var(--acc2); outline-offset: 2px; }
 .vhs-radio__power { flex: 1; }
 .vhs-radio.is-playing .vhs-radio__power {
   border-color: var(--acc2);
@@ -3297,14 +3390,29 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
 /* Mobile: shrink the deck, keep it clear of the thumb-heavy bottom. */
 @media (max-width: 560px) {
   .vhs-radio { top: 60px; right: 8px; }
-  .vhs-radio__deck { width: 190px; }
-  .vhs-radio__toggle { padding: 0.36rem 0.56rem; font-size: 0.66rem; }
+  .vhs-radio__deck { width: 244px; }
+  .vhs-radio__grille { width: 38px; height: 38px; }
+  .vhs-radio__handle { width: 92px; }
+  .vhs-radio__toggle { width: 134px; }
+  /* the EQ bars + Playing button carry the "live" signal here — drop the text */
+  .vhs-radio__onair { display: none; }
 }
 
-/* Motion-safe: no marquee, EQ, static churn, or deck spring for
-   reduced-motion users. Audio itself stays fully available. */
+/* Dark boombox floats on the Miami-cream light theme — ground it with a
+   drop-shadow + a faint dark hairline so it reads as a solid object. */
+body.quarto-light .vhs-radio { filter: drop-shadow(0 6px 16px rgba(40, 15, 45, 0.28)); }
+body.quarto-light .vhs-radio__toggle,
+body.quarto-light .vhs-radio__deck { border-color: rgba(20, 10, 30, 0.25); }
+
+/* Motion-safe: no launcher pulse, marquee, EQ, static churn, or deck spring
+   for reduced-motion users. Audio itself stays fully available; the REC dot
+   keeps one calm opacity fade so the launcher still reads as "live / tap me". */
 @media (prefers-reduced-motion: reduce) {
   .vhs-radio__deck { animation: none; }
+  .vhs-radio__toggle { animation: none; }
+  .bb-tick span { animation: none; }
+  .bb-rec { animation: bb-fade 3s ease-in-out infinite; }
+  @keyframes bb-fade { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
   .vhs-radio.is-playing .vhs-radio__marq { animation: none; padding-left: 0; }
   .vhs-radio.is-playing .vhs-radio__eq i { animation: none; height: 55%; }
   .vhs-radio.is-playing .vhs-radio__onair { animation: none; }
@@ -3339,10 +3447,39 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   transform: translateX(-50%);
   border-radius: 50%;
   background:
-    linear-gradient(180deg, #ffe45e 0%, #ff9a3d 34%, #ff2d95 74%, #a01c76 100%);
+    linear-gradient(180deg, #fff08a 0%, #ffb347 30%, #ff5aa8 70%, #a01c76 100%);
   -webkit-mask:
     linear-gradient(#000 0 0);
-  filter: drop-shadow(0 0 40px rgba(255, 45, 149, 0.5));
+  /* Layered bloom: a tight hot core + a wide soft halo. */
+  filter:
+    drop-shadow(0 0 48px rgba(255, 90, 168, 0.7))
+    drop-shadow(0 0 110px rgba(255, 140, 70, 0.5));
+}
+/* A big soft radial glow behind the disc so the sun "burns" into the
+   backdrop. Sits below the disc + grid (::before paints under later
+   positioned children), gently breathing. */
+.hero > .hero-sun::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 12%;
+  width: 560px;
+  height: 560px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(255, 150, 80, 0.5) 0%,
+    rgba(255, 60, 150, 0.32) 30%,
+    rgba(160, 28, 118, 0.15) 52%,
+    transparent 70%);
+  pointer-events: none;
+  will-change: opacity;
+  /* Opacity-only pulse (no per-frame blur/scale re-raster) — cheap + smooth. */
+  animation: heroSunGlow 6.5s ease-in-out infinite;
+}
+@keyframes heroSunGlow {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
 }
 /* Scan gaps: repeating transparent bands over the sun's lower ~55%. */
 .hero-sun__disc::after {
@@ -3382,8 +3519,11 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   left: 0; right: 0;
   bottom: 42%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #2de2e6 20%, #ff2d95 80%, transparent);
-  box-shadow: 0 0 14px rgba(45, 226, 230, 0.7), 0 0 22px rgba(255, 45, 149, 0.5);
+  background: linear-gradient(90deg, transparent, #2de2e6 18%, #ff2d95 82%, transparent);
+  box-shadow:
+    0 0 16px rgba(45, 226, 230, 0.85),
+    0 0 34px rgba(255, 45, 149, 0.65),
+    0 0 60px rgba(255, 140, 70, 0.35);
 }
 /* Top/bottom fade + a soft central scrim so hero text stays legible
    over the brightest part of the sun. */
@@ -3406,8 +3546,17 @@ body.quarto-light .hero-sun::after {
     radial-gradient(70% 42% at 50% 62%, rgba(255, 244, 236, 0.55), transparent 70%),
     linear-gradient(180deg, #fff4ec 0%, transparent 24%, transparent 72%, rgba(255, 233, 225, 0.5) 100%);
 }
+/* Warmer, lighter bloom on cream so it reads as a hazy sunset, not mud. */
+body.quarto-light .hero > .hero-sun::before {
+  background: radial-gradient(circle,
+    rgba(255, 170, 100, 0.42) 0%,
+    rgba(255, 90, 160, 0.24) 34%,
+    rgba(226, 21, 133, 0.1) 56%,
+    transparent 72%);
+}
 @media (prefers-reduced-motion: reduce) {
   .hero-sun__grid { animation: none; }
+  .hero > .hero-sun::before { animation: none; }
 }
 @media (max-width: 700px) {
   .hero-sun__disc { width: 210px; height: 210px; bottom: 30%; }
