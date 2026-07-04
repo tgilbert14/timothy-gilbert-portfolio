@@ -20,6 +20,15 @@
   --salmon-rgb: 251, 138, 126;
   --indigo: #6366f1;
 
+  /* Vice City / synthwave neon — the "show off" layer (portfolio). Hot pink +
+     cyan two-tone with a sunset garnish; layered over the teal/salmon identity. */
+  --vc-cyan: #2de2e6;
+  --vc-pink: #ff2d95;
+  --vc-magenta: #ff2d95;
+  --vc-gold: #ffd24a;
+  --vc-purple: #a01c76;
+  --vc-orange: #ff6a3d;
+
   /* Ink */
   --ink: #f4f6fb;
   --muted: #c3cbe0;
@@ -128,10 +137,59 @@ main code, main pre { background: rgba(var(--teal-rgb), 0.08); color: var(--teal
   font-weight: 500;
 }
 
-.navbar .nav-link:hover,
-.navbar .nav-link:focus {
-  color: var(--teal-bright) !important;
+/* Nav "neon tube" ignition — the label lights up in neon pink with a flicker
+   then a steady glow (bold Vice City). Same font/width so nothing clips; icon
+   links (they wrap an <i>) get the same pink glow. Reduced-motion = steady glow. */
+.navbar .nav-link:not(:has(> i)) {
+  transition: color 0.25s ease, text-shadow 0.4s ease;
 }
+.navbar .nav-link:not(:has(> i)):hover,
+.navbar .nav-link:not(:has(> i)):focus {
+  color: #fff !important;
+  text-decoration: none;
+  text-shadow:
+    0 0 4px rgba(255, 255, 255, 0.9),
+    0 0 9px var(--vc-pink),
+    0 0 18px var(--vc-pink),
+    0 0 34px rgba(255, 45, 149, 0.7);
+}
+body.quarto-light .navbar .nav-link:not(:has(> i)):hover,
+body.quarto-light .navbar .nav-link:not(:has(> i)):focus {
+  color: #d1147d !important;
+  text-shadow:
+    0 0 3px rgba(255, 255, 255, 0.6),
+    0 0 8px rgba(209, 20, 125, 0.5),
+    0 0 16px rgba(209, 20, 125, 0.35);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .navbar .nav-link:not(:has(> i)):hover,
+  .navbar .nav-link:not(:has(> i)):focus {
+    animation: navNeonIgnite 0.8s cubic-bezier(0.3, 0, 0.4, 1) both;
+  }
+}
+@keyframes navNeonIgnite {
+  0%   { text-shadow: none; }
+  7%   { text-shadow: 0 0 8px var(--vc-pink); }
+  10%  { text-shadow: none; }
+  15%  { text-shadow: 0 0 5px #fff, 0 0 12px var(--vc-pink); }
+  18%  { text-shadow: none; }
+  25%  { text-shadow: 0 0 4px #fff, 0 0 9px var(--vc-pink), 0 0 18px var(--vc-pink); }
+  29%  { text-shadow: 0 0 2px var(--vc-pink); }
+  38%,
+  100% {
+    text-shadow:
+      0 0 4px #fff,
+      0 0 9px var(--vc-pink),
+      0 0 18px var(--vc-pink),
+      0 0 34px rgba(255, 45, 149, 0.7);
+  }
+}
+.navbar .nav-link:has(> i):hover,
+.navbar .nav-link:has(> i):focus {
+  filter: drop-shadow(0 0 6px rgba(255, 45, 149, 0.7));
+}
+.navbar .nav-link:has(> i):hover > i,
+.navbar .nav-link:has(> i):focus > i { color: var(--vc-pink); }
 
 .navbar .navbar-brand {
   font-weight: 800;
@@ -876,10 +934,10 @@ html.js .reveal-left.is-visible { opacity: 1; transform: none; }
    fully-reachable list of all 8 links. Palette teal/coral.
    =========================================================== */
 .neon-spider {
-  --neon-teal: #2dd4bf;
-  --neon-bright: #5eead4;
-  --neon-coral: #fb8a7e;
-  --neon-ink: #e9fbf6;
+  --neon-teal: #2de2e6;
+  --neon-bright: #7ff1f3;
+  --neon-coral: #ff2d95;
+  --neon-ink: #eafcff;
   --neon-radius: 220px;          /* desktop ring radius */
   --neon-node-size: 132px;
   --neon-hub-size: 168px;
@@ -1173,21 +1231,158 @@ html.js .reveal-left.is-visible { opacity: 1; transform: none; }
 }
 
 /* -- LIGHT THEME -- */
-body.quarto-light .neon-spider { --neon-ink: #0c2b27; }
+body.quarto-light .neon-spider { --neon-ink: #35222f; }
 
 body.quarto-light .neon-spider__hub {
-  background: radial-gradient(circle at 50% 38%, rgba(94, 234, 212, 0.35), #f3fffb 72%);
+  background: radial-gradient(circle at 50% 38%, rgba(94, 234, 212, 0.35), #fff4ec 72%);
   box-shadow: 0 0 0 6px rgba(45, 212, 191, 0.12), 0 0 24px rgba(45, 212, 191, 0.35);
 }
 
 body.quarto-light .neon-spider__link {
-  background: radial-gradient(circle at 50% 40%, rgba(94, 234, 212, 0.28), #f3fffb 72%);
-  color: #0c2b27;
+  background: radial-gradient(circle at 50% 40%, rgba(94, 234, 212, 0.28), #fff4ec 72%);
+  color: #35222f;
   box-shadow: 0 0 12px rgba(45, 212, 191, 0.22), inset 0 0 10px rgba(45, 212, 191, 0.14);
 }
 
 body.quarto-light .neon-spider__traces line { opacity: 0; }
 body.quarto-light .neon-spider:not(.is-noscript).is-open .neon-spider__traces line { opacity: 0.4; }
+
+/* ===========================================================
+   NEON SPIDER — Vice City "show off" revamp (portfolio, bolder
+   than the DDL build). Additive synthwave layer: a rotating
+   multi-hue sun halo, a rainbow neon ring (cyan/pink/gold),
+   energy-flow traces, a stage backdrop glow, a springy fan-out
+   and a power-on flicker. All continuous motion reduced-motion
+   gated; the base a11y / progressive-enhancement scaffold is
+   untouched.
+   =========================================================== */
+.neon-spider:not(.is-noscript) .neon-spider__stage::before {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 84%; aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(255, 45, 149, 0.24),
+    rgba(45, 226, 230, 0.14) 46%,
+    transparent 70%);
+  filter: blur(38px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.6s ease;
+}
+.neon-spider:not(.is-noscript).is-open .neon-spider__stage::before,
+.neon-spider:not(.is-noscript).is-static .neon-spider__stage::before { opacity: 1; }
+
+.neon-spider__hub::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg,
+    var(--vc-cyan), var(--vc-pink), var(--vc-gold),
+    var(--vc-purple), var(--vc-orange), var(--vc-cyan));
+  filter: blur(14px);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.55s ease;
+}
+.neon-spider.is-open .neon-spider__hub::before,
+.neon-spider.is-static .neon-spider__hub::before { opacity: 0.95; }
+@media (prefers-reduced-motion: no-preference) {
+  .neon-spider.is-open .neon-spider__hub::before { animation: neonSunSpin 6s linear infinite; }
+}
+@keyframes neonSunSpin { to { transform: rotate(360deg); } }
+
+.neon-spider__hub {
+  border-color: var(--vc-cyan);
+  background: radial-gradient(circle at 50% 42%, rgba(10, 16, 30, 0.55), rgba(7, 11, 22, 0.95) 66%);
+}
+.neon-spider__hub-pulse { border-color: var(--vc-pink); }
+.neon-spider__hub-state { color: var(--vc-cyan); text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7); }
+.neon-spider.is-open .neon-spider__hub { border-color: var(--vc-pink); }
+.neon-spider.is-open .neon-spider__hub-state { color: var(--vc-gold); }
+.neon-spider__hub-title {
+  background: linear-gradient(96deg, var(--vc-cyan), var(--vc-pink) 55%, var(--vc-gold));
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 0 7px rgba(45, 226, 230, 0.45)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+}
+
+.neon-spider__traces line:nth-child(3n+1) { --tc: var(--vc-cyan); }
+.neon-spider__traces line:nth-child(3n+2) { --tc: var(--vc-pink); }
+.neon-spider__traces line:nth-child(3n+3) { --tc: var(--vc-gold); }
+.neon-spider__traces line { stroke: var(--tc, var(--neon-teal)); color: var(--tc, var(--neon-teal)); stroke-width: 2.2; }
+.neon-spider:not(.is-noscript).is-open .neon-spider__traces line,
+.neon-spider:not(.is-noscript).is-static .neon-spider__traces line {
+  opacity: 0.75;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 4px currentColor);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .neon-spider:not(.is-noscript).is-open .neon-spider__traces line {
+    animation: neonTraceFlow 2.2s ease-in-out infinite;
+    animation-delay: calc(var(--i, 0) * 0.09s + 0.5s);
+  }
+}
+@keyframes neonTraceFlow {
+  0%, 100% { opacity: 0.45; filter: drop-shadow(0 0 2px currentColor); }
+  50%      { opacity: 1; filter: drop-shadow(0 0 9px currentColor); }
+}
+
+.neon-spider__node:nth-child(3n+1) { --nc: var(--vc-cyan); }
+.neon-spider__node:nth-child(3n+2) { --nc: var(--vc-pink); }
+.neon-spider__node:nth-child(3n+3) { --nc: var(--vc-gold); }
+.neon-spider__link {
+  border-color: color-mix(in srgb, var(--nc, var(--neon-bright)) 62%, transparent);
+  box-shadow:
+    0 0 18px color-mix(in srgb, var(--nc, var(--neon-teal)) 42%, transparent),
+    inset 0 0 15px color-mix(in srgb, var(--nc, var(--neon-teal)) 22%, transparent);
+}
+.neon-spider__link:hover,
+.neon-spider__link:focus-visible {
+  border-color: var(--nc, var(--neon-bright));
+  box-shadow:
+    0 0 30px color-mix(in srgb, var(--nc, var(--neon-bright)) 72%, transparent),
+    inset 0 0 20px color-mix(in srgb, var(--nc, var(--neon-bright)) 34%, transparent);
+}
+.neon-spider__dot { background: var(--nc, var(--neon-bright)); box-shadow: 0 0 12px var(--nc, var(--neon-bright)); }
+
+.neon-spider:not(.is-noscript) .neon-spider__node {
+  transition: transform 540ms cubic-bezier(0.34, 1.5, 0.5, 1), opacity 340ms ease;
+  transition-delay: calc(var(--i) * var(--neon-stagger));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .neon-spider:not(.is-noscript).is-open .neon-spider__node .neon-spider__link {
+    animation: neonNodeOn 0.55s ease;
+    animation-delay: calc(var(--i) * var(--neon-stagger) + 0.28s);
+  }
+}
+@keyframes neonNodeOn {
+  0%   { box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+  35%  { box-shadow: 0 0 38px var(--nc), inset 0 0 22px color-mix(in srgb, var(--nc) 40%, transparent); }
+  50%  { box-shadow: 0 0 6px var(--nc), inset 0 0 8px rgba(0, 0, 0, 0); }
+  75%  { box-shadow: 0 0 28px var(--nc), inset 0 0 18px color-mix(in srgb, var(--nc) 30%, transparent); }
+}
+
+/* Light stage → lighten the hub core so the title reads on cream */
+body.quarto-light .neon-spider__hub {
+  border-color: var(--vc-cyan);
+  background: radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.72), #fff4ec 70%);
+}
+body.quarto-light .neon-spider__hub-title {
+  background: linear-gradient(96deg, #0a7686, #c2166b 55%, #d2691e);
+  -webkit-background-clip: text;
+          background-clip: text;
+  filter: none;
+}
+body.quarto-light .neon-spider__hub-state { color: #0a7686; text-shadow: none; }
+body.quarto-light .neon-spider.is-open .neon-spider__hub-state { color: #d2691e; }
 
 /* -- MOBILE / NARROW: shrink the ring, then drop to a readable grid -- */
 @media (max-width: 720px) {
@@ -1736,7 +1931,7 @@ body.quarto-light .neon-spider:not(.is-noscript).is-open .neon-spider__traces li
   padding: 1.75rem 1.5rem 1.4rem;
   border-radius: var(--radius-lg);
   text-align: center;
-  background: radial-gradient(120% 90% at 50% 0%, #fbf7ec 0%, #f4efe4 45%, #ece4d2 100%);
+  background: radial-gradient(120% 90% at 50% 0%, #fff4ec 0%, #f4efe4 45%, #ece4d2 100%);
   border: 1px solid rgba(0, 0, 0, 0.10);
   box-shadow: var(--shadow-lg);
   overflow: hidden;
@@ -2149,52 +2344,52 @@ body.quarto-light .neon-spider:not(.is-noscript).is-open .neon-spider__traces li
    Dark is the default; this warm-sand companion keeps the same
    teal + clay accent DNA, deepened for contrast on a pale bg.
    ============================================================= */
-html:has(body.quarto-light) { background: #f3e7d2; }
+html:has(body.quarto-light) { background: #ffe9e1; }
 
 body.quarto-light {
-  /* warm-sand backgrounds */
-  --bg-0: #f7f0e1;
-  --bg-1: #f3e7d2;
-  /* accents deepened so they read on cream */
-  --teal: #0e8d7d;
-  --teal-bright: #0a7568;
-  --teal-rgb: 14, 141, 125;
-  --salmon: #c75b43;
-  --salmon-soft: #b34a33;
-  --salmon-rgb: 199, 91, 67;
+  /* Miami sunset — warm daytime Vice City (replaces the sand/teal "desert day").
+     Two-tone: aqua secondary (--teal) + hot-pink primary (--salmon). */
+  --bg-0: #fff4ec;
+  --bg-1: #ffe9e1;
+  --teal: #0c93a8;
+  --teal-bright: #0e9fb8;
+  --teal-rgb: 12, 147, 168;
+  --salmon: #e21585;
+  --salmon-soft: #b3115f;
+  --salmon-rgb: 226, 21, 133;
   /* ink */
-  --ink: #21302b;
-  --muted: #4b5a53;
-  --dim: #74837a;
+  --ink: #35222f;
+  --muted: #7a5c6b;
+  --dim: #a08592;
   /* surfaces */
-  --card: rgba(255, 255, 255, 0.62);
-  --card-2: rgba(255, 255, 255, 0.88);
-  --line: rgba(40, 64, 52, 0.16);
-  --shadow: 0 10px 28px rgba(60, 70, 60, 0.12);
-  --shadow-lg: 0 22px 48px rgba(60, 70, 60, 0.16);
-  /* hover-lift, softened for cream (teal-rgb above is already the deepened day value) */
+  --card: rgba(255, 255, 255, 0.6);
+  --card-2: rgba(255, 255, 255, 0.86);
+  --line: rgba(226, 21, 133, 0.16);
+  --shadow: 0 10px 28px rgba(80, 40, 60, 0.12);
+  --shadow-lg: 0 22px 48px rgba(80, 40, 60, 0.16);
+  /* hover-lift → aqua ring + pink glow (the two-tone) */
   --lift-shadow:
-    0 16px 34px rgba(60, 70, 60, 0.16),
-    0 0 0 1px rgba(var(--teal-rgb), 0.40),
-    0 0 20px 2px rgba(var(--teal-rgb), 0.20);
+    0 16px 34px rgba(80, 40, 60, 0.16),
+    0 0 0 1px rgba(var(--teal-rgb), 0.42),
+    0 0 22px 2px rgba(var(--salmon-rgb), 0.22);
   color: var(--ink);
 }
 
 body.quarto-light::before {
   background:
-    radial-gradient(1100px 560px at 8% -10%, rgba(14, 141, 125, 0.10), transparent 60%),
-    radial-gradient(1000px 520px at 112% 4%, rgba(199, 91, 67, 0.10), transparent 60%),
-    radial-gradient(900px 600px at 50% 120%, rgba(217, 138, 61, 0.09), transparent 60%),
-    linear-gradient(180deg, #fbf7ec 0%, #f1e3cd 100%);
+    radial-gradient(1100px 560px at 8% -10%, rgba(255, 106, 61, 0.15), transparent 60%),
+    radial-gradient(1000px 520px at 112% 4%, rgba(12, 147, 168, 0.13), transparent 60%),
+    radial-gradient(900px 600px at 50% 120%, rgba(226, 21, 133, 0.12), transparent 62%),
+    linear-gradient(180deg, #fff4ec 0%, #ffe9e1 100%);
 }
 
 /* Navbar */
 body.quarto-light .navbar {
   background: rgba(251, 247, 237, 0.82) !important;
-  border-bottom: 1px solid rgba(14, 141, 125, 0.18);
+  border-bottom: 1px solid rgba(12, 147, 168, 0.18);
 }
 body.quarto-light .navbar .navbar-brand,
-body.quarto-light .navbar .nav-link { color: #21302b !important; }
+body.quarto-light .navbar .nav-link { color: #35222f !important; }
 body.quarto-light .navbar .nav-link:hover,
 body.quarto-light .navbar .nav-link:focus { color: var(--teal-bright) !important; }
 
@@ -2204,7 +2399,7 @@ body.quarto-light footer.footer,
 body.quarto-light .nav-footer {
   background: rgba(243, 231, 210, 0.92) !important;
   color: var(--dim) !important;
-  border-top: 1px solid rgba(14, 141, 125, 0.16);
+  border-top: 1px solid rgba(12, 147, 168, 0.16);
 }
 body.quarto-light .page-footer a,
 body.quarto-light footer.footer a,
@@ -2213,25 +2408,25 @@ body.quarto-light .nav-footer a { color: var(--teal-bright) !important; }
 /* Nav cards: give the tinted variants a solid light base + keep ink on hover */
 body.quarto-light .card-about,
 body.quarto-light .card-visualizations {
-  background: linear-gradient(160deg, rgba(14, 141, 125, 0.14), rgba(255, 255, 255, 0.74));
-  border-color: rgba(14, 141, 125, 0.3);
+  background: linear-gradient(160deg, rgba(12, 147, 168, 0.14), rgba(255, 255, 255, 0.74));
+  border-color: rgba(12, 147, 168, 0.3);
 }
 body.quarto-light .card-about:hover,
 body.quarto-light .card-visualizations:hover {
-  border-color: rgba(14, 141, 125, 0.6);
-  background: linear-gradient(160deg, rgba(14, 141, 125, 0.2), rgba(255, 255, 255, 0.9));
-  box-shadow: 0 16px 38px rgba(14, 141, 125, 0.18);
+  border-color: rgba(12, 147, 168, 0.6);
+  background: linear-gradient(160deg, rgba(12, 147, 168, 0.2), rgba(255, 255, 255, 0.9));
+  box-shadow: 0 16px 38px rgba(12, 147, 168, 0.18);
 }
 body.quarto-light .card-projects,
 body.quarto-light .card-resume {
-  background: linear-gradient(160deg, rgba(199, 91, 67, 0.14), rgba(255, 255, 255, 0.74));
-  border-color: rgba(199, 91, 67, 0.3);
+  background: linear-gradient(160deg, rgba(226, 21, 133, 0.14), rgba(255, 255, 255, 0.74));
+  border-color: rgba(226, 21, 133, 0.3);
 }
 body.quarto-light .card-projects:hover,
 body.quarto-light .card-resume:hover {
-  border-color: rgba(199, 91, 67, 0.6);
-  background: linear-gradient(160deg, rgba(199, 91, 67, 0.2), rgba(255, 255, 255, 0.9));
-  box-shadow: 0 16px 38px rgba(199, 91, 67, 0.18);
+  border-color: rgba(226, 21, 133, 0.6);
+  background: linear-gradient(160deg, rgba(226, 21, 133, 0.2), rgba(255, 255, 255, 0.9));
+  box-shadow: 0 16px 38px rgba(226, 21, 133, 0.18);
 }
 body.quarto-light .card:hover,
 body.quarto-light .contact:hover { color: var(--ink); }
@@ -2242,22 +2437,22 @@ body.quarto-light .cap-card .cap-ico { filter: drop-shadow(0 2px 4px rgba(40, 60
 
 /* Code */
 body.quarto-light main code,
-body.quarto-light main pre { background: rgba(14, 141, 125, 0.10); color: var(--teal-bright); }
+body.quarto-light main pre { background: rgba(12, 147, 168, 0.10); color: var(--teal-bright); }
 
 /* Parallax band: text sits on a dark gradient over a photo — keep it light
    in BOTH themes (var(--ink)/(--muted) would turn it dark on the photo). */
 body.quarto-light .field-parallax .fp-overlay h2 { color: #ffffff; }
 body.quarto-light .field-parallax .fp-overlay p { color: #e9eeec; }
 body.quarto-light .field-parallax .fp-overlay .eyebrow {
-  color: #8fe6d6;
-  border-color: rgba(143, 230, 214, 0.4);
-  background: rgba(143, 230, 214, 0.10);
+  color: #7ff1f3;
+  border-color: rgba(127, 241, 243, 0.4);
+  background: rgba(127, 241, 243, 0.10);
 }
 
 /* Sprout specimen card: add a touch more definition so the cream card
    still lifts off the cream page. */
 body.quarto-light .sprout-stage {
-  border-color: rgba(40, 64, 52, 0.18);
+  border-color: rgba(226, 21, 133, 0.18);
   box-shadow: 0 16px 42px rgba(60, 70, 60, 0.18);
 }
 
@@ -2308,7 +2503,7 @@ body.quarto-light .lightbox .lb-caption {
 }
 
 /* Quarto color-scheme toggle: match nav text */
-body.quarto-light .navbar .quarto-color-scheme-toggle { color: #21302b; }
+body.quarto-light .navbar .quarto-color-scheme-toggle { color: #35222f; }
 
 /* =============================================================
    Persistent "watcher" mascot (ported from desertdatalabs.com)
@@ -2785,14 +2980,14 @@ body.quarto-light .watcher-bubble {
 .proj-more img { max-width: 100%; height: auto; }
 
 body.quarto-light .proj-more {
-  border-color: rgba(14, 141, 125, 0.22);
+  border-color: rgba(12, 147, 168, 0.22);
   background: rgba(255, 255, 255, 0.6);
 }
 body.quarto-light .proj-more[open] {
-  border-color: rgba(14, 141, 125, 0.5);
+  border-color: rgba(12, 147, 168, 0.5);
   background: rgba(240, 248, 237, 0.9);
 }
-body.quarto-light .proj-more > summary { color: #0a7568; }
+body.quarto-light .proj-more > summary { color: #0a7686; }
 
 @media (hover: none) {
   .watcher .holo { opacity: 0.4; }
