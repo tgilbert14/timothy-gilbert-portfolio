@@ -108,13 +108,63 @@ p, li {
 hr {
   border: none;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--line), transparent);
+  background: linear-gradient(90deg,
+    transparent, rgba(45, 226, 230, 0.5) 18%, rgba(255, 45, 149, 0.45) 82%, transparent);
+  box-shadow: 0 0 12px rgba(45, 226, 230, 0.18), 0 0 18px rgba(255, 45, 149, 0.12);
   margin: 2.25rem 0;
 }
+body.quarto-light hr {
+  background: linear-gradient(90deg,
+    transparent, rgba(8, 122, 142, 0.45) 18%, rgba(209, 20, 125, 0.4) 82%, transparent);
+  box-shadow: none;             /* glow reads as a smudge on cream */
+}
+/* Content h2s end in flatly's stock gray border — swap for a gradient hairline
+   that echoes the divider/hero-horizon motif (text itself stays un-clipped). */
+#quarto-document-content h2 {
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg,
+    rgba(var(--teal-rgb), 0.55), rgba(var(--salmon-rgb), 0.3) 60%, transparent) 1;
+  padding-bottom: 0.35rem;
+}
+#quarto-document-content .explore-text h2 { border-image: none; padding-bottom: 0; }
 
 ::selection {
   background: rgba(var(--teal-rgb), 0.3);
   color: #fff;
+}
+/* Light theme: white-on-pale selection was ~1.5:1 — ink on a soft pink wash */
+body.quarto-light ::selection {
+  background: rgba(226, 21, 133, 0.22);
+  color: var(--ink);
+}
+
+/* Site-wide neon focus-visible ring — :where() keeps specificity 0 so every
+   bespoke ring (nav, spider, radio) still wins; cyan on dark, magenta on cream. */
+:where(a, button, summary, [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: 2px solid var(--vc-cyan);
+  outline-offset: 3px;
+}
+body.quarto-light :where(a, button, summary, [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline-color: #b3115f;       /* ~5.9:1 on cream (cyan reads ~1.6:1) */
+}
+
+/* Neon-themed scrollbar (the one un-themed surface on a Vice City site) */
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: #0a0e26; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--vc-cyan), var(--vc-pink));
+  border-radius: 8px;
+  border: 3px solid #0a0e26;
+}
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #7ff1f3, #ff5aa8); }
+html:has(body.quarto-light)::-webkit-scrollbar-track { background: #f3e0d6; }
+html:has(body.quarto-light)::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #087a8e, #d1147d);
+  border-color: #f3e0d6;
+}
+@supports (scrollbar-width: thin) and (not (selector(::-webkit-scrollbar))) {
+  html { scrollbar-width: thin; scrollbar-color: #21b8c4 #0a0e26; }
+  html:has(body.quarto-light) { scrollbar-color: #087a8e #f3e0d6; }
 }
 
 /* Quarto content tables / code, defensive against flatly's light defaults */
@@ -2357,9 +2407,9 @@ body.quarto-light {
      Two-tone: aqua secondary (--teal) + hot-pink primary (--salmon). */
   --bg-0: #fff4ec;
   --bg-1: #ffe9e1;
-  --teal: #0c93a8;
-  --teal-bright: #0e9fb8;
-  --teal-rgb: 12, 147, 168;
+  --teal: #087a8e;              /* deepened from #0c93a8 for AA contrast on cream */
+  --teal-bright: #077286;       /* deepened from #0e9fb8 (~2.96:1 -> ~5.3:1 links/code) */
+  --teal-rgb: 12, 147, 168;     /* unchanged: feeds decorative tints/glows only */
   --salmon: #e21585;
   --salmon-soft: #b3115f;
   --salmon-rgb: 226, 21, 133;
@@ -3026,75 +3076,58 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   -webkit-tap-highlight-color: transparent;
 }
 
-/* ---- Launcher: a mini-boombox that pulses to catch the eye (collapsed) ---- */
+/* ---- Launcher: the OSD readout chip (a little screen you tap) — the
+   reference-HUD look: cyan-bordered dark glass, gold call sign, live REC
+   dot, and the scrolling now-playing ticker. No device chrome. ---- */
 .vhs-radio__toggle {
   position: relative;
   display: flex;
-  align-items: center;
-  gap: 7px;
-  width: 152px;
-  height: 52px;
-  padding: 0 10px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  width: 158px;
+  min-height: 42px;
+  padding: 5px 9px;
   box-sizing: border-box;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  border-radius: 11px 11px 9px 9px;             /* flatter bottom = sits on a surface */
-  background: linear-gradient(180deg, #39404f 0%, #262b3a 44%, #181c28 100%);
+  border-radius: 6px;
+  background:
+    radial-gradient(120% 100% at 50% 0%, rgba(45, 226, 230, 0.08), transparent 60%),
+    linear-gradient(180deg, #071018 0%, #04080f 100%);
+  border: 1px solid rgba(45, 226, 230, 0.55);
+  border-left: 2px solid var(--acc);            /* tuned-tick, matches the deck screen */
   color: #ffe9f6;
   cursor: pointer;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    inset 0 -3px 7px rgba(0, 0, 0, 0.5),
-    0 8px 20px rgba(0, 0, 0, 0.5),
-    0 0 16px -6px var(--acc);
-  animation: bb-pulse 2.6s ease-in-out infinite; /* the eye-catcher */
-  will-change: box-shadow;
-  transition: transform 0.16s ease;
+    inset 0 0 10px rgba(45, 226, 230, 0.12),
+    0 6px 16px rgba(0, 0, 0, 0.45),
+    0 0 14px -4px var(--acc);
+  transition: transform 0.16s ease, box-shadow 0.2s ease;
 }
-.vhs-radio__toggle:hover { transform: translateY(-1px); }
+.vhs-radio__toggle:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 0 10px rgba(45, 226, 230, 0.16),
+    0 8px 18px rgba(0, 0, 0, 0.5),
+    0 0 18px -3px var(--acc);
+}
 .vhs-radio__toggle:focus-visible { outline: 2px solid var(--acc2); outline-offset: 3px; }
-/* carry-handle arc */
+/* faint scanlines over the glass */
 .vhs-radio__toggle::before {
   content: "";
   position: absolute;
-  top: -8px; left: 50%; transform: translateX(-50%);
-  width: 56px; height: 14px;
-  border: 2px solid #2b3141; border-bottom: none;
-  border-radius: 9px 9px 0 0;
-  box-shadow: 0 0 6px -2px var(--acc);
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: repeating-linear-gradient(0deg, rgba(45, 226, 230, 0.05) 0 1px, transparent 1px 2px);
 }
-@keyframes bb-pulse {
-  0%, 100% { box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.18), inset 0 -3px 7px rgba(0,0,0,.5),
-    0 8px 20px rgba(0,0,0,.5),
-    0 0 16px -6px var(--acc),
-    0 0 0 0 color-mix(in srgb, var(--acc) 50%, transparent); }
-  50% { box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.18), inset 0 -3px 7px rgba(0,0,0,.5),
-    0 10px 24px rgba(0,0,0,.55),
-    0 0 28px -3px var(--acc),
-    0 0 0 7px color-mix(in srgb, var(--acc) 0%, transparent); }  /* sonar ring pushes out + fades */
-}
-/* speaker dots */
-.bb-spk {
-  width: 20px; height: 20px; border-radius: 50%; flex: none;
-  background:
-    radial-gradient(circle at 50% 50%, #05070d 0 18%, transparent 18%),
-    repeating-radial-gradient(circle at 50% 50%, #0a0d16 0 2px, #232a3a 2px 3.4px),
-    #0c0f18;
-  box-shadow: inset 0 0 0 2px #2a3040, inset 0 0 8px #000, 0 0 6px -2px var(--acc);
-}
-/* OSD readout slit */
+/* structural only now — the button itself is the OSD glass */
 .bb-osd {
-  position: relative; flex: 1; min-width: 0; height: 30px; overflow: hidden;
-  background: #05121a;
-  border: 1px solid var(--acc); border-left: 2px solid var(--acc);
-  border-radius: 4px; padding: 0 5px;
-  box-shadow: inset 0 0 8px rgba(45, 226, 230, 0.18), inset 0 0 0 1px rgba(0, 0, 0, 0.5);
-  display: flex; flex-direction: column; justify-content: center; gap: 2px;
-}
-.bb-osd::before {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: repeating-linear-gradient(0deg, rgba(45, 226, 230, 0.06) 0 1px, transparent 1px 2px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  min-width: 0;
 }
 .bb-freq {
   font-size: 10px; font-weight: 700; letter-spacing: 0.03em; line-height: 1.05;
@@ -3112,26 +3145,28 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
 @keyframes bb-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .bb-rec {
   position: absolute; top: 5px; right: 6px; width: 5px; height: 5px; border-radius: 50%;
-  background: #ff2d2d; box-shadow: 0 0 6px #ff2d2d; z-index: 2;
+  background: #ff2d2d; box-shadow: 0 0 6px #ff2d2d, 0 0 0 2px #14171f; z-index: 2;
   animation: bb-rec 1.2s steps(1) infinite;
 }
 @keyframes bb-rec { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0.15; } }
 .vhs-radio.is-open .vhs-radio__toggle { display: none; }
 
-/* ---- The deck (expanded) — a molded-plastic boombox ---- */
+/* ---- The deck (expanded): a slim OSD panel around the screen ---- */
 .vhs-radio__deck {
-  width: 300px;
-  border-radius: 16px 16px 12px 12px;
-  padding: 8px 10px 10px;
-  background: linear-gradient(180deg, #39404f 0%, #262b3a 42%, #181c28 100%);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  width: 240px;
+  border-radius: 14px;
+  padding: 8px;
+  background:
+    linear-gradient(200deg, #241041 0%, #150a2e 46%, #0b0620 100%);
+  border: 1px solid rgba(255, 45, 149, 0.4);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    inset 0 -3px 8px rgba(0, 0, 0, 0.55),
-    0 18px 42px rgba(0, 0, 0, 0.55),
-    0 0 30px -8px var(--acc);                 /* per-station rim-light */
+    0 18px 44px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(45, 226, 230, 0.12),
+    0 0 30px -8px var(--acc),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.5);
   position: relative;
-  overflow: visible;                          /* let the carry handle sit above */
+  overflow: hidden;
   transform-origin: top right;
   animation: vhsDeckIn 0.28s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
 }
@@ -3139,46 +3174,17 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   from { opacity: 0; transform: translateY(-8px) scale(0.9); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
-/* reflective-plastic diagonal sheen (rounded to its own box, so no clip needed) */
+/* faint scanlines across the deck face */
 .vhs-radio__deck::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
   border-radius: inherit;
-  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, 0.08) 45%, transparent 60%);
-}
-/* carry handle arc above the body */
-.vhs-radio__handle {
-  position: absolute;
-  top: -11px; left: 50%; transform: translateX(-50%);
-  width: 118px; height: 22px;
-  border: 3px solid #2b3141; border-bottom: none;
-  border-radius: 14px 14px 0 0;
-  box-shadow: 0 0 8px -3px var(--acc);
-  z-index: 0;
-}
-/* the speaker-flanked middle row */
-.vhs-radio__deckrow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  position: relative;
-  z-index: 1;
-}
-/* concentric-ring speaker driver (pure CSS, zero images) */
-.vhs-radio__grille {
-  width: 44px; height: 44px; border-radius: 50%; flex: none;
-  background:
-    radial-gradient(circle at 50% 50%, #05070d 0 6%, transparent 6%),
-    repeating-radial-gradient(circle at 50% 50%, #0a0d16 0 2.4px, #232838 2.4px 4.4px, #0a0d16 4.4px 5.4px),
-    radial-gradient(circle at 38% 32%, rgba(255, 255, 255, 0.14), transparent 45%),
-    #0c0f18;
-  box-shadow:
-    inset 0 0 0 3px #2a3040,
-    inset 0 0 14px #000,
-    inset 0 3px 6px rgba(255, 255, 255, 0.07),
-    0 0 8px -2px var(--acc);
+  background: repeating-linear-gradient(
+    0deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 3px);
+  mix-blend-mode: overlay;
+  opacity: 0.5;
 }
 
 .vhs-radio__top {
@@ -3221,7 +3227,12 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
     linear-gradient(180deg, #071018 0%, #04080f 100%);
   border: 1px solid rgba(45, 226, 230, 0.28);
   border-left: 2px solid var(--acc);           /* tuned-tick, matches the launcher */
-  box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(0, 0, 0, 0.4);
+  box-shadow:
+    inset 0 2px 5px rgba(0, 0, 0, 0.65),
+    inset 0 0 18px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.4),
+    0 1px 0 rgba(255, 255, 255, 0.55),
+    0 0 10px -3px var(--acc);
   overflow: hidden;
   z-index: 1;
 }
@@ -3316,10 +3327,11 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
 }
 .vhs-radio__eq i {
   flex: 1;
-  height: 12%;
+  height: 100%;
   border-radius: 1px;
   background: linear-gradient(180deg, var(--acc), var(--acc2));
   opacity: 0.28;
+  transform: scaleY(0.12);                       /* transform, not height (no layout thrash) */
   transform-origin: bottom;
 }
 .vhs-radio.is-playing .vhs-radio__eq i {
@@ -3337,10 +3349,10 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
 .vhs-radio__eq i:nth-child(9) { animation-delay: -0.3s; }
 .vhs-radio__eq i:nth-child(10) { animation-delay: -0.5s; }
 @keyframes vhsEq {
-  0%, 100% { height: 18%; }
-  25% { height: 92%; }
-  50% { height: 42%; }
-  75% { height: 70%; }
+  0%, 100% { transform: scaleY(0.18); }
+  25% { transform: scaleY(0.92); }
+  50% { transform: scaleY(0.42); }
+  75% { transform: scaleY(0.70); }
 }
 
 /* ---- Controls ---- */
@@ -3363,7 +3375,8 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   letter-spacing: 0.08em;
   cursor: pointer;
   padding: 0.44rem 0.5rem;
-  /* molded, pressable plastic key */
+  min-height: 34px;
+  /* molded, pressable dark key */
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), inset 0 -2px 4px rgba(0, 0, 0, 0.45), 0 2px 5px rgba(0, 0, 0, 0.35);
   transition: transform 0.12s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
 }
@@ -3371,7 +3384,7 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   transform: translateY(-1px);
   border-color: var(--acc);
   color: #fff;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 0 14px rgba(255, 45, 149, 0.4);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 0 14px -2px var(--acc);
 }
 .vhs-radio__btn:active {
   transform: translateY(1px);
@@ -3390,18 +3403,15 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
 /* Mobile: shrink the deck, keep it clear of the thumb-heavy bottom. */
 @media (max-width: 560px) {
   .vhs-radio { top: 60px; right: 8px; }
-  .vhs-radio__deck { width: 244px; }
-  .vhs-radio__grille { width: 38px; height: 38px; }
-  .vhs-radio__handle { width: 92px; }
-  .vhs-radio__toggle { width: 134px; }
+  .vhs-radio__deck { width: 220px; }
+  .vhs-radio__toggle { width: 140px; }
   /* the EQ bars + Playing button carry the "live" signal here — drop the text */
   .vhs-radio__onair { display: none; }
 }
 
-/* Dark boombox floats on the Miami-cream light theme — ground it with a
-   drop-shadow + a faint dark hairline so it reads as a solid object. */
+/* The dark OSD glass floats on the Miami-cream light theme — ground it with a
+   drop-shadow; the chip keeps its cyan border (reads fine on cream). */
 body.quarto-light .vhs-radio { filter: drop-shadow(0 6px 16px rgba(40, 15, 45, 0.28)); }
-body.quarto-light .vhs-radio__toggle,
 body.quarto-light .vhs-radio__deck { border-color: rgba(20, 10, 30, 0.25); }
 
 /* Motion-safe: no launcher pulse, marquee, EQ, static churn, or deck spring
@@ -3409,12 +3419,12 @@ body.quarto-light .vhs-radio__deck { border-color: rgba(20, 10, 30, 0.25); }
    keeps one calm opacity fade so the launcher still reads as "live / tap me". */
 @media (prefers-reduced-motion: reduce) {
   .vhs-radio__deck { animation: none; }
-  .vhs-radio__toggle { animation: none; }
   .bb-tick span { animation: none; }
+  /* the REC dot keeps one calm fade so the chip still reads live-tap-me */
   .bb-rec { animation: bb-fade 3s ease-in-out infinite; }
   @keyframes bb-fade { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
   .vhs-radio.is-playing .vhs-radio__marq { animation: none; padding-left: 0; }
-  .vhs-radio.is-playing .vhs-radio__eq i { animation: none; height: 55%; }
+  .vhs-radio.is-playing .vhs-radio__eq i { animation: none; transform: scaleY(0.55); }
   .vhs-radio.is-playing .vhs-radio__onair { animation: none; }
 }
 

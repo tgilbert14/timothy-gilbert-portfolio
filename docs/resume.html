@@ -1350,32 +1350,25 @@ ul.task-list li input[type="checkbox"] {
   root.innerHTML =
     '<button class="vhs-radio__toggle" data-vhs-toggle aria-expanded="false" aria-label="Open the SYNTH-FM radio">' +
       '<span class="bb-rec" aria-hidden="true"></span>' +
-      '<span class="bb-spk" aria-hidden="true"></span>' +
       '<span class="bb-osd" aria-hidden="true">' +
-        '<span class="bb-freq" data-vhs-lfreq>99.9 FM</span>' +
+        '<span class="bb-freq">SYNTH&#183;FM<b data-vhs-lfreq>99.9 FM</b></span>' +
         '<span class="bb-tick"><span data-vhs-lname>SUNSET DRIVE &#183; Chrome Horizon &#183; </span></span>' +
       '</span>' +
-      '<span class="bb-spk" aria-hidden="true"></span>' +
     '</button>' +
     '<div class="vhs-radio__deck" data-vhs-deck role="region" aria-label="SYNTH-FM synthwave radio" hidden>' +
-      '<span class="vhs-radio__handle" aria-hidden="true"></span>' +
       '<div class="vhs-radio__top">' +
         '<span class="vhs-radio__brand">&#9673; SYNTH-FM</span>' +
         '<button class="vhs-radio__close" data-vhs-close aria-label="Close radio">&#10005;</button>' +
       '</div>' +
-      '<div class="vhs-radio__deckrow">' +
-        '<span class="vhs-radio__grille" aria-hidden="true"></span>' +
-        '<div class="vhs-radio__screen">' +
-          '<canvas class="vhs-radio__static" data-vhs-static width="120" height="66" aria-hidden="true"></canvas>' +
-          '<div class="vhs-radio__screen-row">' +
-            '<span class="vhs-radio__ch" data-vhs-ch>CH 01</span>' +
-            '<span class="vhs-radio__freq" data-vhs-freq>99.9 FM</span>' +
-            '<span class="vhs-radio__onair" data-vhs-onair>&#9679; STANDBY</span>' +
-          '</div>' +
-          '<div class="vhs-radio__name"><span class="vhs-radio__marq" data-vhs-name>press play to tune in</span></div>' +
-          '<div class="vhs-radio__eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>' +
+      '<div class="vhs-radio__screen">' +
+        '<canvas class="vhs-radio__static" data-vhs-static width="120" height="66" aria-hidden="true"></canvas>' +
+        '<div class="vhs-radio__screen-row">' +
+          '<span class="vhs-radio__ch" data-vhs-ch>CH 01</span>' +
+          '<span class="vhs-radio__freq" data-vhs-freq>99.9 FM</span>' +
+          '<span class="vhs-radio__onair" data-vhs-onair>&#9679; STANDBY</span>' +
         '</div>' +
-        '<span class="vhs-radio__grille" aria-hidden="true"></span>' +
+        '<div class="vhs-radio__name"><span class="vhs-radio__marq" data-vhs-name>press play to tune in</span></div>' +
+        '<div class="vhs-radio__eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>' +
       '</div>' +
       '<div class="vhs-radio__controls">' +
         '<button class="vhs-radio__btn vhs-radio__power" data-vhs-power aria-pressed="false">&#9205; Tune In</button>' +
@@ -1413,35 +1406,45 @@ ul.task-list li input[type="checkbox"] {
         { pad: ['C3','G3','C4','E4'], root: 'C2' },
         { pad: ['G2','D3','G3','B3'], root: 'G1' }
       ] },
-    { num: '02', freq: '104.5', name: 'MIAMI HEAT', genre: 'synthwave', track: 'Customs After Dark · The Passport Club',
-      acc: '#ff6a3d', acc2: '#ffd24a', bpm: 112, kick: 1, snare: 1, hats: 1, lead: 0,
+    /* Anthem synth-pop — 80s "forever young" flavor (original), golden-nostalgia palette */
+    { num: '02', freq: '104.5', name: 'GOLDEN HOUR', genre: 'Anthem Synth-Pop', track: "'Golden While It Lasts' · Novaville",
+      acc: '#f5c14e', acc2: '#8b8cf0', bpm: 100, kick: 1, snare: 1, hats: 1, lead: 1, padCut: 1800, drive: 0.25, crackle: 0.35,
       chords: [
-        { pad: ['D2','A2','D3','F3'],  root: 'D1' },
-        { pad: ['A#2','F3','A#3','D4'], root: 'A#1' },
-        { pad: ['F2','C3','F3','A3'],  root: 'F1' },
-        { pad: ['A2','E3','A3','C4'],  root: 'A1' }
+        { pad: ['F#3','B3','D4','F#4'], root: 'B2' },
+        { pad: ['G3','B3','D4','G4'],   root: 'G2' },
+        { pad: ['A3','D4','F#4','A4'],  root: 'D2' },
+        { pad: ['E3','A3','C#4','E4'],  root: 'A2' }
       ] },
-    { num: '03', freq: '120.0', name: 'VICE GRID', genre: 'synthwave', track: 'Open Water Drive · Konvoy 86',
-      acc: '#2de2e6', acc2: '#ff2d95', bpm: 126, kick: 1, snare: 1, hats: 1, lead: 0,
+    /* Anime symphonic metal — AoT/Babymetal energy (original): drop-tuned E-phrygian
+       weight under a bright kawaii top hook; gallop kick, relentless arp, hook every bar */
+    { num: '03', freq: '88.8', name: 'TITAN BLOOM', genre: 'Anime Symphonic Metal', track: "'Requiem for the Falling Sky' · KAGURA//ZERO",
+      acc: '#ff2f92', acc2: '#5b16ff', bpm: 160, kick: 1, snare: 1, hats: 1, lead: 1,
+      padCut: 2800, drive: 0.6, crackle: 0.08, tone: { type: 'highpass', freq: 60, q: 0.7, makeup: 1.0 },
+      kickPat:  [1,0,1,1, 1,0,1,1, 1,0,1,1, 1,0,1,1],
+      snarePat: [0,0,0,0, 1,0,0,0, 0,0,0,0, 1,0,0,1],
+      hatPat:   [1,1,1,1, 1,1,2,1, 1,1,1,1, 1,1,2,1],
+      bassSteps: [0,3,4,7, 8,11,12,15],
+      arpSkip: [],
+      leadSteps: [0,6,10,14], leadBars: 'all',
       chords: [
-        { pad: ['E2','B2','E3','G3'],  root: 'E1' },
-        { pad: ['C3','G3','C4','E4'],  root: 'C2' },
-        { pad: ['G2','D3','G3','B3'],  root: 'G1' },
-        { pad: ['D3','A3','D4','F#4'], root: 'D2' }
+        { pad: ['B2','E3','G3','B3'], root: 'E2' },
+        { pad: ['C3','E3','G3','C4'], root: 'C2' },
+        { pad: ['D3','F#3','A3','D4'], root: 'D2' },
+        { pad: ['C3','F3','A3','C4'], root: 'F2' }
       ] },
     /* ---- Vice City oldies (80s Miami synth-pop) — brighter pad ---- */
     { num: '04', freq: '103.5', name: 'SUNSET AND OCEAN', genre: 'oldies', track: 'Chrome & Coral · Lita Marquez',
-      acc: '#ffb347', acc2: '#38e1c6', bpm: 108, kick: 1, snare: 1, hats: 1, lead: 1, padCut: 2200,
+      acc: '#ffb347', acc2: '#38e1c6', bpm: 108, kick: 1, snare: 1, hats: 1, lead: 1, padCut: 2800,
       chords: [
         { pad: ['C3','E3','G3','B3'], root: 'C2' },
         { pad: ['A2','E3','G3','B3'], root: 'A1' },
         { pad: ['F2','A2','C3','E3'], root: 'F1' },
-        { pad: ['G2','D3','G3','C4'], root: 'G1' }
+        { pad: ['G2','D3','G3','B3'], root: 'G1' }
       ] },
     { num: '05', freq: '98.7', name: 'MIAMI AFTER DARK', genre: 'oldies', track: 'Neon Tide · The Biscayne Set',
-      acc: '#ff5e8a', acc2: '#22c3e6', bpm: 104, kick: 1, snare: 1, hats: 1, lead: 1, padCut: 2200,
+      acc: '#ff5e8a', acc2: '#22c3e6', bpm: 104, kick: 1, snare: 1, hats: 1, lead: 1, padCut: 2800,
       chords: [
-        { pad: ['D3','E3','A3','D4'],  root: 'D2' },
+        { pad: ['D3','A3','D4','E4'],  root: 'D2' },
         { pad: ['B2','D3','F#3','A3'], root: 'B1' },
         { pad: ['G2','B2','D3','F#3'], root: 'G1' },
         { pad: ['A2','E3','G3','D4'],  root: 'A1' }
@@ -1688,19 +1691,31 @@ ul.task-list li input[type="checkbox"] {
     var bar = Math.floor(s / 16) % st.chords.length;
     var i = s % 16;
     var chord = st.chords[bar];
-    if (st.kick && KICK[i]) vKick(t);
-    if (st.snare && SNARE[i]) vSnare(t);
-    if (st.hats && HAT[i]) vHat(t, HAT[i] === 2);
-    var bi = BASS.indexOf(i);
-    if (bi !== -1) vBass(t, freq(chord.root) * (bi % 2 ? 2 : 1), SPB * 1.8);
+    /* per-station pattern overrides (metal/oldies need different grooves) */
+    var kickPat = st.kickPat || KICK;
+    var snarePat = st.snarePat || SNARE;
+    var hatPat = st.hatPat || HAT;
+    var bassSteps = st.bassSteps || BASS;
+    var arpSkip = st.arpSkip || [3, 11];
+    var leadSteps = st.leadSteps || [0, 6, 10];
+    var leadBars = st.leadBars || 'odd';
+    if (st.kick && kickPat[i]) vKick(t);
+    if (st.snare && snarePat[i]) vSnare(t);
+    if (st.hats && hatPat[i]) vHat(t, hatPat[i] === 2);
+    var bi = bassSteps.indexOf(i);
+    if (bi !== -1) {
+      var gapSteps = (bassSteps[bi + 1] !== undefined ? bassSteps[bi + 1] : 16) - i;
+      vBass(t, freq(chord.root) * (bi % 2 ? 2 : 1), SPB * Math.min(1.8, Math.max(0.5, gapSteps * 0.9)));
+    }
     if (i === 0) vPad(t, chord.pad, SPB * 16);
-    /* arp: skip a couple slots per bar so it breathes */
-    if (i !== 3 && i !== 11) {
+    /* arp: skip slots so it breathes (or none, for relentless genres) */
+    if (arpSkip.indexOf(i) === -1) {
       var pad = chord.pad;
       var note = pad[ARPSEQ[i % ARPSEQ.length] % pad.length];
       vArp(t, freq(note) * 2);
     }
-    if (st.lead && bar % 2 === 1 && (i === 0 || i === 6 || i === 10)) {
+    var barOk = leadBars === 'all' || (leadBars === 'odd' ? bar % 2 === 1 : bar % 2 === 0);
+    if (st.lead && barOk && leadSteps.indexOf(i) !== -1) {
       vLead(t, freq(chord.pad[chord.pad.length - 1]) * 2, SPB * 3);
     }
   }
@@ -1733,8 +1748,11 @@ ul.task-list li input[type="checkbox"] {
   /* ---------- Static burst on tune ---------- */
   var sctx = elStatic ? elStatic.getContext('2d') : null;
   var bursting = false;
+  function reducedMotion() {
+    return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  }
   function burst() {
-    if (RM || !sctx || bursting) return;
+    if (reducedMotion() || !sctx || bursting) return;
     bursting = true;
     root.classList.add('is-bursting');
     if (on) blip();
