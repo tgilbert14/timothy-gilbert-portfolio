@@ -900,8 +900,6 @@
 <script>
 (function () {
   if (document.querySelector('[data-vhs]')) return;
-  var RM = window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- Build the deck DOM ---------- */
   var root = document.createElement('div');
@@ -1392,6 +1390,9 @@
     elDeck.hidden = false;
     if (start) setAudio(true);
     else applyUI();
+    /* the (focused) toggle just went display:none — without this, keyboard
+       focus falls to <body> and a tab restarts from the page top */
+    elPower.focus();
   }
   function closeDeck() {
     setAudio(false);

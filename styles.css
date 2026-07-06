@@ -138,13 +138,15 @@ body.quarto-light ::selection {
   color: var(--ink);
 }
 
-/* Site-wide neon focus-visible ring — :where() keeps specificity 0 so every
-   bespoke ring (nav, spider, radio) still wins; cyan on dark, magenta on cream. */
+/* Site-wide neon focus-visible ring — cyan on dark, magenta on cream. Both
+   selectors stay at (0,1,0) — the bare :focus-visible is the only specificity
+   (the theme scope is wrapped in :where() too) — so every bespoke ring
+   (nav, spider, radio keys) still wins. */
 :where(a, button, summary, [tabindex]:not([tabindex="-1"])):focus-visible {
   outline: 2px solid var(--vc-cyan);
   outline-offset: 3px;
 }
-body.quarto-light :where(a, button, summary, [tabindex]:not([tabindex="-1"])):focus-visible {
+:where(body.quarto-light) :where(a, button, summary, [tabindex]:not([tabindex="-1"])):focus-visible {
   outline-color: #b3115f;       /* ~5.9:1 on cream (cyan reads ~1.6:1) */
 }
 
@@ -3413,6 +3415,8 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
    drop-shadow; the chip keeps its cyan border (reads fine on cream). */
 body.quarto-light .vhs-radio { filter: drop-shadow(0 6px 16px rgba(40, 15, 45, 0.28)); }
 body.quarto-light .vhs-radio__deck { border-color: rgba(20, 10, 30, 0.25); }
+/* the chip's ring draws ON cream — per-station cyan can hit ~1.6:1 there */
+body.quarto-light .vhs-radio__toggle:focus-visible { outline-color: #b3115f; }
 
 /* Motion-safe: no launcher pulse, marquee, EQ, static churn, or deck spring
    for reduced-motion users. Audio itself stays fully available; the REC dot
