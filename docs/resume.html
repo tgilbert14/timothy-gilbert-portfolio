@@ -1339,6 +1339,14 @@ ul.task-list li input[type="checkbox"] {
      ============================================================ -->
 <script>
 (function () {
+  /* Neon reading-progress hairline (styled + scroll-driven in styles.css). */
+  if (!document.querySelector('.tg-progress')) {
+    var prog = document.createElement('div');
+    prog.className = 'tg-progress';
+    prog.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(prog);
+  }
+
   if (document.querySelector('[data-vhs]')) return;
 
   /* ---------- Build the deck DOM ---------- */
@@ -1516,6 +1524,9 @@ ul.task-list li input[type="checkbox"] {
   /* ---------- Audio engine ---------- */
   var ac = null, master = null, comp = null, musicBus = null, sfxBus = null;
   var delaySend = null, dly = null, noiseBuf = null;
+  /* live spectrum -> the 10 EQ bars (real audio, not a canned loop) */
+  var analyser = null, freqData = null, eqTimer = null;
+  var eqBars = [].slice.call(root.querySelectorAll('.vhs-radio__eq i'));
   /* per-station tone chain: musicBus -> shaper(drive) -> toneFilter -> toneOut(makeup) -> comp */
   var shaper = null, toneFilter = null, toneOut = null, crackleGain = null;
   var curPadCut = 1100;
@@ -1530,6 +1541,12 @@ ul.task-list li input[type="checkbox"] {
     comp = ac.createDynamicsCompressor();
     comp.threshold.value = -20; comp.knee.value = 15; comp.ratio.value = 4;
     comp.attack.value = 0.004; comp.release.value = 0.25; comp.connect(master);
+    /* spectrum tap for the EQ bars — post-compressor (full-scale, pre-master) */
+    analyser = ac.createAnalyser();
+    analyser.fftSize = 128;
+    analyser.smoothingTimeConstant = 0.7;
+    comp.connect(analyser);
+    freqData = new Uint8Array(analyser.frequencyBinCount);
     musicBus = ac.createGain(); musicBus.gain.value = 0.0001;
     /* Per-station tone chain: drive (WaveShaper) -> tone BiquadFilter -> makeup gain.
        Defaults are transparent (linear curve, wide-open lowpass, unity gain) so the
@@ -1778,6 +1795,18 @@ ul.task-list li input[type="checkbox"] {
   }
 
   /* ---------- Transport ---------- */
+  /* EQ bars ride the real spectrum: 10 bars sample rising frequency bins,
+     scaleY only (composited). Interval, not rAF — rAF freezes in hidden /
+     non-painting tabs while the audio clock keeps running. The canned CSS
+     loop is disabled via .eq-live while this drives. */
+  function eqPaint() {
+    if (!analyser) return;
+    analyser.getByteFrequencyData(freqData);
+    for (var i = 0; i < eqBars.length; i++) {
+      var v = freqData[1 + i * 2] / 255;
+      eqBars[i].style.transform = 'scaleY(' + Math.min(1, 0.12 + v * 0.95).toFixed(3) + ')';
+    }
+  }
   function radioOn() {
     if (timer) return;
     SPB = 60 / cur().bpm / 4;
@@ -1786,10 +1815,17 @@ ul.task-list li input[type="checkbox"] {
     step = 0; nextT = ac.currentTime + 0.06;
     musicBus.gain.setTargetAtTime(0.5, ac.currentTime, 0.12);
     timer = setInterval(schedule, 25);
+    if (analyser && !reducedMotion()) {
+      root.classList.add('eq-live');
+      if (!eqTimer) eqTimer = setInterval(eqPaint, 50);
+    }
   }
   function radioOff() {
     if (timer) { clearInterval(timer); timer = null; }
     if (musicBus) musicBus.gain.setTargetAtTime(0.0001, ac.currentTime, 0.1);
+    root.classList.remove('eq-live');
+    if (eqTimer) { clearInterval(eqTimer); eqTimer = null; }
+    for (var i = 0; i < eqBars.length; i++) eqBars[i].style.transform = '';
   }
   function applyUI() {
     root.classList.toggle('is-playing', on);

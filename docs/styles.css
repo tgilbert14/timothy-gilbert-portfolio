@@ -169,6 +169,30 @@ html:has(body.quarto-light)::-webkit-scrollbar-thumb {
   html:has(body.quarto-light) { scrollbar-color: #087a8e #f3e0d6; }
 }
 
+/* Neon reading-progress hairline over the navbar — CSS scroll-driven (no JS,
+   no scroll listeners). Browsers without animation-timeline never show it.
+   Scroll-linked = user-driven position feedback, so no reduced-motion gate. */
+.tg-progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  z-index: 1040;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--vc-cyan), var(--vc-pink) 55%, var(--vc-gold));
+  box-shadow: 0 0 10px rgba(255, 45, 149, 0.45);
+  pointer-events: none;
+  display: none;
+}
+@supports (animation-timeline: scroll()) {
+  .tg-progress {
+    display: block;
+    animation: tgProgress linear both;
+    animation-timeline: scroll(root);
+  }
+}
+@keyframes tgProgress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
 /* Quarto content tables / code, defensive against flatly's light defaults */
 .quarto-title-block .title { color: var(--ink); }
 main code, main pre { background: rgba(var(--teal-rgb), 0.08); color: var(--teal-bright); }
@@ -663,10 +687,20 @@ body.quarto-light .hero h1 {
 
 .hero .lede {
   font-size: clamp(1.02rem, 1.7vw, 1.2rem);
-  color: var(--muted);
+  /* brighter than --muted + a dark halo so it doesn't sink into the sun bands */
+  color: #e6ecf9;
+  text-shadow:
+    0 1px 3px rgba(11, 6, 26, 0.85),
+    0 0 18px rgba(11, 6, 26, 0.65);
   max-width: 660px;
   margin: 0 auto 1.8rem;
   line-height: 1.6;
+}
+body.quarto-light .hero .lede {
+  color: #4f2c40;
+  text-shadow:
+    0 1px 6px rgba(255, 244, 236, 0.9),
+    0 0 16px rgba(255, 244, 236, 0.75);
 }
 
 .hero .cta-row {
@@ -3113,6 +3147,11 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
     0 0 18px -3px var(--acc);
 }
 .vhs-radio__toggle:focus-visible { outline: 2px solid var(--acc2); outline-offset: 3px; }
+/* one-time entrance: the chip slides in like an OSD powering up */
+@media (prefers-reduced-motion: no-preference) {
+  .vhs-radio__toggle { animation: vhsChipIn 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2) 0.45s backwards; }
+}
+@keyframes vhsChipIn { from { opacity: 0; transform: translateX(26px); } }
 /* faint scanlines over the glass */
 .vhs-radio__toggle::before {
   content: "";
@@ -3356,6 +3395,9 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   50% { transform: scaleY(0.42); }
   75% { transform: scaleY(0.70); }
 }
+/* When JS drives the bars from the live WebAudio analyser, the canned loop
+   yields (same specificity as the is-playing rule — source order wins). */
+.vhs-radio.eq-live .vhs-radio__eq i { animation: none; opacity: 0.95; }
 
 /* ---- Controls ---- */
 .vhs-radio__controls {
