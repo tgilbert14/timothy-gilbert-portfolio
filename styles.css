@@ -6,6 +6,9 @@
    masonry plant wall + lightbox, parallax, and scroll reveals.
    ============================================================= */
 
+/* VT323: the VCR-OSD face for the SYNTH-FM radio (must precede all rules) */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 :root {
   /* Background */
   --bg-0: #0b1030;
@@ -3106,47 +3109,42 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   top: 66px;
   right: 14px;
   z-index: 1035;
+  /* Station accents (set per-station from JS) are DECOR only — the EQ bars
+     and tuned-tick. The chrome itself holds one identity: OSD amber + cyan. */
   --acc: #ff2d95;
   --acc2: #2de2e6;
-  font-family: ui-monospace, "SFMono-Regular", "Cascadia Code", Menlo, Consolas, monospace;
+  --osd-amber: #ffcc00;
+  --osd-cyan: #00f2ff;
+  --osd-ground: rgba(10, 6, 20, 0.88);
+  font-family: 'VT323', 'Courier New', monospace;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* ---- Launcher: the OSD readout chip (a little screen you tap) — the
-   reference-HUD look: cyan-bordered dark glass, gold call sign, live REC
-   dot, and the scrolling now-playing ticker. No device chrome. ---- */
+/* ---- Launcher: a VCR OSD chip — text burned into dark glass, one thin
+   amber border, REC dot, scrolling now-playing line. No device chrome. ---- */
 .vhs-radio__toggle {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 3px;
-  width: 158px;
-  min-height: 42px;
-  padding: 5px 9px;
+  gap: 2px;
+  width: 178px;
+  min-height: 46px;
+  padding: 5px 10px 4px;
   box-sizing: border-box;
-  border-radius: 6px;
-  background:
-    radial-gradient(120% 100% at 50% 0%, rgba(45, 226, 230, 0.08), transparent 60%),
-    linear-gradient(180deg, #071018 0%, #04080f 100%);
-  border: 1px solid rgba(45, 226, 230, 0.55);
-  border-left: 2px solid var(--acc);            /* tuned-tick, matches the deck screen */
-  color: #ffe9f6;
+  border-radius: 4px;
+  background: var(--osd-ground);
+  border: 1px solid rgba(255, 204, 0, 0.45);
+  border-left: 3px solid var(--acc);            /* tuned-tick, matches the deck screen */
+  color: var(--osd-amber);
   cursor: pointer;
-  box-shadow:
-    inset 0 0 10px rgba(45, 226, 230, 0.12),
-    0 6px 16px rgba(0, 0, 0, 0.45),
-    0 0 14px -4px var(--acc);
-  transition: transform 0.16s ease, box-shadow 0.2s ease;
+  transition: border-color 0.18s ease, background-color 0.18s ease;
 }
 .vhs-radio__toggle:hover {
-  transform: translateY(-1px);
-  box-shadow:
-    inset 0 0 10px rgba(45, 226, 230, 0.16),
-    0 8px 18px rgba(0, 0, 0, 0.5),
-    0 0 18px -3px var(--acc);
+  border-color: var(--osd-amber);
+  background: rgba(26, 14, 40, 0.92);
 }
-.vhs-radio__toggle:focus-visible { outline: 2px solid var(--acc2); outline-offset: 3px; }
+.vhs-radio__toggle:focus-visible { outline: 2px solid var(--osd-cyan); outline-offset: 3px; }
 /* one-time entrance: the chip slides in like an OSD powering up */
 @media (prefers-reduced-motion: no-preference) {
   .vhs-radio__toggle { animation: vhsChipIn 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2) 0.45s backwards; }
@@ -3159,7 +3157,7 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   inset: 0;
   pointer-events: none;
   border-radius: inherit;
-  background: repeating-linear-gradient(0deg, rgba(45, 226, 230, 0.05) 0 1px, transparent 1px 2px);
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.18) 0 1px, transparent 1px 3px);
 }
 /* structural only now — the button itself is the OSD glass */
 .bb-osd {
@@ -3167,45 +3165,42 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2px;
+  gap: 1px;
   min-width: 0;
 }
 .bb-freq {
-  font-size: 10px; font-weight: 700; letter-spacing: 0.03em; line-height: 1.05;
-  color: var(--vc-gold);                          /* gold OSD ink — never retunes */
-  text-shadow: 0 0 6px rgba(255, 210, 74, 0.5); white-space: nowrap;
+  font-size: 17px; font-weight: 400; letter-spacing: 0.06em; line-height: 1;
+  text-transform: uppercase;
+  color: var(--osd-amber);
+  text-shadow: 0 0 8px rgba(255, 204, 0, 0.6), 1px 1px 0 rgba(0, 0, 0, 0.85);
+  white-space: nowrap;
 }
-.bb-freq b { color: var(--acc2); font-size: 8.5px; font-weight: 700; margin-left: 4px; }
-.bb-tick { overflow: hidden; height: 10px; white-space: nowrap; }
+.bb-freq b { color: var(--osd-cyan); font-size: 15px; font-weight: 400; margin-left: 6px; text-shadow: 0 0 8px rgba(0, 242, 255, 0.5); }
+.bb-tick { overflow: hidden; height: 14px; white-space: nowrap; }
 .bb-tick span {
-  display: inline-block; font-size: 7.5px; letter-spacing: 0.05em;
-  color: color-mix(in srgb, var(--acc2) 78%, #fff);
-  text-shadow: 0 0 5px var(--acc2);
+  display: inline-block; font-size: 13px; letter-spacing: 0.06em; line-height: 1.1;
+  text-transform: uppercase;
+  color: rgba(255, 204, 0, 0.8);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.85);
   animation: bb-scroll 9s linear infinite;
 }
 @keyframes bb-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .bb-rec {
   position: absolute; top: 5px; right: 6px; width: 5px; height: 5px; border-radius: 50%;
-  background: #ff2d2d; box-shadow: 0 0 6px #ff2d2d, 0 0 0 2px #14171f; z-index: 2;
+  background: #ff2b2b; box-shadow: 0 0 6px rgba(255, 43, 43, 0.8); z-index: 2;
   animation: bb-rec 1.2s steps(1) infinite;
 }
 @keyframes bb-rec { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0.15; } }
 .vhs-radio.is-open .vhs-radio__toggle { display: none; }
 
-/* ---- The deck (expanded): a slim OSD panel around the screen ---- */
+/* ---- The deck (expanded): a flat OSD panel, one amber border ---- */
 .vhs-radio__deck {
-  width: 240px;
-  border-radius: 14px;
-  padding: 8px;
-  background:
-    linear-gradient(200deg, #241041 0%, #150a2e 46%, #0b0620 100%);
-  border: 1px solid rgba(255, 45, 149, 0.4);
-  box-shadow:
-    0 18px 44px rgba(0, 0, 0, 0.55),
-    0 0 0 1px rgba(45, 226, 230, 0.12),
-    0 0 30px -8px var(--acc),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    inset 0 -2px 6px rgba(0, 0, 0, 0.5);
+  width: 252px;
+  border-radius: 6px;
+  padding: 9px;
+  background: rgba(18, 2, 48, 0.95);
+  border: 1px solid rgba(255, 204, 0, 0.45);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5);
   position: relative;
   overflow: hidden;
   transform-origin: top right;
@@ -3223,57 +3218,47 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   pointer-events: none;
   border-radius: inherit;
   background: repeating-linear-gradient(
-    0deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 3px);
-  mix-blend-mode: overlay;
-  opacity: 0.5;
+    0deg, rgba(0, 0, 0, 0.16) 0 1px, transparent 1px 3px);
 }
 
 .vhs-radio__top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 6px;
+  margin-bottom: 7px;
   position: relative;
   z-index: 1;
 }
 .vhs-radio__brand {
-  font-size: 0.62rem;
+  font-size: 16px;
   letter-spacing: 0.18em;
-  font-weight: 700;
-  color: #9fe9ec;
-  text-shadow: 0 0 8px rgba(45, 226, 230, 0.6);
+  text-transform: uppercase;
+  color: var(--osd-amber);
+  text-shadow: 0 0 8px rgba(255, 204, 0, 0.55), 1px 1px 0 rgba(0, 0, 0, 0.85);
 }
 .vhs-radio__close {
-  width: 20px; height: 20px;
+  width: 22px; height: 22px;
   display: grid; place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 6px;
-  background: rgba(0, 0, 0, 0.25);
-  color: #ffbcdf;
-  font-size: 0.7rem;
+  border: 1px solid rgba(255, 204, 0, 0.4);
+  border-radius: 3px;
+  background: none;
+  color: var(--osd-amber);
+  font-size: 12px;
   cursor: pointer;
   transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
 }
-.vhs-radio__close:hover { color: #fff; border-color: var(--acc); background: rgba(255, 45, 149, 0.2); }
+.vhs-radio__close:hover { color: var(--osd-cyan); border-color: var(--osd-cyan); background: rgba(0, 242, 255, 0.08); }
 
 /* ---- The screen (cassette window) ---- */
 .vhs-radio__screen {
   position: relative;
   flex: 1;
   min-width: 0;
-  border-radius: 9px;
-  padding: 8px 9px 9px;
-  background:
-    radial-gradient(120% 100% at 50% 0%, rgba(45, 226, 230, 0.1), transparent 60%),
-    linear-gradient(180deg, #071018 0%, #04080f 100%);
-  border: 1px solid rgba(45, 226, 230, 0.28);
-  border-left: 2px solid var(--acc);           /* tuned-tick, matches the launcher */
-  box-shadow:
-    inset 0 2px 5px rgba(0, 0, 0, 0.65),
-    inset 0 0 18px rgba(0, 0, 0, 0.7),
-    inset 0 0 0 1px rgba(0, 0, 0, 0.4),
-    0 1px 0 rgba(255, 255, 255, 0.55),
-    0 0 10px -3px var(--acc);
+  border-radius: 4px;
+  padding: 8px 10px 9px;
+  background: rgba(5, 0, 14, 0.72);
+  border: 1px solid rgba(0, 242, 255, 0.3);
+  border-left: 3px solid var(--acc);           /* tuned-tick, matches the launcher */
   overflow: hidden;
   z-index: 1;
 }
@@ -3285,7 +3270,7 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   pointer-events: none;
   z-index: 2;
   border-radius: inherit;
-  background: repeating-linear-gradient(0deg, rgba(45, 226, 230, 0.055) 0 1px, transparent 1px 3px);
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0 1px, transparent 1px 3px);
 }
 .vhs-radio__static {
   position: absolute;
@@ -3309,29 +3294,29 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   white-space: nowrap;
 }
 .vhs-radio__ch {
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: var(--acc2);
-  text-shadow: 0 0 8px currentColor;
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--osd-cyan);
+  text-shadow: 0 0 8px rgba(0, 242, 255, 0.5), 1px 1px 0 rgba(0, 0, 0, 0.85);
 }
 .vhs-radio__freq {
-  font-size: 0.6rem;
-  color: #ffd24a;
-  text-shadow: 0 0 7px rgba(255, 210, 74, 0.55);
+  font-size: 16px;
+  color: var(--osd-amber);
+  text-shadow: 0 0 8px rgba(255, 204, 0, 0.55), 1px 1px 0 rgba(0, 0, 0, 0.85);
   margin-right: auto;
 }
 .vhs-radio__onair {
-  font-size: 0.48rem;
-  letter-spacing: 0.08em;
-  font-weight: 700;
-  color: #5b6472;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(233, 237, 245, 0.45);
   text-shadow: none;
   transition: color 0.2s ease;
 }
 .vhs-radio.is-playing .vhs-radio__onair {
-  color: #ff5470;
-  text-shadow: 0 0 9px rgba(255, 84, 112, 0.8);
+  color: var(--osd-cyan);
+  text-shadow: 0 0 9px rgba(0, 242, 255, 0.7);
   animation: vhsBlink 1.4s steps(1) infinite;
 }
 @keyframes vhsBlink { 50% { opacity: 0.35; } }
@@ -3346,9 +3331,11 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
 }
 .vhs-radio__marq {
   display: inline-block;
-  font-size: 0.66rem;
-  color: #cfeff1;
-  text-shadow: 0 0 6px rgba(45, 226, 230, 0.4);
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 204, 0, 0.85);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.85);
 }
 .vhs-radio.is-playing .vhs-radio__marq {
   padding-left: 100%;
@@ -3409,40 +3396,40 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   z-index: 1;
 }
 .vhs-radio__btn {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
-  background: linear-gradient(180deg, #2e3444 0%, #1b2030 100%);
-  color: #e9d6f2;
+  border: 1px solid rgba(255, 204, 0, 0.45);
+  border-radius: 3px;
+  background: none;
+  color: var(--osd-amber);
   font-family: inherit;
-  font-size: 0.66rem;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 400;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
   cursor: pointer;
-  padding: 0.44rem 0.5rem;
+  padding: 0.36rem 0.5rem 0.24rem;
   min-height: 34px;
-  /* molded, pressable dark key */
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), inset 0 -2px 4px rgba(0, 0, 0, 0.45), 0 2px 5px rgba(0, 0, 0, 0.35);
-  transition: transform 0.12s ease, border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+  transition: border-color 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
 }
 .vhs-radio__btn:hover {
-  transform: translateY(-1px);
-  border-color: var(--acc);
-  color: #fff;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 0 14px -2px var(--acc);
+  border-color: var(--osd-amber);
+  background: rgba(255, 204, 0, 0.08);
 }
-.vhs-radio__btn:active {
-  transform: translateY(1px);
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.6);
-}
-.vhs-radio__btn:focus-visible { outline: 2px solid var(--acc2); outline-offset: 2px; }
+.vhs-radio__btn:active { transform: translateY(1px); }
+.vhs-radio__btn:focus-visible { outline: 2px solid var(--osd-cyan); outline-offset: 2px; }
 .vhs-radio__power { flex: 1; }
 .vhs-radio.is-playing .vhs-radio__power {
-  border-color: var(--acc2);
-  color: #d7fbfc;
-  box-shadow: 0 0 14px rgba(45, 226, 230, 0.4), inset 0 0 10px rgba(45, 226, 230, 0.12);
+  border-color: var(--osd-cyan);
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.45);
 }
-.vhs-radio__tune { display: flex; gap: 4px; }
-.vhs-radio__seek { padding: 0.4rem 0.42rem; font-size: 0.6rem; }
+/* blinking cyan live dot inside the On Air button */
+.vhs-livedot {
+  display: inline-block; width: 0.45em; height: 0.45em;
+  background: var(--osd-cyan); border-radius: 50%;
+  margin-left: 0.4em; vertical-align: 0.08em;
+  animation: vhsBlink 1.2s steps(1) infinite;
+}
+.vhs-radio__tune { display: flex; gap: 5px; }
+.vhs-radio__seek { padding: 0.36rem 0.45rem 0.24rem; font-size: 14px; }
 
 /* Mobile: shrink the deck, keep it clear of the thumb-heavy bottom. */
 @media (max-width: 560px) {
@@ -3456,8 +3443,7 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
 /* The dark OSD glass floats on the Miami-cream light theme — ground it with a
    drop-shadow; the chip keeps its cyan border (reads fine on cream). */
 body.quarto-light .vhs-radio { filter: drop-shadow(0 6px 16px rgba(40, 15, 45, 0.28)); }
-body.quarto-light .vhs-radio__deck { border-color: rgba(20, 10, 30, 0.25); }
-/* the chip's ring draws ON cream — per-station cyan can hit ~1.6:1 there */
+/* the chip's ring draws ON cream — cyan can hit ~1.6:1 there */
 body.quarto-light .vhs-radio__toggle:focus-visible { outline-color: #b3115f; }
 
 /* Motion-safe: no launcher pulse, marquee, EQ, static churn, or deck spring
@@ -3472,6 +3458,7 @@ body.quarto-light .vhs-radio__toggle:focus-visible { outline-color: #b3115f; }
   .vhs-radio.is-playing .vhs-radio__marq { animation: none; padding-left: 0; }
   .vhs-radio.is-playing .vhs-radio__eq i { animation: none; transform: scaleY(0.55); }
   .vhs-radio.is-playing .vhs-radio__onair { animation: none; }
+  .vhs-livedot { animation: none; }
 }
 
 /* =============================================================

@@ -1390,7 +1390,8 @@
   function applyUI() {
     root.classList.toggle('is-playing', on);
     elPower.setAttribute('aria-pressed', on ? 'true' : 'false');
-    elPower.innerHTML = on ? '&#10073;&#10073; Playing' : '&#9205; Tune In';
+    /* OSD grammar: brackets = affordance, stop-square = the off switch */
+    elPower.innerHTML = on ? '&#9632; On Air<span class="vhs-livedot" aria-hidden="true"></span>' : '[Tune In]';
     elOnair.innerHTML = on ? '&#9679; ON AIR' : '&#9679; STANDBY';
     paintScreen();
   }
