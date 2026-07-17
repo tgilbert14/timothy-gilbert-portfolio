@@ -4,7 +4,12 @@ project:
 
 website:
   title: "Tim Gilbert"
+  description: "Tim Gilbert builds field-ready data products, ecological workflows, and decision tools with R, Python, SQL, and Azure."
+  site-url: https://tgilbert14.github.io/timothy-gilbert-portfolio/
   favicon: assets/desertLeafShrimp.png
+  search: false
+  open-graph: true
+  twitter-card: true
   navbar:
     logo: assets/desertLeafShrimp.png
     pinned: true
@@ -13,52 +18,41 @@ website:
       - text: 'Home'
         href: index.qmd
 
-      - text: 'Shiny Apps'
-        href: dashboards.qmd
+      - text: 'Experiments'
+        href: index.qmd#interactive-web
 
-      - text: 'Other Projects'
-        href: projects.qmd
+      - text: 'Projects'
+        href: work.qmd
 
-      - text: 'EcoPlot'
-        href: ecoplot.qmd
-
-      - text: 'Flora Wall'
+      - text: 'Field Notes'
         href: field-notes.qmd
 
-    right:
-
-      - text: 'About Me'
+      - text: 'About'
         href: about.qmd
 
+    right:
       - icon: github
         href: https://github.com/tgilbert14
-
-      - icon: envelope
-        href: mailto:tsgilbert@arizona.edu
-
-      - text: CV
-        href: resume.qmd
+        aria-label: GitHub
 
       - icon: linkedin
         href: https://www.linkedin.com/in/tgilbert14
+        aria-label: LinkedIn
 
-      - text: '🌵'
-        href: https://desertdatalabs.com/
+      - text: 'Résumé'
+        href: resume.qmd
 
-      - icon: instagram
-        href: https://www.instagram.com/timbogilbert/
-
-      - icon: heart
-        href: https://www.buymeacoffee.com/tgilbert14
-
-      - icon: gift
-        href: https://account.venmo.com/u/tsgilbert
+      - icon: envelope
+        href: mailto:tsgilbert@arizona.edu
+        aria-label: Email Tim
 
 format:
   html:
     theme:
       dark: darkly
       light: flatly
-    css: styles.css
+    css:
+      - styles.css
+      - revamp.css
     toc: true
     include-after-body: _foot.html

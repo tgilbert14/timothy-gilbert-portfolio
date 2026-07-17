@@ -2,13 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="R Shiny apps, ecological data systems, sports analytics, and interactive web experiments by Tim Gilbert.">
 
-<title>Tim Gilbert — Data Scientist &amp; Ecologist – Tim Gilbert</title>
+<title>Tim Gilbert — Ecologist, Data Scientist &amp; Creative Developer – Tim Gilbert</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -24,37 +28,20 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
 <link href="./assets/desertLeafShrimp.png" rel="icon" type="image/png">
+<script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cc63fce9873912f1bbbccf05079cc9ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-08799928d293638fe9563d5c5a2794e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-5685cd926c25366c96d9f1407e584118.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -72,6 +59,15 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="revamp.css">
+<meta property="og:title" content="Tim Gilbert — Ecologist, Data Scientist &amp; Creative Developer">
+<meta property="og:description" content="R Shiny apps, ecological data systems, sports analytics, and interactive web experiments by Tim Gilbert.">
+<meta property="og:image" content="https://tgilbert14.github.io/timothy-gilbert-portfolio/assets/og.jpg">
+<meta property="og:site_name" content="Tim Gilbert">
+<meta name="twitter:title" content="Tim Gilbert — Ecologist, Data Scientist &amp; Creative Developer">
+<meta name="twitter:description" content="R Shiny apps, ecological data systems, sports analytics, and interactive web experiments by Tim Gilbert.">
+<meta name="twitter:image" content="https://tgilbert14.github.io/timothy-gilbert-portfolio/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
@@ -242,13 +238,13 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./assets/desertLeafShrimp.png" alt="" class="navbar-logo">
+    <img src="./assets/desertLeafShrimp.png" alt="" class="navbar-logo light-content">
+    <img src="./assets/desertLeafShrimp.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Tim Gilbert</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -259,62 +255,39 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./dashboards.html"> 
-<span class="menu-text">Shiny Apps</span></a>
+    <a class="nav-link" href="./index.html#interactive-web"> 
+<span class="menu-text">Experiments</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects.html"> 
-<span class="menu-text">Other Projects</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./ecoplot.html"> 
-<span class="menu-text">EcoPlot</span></a>
+    <a class="nav-link" href="./work.html"> 
+<span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./field-notes.html"> 
-<span class="menu-text">Flora Wall</span></a>
+<span class="menu-text">Field Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About Me</span></a>
-  </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/tgilbert14"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/tgilbert14"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="mailto:tsgilbert@arizona.edu"> <i class="bi bi-envelope" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/tgilbert14"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./resume.html"> 
-<span class="menu-text">CV</span></a>
+<span class="menu-text">Résumé</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/tgilbert14"> <i class="bi bi-linkedin" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://desertdatalabs.com/"> 
-<span class="menu-text">🌵</span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.instagram.com/timbogilbert/"> <i class="bi bi-instagram" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.buymeacoffee.com/tgilbert14"> <i class="bi bi-heart" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://account.venmo.com/u/tsgilbert"> <i class="bi bi-gift" role="img">
+    <a class="nav-link" href="mailto:tsgilbert@arizona.edu"> <i class="bi bi-envelope" role="img" aria-label="Email Tim">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -338,237 +311,151 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section class="hero">
-  <div class="hero-sun" aria-hidden="true">
-    <div class="hero-sun__grid"></div>
-    <div class="hero-sun__disc"></div>
-    <div class="hero-sun__horizon"></div>
-  </div>
-  <div class="hero-circuit" aria-hidden="true">
-    <svg class="circuit-side circuit-left" viewbox="0 0 200 300" preserveaspectratio="xMidYMax meet" fill="none">
-      <path class="trace rail" pathlength="1" d="M34 268 H182"></path>
-      <path class="trace rail flow" pathlength="1" d="M34 268 H182"></path>
-      <g class="sag">
-        <path class="trace" pathlength="1" d="M58 268 V152"></path>
-        <path class="trace" pathlength="1" d="M58 202 H86 V166"></path>
-        <path class="trace flow" pathlength="1" d="M58 268 V152"></path>
-        <path class="trace flow" pathlength="1" d="M58 202 H86 V166"></path>
-        <circle class="node" cx="58" cy="152" r="5"></circle>
-        <circle class="node" cx="86" cy="166" r="4.5"></circle>
-        <circle class="node base" cx="58" cy="268" r="3.5"></circle>
-      </g>
-      <g class="sag">
-        <path class="trace" pathlength="1" d="M138 268 V56"></path>
-        <path class="trace" pathlength="1" d="M138 164 H104 V108"></path>
-        <path class="trace" pathlength="1" d="M138 126 H174 V80"></path>
-        <path class="trace flow" pathlength="1" d="M138 268 V56"></path>
-        <path class="trace flow" pathlength="1" d="M138 164 H104 V108"></path>
-        <path class="trace flow" pathlength="1" d="M138 126 H174 V80"></path>
-        <circle class="node" cx="138" cy="56" r="5.5"></circle>
-        <circle class="node" cx="104" cy="108" r="4.5"></circle>
-        <circle class="node" cx="174" cy="80" r="4.5"></circle>
-        <circle class="node base" cx="138" cy="268" r="3.5"></circle>
-      </g>
-    </svg>
-    <svg class="circuit-side circuit-right" viewbox="0 0 200 300" preserveaspectratio="xMidYMax meet" fill="none">
-      <path class="trace rail" pathlength="1" d="M34 268 H182"></path>
-      <path class="trace rail flow" pathlength="1" d="M34 268 H182"></path>
-      <g class="sag">
-        <path class="trace" pathlength="1" d="M58 268 V152"></path>
-        <path class="trace" pathlength="1" d="M58 202 H86 V166"></path>
-        <path class="trace flow" pathlength="1" d="M58 268 V152"></path>
-        <path class="trace flow" pathlength="1" d="M58 202 H86 V166"></path>
-        <circle class="node" cx="58" cy="152" r="5"></circle>
-        <circle class="node" cx="86" cy="166" r="4.5"></circle>
-        <circle class="node base" cx="58" cy="268" r="3.5"></circle>
-      </g>
-      <g class="sag">
-        <path class="trace" pathlength="1" d="M138 268 V56"></path>
-        <path class="trace" pathlength="1" d="M138 164 H104 V108"></path>
-        <path class="trace" pathlength="1" d="M138 126 H174 V80"></path>
-        <path class="trace flow" pathlength="1" d="M138 268 V56"></path>
-        <path class="trace flow" pathlength="1" d="M138 164 H104 V108"></path>
-        <path class="trace flow" pathlength="1" d="M138 126 H174 V80"></path>
-        <circle class="node" cx="138" cy="56" r="5.5"></circle>
-        <circle class="node" cx="104" cy="108" r="4.5"></circle>
-        <circle class="node" cx="174" cy="80" r="4.5"></circle>
-        <circle class="node base" cx="138" cy="268" r="3.5"></circle>
-      </g>
-    </svg>
-  </div>
-  <span class="eyebrow">Data Scientist · Ecologist</span>
-  <div class="hero-avatar">
-    <div class="avatar-card">
-      <img src="assets/tim_gc.jpg" alt="Tim Gilbert">
-      <span class="holo" aria-hidden="true"></span>
-      <span class="holo-glare" aria-hidden="true"></span>
+<div class="portfolio-home portfolio-home--wild">
+  <section class="portfolio-hero portfolio-hero--wild" aria-labelledby="hero-title" data-wild-hero="">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="portfolio-hero__copy">
+      <p class="signal-label"><span></span> Tim Gilbert / Tucson, Arizona</p>
+      <h1 id="hero-title">Apps for ecologists, sports fans &amp; <em>nerds.</em></h1>
+      <p class="portfolio-hero__lede">I’m an ecologist and data scientist who builds R Shiny apps, databases, scrapers, offline field tools, and unnecessarily ambitious browser experiments. I like making complicated things easier—and a lot more fun—to use.</p>
+      <div class="portfolio-actions">
+        <a class="tg-btn tg-btn-primary" href="#interactive-web">Start with the fun stuff <span aria-hidden="true">↓</span></a>
+        <a class="tg-btn tg-btn-ghost" href="#apps-and-systems">Apps &amp; systems</a>
+      </div>
+      <div class="hero-signoff">
+        <span>Ecologist</span><i aria-hidden="true">+</i><span>Data scientist</span><i aria-hidden="true">+</i><span>Builder of odd little worlds</span>
+      </div>
+    </div>
+
+    <div class="hero-self-portrait" data-tilt-card="" data-portrait-morph="">
+      <p class="portrait-kicker"><span></span> Field identification / TG-14</p>
+      <div class="hero-self-portrait__frame">
+        <img class="portrait-real" src="assets/tim_gc.jpg" alt="Tim Gilbert overlooking the Grand Canyon" fetchpriority="high">
+        <img class="portrait-dog" src="assets/dogTim-transition.jpg" alt="" aria-hidden="true" decoding="async" fetchpriority="low">
+        <div class="portrait-holo-gate" aria-hidden="true"><i></i><i></i><i></i></div>
+        <span class="portrait-coordinate">36.10° N / 112.11° W</span>
+        <span class="portrait-status"><i aria-hidden="true"></i><span class="portrait-status__real">FIELD RECORD ACTIVE</span><span class="portrait-status__dog">CANIS MODE ACTIVE</span></span>
+        <button class="portrait-toggle" type="button" aria-pressed="false" aria-label="Toggle alternate dog portrait" data-portrait-toggle=""><span>ALT SPECIMEN</span><i aria-hidden="true">↻</i></button>
+      </div>
+      <div class="hero-self-portrait__caption">
+        <div><small>SUBJECT</small><strong>Tim Gilbert</strong></div>
+        <div><small>RANGE</small><strong>Mostly Arizona</strong></div>
+      </div>
+      <span class="portrait-chip portrait-chip--r" aria-hidden="true">R</span>
+      <span class="portrait-chip portrait-chip--sql" aria-hidden="true">SQL</span>
+      <span class="portrait-chip portrait-chip--field" aria-hidden="true">FIELD</span>
+    </div>
+  </section>
+
+  <div class="build-ticker" aria-label="Tools and subjects used across Tim's work">
+    <div class="build-ticker__track">
+      <span>R SHINY</span><i>✶</i><span>PYTHON</span><i>✶</i><span>SQL</span><i>✶</i><span>CANVAS</span><i>✶</i><span>FIELD ECOLOGY</span><i>✶</i><span>SPORTS DATA</span><i>✶</i><span>OFFLINE-FIRST</span><i>✶</i><span>WEIRD SIDE PROJECTS</span><i>✶</i>
+      <span aria-hidden="true">R SHINY</span><i aria-hidden="true">✶</i><span aria-hidden="true">PYTHON</span><i aria-hidden="true">✶</i><span aria-hidden="true">SQL</span><i aria-hidden="true">✶</i><span aria-hidden="true">CANVAS</span><i aria-hidden="true">✶</i><span aria-hidden="true">FIELD ECOLOGY</span><i aria-hidden="true">✶</i><span aria-hidden="true">SPORTS DATA</span><i aria-hidden="true">✶</i><span aria-hidden="true">OFFLINE-FIRST</span><i aria-hidden="true">✶</i><span aria-hidden="true">WEIRD SIDE PROJECTS</span><i aria-hidden="true">✶</i>
     </div>
   </div>
-  <h1>Timothy <span class="accent">Gilbert</span></h1>
-  <p class="lede">I build R&nbsp;Shiny apps, relational databases, and custom data workflows for environmental consultants, university labs, and small businesses. Ecologist by training, data engineer by trade.</p>
-  <div class="cta-row">
-    <a class="tg-btn tg-btn-primary" href="./dashboards.html">Explore my apps</a>
-    <a class="tg-btn tg-btn-salmon" href="./ecoplot.html">EcoPlot</a>
-    <a class="tg-btn tg-btn-ghost" href="./field-notes.html">Flora Wall</a>
-    <a class="tg-btn tg-btn-ghost" href="https://desertdatalabs.com/" target="_blank" rel="noopener">Desert Data Labs ↗</a>
-  </div>
-</section>
-<div class="tg-section" style="padding-top:1rem;">
-<p>Welcome to my digital portfolio. I’m a data scientist and ecologist specializing in R Shiny applications, relational databases, and custom data workflows. I hold a B.S. in Natural Resources and am completing my M.S. in Data Science at the University of Arizona. I also run <a href="https://desertdatalabs.com/"><strong>Desert Data Labs LLC</strong></a> — a small consulting studio that builds data-collection apps, dashboards, and automation tools for environmental consultants, university labs, and small businesses.</p>
-<div class="card-container reveal stagger">
-<p><a></a> <a href="./about.html" class="card card-about">ABOUT ME</a> <a href="./dashboards.html" class="card card-visualizations">SHINY APPS</a> <a href="./projects.html" class="card card-projects">PROJECTS</a> <a href="./resume.html" class="card card-resume">RESUME/CV</a></p>
-</div>
-<section id="fun-things-i-love-to-work-on" class="level2 explore-text reveal">
-<h2 class="anchored" data-anchor-id="fun-things-i-love-to-work-on">Fun things I love to work on…</h2>
-<ul>
-<li><em>Sports analytics and data visualization</em></li>
-<li><em>Data-entry applications with a SQL back-end (local and web-hosted)</em></li>
-<li><em>Ecological data management and visualization</em></li>
-<li><em>Custom web-scraping interactive tools</em></li>
-<li><em>Machine learning for forecasting</em></li>
-<li><em>Using Claude to re-vamp old codebases and automate tedious tasks</em></li>
-</ul>
-</section>
-</div>
-<div class="tg-section reveal">
-<section class="field-parallax">
-  <div class="fp-viewport"><img data-parallax="0.16" src="assets/photos/field-rangeland-walk.jpg" alt="Rangeland fieldwork in Arizona"></div>
-  <div class="fp-overlay">
-    <span class="eyebrow">From the field</span>
-    <h2 class="anchored">The work behind the data</h2>
-    <p>Experiences that taught me a lot about data collecting.</p>
-    <a class="tg-btn tg-btn-primary" href="./field-notes.html">Go to flora wall →</a>
-  </div>
-</section>
 
-<div class="field-grid" style="margin-top:1rem;">
-  <figure class="field-shot figure"><img src="assets/photos/field-transect-collection.jpg" alt="LPI transect data for GBI in Ely, NV" loading="lazy" class="figure-img"><figcaption>LPI transect data for GBI</figcaption></figure>
-  <figure class="field-shot figure"><img src="assets/photos/field-grazing.jpg" alt="Soil surveys for NEON in Tucson, AZ" loading="lazy" class="figure-img"><figcaption>Soil surveys for NEON</figcaption></figure>
-  <figure class="field-shot figure"><img src="assets/photos/field-crew.jpg" alt="MIMs sampling for USFS in Boise, ID" loading="lazy" class="figure-img"><figcaption>MIMs sampling for USFS</figcaption></figure>
-  <figure class="field-shot figure"><img src="assets/photos/field-fenceline-monitoring.jpg" alt="Field training for VGS in Globe, AZ" loading="lazy" class="figure-img"><figcaption>Field training for VGS</figcaption></figure>
+  <section class="portfolio-section interactive-web interactive-web--lead" id="interactive-web">
+    <div class="section-heading reveal">
+      <div><p class="signal-label"><span></span> New interactive websites</p><h2>A Tucson Saturday. A mountain road. A dead spaceship.</h2></div>
+      <p>Three browser experiments built from scratch with Canvas, sound, scroll choreography, and an unreasonable amount of attention to tiny details.</p>
+    </div>
+    <div class="web-project-grid web-project-grid--loud">
+      <a class="web-project reveal" href="https://tgilbert14.github.io/old-pueblo/" target="_blank" rel="noopener" data-reactive-card="">
+        <div class="web-project__image"><img src="assets/creative/long-saturday.webp" alt="Tucson stadium glowing at night" loading="lazy"><span>Scroll + sound</span></div>
+        <div class="web-project__copy"><p>The Long Saturday</p><h3>One desert day, from first light to kickoff.</h3><small>Film scrubbing · field-recorded soundscape · four scroll movements</small><b>Enter the story ↗</b></div>
+      </a>
+      <a class="web-project reveal" href="https://tgilbert14.github.io/ddl-27-miles/" target="_blank" rel="noopener" data-reactive-card="">
+        <div class="web-project__image"><img src="assets/creative/27-miles.jpg" alt="27 Miles to Canada, Mount Lemmon interactive ascent" loading="lazy"><span>Procedural Canvas</span></div>
+        <div class="web-project__copy"><p>27 Miles to Canada</p><h3>Drive from saguaros to snow in twenty-seven miles.</h3><small>Six biotic communities · elevation model · live climate shift</small><b>Start the climb ↗</b></div>
+      </a>
+      <a class="web-project reveal" href="https://tgilbert14.github.io/ddl-orrery/" target="_blank" rel="noopener" data-reactive-card="">
+        <div class="web-project__image"><img src="assets/creative/orrery.jpg" alt="The Orrery procedural solar system" loading="lazy"><span>Procedural world</span></div>
+        <div class="web-project__copy"><p>The Orrery</p><h3>Eleven worlds keep time around one dead ship.</h3><small>Canvas-baked planets · generative score · shuttle flight · hidden sector</small><b>Choose a world ↗</b></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="portfolio-section apps-section" id="apps-and-systems">
+    <div class="section-heading reveal">
+      <div><p class="signal-label"><span></span> Apps + systems</p><h2>Then there’s the useful stuff.</h2></div>
+      <p>Field data, football recruits, small mammals, and movie botany. Different subjects; same habit of turning messy data into something worth exploring.</p>
+    </div>
+
+    <div class="app-grid">
+      <article class="app-card app-card--ecoplot reveal" data-reactive-card="">
+        <div class="app-card__image app-card__image--ecoplot">
+          <img class="ecoplot-field" src="assets/photos/field-transect-collection.jpg" alt="Vegetation data collection along a field transect" loading="lazy">
+          <div class="ecoplot-status"><i aria-hidden="true"></i><span>OFFLINE · 12 SAFE</span></div>
+          <div class="ecoplot-device" aria-hidden="true"><i></i><img src="assets/ecoplot/ecoPlot_5_collectingFrequencyDataWithBubblePick.png" alt=""></div>
+          <div class="ecoplot-route" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="ecoplot-database" aria-hidden="true"><i></i><i></i><i></i><b>SQL</b></div>
+          <span>01 / FIELD → DATABASE</span>
+        </div>
+        <div class="app-card__copy"><h3>EcoPlot Mobile</h3><p>Offline vegetation data collection, cloud sync, office review, and reports. Built for places where the bars on your phone are mostly decorative.</p><ul class="tech-list"><li>PWA</li><li>Azure SQL</li><li>Offline sync</li></ul><div class="case-links"><a href="./ecoplot.html">Case study →</a><a href="https://app.desertdatacollection.com/" target="_blank" rel="noopener">Live app ↗</a></div></div>
+      </article>
+
+      <article class="app-card reveal" data-reactive-card="">
+        <div class="app-card__image"><img src="assets/arizona-football-size-lab-2023-2026-pinned.png" alt="Big 12 Girth Index player body map" loading="lazy"><span>02 / SPORTS</span></div>
+        <div class="app-card__copy"><h3>Big 12 Girth Index</h3><p>Height, weight, ratings, position DNA, coaching eras, and a 3–3–5 War Room for every Big 12 program. Yes, the name is intentional.</p><ul class="tech-list"><li>R Shiny</li><li>Scraping</li><li>Plotly</li></ul><div class="case-links"><a href="https://girthindex.desertdatalab.com/" target="_blank" rel="noopener">Open app ↗</a></div></div>
+      </article>
+
+      <article class="app-card reveal" data-reactive-card="">
+        <div class="app-card__image"><img src="assets/mam0.png" alt="NEON Small Mammal Tracker national map" loading="lazy"><span>03 / ECOLOGY</span></div>
+        <div class="app-card__copy"><h3>Small Mammal Tracker</h3><p>National trapping records turned into animal histories, home ranges, diversity profiles, and a Hall of Fame for the most-caught little weirdos.</p><ul class="tech-list"><li>R</li><li>Mapping</li><li>Ecological stats</li></ul><div class="case-links"><a href="https://tgilbert14.github.io/NEON-Small-Mammal-Tracker-App/" target="_blank" rel="noopener">Open app ↗</a></div></div>
+      </article>
+
+      <article class="app-card reveal" data-reactive-card="">
+        <div class="app-card__image"><img src="assets/plants-in-movies-chart.png" alt="Plants in Movies interactive comparison chart" loading="lazy"><span>04 / BOTANY?</span></div>
+        <div class="app-card__copy"><h3>Plants in Movies</h3><p>Which state has the flora of Arrakis, Middle-earth, or Isla Nublar? Roughly 250,000 USDA records were apparently the reasonable way to answer that.</p><ul class="tech-list"><li>R Shiny</li><li>USDA data</li><li>Chord diagrams</li></ul><div class="case-links"><a href="https://tgilbert14.github.io/PlantsInMovies/" target="_blank" rel="noopener">Open app ↗</a></div></div>
+      </article>
+    </div>
+
+    <div class="section-end-link reveal"><a href="./work.html">Everything else I’ve built <span aria-hidden="true">→</span></a></div>
+  </section>
+
+  <section class="portfolio-section proof-ledger reveal" aria-labelledby="proof-title">
+    <div class="proof-ledger__head">
+      <p class="signal-label"><span></span> A few receipts</p>
+      <h2 id="proof-title">Real projects. Real records.</h2>
+    </div>
+    <div class="proof-ledger__grid">
+      <article data-reactive-card=""><strong data-count-to="178" data-count-suffix="k+">178k+</strong><span>Mammal capture records made navigable</span></article>
+      <article data-reactive-card=""><strong data-count-to="46">46</strong><span>NEON field sites in one tracker</span></article>
+      <article data-reactive-card=""><strong data-count-to="250" data-count-suffix="k+">250k+</strong><span>USDA plant records compared with movie worlds</span></article>
+    </div>
+  </section>
+
+  <section class="portfolio-section capabilities-section">
+    <div class="section-heading reveal">
+      <div><p class="signal-label"><span></span> Under the hood</p><h2>I do the database, the interface, and the field logic.</h2></div>
+      <p>I’m happiest when I can understand the weird edge case, model it correctly, and make the finished thing feel obvious.</p>
+    </div>
+    <div class="capability-grid">
+      <article class="capability-card reveal" data-reactive-card=""><span>01</span><h3>Build the thing</h3><p>R Shiny apps, progressive web apps, desktop helpers, and framework-free browser experiments.</p><small>R · Python · JavaScript · Electron</small></article>
+      <article class="capability-card reveal" data-reactive-card=""><span>02</span><h3>Wire the data</h3><p>Relational models, offline sync, ETL pipelines, scrapers, and QA/QC that survive real use.</p><small>SQL · Azure · SQLite · APIs</small></article>
+      <article class="capability-card reveal" data-reactive-card=""><span>03</span><h3>Know the field</h3><p>Years of ecological work mean the protocol, the crew, and the no-signal edge case are never afterthoughts.</p><small>Vegetation · Wildlife · Spatial data</small></article>
+      <article class="capability-card reveal" data-reactive-card=""><span>04</span><h3>Make it interesting</h3><p>Maps, charts, motion, sound, and visual systems that reward curiosity instead of flattening it.</p><small>Canvas · Plotly · ggplot2 · Audio</small></article>
+    </div>
+  </section>
+
+  <section class="field-story field-story--wild reveal">
+    <div class="field-story__image"><img src="assets/photos/field-rangeland-walk.jpg" alt="Rangeland fieldwork in the American Southwest" loading="lazy"></div>
+    <div class="field-story__copy">
+      <p class="signal-label"><span></span> Before the code</p>
+      <h2>I learned the data before I learned the stack.</h2>
+      <p>Small-mammal trapping, vegetation surveys, electrofishing, soil work—the field came first. That still shapes every offline workflow, validation rule, and interface decision I make.</p>
+      <div><a class="tg-btn tg-btn-primary" href="./about.html">The longer story</a><a class="tg-btn tg-btn-ghost" href="./field-notes.html">Field notes</a></div>
+    </div>
+  </section>
+
+  <section class="portfolio-cta portfolio-cta--wild reveal">
+    <p class="signal-label"><span></span> Send me the weird one</p>
+    <h2>Got a cursed spreadsheet, a strange dataset, or an app idea nobody else understands?</h2>
+    <p>That is probably more interesting than a normal contact form.</p>
+    <div class="portfolio-actions"><a class="tg-btn tg-btn-primary" href="mailto:tsgilbert@arizona.edu">Tell me about it</a><a class="tg-btn tg-btn-ghost" href="https://github.com/tgilbert14" target="_blank" rel="noopener">Browse the code ↗</a></div>
+  </section>
 </div>
-</div>
-<div class="tg-section reveal">
-<div class="section-label">
-<p>Design &amp; motion</p>
-</div>
-<div class="sprout-section">
-  <div class="sprout-copy">
-    <h3 class="anchored">Design &amp; motion, too</h3>
-    <p>Not just dashboards! Making animations is fun too... <em>Hover or tap it to watch it grow.</em></p>
-  </div>
-  <div class="sprout-stage">
-    <span class="sprout-kicker">Brand mark · SVG + CSS</span>
-    <button class="logo" type="button" aria-label="Sprout logo — a seedling that grows when you hover or focus it">
-      <svg viewbox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <g id="leaf">
-            <path d="M0 0 C 9 -13 26 -16 38 -3 C 30 6 14 12 0 0 Z" fill="var(--leaf)"></path>
-            <path d="M2 -1 C 13 -5 23 -6 33 -4" fill="none" stroke="#2a4f33" stroke-width="1.3" stroke-linecap="round" opacity=".5"></path>
-          </g>
-          <radialgradient id="discFill" cx="50%" cy="38%" r="70%">
-            <stop offset="0%" stop-color="#fbf7ec"></stop>
-            <stop offset="70%" stop-color="#efe7d4"></stop>
-            <stop offset="100%" stop-color="#e4d8bd"></stop>
-          </radialgradient>
-        </defs>
-        <g stroke-linejoin="round">
-          <g class="v1">
-            <path class="stem" pathlength="1" d="M120 150 C 78.1 120.0 43.6 117.4 26.8 93.7"></path>
-            <g class="sprout-leaf"><use href="#leaf" transform="translate(50.5 112.9) rotate(-196.9) scale(0.92)"></use></g>
-            <g class="sprout-leaf"><use href="#leaf" transform="translate(33.6 101.4) rotate(-147.3) scale(0.74)"></use></g>
-            <circle class="tip" cx="26.8" cy="93.7" r="5" fill="var(--sun)"></circle>
-          </g>
-          <g class="v2">
-            <path class="stem" pathlength="1" d="M120 150 C 89.4 120.0 64.2 94.0 51.9 53.5"></path>
-            <g class="sprout-leaf"><use href="#leaf" transform="translate(63.4 81.5) rotate(-169.1) scale(0.92)"></use></g>
-            <g class="sprout-leaf"><use href="#leaf" transform="translate(56.9 67.5) rotate(-120.2) scale(0.74)"></use></g>
-            <circle class="tip" cx="51.9" cy="53.5" r="5" fill="var(--leaf-2)"></circle>
-          </g>
-          <g class="v3">
-            <path class="stem" pathlength="1" d="M120 150 C 108.6 120.0 99.2 80.0 94.6 29.3"></path>
-            <g class="sprout-leaf"><use href="#leaf" transform="translate(97.9 58.5) rotate(-134.6) scale(0.92)"></use></g>
-            <g class="sprout-leaf"><use href="#leaf" transform="translate(96.5 47.1) rotate(-89.0) scale(0.74)"></use></g>
-            <circle class="tip" cx="94.6" cy="29.3" r="5" fill="var(--sun)"></circle>
-          </g>
-          <g class="v4">
-            <path class="stem" pathlength="1" d="M120 150 C 131.4 120.0 140.8 80.0 145.4 29.3"></path>
-            <g class="sprout-leaf"><use href="#leaf" transform="translate(142.1 58.5) rotate(-97.4) scale(0.92)"></use></g>
-            <g class="sprout-leaf"><use href="#leaf" transform="translate(143.5 47.1) rotate(-55.0) scale(0.74)"></use></g>
-            <circle class="tip" cx="145.4" cy="29.3" r="5" fill="var(--leaf-2)"></circle>
-          </g>
-          <g class="v5">
-            <path class="stem" pathlength="1" d="M120 150 C 150.6 120.0 175.8 94.0 188.1 53.5"></path>
-            <g class="sprout-leaf"><use href="#leaf" transform="translate(176.6 81.5) rotate(-62.9) scale(0.92)"></use></g>
-            <g class="sprout-leaf"><use href="#leaf" transform="translate(183.1 67.5) rotate(-23.8) scale(0.74)"></use></g>
-            <circle class="tip" cx="188.1" cy="53.5" r="5" fill="var(--sun)"></circle>
-          </g>
-          <g class="v6">
-            <path class="stem" pathlength="1" d="M120 150 C 161.9 120.0 196.4 117.4 213.2 93.7"></path>
-            <g class="sprout-leaf"><use href="#leaf" transform="translate(189.5 112.9) rotate(-35.1) scale(0.92)"></use></g>
-            <g class="sprout-leaf"><use href="#leaf" transform="translate(206.4 101.4) rotate(3.3) scale(0.74)"></use></g>
-            <circle class="tip" cx="213.2" cy="93.7" r="5" fill="var(--leaf-2)"></circle>
-          </g>
-        </g>
-        <g class="disc">
-          <circle cx="120" cy="124" r="54" fill="url(#discFill)" stroke="#d8cbac" stroke-width="2"></circle>
-          <circle cx="120" cy="124" r="46" fill="none" stroke="#cdbf9d" stroke-width="1" opacity=".6"></circle>
-          <path d="M96 150 Q120 164 144 150 Q120 176 96 150 Z" fill="#caa86f" opacity=".55"></path>
-          <ellipse cx="120" cy="148" rx="8" ry="6" fill="var(--seed)"></ellipse>
-          <path d="M120 148 C 120 135 120 121 120 107" fill="none" stroke="var(--moss)" stroke-width="5" stroke-linecap="round"></path>
-          <g class="core-leaf l"><path d="M120 130 C 107 123 97 110 99 95 C 112 99 121 113 120 130 Z" fill="var(--leaf)"></path></g>
-          <g class="core-leaf r"><path d="M120 127 C 133 118 142 105 140 91 C 127 95 118 110 120 127 Z" fill="var(--leaf-2)"></path></g>
-          <circle cx="120" cy="93" r="4" fill="var(--sun)"></circle>
-        </g>
-      </svg>
-    </button>
-    <div class="sprout-word">Spr<em>ou</em>t</div>
-    <div class="sprout-tag">grow what you love</div>
-  </div>
-</div>
-</div>
-<div class="tg-section reveal">
-<div class="section-label">
-<p>Fun data visualizations</p>
-</div>
-<div class="viz-figs reveal stagger">
-<section id="big-12-recruiting-distance-traveled-by-recruits" class="level3">
-<h3 class="anchored" data-anchor-id="big-12-recruiting-distance-traveled-by-recruits">Big 12 Recruiting — Distance Traveled by Recruits</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/distance.png" class="lightboxable img-fluid figure-img"></p>
-<figcaption>This box plot examines how far football recruits travel to join Big 12 football programs and whether that distance changed in the most recent recruiting cycle. Each symbol represents the distance a recruit traveled from their high school to their college (indicated by the logos on the left). Circles represent recruits for the 2025 season, while x symbols represent recruits that have been targeted from earlier classes (2016- 2024 ). The plot is ordered from top to bottom by smallest median distance (thick black line in each box plot). Twenty-eight extreme outliers (~%1 of data) were excluded for clarity. Texas schools tend to draw recruits from shorter distances and have relatively low medians: Baylor(163 miles), Houston(179 miles) and TCU(221 miles). BYU, Arizona, Arizona State and Utah have higher medians ranging from 350-600 miles, largely driven by recruits from Hawaii. Overall, recruiting distance patterns appear relatively stable over time, with the 2025 class showing similar distance traveled to previous years. The one notable exception being UCF, which had no recruits from California in 2025.</figcaption>
-</figure>
-</div>
-</section>
-<section id="big-12-recruiting-over-time-table" class="level3">
-<h3 class="anchored" data-anchor-id="big-12-recruiting-over-time-table">Big 12 Recruiting over Time (Table)</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/table.png" class="lightboxable img-fluid figure-img"></p>
-<figcaption>These tables summarize how recruiting talent has changed over time by region and position group. Players were assigned to regions based on the state where they attended high school. Recruits from outside the United States, as well as those who did not fall into selected position groups were excluded for clarity. Table A uses average player scores to assess how talent has changed over time. All regions showed increases in average scores for both position groups as seen by the darker colors in the more recent years. The Northeast recorded the highest average score in 2025 (89.3 ), although this reflects only three rated recruits for that year. Table B uses total counts of rated players to show talent changes in volume over time. The year 2025 was excluded because it does not represent a full three-year grouping. The Southwest and West had the most rated recruits (993 and 750 respectively) followed by the Southeast (616 ), Midwest (544 ) and Northeast (98 ). Overall, the number of rated recruits has declined over time while average ratings have increased which could be due to more selective recruiting and/or changes in how players have been rated over time.</figcaption>
-</figure>
-</div>
-</section>
-<section id="solar-power-generation-change-over-time" class="level3">
-<h3 class="anchored" data-anchor-id="solar-power-generation-change-over-time">Solar Power Generation Change over Time</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/solar.png" class="lightboxable img-fluid figure-img"></p>
-<figcaption>This faceted bar plot shows how total solar power generation has changed over the last six years. The year 2019 was chosen as the starting point because it marks the period when solar generation began increasing substantially. From 2019 to 2024, solar power generation rose across all selected countries, the largest being China, which increased from 224 TWh in 2019 to 839 TWh in 2024 (a 247% increase). In contrast, the second largest producer, the United States, increased from 107 TWh to 303 TWh over the same period (a 183% increase). The only change in ranking occurred in 2022 when India overtake Japan to become the third largest solar power generating country. Overall, total solar power generation has increased steadily over time.</figcaption>
-</figure>
-</div>
-</section>
-</div>
-</div>
-<section id="contact-me" class="level2 tg-section reveal">
-<h2 class="anchored" data-anchor-id="contact-me">Contact Me</h2>
-<div class="contact-container">
-  <a href="mailto:tsgilbert@arizona.edu" class="contact email"><svg class="ico" viewbox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>Email me</a>
-  <a href="https://github.com/tgilbert14" class="contact git"><svg class="ico" viewbox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>My GitHub</a>
-  <a href="https://www.buymeacoffee.com/tgilbert14" class="contact coffee"><svg class="ico" viewbox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v2"></path><path d="M14 2v2"></path><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"></path><path d="M6 2v2"></path></svg>Buy me a coffee</a>
-</div>
-</section>
+<script src="revamp.js" defer=""></script>
 
 
 
@@ -2044,13 +1931,6 @@ ul.task-list li input[type="checkbox"] {
       window.document.body.appendChild(a);
     }
     setColorSchemeToggle(hasAlternateSentinel())
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -2093,13 +1973,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -2114,7 +1995,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/tgilbert14\.github\.io\/timothy-gilbert-portfolio\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

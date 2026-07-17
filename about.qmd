@@ -1,51 +1,48 @@
 ---
 title: ""
-format: html
+pagetitle: "About Tim Gilbert"
+description: "Ecologist, data scientist, and product builder based in Tucson, Arizona."
+format:
+  html:
+    toc: false
+    page-layout: full
+    anchor-sections: false
 ---
 
-------------------------------------------------------------------------
+```{=html}
+<div class="about-page">
+  <header class="about-hero">
+    <div class="about-hero__copy">
+      <p class="signal-label"><span></span> About Tim</p>
+      <h1>I came to data science through <em>fieldwork.</em></h1>
+      <p>I’m an ecologist turned data scientist and product builder based in Tucson. I build data-collection apps, dashboards, databases, and automation tools for environmental consultants, research teams, and small organizations.</p>
+      <div class="portfolio-actions"><a class="tg-btn tg-btn-primary" href="mailto:tsgilbert@arizona.edu">Email me</a><a class="tg-btn tg-btn-ghost" href="resume.qmd">View résumé</a></div>
+    </div>
+    <div class="about-hero__image"><img src="assets/tim_other.jpg" alt="Tim Gilbert trail running in the desert" fetchpriority="high"><span>Ecologist → data scientist → product builder</span></div>
+  </header>
 
-:::: reveal
-Hello! I'm an ecologist turned data scientist and the founder of **Desert Data Labs LLC** based in Tucson that builds data collection apps, dashboards, and automation tools for environmental consultants, nonprofits, and research teams. I also work for the University of Arizona on a data collection application and spend most of my time developing R and Python applications for interactive data visualizations. I am currently finishing up my master's in Data Science.
+  <section class="about-story reveal">
+    <div><p class="signal-label"><span></span> Background</p><h2>From field ecology to data products.</h2></div>
+    <div><p>I started by collecting ecological data—small-mammal trapping, electrofishing, vegetation surveys, and more—with the National Ecological Observatory Network. I began teaching myself to code because I was curious about what happened to the data after it left the field.</p><p>That curiosity became a career. Today I work on data applications at the University of Arizona, build in R and Python, and run <a href="https://desertdatalabs.com/" target="_blank" rel="noopener">Desert Data Labs</a>. I’m also completing an M.S. in Data Science.</p><p>The mix matters: I understand the field constraints, the data model, and the person who eventually needs an answer.</p></div>
+  </section>
 
-I started my career collecting ecological data (small mammal trapping, electro-fishing, plant diversity, etc.) with the National Ecological Observatory Network and started to teach myself to code there for fun. Eventually I moved into data applications and began to learn more and more, and creating more (which you can check out on my other pages here).
+  <section class="about-facts reveal" aria-label="Quick facts">
+    <article><span>Based in</span><strong>Tucson, Arizona</strong></article>
+    <article><span>Builds with</span><strong>R, Python, SQL, Azure</strong></article>
+    <article><span>Domain roots</span><strong>Ecology &amp; field science</strong></article>
+    <article><span>Off screen</span><strong>Desert trails, dogs, loved ones</strong></article>
+  </section>
 
-I also love the desert, hiking/running and spending time with my loved ones...
+  <section class="about-gallery reveal">
+    <figure class="about-gallery__wide"><img src="assets/photos/field-crew.jpg" alt="Field crew working in a rangeland landscape" loading="lazy"><figcaption>Field teams taught me to design for reality.</figcaption></figure>
+    <figure><img src="assets/photos/small-mammals.jpg" alt="Small mammal field survey" loading="lazy"><figcaption>Ecology is still the foundation.</figcaption></figure>
+    <figure><img src="assets/dogs1.jpg" alt="Tim Gilbert with his dogs" loading="lazy"><figcaption>The home team.</figcaption></figure>
+  </section>
 
-::: image-wrap
-[![](assets/dogs1.jpg){style="border: 4px solid #D6A775; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0,0,0,0.15);" fig-align="center" width="600"}](https://www.instagram.com/timbogilbert/?hl=en)
-:::
-::::
-
-------------------------------------------------------------------------
-
-:::: reveal
-## Ultra Running Snap Shot
-
-<div>
-
-[![](assets/tim_other.jpg){style="border: 4px solid #D6A775; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0,0,0,0.15);" fig-align="center" width="600"}](https://ultrasignup.com/results_participant.aspx?fname=Timothy&lname=Gilbert#)
-
+  <section class="portfolio-cta reveal">
+    <p class="signal-label"><span></span> Connect</p>
+    <h2>I’m interested in practical data problems, useful tools, and collaborations grounded in real work.</h2>
+    <div class="contact-link-row"><a href="mailto:tsgilbert@arizona.edu">tsgilbert@arizona.edu</a><a href="https://github.com/tgilbert14" target="_blank" rel="noopener">GitHub ↗</a><a href="https://www.linkedin.com/in/tgilbert14" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://desertdatalabs.com/" target="_blank" rel="noopener">Desert Data Labs ↗</a></div>
+  </section>
 </div>
-::::
-
-------------------------------------------------------------------------
-
-::: reveal
-## Contacts
-
-*📧 [tsgilbert\@arizona.edu](mailto:tsgilbert@arizona.edu)*\
-*📧 [tim\@desertdatalabs.com](mailto:tim@desertdatalabs.com)*\
-*🌵 [desertdatalabs.com](https://desertdatalabs.com/)*\
-*💾 [GitHub](https://github.com/tgilbert14)*
-:::
-
-------------------------------------------------------------------------
-
-:::: reveal
-<div>
-
-[![](assets/dogs2.jpg){style="border: 4px solid #D6A775; border-radius: 10px; box-shadow: 2px 2px 10px rgba(0,0,0,0.15);" fig-align="center" width="600"}](https://www.linkedin.com/in/tgilbert14/)
-
-</div>
-::::
+```
