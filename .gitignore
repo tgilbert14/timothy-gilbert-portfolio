@@ -3,3 +3,5 @@
 
 # Quarto default output dir — this site builds to docs/ (see _quarto.yml output-dir)
 _site/
+
+**/*.quarto_ipynb

@@ -1,6 +1,6 @@
 # Timothy Gilbert · Digital Portfolio
 
-Welcome! This repository contains the source code and content for my Quarto-based personal website, which highlights my work across ecology, data science, and conservation technology. It’s designed to be clean, navigable, and mission-driven — just like the projects inside.
+This repository contains the source for my Quarto-based portfolio, covering ecological data products, field applications, analytics, and interactive web experiments.
 
 ## 🏡 Live Site
 
@@ -9,14 +9,16 @@ Welcome! This repository contains the source code and content for my Quarto-base
 ## 📁 Structure
 
 - `_quarto.yml` – Site configuration: navigation, styling, metadata
-- `index.qmd` – Homepage: animated hero, feature cards, field-photo band, data-viz gallery
-- `about.qmd` – Overview of my professional journey and interests
+- `index.qmd` – Homepage: introduction, featured work, skills, interactive websites, and field background
+- `work.qmd` – Curated project collection and case-study summaries
+- `about.qmd` – Professional background, field experience, and contact information
 - `dashboards.qmd` – Featured Shiny apps
 - `projects.qmd` – Other apps, scripts, and automation tools
 - `field-notes.qmd` – "Flora Wall": Arizona fieldwork photo band + masonry plant wall (lightbox)
 - `ecoplot.qmd` – EcoPlot Mobile flagship: capabilities, field→report flow, screenshots
 - `resume.qmd` – Embedded résumé with highlights and download link
-- `styles.css` – Custom navy "desert night" theme layered on Quarto's flatly
+- `styles.css` – Original site-wide navy "desert night" theme
+- `revamp.css` – Presentation layer for the home, work, and about pages
 - `_foot.html` – Site-wide JS: scroll reveals, parallax, plant-wall lightbox
 - `assets/` – All images (incl. `assets/photos/`), icons, and PDF files
 
@@ -37,6 +39,9 @@ Check out tools on my GitHub like:
 - [VGS Batch Importer App](https://github.com/tgilbert14/VGS-Batch-Importer-App)
 - [NEON Small Mammal Tracker](https://github.com/tgilbert14/NEON-Small-Mammal-Tracker-App)
 - [NEON Water Chemistry Viewer](https://github.com/tgilbert14/NEON-WaterChemistry-Analyte-Viewer-App)
+- [The Long Saturday](https://github.com/tgilbert14/old-pueblo)
+- [27 Miles to Canada](https://github.com/tgilbert14/ddl-27-miles)
+- [The Orrery](https://github.com/tgilbert14/ddl-orrery)
 
 Each app/script is built to support ecological field teams, research workflows, or dynamic data storytelling.
 
