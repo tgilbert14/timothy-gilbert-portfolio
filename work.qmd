@@ -25,8 +25,8 @@ format:
     </article>
 
     <article class="work-item reveal">
-      <div class="work-item__image"><img src="assets/arizona-football-war-room-3-3-5-2023-2026-pinned.png" alt="Big 12 Girth Index defensive war-room interface" loading="lazy"></div>
-      <div class="work-item__body"><p>02 · Sports data product</p><h2>Big 12 Girth Index</h2><h3>Recruiting data becomes a visual scouting lab.</h3><p>Scraped rosters, ratings, measurements, records, and SP+ feed body maps, position distributions, role projections, and coaching-era comparisons across the conference.</p><ul class="tech-list"><li>R Shiny</li><li>Scraping</li><li>Plotly</li><li>Data modeling</li></ul><div class="case-links"><a href="https://girthindex.desertdatalab.com/" target="_blank" rel="noopener">Open live app ↗</a></div></div>
+      <div class="work-item__image"><img src="assets/arizona-football-war-room-3-3-5-2023-2026-pinned.png" alt="Power-4 Girth Index defensive war-room interface" loading="lazy"></div>
+      <div class="work-item__body"><p>02 · Sports data product</p><h2>Power-4 Girth Index</h2><h3>Recruiting data becomes a live roster-intelligence lab.</h3><p>A transparent dashboard shows data freshness and coverage before body maps, position profiles, team reach, and Talent Origins reveal how rosters are built—and where high-school talent comes from—across all 67 ACC, Big Ten, Big 12, and SEC programs.</p><ul class="tech-list"><li>R Shiny</li><li>Data pipelines</li><li>Plotly</li><li>Geospatial analysis</li></ul><div class="case-links"><a href="https://girthindex.desertdatalab.com/" target="_blank" rel="noopener">Open live app ↗</a></div></div>
     </article>
 
     <article class="work-item reveal">
