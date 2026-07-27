@@ -61,9 +61,9 @@ An R-based helper application (.exe installer) built to support VGS 5 Desktop on
 
 ::: {.reveal}
 
-## NCAA Sample Data Visualizations
+## College Recruiting Analytics
 
-Scripts originally built to scrape recruiting data from multiple sports sites (e.g., 247Sports, On3) and visualize Big 12 football and basketball class rankings over time. That work now feeds the live **Power-4 Girth Index**: 67 programs across the ACC, Big Ten, Big 12, and SEC, with football and basketball recruiting coverage from 2016–2027. Its direct **Matchup** view makes cross-conference comparisons such as Arizona vs. Alabama clear while preserving each program's own-conference ranking and average context.
+An R data pipeline built for college recruiting analysis now feeds the live **Power-4 Girth Index**: all 67 programs across the ACC, Big Ten, Big 12, and SEC, with football and basketball recruiting coverage from 2016–2027. Program Reach and Talent Origins expose recruiting geography, while direct **Matchups** make cross-conference comparisons such as Arizona vs. Alabama clear without mixing conference ranking or average context. Football outcome views also connect recruiting talent to wins and team performance.
 
 -   **Code:** [GitHub](https://github.com/tgilbert14/UA-recruits-)
 -   **Live app:** [Power-4 Girth Index](https://girthindex.desertdatalab.com/)
