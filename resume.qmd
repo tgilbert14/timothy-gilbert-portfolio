@@ -98,7 +98,7 @@ format: html
 
 ::: {.reveal}
 
-You can download the my Résumé/CV: [CLICK ME!](assets/Gilbert_ResumeCV.pdf){.btn}
+You can download my Résumé/CV: [CLICK ME!](assets/Gilbert_ResumeCV.pdf){.btn}
 
 <iframe src="assets/Gilbert_ResumeCV.pdf#view=fitH" width="100%" height="800px" style="border: none; margin-top: 1rem;">
 

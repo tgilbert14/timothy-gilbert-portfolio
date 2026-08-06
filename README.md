@@ -1,6 +1,6 @@
 # Timothy Gilbert · Digital Portfolio
 
-This repository contains the source for my Quarto-based portfolio, covering ecological data products, field applications, analytics, and interactive web experiments.
+Welcome! This repository contains the source for my Quarto-based portfolio, which covers Shiny apps, data tools built for ecological field teams, and three framework-free interactive websites.
 
 ## 🏡 Live Site
 
@@ -10,7 +10,7 @@ This repository contains the source for my Quarto-based portfolio, covering ecol
 
 - `_quarto.yml` – Site configuration: navigation, styling, metadata
 - `index.qmd` – Homepage: introduction, featured work, skills, interactive websites, and field background
-- `work.qmd` – Curated project collection and case-study summaries
+- `work.qmd` – Six selected projects and three browser-based experiments
 - `about.qmd` – Professional background, field experience, and contact information
 - `dashboards.qmd` – Featured Shiny apps
 - `projects.qmd` – Other apps, scripts, and automation tools

@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>projects – Tim Gilbert</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -35,12 +32,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6033a600180109c3731f6a886c29932c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-5685cd926c25366c96d9f1407e584118.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-cc63fce9873912f1bbbccf05079cc9ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-08799928d293638fe9563d5c5a2794e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -240,8 +237,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./assets/desertLeafShrimp.png" alt="" class="navbar-logo light-content">
-    <img src="./assets/desertLeafShrimp.png" alt="" class="navbar-logo dark-content">
+    <img src="./assets/desertLeafShrimp.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Tim Gilbert</span>
@@ -354,7 +350,7 @@ Install guide, features &amp; usage
 <hr>
 <section id="college-recruiting-analytics" class="level2 reveal">
 <h2 class="anchored" data-anchor-id="college-recruiting-analytics">College Recruiting Analytics</h2>
-<p>An R data pipeline built for college recruiting analysis now feeds the live <strong>Power-4 Girth Index</strong>: all 67 programs across the ACC, Big Ten, Big 12, and SEC, with football and basketball recruiting coverage from 2016–2027. Program Reach and Talent Origins expose recruiting geography, while direct <strong>Matchups</strong> make cross-conference comparisons such as Arizona vs.&nbsp;Alabama clear without mixing conference ranking or average context. Football outcome views also connect recruiting talent to wins and team performance.</p>
+<p>An R data pipeline built for college recruiting analysis now feeds the live <strong>Power-4 Girth Index</strong>: all 67 programs across the ACC, Big Ten, Big 12, and SEC, with football and basketball recruiting coverage from 2016–2027. Program Reach and Talent Origins show the recruiting geography, and direct <strong>Matchups</strong> compare any two programs across conferences (Arizona vs.&nbsp;Alabama, for example) while keeping rankings and averages in each program’s own-conference context. Football outcome views also connect recruiting talent to wins and team performance.</p>
 <ul>
 <li><strong>Code:</strong> <a href="https://github.com/tgilbert14/UA-recruits-">GitHub</a></li>
 <li><strong>Live app:</strong> <a href="https://girthindex.desertdatalab.com/">Power-4 Girth Index</a></li>
@@ -1961,14 +1957,13 @@ Full feature walkthrough &amp; screenshots
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
