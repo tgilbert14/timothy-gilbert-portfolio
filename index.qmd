@@ -141,8 +141,8 @@ format:
   <section class="field-story field-story--wild reveal">
     <div class="field-story__image"><img src="assets/photos/field-rangeland-walk.jpg" alt="Rangeland fieldwork in the American Southwest" loading="lazy"></div>
     <div class="field-story__copy">
-      <p class="signal-label"><span></span> Before the code</p>
-      <h2>I was collecting data for NEON before I wrote any code to handle it.</h2>
+      <h2>Before the data</h2>
+      <p>I was collecting data for NEON before I wrote any code to handle it.</p>
       <p>Small-mammal trapping, vegetation surveys, electrofishing, and soil work. That’s why I build for one thumb in bad lighting, with no signal.</p>
       <div><a class="tg-btn tg-btn-primary" href="about.qmd">The longer story</a><a class="tg-btn tg-btn-ghost" href="field-notes.qmd">Field notes</a></div>
     </div>
