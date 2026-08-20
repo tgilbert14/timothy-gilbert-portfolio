@@ -3106,7 +3106,9 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
    ============================================================= */
 .vhs-radio {
   position: fixed;
-  top: 66px;
+  /* Docked bottom-right so it never lands on hero content (the home page's
+     portrait card and the work/about page headers all live top-right). */
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
   right: 14px;
   z-index: 1035;
   /* Station accents (set per-station from JS) are DECOR only — the EQ bars
@@ -3128,10 +3130,11 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   flex-direction: column;
   justify-content: center;
   gap: 2px;
-  width: 178px;
+  width: 192px;
   min-height: 46px;
   padding: 5px 10px 4px;
   box-sizing: border-box;
+  overflow: hidden;               /* the OSD lines are nowrap — never let them escape */
   border-radius: 4px;
   background: var(--osd-ground);
   border: 1px solid rgba(255, 204, 0, 0.45);
@@ -3203,10 +3206,14 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5);
   position: relative;
   overflow: hidden;
-  transform-origin: top right;
+  transform-origin: bottom right;
   animation: vhsDeckIn 0.28s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
 }
 @keyframes vhsDeckIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes vhsDeckInDown {
   from { opacity: 0; transform: translateY(-8px) scale(0.9); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
@@ -3431,11 +3438,15 @@ body.quarto-light .proj-more > summary { color: #0a7686; }
 .vhs-radio__tune { display: flex; gap: 5px; }
 .vhs-radio__seek { padding: 0.36rem 0.45rem 0.24rem; font-size: 14px; }
 
-/* Mobile: shrink the deck, keep it clear of the thumb-heavy bottom. */
+/* Mobile: the hero stacks to one column, so the top-right band is empty and
+   the dock can stay out of the thumb zone. Deck opens downward again. */
 @media (max-width: 560px) {
-  .vhs-radio { top: 60px; right: 8px; }
-  .vhs-radio__deck { width: 220px; }
+  .vhs-radio { top: 88px; bottom: auto; right: 8px; }
+  .vhs-radio__deck { width: 220px; transform-origin: top right; animation-name: vhsDeckInDown; }
   .vhs-radio__toggle { width: 140px; }
+  /* "SYNTH-FM 99.9 FM" needs 166px — past the chip here, so the deck carries
+     the frequency and the chip keeps just the brand. */
+  .bb-freq b { display: none; }
   /* the EQ bars + Playing button carry the "live" signal here — drop the text */
   .vhs-radio__onair { display: none; }
 }

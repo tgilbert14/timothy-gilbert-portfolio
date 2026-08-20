@@ -48,11 +48,12 @@ body.quarto-light {
   color: var(--rv-ink);
 }
 
-/* The previous site-wide radio/easter-egg controls are fun on the archive
-   pages, but they cover primary content on the new editorial pages. */
-body:has(.portfolio-home) :is(.watcher, .vhs-radio),
-body:has(.work-page) :is(.watcher, .vhs-radio),
-body:has(.about-page) :is(.watcher, .vhs-radio) {
+/* The watcher follows the cursor across primary content, so it stays off on
+   the editorial pages. The radio is back everywhere — it docks bottom-right
+   (styles.css), which keeps it clear of the hero. */
+body:has(.portfolio-home) .watcher,
+body:has(.work-page) .watcher,
+body:has(.about-page) .watcher {
   display: none !important;
 }
 
