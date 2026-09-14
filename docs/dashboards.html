@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>dashboards – Tim Gilbert</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -32,12 +38,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cc63fce9873912f1bbbccf05079cc9ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-08799928d293638fe9563d5c5a2794e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9d96f532d65220ca877c0304385df42f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-df07115ad9f15e2ef3479c789e6873c8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -239,7 +245,8 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./assets/desertLeafShrimp.png" alt="" class="navbar-logo">
+    <img src="./assets/desertLeafShrimp.png" alt="" class="navbar-logo light-content">
+    <img src="./assets/desertLeafShrimp.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Tim Gilbert</span>
@@ -311,7 +318,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#power-4-girth-index-roster-recruiting-intelligence" id="toc-power-4-girth-index-roster-recruiting-intelligence" class="nav-link active" data-scroll-target="#power-4-girth-index-roster-recruiting-intelligence">Power-4 Girth Index — Roster &amp; Recruiting Intelligence</a></li>
   <li><a href="#neon-small-mammal-tracker" id="toc-neon-small-mammal-tracker" class="nav-link" data-scroll-target="#neon-small-mammal-tracker">NEON Small Mammal Tracker</a></li>
   <li><a href="#explore-the-neon-suite" id="toc-explore-the-neon-suite" class="nav-link" data-scroll-target="#explore-the-neon-suite">Explore the NEON suite</a></li>
-  <li><a href="#which-states-flora-matches-each-movie-world-best" id="toc-which-states-flora-matches-each-movie-world-best" class="nav-link" data-scroll-target="#which-states-flora-matches-each-movie-world-best">Which State’s Flora Matches Each Movie World Best?</a></li>
   <li><a href="#older-applications" id="toc-older-applications" class="nav-link" data-scroll-target="#older-applications">Older Applications</a></li>
   </ul>
 </nav>
@@ -430,16 +436,32 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </div>
 <hr>
-</section>
-<section id="which-states-flora-matches-each-movie-world-best" class="level2 reveal">
-<h2 class="anchored" data-anchor-id="which-states-flora-matches-each-movie-world-best">Which State’s Flora Matches Each Movie World Best?</h2>
+<div class="reveal">
+<p><span id="which-states-flora-matches-each-movie-world-best"></span></p>
+<section id="plants-in-movies" class="level2">
+<h2 class="anchored" data-anchor-id="plants-in-movies">Plants in Movies</h2>
 <div class="explore-text">
-<p>This Shiny app asks which U.S. state’s plant life best fits three movie worlds — <strong>Dune (<em>Arrakis</em>)</strong>, <strong>The Lord of the Rings (<em>Middle-earth</em>)</strong>, and <strong>Jurassic Park (<em>Isla Nublar</em>)</strong> — each defined by a curated set of plant families (desert &amp; succulent, cool-forest &amp; alpine, and ancient ferns &amp; conifers). Pick any states and an <strong>interactive bar chart</strong> ranks their flora against each world; <strong>tap a bar</strong> to see exactly which families drive the score, and toggle <strong>Raw counts → Fair share</strong> to control for the fact that big, species-rich states and giant plant families — <em>Asteraceae</em> alone is ~65% of Arizona’s “Middle-earth” score — would otherwise dominate. A <strong>chord diagram</strong> then maps the species each state shares with every world, and with the other states. Built on ~250,000 USDA PLANTS records precomputed into an ~11 KB bundle so it loads instantly. A full rebuild of the original — an honest, size-adjusted metric and a botanical field-guide redesign.</p>
+<p>Explore <strong>Arrakis</strong>, <strong>Middle-earth</strong> and <strong>Isla Nublar</strong> through real USDA plant records. Choose states, compare their counts, and open a plant family to see its part in each match.</p>
+<p>The new botanical atlas pairs antique-style illustrations with cinematic motion and a movable <strong>specimen lens</strong>. Save up to <strong>12 family comparisons</strong> in your field notebook, then download the counts. Notes last for the current visit, so download them before closing the app.</p>
+<p>The percentage view shows each state’s share of the national total for those families. It does not adjust for state size or large plant families. The movie associations are hand-picked, and the generated illustrations are not a guide for identifying plants.</p>
 </div>
-<p>⭆ <a href="https://tgilbert14.github.io/PlantsInMovies/" title="Plants in Movies">Open the app</a></p>
-<p><img src="assets/plants-in-movies-chart.png" class="lightboxable img-fluid"> <img src="assets/plants-in-movies-chord.png" class="lightboxable img-fluid"></p>
+<p><a href="https://019ecc91-3c6c-bee2-f824-0ea23fc60ac6.share.connect.posit.cloud/">Open Plants in Movies →</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/plants-in-movies-botanical-v2.webp" class="lightboxable img-fluid figure-img"></p>
+<figcaption>Plants in Movies title artwork, framed by engraved botanical specimens</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/plants-in-movies-atlas-v2.webp" class="lightboxable img-fluid figure-img"></p>
+<figcaption>The app’s illustrated desert, woodland and fern worlds</figcaption>
+</figure>
+</div>
 </section>
+</div>
 <hr>
+</section>
 <section id="older-applications" class="level2 reveal">
 <h2 class="anchored" data-anchor-id="older-applications">Older Applications</h2>
 <p><strong><em>USFS Name Converter</em></strong> ⭆ <a href="https://t-lama.shinyapps.io/App-VGS-USFS-Name2VGS/" title="https://t-lama.shinyapps.io/App-VGS-USFS-Name2VGS/">Click for Stand Alone App</a></p>
@@ -1972,13 +1994,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

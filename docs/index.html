@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,10 +10,16 @@
 
 <title>Tim Gilbert — Ecologist, Data Scientist &amp; Creative Developer – Tim Gilbert</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -32,12 +38,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cc63fce9873912f1bbbccf05079cc9ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-08799928d293638fe9563d5c5a2794e5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-9d96f532d65220ca877c0304385df42f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-df07115ad9f15e2ef3479c789e6873c8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -235,7 +241,8 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./assets/desertLeafShrimp.png" alt="" class="navbar-logo">
+    <img src="./assets/desertLeafShrimp.png" alt="" class="navbar-logo light-content">
+    <img src="./assets/desertLeafShrimp.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Tim Gilbert</span>
@@ -401,8 +408,8 @@ ul.task-list li input[type="checkbox"] {
       </article>
 
       <article class="app-card reveal" data-reactive-card="">
-        <div class="app-card__image"><img src="assets/plants-in-movies-chart.png" alt="Plants in Movies interactive comparison chart" loading="lazy"><span>04 / BOTANY?</span></div>
-        <div class="app-card__copy"><h3>Plants in Movies</h3><p>Which state has the flora of Arrakis, Middle-earth, or Isla Nublar? Roughly 250,000 USDA records were apparently the reasonable way to answer that.</p><ul class="tech-list"><li>R Shiny</li><li>USDA data</li><li>Chord diagrams</li></ul><div class="case-links"><a href="https://tgilbert14.github.io/PlantsInMovies/" target="_blank" rel="noopener">Open app ↗</a></div></div>
+        <div class="app-card__image"><img src="assets/plants-in-movies-botanical-v2.webp" alt="Plants in Movies title artwork with engraved botanical specimens" loading="lazy"><span>04 / BOTANY?</span></div>
+        <div class="app-card__copy"><h3>Plants in Movies</h3><p>Explore Arrakis, Middle-earth and Isla Nublar through real plant records. Compare states, look closer with a specimen lens, and save your finds in a field notebook.</p><ul class="tech-list"><li>R Shiny</li><li>USDA data</li><li>Field notebook</li></ul><div class="case-links"><a href="https://019ecc91-3c6c-bee2-f824-0ea23fc60ac6.share.connect.posit.cloud/" target="_blank" rel="noopener">Open app ↗</a></div></div>
       </article>
     </div>
 
@@ -417,7 +424,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="proof-ledger__grid">
       <article data-reactive-card=""><strong data-count-to="178" data-count-suffix="k+">178k+</strong><span>Capture records traced to individual animals</span></article>
       <article data-reactive-card=""><strong data-count-to="46">46</strong><span>NEON field sites in one tracker</span></article>
-      <article data-reactive-card=""><strong data-count-to="250" data-count-suffix="k+">250k+</strong><span>USDA plant records compared with movie worlds</span></article>
+      <article data-reactive-card=""><strong data-count-to="3">3</strong><span>Movie worlds explored through USDA plant records</span></article>
     </div>
   </section>
 
@@ -1969,13 +1976,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

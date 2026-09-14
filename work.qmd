@@ -40,8 +40,8 @@ format:
     </article>
 
     <article class="work-item reveal">
-      <div class="work-item__image"><img src="assets/plants-in-movies-chart.png" alt="Plants in Movies botanical comparison chart" loading="lazy"></div>
-      <div class="work-item__body"><p>05 · Data storytelling</p><h2>Plants in Movies</h2><h3>Which U.S. flora best matches three imagined worlds?</h3><p>A size-adjusted botanical comparison of Arrakis, Middle-earth, and Isla Nublar, built from roughly 250,000 USDA PLANTS records and compressed into a fast interactive experience.</p><ul class="tech-list"><li>R Shiny</li><li>USDA data</li><li>Visualization</li><li>Storytelling</li></ul><div class="case-links"><a href="https://tgilbert14.github.io/PlantsInMovies/" target="_blank" rel="noopener">Open project ↗</a></div></div>
+      <div class="work-item__image"><img src="assets/plants-in-movies-botanical-v2.webp" alt="Plants in Movies title artwork with engraved botanical specimens" loading="lazy"></div>
+      <div class="work-item__body"><p>05 · Data storytelling</p><h2>Plants in Movies</h2><h3>Movie worlds, explored through real plant records.</h3><p>An illustrated botanical atlas for Arrakis, Middle-earth and Isla Nublar. Compare states, see which families contribute to each match, explore the artwork with a specimen lens, and download saved comparisons from your field notebook.</p><ul class="tech-list"><li>R Shiny</li><li>USDA data</li><li>Visualization</li><li>Storytelling</li></ul><div class="case-links"><a href="https://019ecc91-3c6c-bee2-f824-0ea23fc60ac6.share.connect.posit.cloud/" target="_blank" rel="noopener">Open project ↗</a></div></div>
     </article>
 
     <article class="work-item reveal">

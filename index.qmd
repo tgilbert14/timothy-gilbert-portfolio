@@ -105,8 +105,8 @@ format:
       </article>
 
       <article class="app-card reveal" data-reactive-card>
-        <div class="app-card__image"><img src="assets/plants-in-movies-chart.png" alt="Plants in Movies interactive comparison chart" loading="lazy"><span>04 / BOTANY?</span></div>
-        <div class="app-card__copy"><h3>Plants in Movies</h3><p>Which state has the flora of Arrakis, Middle-earth, or Isla Nublar? Roughly 250,000 USDA records were apparently the reasonable way to answer that.</p><ul class="tech-list"><li>R Shiny</li><li>USDA data</li><li>Chord diagrams</li></ul><div class="case-links"><a href="https://tgilbert14.github.io/PlantsInMovies/" target="_blank" rel="noopener">Open app ↗</a></div></div>
+        <div class="app-card__image"><img src="assets/plants-in-movies-botanical-v2.webp" alt="Plants in Movies title artwork with engraved botanical specimens" loading="lazy"><span>04 / BOTANY?</span></div>
+        <div class="app-card__copy"><h3>Plants in Movies</h3><p>Explore Arrakis, Middle-earth and Isla Nublar through real plant records. Compare states, look closer with a specimen lens, and save your finds in a field notebook.</p><ul class="tech-list"><li>R Shiny</li><li>USDA data</li><li>Field notebook</li></ul><div class="case-links"><a href="https://019ecc91-3c6c-bee2-f824-0ea23fc60ac6.share.connect.posit.cloud/" target="_blank" rel="noopener">Open app ↗</a></div></div>
       </article>
     </div>
 
@@ -121,7 +121,7 @@ format:
     <div class="proof-ledger__grid">
       <article data-reactive-card><strong data-count-to="178" data-count-suffix="k+">178k+</strong><span>Capture records traced to individual animals</span></article>
       <article data-reactive-card><strong data-count-to="46">46</strong><span>NEON field sites in one tracker</span></article>
-      <article data-reactive-card><strong data-count-to="250" data-count-suffix="k+">250k+</strong><span>USDA plant records compared with movie worlds</span></article>
+      <article data-reactive-card><strong data-count-to="3">3</strong><span>Movie worlds explored through USDA plant records</span></article>
     </div>
   </section>
 

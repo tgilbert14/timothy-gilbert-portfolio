@@ -135,15 +135,23 @@ This shiny application turns National Ecological Observatory Network (<https://d
 
 ::: {.reveal}
 
-## Which State's Flora Matches Each Movie World Best?
+[]{#which-states-flora-matches-each-movie-world-best}
+
+## Plants in Movies
 
 ::: explore-text
-This Shiny app asks which U.S. state's plant life best fits three movie worlds — **Dune (*Arrakis*)**, **The Lord of the Rings (*Middle-earth*)**, and **Jurassic Park (*Isla Nublar*)** — each defined by a curated set of plant families (desert & succulent, cool-forest & alpine, and ancient ferns & conifers). Pick any states and an **interactive bar chart** ranks their flora against each world; **tap a bar** to see exactly which families drive the score, and toggle **Raw counts → Fair share** to control for the fact that big, species-rich states and giant plant families — *Asteraceae* alone is ~65% of Arizona's "Middle-earth" score — would otherwise dominate. A **chord diagram** then maps the species each state shares with every world, and with the other states. Built on ~250,000 USDA PLANTS records precomputed into an ~11 KB bundle so it loads instantly. A full rebuild of the original — an honest, size-adjusted metric and a botanical field-guide redesign.
+Explore **Arrakis**, **Middle-earth** and **Isla Nublar** through real USDA plant records. Choose states, compare their counts, and open a plant family to see its part in each match.
+
+The new botanical atlas pairs antique-style illustrations with cinematic motion and a movable **specimen lens**. Save up to **12 family comparisons** in your field notebook, then download the counts. Notes last for the current visit, so download them before closing the app.
+
+The percentage view shows each state’s share of the national total for those families. It does not adjust for state size or large plant families. The movie associations are hand-picked, and the generated illustrations are not a guide for identifying plants.
 :::
 
-⭆ [Open the app](https://tgilbert14.github.io/PlantsInMovies/ "Plants in Movies")
+[Open Plants in Movies →](https://019ecc91-3c6c-bee2-f824-0ea23fc60ac6.share.connect.posit.cloud/)
 
-![](assets/plants-in-movies-chart.png){.lightboxable} ![](assets/plants-in-movies-chord.png){.lightboxable}
+![Plants in Movies title artwork, framed by engraved botanical specimens](assets/plants-in-movies-botanical-v2.webp){.lightboxable}
+
+![The app’s illustrated desert, woodland and fern worlds](assets/plants-in-movies-atlas-v2.webp){.lightboxable}
 
 :::
 
