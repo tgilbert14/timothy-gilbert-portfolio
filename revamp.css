@@ -39,6 +39,130 @@ body.quarto-light {
   --rv-shadow: 0 28px 70px rgba(52, 38, 23, 0.12);
 }
 
+/* The game shortcut lives in Quarto's always-visible header tools. */
+#quarto-header .quarto-navbar-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+}
+#quarto-header .quarto-navbar-tools > a.quarto-navigation-tool[href^="https://destroy.spritefusion.com/"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.45rem 0.65rem !important;
+  margin-left: 0.45rem;
+  border: 1px solid var(--rv-coral);
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--rv-coral) 8%, var(--rv-surface-strong));
+  color: var(--rv-ink);
+  font-size: 0.75rem;
+  font-weight: 750;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+#quarto-header .quarto-navbar-tools > a[href^="https://destroy.spritefusion.com/"]::after {
+  content: "Destroy";
+}
+#quarto-header .quarto-navbar-tools > a[href^="https://destroy.spritefusion.com/"] > i {
+  color: var(--rv-coral);
+  font-size: 1.05rem;
+}
+#quarto-header .quarto-navbar-tools > a[href^="https://destroy.spritefusion.com/"]:hover {
+  background: color-mix(in srgb, var(--rv-coral) 18%, var(--rv-surface-strong));
+  color: var(--rv-ink);
+}
+#quarto-header .quarto-navbar-tools > a[href^="https://destroy.spritefusion.com/"]:focus-visible {
+  outline: 3px solid var(--rv-mint);
+  outline-offset: 3px;
+}
+@media (min-width: 1200px) {
+  #quarto-header .quarto-navbar-tools > a[href^="https://destroy.spritefusion.com/"]::after {
+    content: "Destroy this website";
+  }
+}
+@media (max-width: 1199.98px) {
+  #quarto-header .navbar-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: center;
+    column-gap: 0.45rem;
+  }
+  #quarto-header .navbar-brand-container {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-width: 0;
+    max-width: none;
+    margin: 0 !important;
+  }
+  #quarto-header .navbar-brand-container .navbar-brand {
+    min-width: 0;
+    margin: 0;
+    font-size: 1rem;
+  }
+  #quarto-header .navbar-brand-container .navbar-logo {
+    height: 26px;
+  }
+  #quarto-header .navbar-title {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  #quarto-header .quarto-navbar-tools {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  #quarto-header .navbar-toggler {
+    grid-column: 3;
+    grid-row: 1;
+    min-width: 44px;
+    min-height: 44px;
+    margin: 0;
+    padding: 0.25rem;
+  }
+  #quarto-header .navbar-collapse {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+@media (max-width: 575.98px) {
+  #quarto-header .navbar {
+    padding-inline: 0.25rem;
+  }
+  #quarto-header .navbar-container {
+    padding-inline: 0.5rem;
+  }
+}
+@media (max-width: 359px) {
+  #quarto-header .quarto-navbar-tools > a[href^="https://destroy.spritefusion.com/"]::after {
+    content: none;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  #quarto-header .quarto-navbar-tools > a[href^="https://destroy.spritefusion.com/"]:active {
+    transform: translateY(1px);
+  }
+}
+@media (forced-colors: active) {
+  #quarto-header .quarto-navbar-tools > a[href^="https://destroy.spritefusion.com/"] {
+    background: ButtonFace;
+    border-color: ButtonText;
+    color: ButtonText;
+  }
+  #quarto-header .quarto-navbar-tools > a[href^="https://destroy.spritefusion.com/"] > i {
+    color: ButtonText;
+  }
+}
+
 .portfolio-home,
 .work-page,
 .about-page {
