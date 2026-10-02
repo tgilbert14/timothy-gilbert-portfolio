@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://tgilbert14.github.io/timothy-gilbert-portfolio/work.html</loc>
-    <lastmod>2026-09-14T16:23:50.061Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tgilbert14.github.io/timothy-gilbert-portfolio/projects.html</loc>
-    <lastmod>2026-08-06T16:10:08.401Z</lastmod>
-  </url>
-  <url>
-    <loc>https://tgilbert14.github.io/timothy-gilbert-portfolio/field-notes.html</loc>
-    <lastmod>2026-06-17T14:08:59.417Z</lastmod>
-  </url>
-  <url>
     <loc>https://tgilbert14.github.io/timothy-gilbert-portfolio/dashboards.html</loc>
-    <lastmod>2026-09-14T16:26:39.418Z</lastmod>
+    <lastmod>2026-10-02T17:31:40.037Z</lastmod>
   </url>
   <url>
     <loc>https://tgilbert14.github.io/timothy-gilbert-portfolio/about.html</loc>
-    <lastmod>2026-08-06T16:10:17.017Z</lastmod>
+    <lastmod>2026-10-02T17:31:39.914Z</lastmod>
   </url>
   <url>
-    <loc>https://tgilbert14.github.io/timothy-gilbert-portfolio/ecoplot.html</loc>
-    <lastmod>2026-08-06T16:10:08.401Z</lastmod>
+    <loc>https://tgilbert14.github.io/timothy-gilbert-portfolio/projects.html</loc>
+    <lastmod>2026-10-02T17:31:40.077Z</lastmod>
   </url>
   <url>
-    <loc>https://tgilbert14.github.io/timothy-gilbert-portfolio/index.html</loc>
-    <lastmod>2026-09-14T16:23:50.061Z</lastmod>
+    <loc>https://tgilbert14.github.io/timothy-gilbert-portfolio/work.html</loc>
+    <lastmod>2026-10-02T18:21:45.468Z</lastmod>
   </url>
   <url>
     <loc>https://tgilbert14.github.io/timothy-gilbert-portfolio/resume.html</loc>
-    <lastmod>2026-08-06T16:10:08.402Z</lastmod>
+    <lastmod>2026-10-02T17:31:40.077Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tgilbert14.github.io/timothy-gilbert-portfolio/field-notes.html</loc>
+    <lastmod>2026-10-02T17:31:40.076Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tgilbert14.github.io/timothy-gilbert-portfolio/index.html</loc>
+    <lastmod>2026-10-02T18:21:45.468Z</lastmod>
+  </url>
+  <url>
+    <loc>https://tgilbert14.github.io/timothy-gilbert-portfolio/ecoplot.html</loc>
+    <lastmod>2026-10-02T17:31:40.076Z</lastmod>
   </url>
 </urlset>

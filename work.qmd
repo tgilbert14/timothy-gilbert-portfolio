@@ -52,14 +52,52 @@ format:
 
   <section class="web-showcase portfolio-section" aria-labelledby="web-showcase-title">
     <div class="section-heading reveal">
-      <div><p class="signal-label"><span></span> Interactive web</p><h2 id="web-showcase-title">Three browser-based experiments.</h2></div>
-      <p>These three have no framework behind them. Canvas, audio, scroll timing, and accessible fallbacks for when the fancy parts cannot run.</p>
+      <div><p class="signal-label"><span></span> Interactive web</p><h2 id="web-showcase-title">Explore the records. Compare the model.</h2></div>
+      <p>Field records and a paired storm model, alongside experiments in film, elevation, and procedural worlds.</p>
     </div>
-    <div class="web-project-grid">
+    <div class="web-project-grid web-project-grid--experiences">
+      <a class="web-project web-project--study reveal" href="https://desertdatalabs.com/experiences/living-x-ray/" target="_blank" rel="noopener">
+        <div class="web-project__image"><img src="assets/creative/living-xray-runtime-20261002-r1.webp" alt="Living X-Ray separates a Santa Rita plot into modeled plants, canopy, aerial imagery, and measured terrain" width="1280" height="651" loading="lazy" decoding="async"></div>
+        <div class="web-project__copy"><p>Living X-Ray · NEON field records</p><h3>How do the plant records fit the ground?</h3><p class="web-project__note">I brought native Santa Rita terrain, aerial imagery, a canopy layer, and 179 tagged records into one scene. Peel the layers and select a specimen; its receipt shows source measurements, date limits, and model defaults.</p><small>Three.js · native 1 m terrain · modeled botanical forms</small><b>Inspect the plot ↗</b></div>
+      </a>
+      <a class="web-project web-project--study reveal" href="https://desertdatalabs.com/experiences/two-futures/" target="_blank" rel="noopener">
+        <div class="web-project__image"><img src="assets/creative/two-futures-runtime-20261002-r1.webp" alt="Two Futures compares actual Storm Table model states under shared forcing, with a dug basin only in B" width="1280" height="581" loading="lazy" decoding="async"></div>
+        <div class="web-project__copy"><p>Two Futures · Storm Table model</p><h3>Hold the storm fixed. Change one basin.</h3><p class="web-project__note">I paired two independent Storm Table simulations under the same storm, camera, and replay clock. Add one basin in B, inspect the first sustained depth change beyond the cut, and save the model ledgers and recipe.</p><small>Time-compressed, uncalibrated exhibit. Not a site forecast.</small><b>Run the comparison ↗</b></div>
+      </a>
       <a class="web-project reveal" href="https://tgilbert14.github.io/old-pueblo/" target="_blank" rel="noopener"><div class="web-project__image"><img src="assets/creative/long-saturday.webp" alt="Tucson stadium glowing at night" loading="lazy"><span>Scroll + sound</span></div><div class="web-project__copy"><p>The Long Saturday</p><h3>One desert day, from first light to kickoff.</h3><small>Canvas film scrubber · field-recorded soundscape · four scroll movements</small><b>Open site ↗</b></div></a>
       <a class="web-project reveal" href="https://tgilbert14.github.io/ddl-27-miles/" target="_blank" rel="noopener"><div class="web-project__image"><img src="assets/creative/27-miles.jpg" alt="27 Miles to Canada, Mount Lemmon interactive ascent" loading="lazy"><span>Procedural Canvas</span></div><div class="web-project__copy"><p>27 Miles to Canada</p><h3>Drive from saguaros to snow in twenty-seven miles.</h3><small>Six biotic communities · elevation profile · modeled temperature</small><b>Open site ↗</b></div></a>
       <a class="web-project reveal" href="https://tgilbert14.github.io/ddl-orrery/" target="_blank" rel="noopener"><div class="web-project__image"><img src="assets/creative/orrery.jpg" alt="The Orrery procedural solar system" loading="lazy"><span>Procedural world</span></div><div class="web-project__copy"><p>The Orrery</p><h3>Eleven worlds, one shared clock, and a derelict ship.</h3><small>Canvas-baked scenes · generative audio · persistent survey state</small><b>Open site ↗</b></div></a>
     </div>
+    <article class="demolition-console reveal" aria-labelledby="demolition-title" data-demolition-console>
+      <button class="demolition-target" type="button" disabled aria-label="Miniature target illustration" data-demolition-test>
+        <span class="demolition-target__label">Miniature target</span>
+        <svg viewBox="0 0 300 184" fill="none" aria-hidden="true">
+          <defs><pattern id="demolition-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" stroke="currentColor" stroke-opacity=".13"/></pattern></defs>
+          <path fill="url(#demolition-grid)" d="M0 0h300v184H0z"/>
+          <g class="demolition-target__page">
+            <path d="m65 40 147-13 24 113-147 13z" fill="currentColor" fill-opacity=".07" stroke="currentColor" stroke-opacity=".55"/>
+            <path d="m65 40 147-13 4 18-147 13z" fill="currentColor" fill-opacity=".13"/>
+            <path d="m80 44 3-.3m6-.5 3-.3m6-.5 3-.3M80 76l67-6m-65 17 47-4" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <path d="m85 104 40-4 6 29-40 4zm51-5 40-4 6 29-40 4zm51-4 24-2 6 29-24 2z" fill="currentColor" fill-opacity=".16"/>
+            <path d="m162 66 42-4 3 17-42 4z" fill="currentColor" fill-opacity=".25"/>
+          </g>
+          <g class="demolition-target__sight"><circle cx="150" cy="91" r="36" stroke="currentColor" stroke-width="1.2"/><path d="M150 42v23m0 52v23M101 91h23m52 0h23" stroke="currentColor" stroke-width="1.5"/><circle cx="150" cy="91" r="3" fill="currentColor"/></g>
+          <g class="demolition-target__hit"><circle cx="150" cy="91" r="13" stroke="currentColor" stroke-width="2"/><path d="m125 74-9-8m60 12 10-5m-36-18v-9m-18 67-6 9m40-8 5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></g>
+          <path d="M18 44V18h26m212 0h26v26M18 140v26h26m212 0h26v-26" stroke="currentColor" stroke-opacity=".35"/>
+        </svg>
+        <span class="demolition-target__caption"><span data-demolition-test-label>Preview only</span><span aria-hidden="true">＋</span></span>
+      </button>
+      <div class="demolition-copy">
+        <p class="demolition-kicker">One more way to explore</p>
+        <h3 id="demolition-title">Take a shot at my portfolio.</h3>
+        <p>Play with a copy of this page in Sprite Fusion.</p>
+        <small>A game by Hugo Duprez / <a href="https://www.spritefusion.com/games/destroy-any-website" target="_blank" rel="noopener noreferrer">Sprite Fusion ↗</a></small>
+      </div>
+      <div class="demolition-launch-panel">
+        <a class="demolition-launch" href="https://destroy.spritefusion.com/?from=badge&amp;url=https%3A%2F%2Ftgilbert14.github.io%2Ftimothy-gilbert-portfolio%2F" target="_blank" rel="noopener noreferrer" aria-label="Launch Destroy Any Website on Sprite Fusion in a new tab" data-demolition-launch><img src="https://destroy.spritefusion.com/badge.svg" alt="Destroy this website" width="180" height="40" loading="lazy" decoding="async"><span>Launch game <span aria-hidden="true">↗</span></span></a>
+        <p>Mouse or touch to aim.<br>Phone: landscape. Esc pauses.</p>
+      </div>
+    </article>
   </section>
 
   <section class="work-more reveal">
@@ -67,4 +105,5 @@ format:
     <div><a href="dashboards.qmd">Browse Shiny applications →</a><a href="projects.qmd">Browse utilities and analyses →</a><a href="field-notes.qmd">Browse the field archive →</a></div>
   </section>
 </div>
+<script src="assets/creative/demolition-launcher.js" defer></script>
 ```

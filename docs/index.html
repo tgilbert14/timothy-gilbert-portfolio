@@ -320,7 +320,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="portfolio-hero__copy">
       <p class="signal-label"><span></span> Tim Gilbert / Tucson, Arizona</p>
       <h1 id="hero-title">Apps for ecologists, sports fans &amp; <em>nerds.</em></h1>
-      <p class="portfolio-hero__lede">I’m an ecologist and data scientist who builds R Shiny apps, databases, scrapers, offline field tools, and unnecessarily ambitious browser experiments. I like making complicated things easier to use, and a lot more fun.</p>
+      <p class="portfolio-hero__lede">I’m an ecologist and data scientist who builds R Shiny apps, databases, scrapers, offline field tools, and interactive browser experiences. I like making complicated things easier to use, and a lot more fun.</p>
       <div class="portfolio-actions">
         <a class="tg-btn tg-btn-primary" href="#interactive-web">Start with the fun stuff <span aria-hidden="true">↓</span></a>
         <a class="tg-btn tg-btn-ghost" href="#apps-and-systems">Apps &amp; systems</a>
@@ -359,10 +359,18 @@ ul.task-list li input[type="checkbox"] {
 
   <section class="portfolio-section interactive-web interactive-web--lead" id="interactive-web">
     <div class="section-heading reveal">
-      <div><p class="signal-label"><span></span> New interactive websites</p><h2>A Tucson Saturday. A mountain road. A dead spaceship.</h2></div>
-      <p>Three browser experiments built from scratch with Canvas, sound, scroll choreography, and an unreasonable amount of attention to tiny details.</p>
+      <div><p class="signal-label"><span></span> Interactive web</p><h2>A field plot to peel. A storm to compare.</h2></div>
+      <p>Explore ecological records and a paired storm model. Keep going for a Tucson Saturday, a mountain road, and a dead spaceship.</p>
     </div>
-    <div class="web-project-grid web-project-grid--loud">
+    <div class="web-project-grid web-project-grid--loud web-project-grid--experiences">
+      <a class="web-project web-project--study reveal" href="https://desertdatalabs.com/experiences/living-x-ray/" target="_blank" rel="noopener" data-reactive-card="">
+        <div class="web-project__image"><img src="assets/creative/living-xray-runtime-20261002-r1.webp" alt="Living X-Ray separates a Santa Rita plot into modeled plants, canopy, aerial imagery, and measured terrain" width="1280" height="651" loading="lazy" decoding="async"></div>
+        <div class="web-project__copy"><p>Living X-Ray</p><h3>Peel back a Santa Rita research plot.</h3><p class="web-project__note">Native NEON terrain, aerial and canopy layers, and 179 tagged plant records. Select a plant to inspect its source measurements and model defaults.</p><small>Measured terrain · modeled plants · source receipts</small><b>Explore the plot ↗</b></div>
+      </a>
+      <a class="web-project web-project--study reveal" href="https://desertdatalabs.com/experiences/two-futures/" target="_blank" rel="noopener" data-reactive-card="">
+        <div class="web-project__image"><img src="assets/creative/two-futures-runtime-20261002-r1.webp" alt="Two Futures shows the same Storm Table terrain and storm in two views, with one basin added in B" width="1280" height="581" loading="lazy" decoding="async"></div>
+        <div class="web-project__copy"><p>Two Futures</p><h3>What changes when you dig one basin?</h3><p class="web-project__note">Run two copies of the actual Storm Table model on one clock. Inspect the first sustained difference and save the paired view, ledgers, and recipe.</p><small>Time-compressed, uncalibrated exhibit. Not a site forecast.</small><b>Compare the storm ↗</b></div>
+      </a>
       <a class="web-project reveal" href="https://tgilbert14.github.io/old-pueblo/" target="_blank" rel="noopener" data-reactive-card="">
         <div class="web-project__image"><img src="assets/creative/long-saturday.webp" alt="Tucson stadium glowing at night" loading="lazy"><span>Scroll + sound</span></div>
         <div class="web-project__copy"><p>The Long Saturday</p><h3>One desert day, from first light to kickoff.</h3><small>Film scrubbing · field-recorded soundscape · four scroll movements</small><b>Enter the story ↗</b></div>
@@ -376,12 +384,42 @@ ul.task-list li input[type="checkbox"] {
         <div class="web-project__copy"><p>The Orrery</p><h3>Eleven worlds keep time around one dead ship.</h3><small>Canvas-baked planets · generative score · shuttle flight · hidden sector</small><b>Choose a world ↗</b></div>
       </a>
     </div>
+    <article class="demolition-console reveal" aria-labelledby="demolition-title" data-demolition-console="">
+      <button class="demolition-target" type="button" disabled="" aria-label="Miniature target illustration" data-demolition-test="">
+        <span class="demolition-target__label">Miniature target</span>
+        <svg viewbox="0 0 300 184" fill="none" aria-hidden="true">
+          <defs><pattern id="demolition-grid" width="20" height="20" patternunits="userSpaceOnUse"><path d="M20 0H0V20" stroke="currentColor" stroke-opacity=".13"></path></pattern></defs>
+          <path fill="url(#demolition-grid)" d="M0 0h300v184H0z"></path>
+          <g class="demolition-target__page">
+            <path d="m65 40 147-13 24 113-147 13z" fill="currentColor" fill-opacity=".07" stroke="currentColor" stroke-opacity=".55"></path>
+            <path d="m65 40 147-13 4 18-147 13z" fill="currentColor" fill-opacity=".13"></path>
+            <path d="m80 44 3-.3m6-.5 3-.3m6-.5 3-.3M80 76l67-6m-65 17 47-4" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
+            <path d="m85 104 40-4 6 29-40 4zm51-5 40-4 6 29-40 4zm51-4 24-2 6 29-24 2z" fill="currentColor" fill-opacity=".16"></path>
+            <path d="m162 66 42-4 3 17-42 4z" fill="currentColor" fill-opacity=".25"></path>
+          </g>
+          <g class="demolition-target__sight"><circle cx="150" cy="91" r="36" stroke="currentColor" stroke-width="1.2"></circle><path d="M150 42v23m0 52v23M101 91h23m52 0h23" stroke="currentColor" stroke-width="1.5"></path><circle cx="150" cy="91" r="3" fill="currentColor"></circle></g>
+          <g class="demolition-target__hit"><circle cx="150" cy="91" r="13" stroke="currentColor" stroke-width="2"></circle><path d="m125 74-9-8m60 12 10-5m-36-18v-9m-18 67-6 9m40-8 5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></g>
+          <path d="M18 44V18h26m212 0h26v26M18 140v26h26m212 0h26v-26" stroke="currentColor" stroke-opacity=".35"></path>
+        </svg>
+        <span class="demolition-target__caption"><span data-demolition-test-label="">Preview only</span><span aria-hidden="true">＋</span></span>
+      </button>
+      <div class="demolition-copy">
+        <p class="demolition-kicker">One more way to explore</p>
+        <h3 id="demolition-title">Take a shot at my portfolio.</h3>
+        <p>Play with a copy of this page in Sprite Fusion.</p>
+        <small>A game by Hugo Duprez / <a href="https://www.spritefusion.com/games/destroy-any-website" target="_blank" rel="noopener noreferrer">Sprite Fusion ↗</a></small>
+      </div>
+      <div class="demolition-launch-panel">
+        <a class="demolition-launch" href="https://destroy.spritefusion.com/?from=badge&amp;url=https%3A%2F%2Ftgilbert14.github.io%2Ftimothy-gilbert-portfolio%2F" target="_blank" rel="noopener noreferrer" aria-label="Launch Destroy Any Website on Sprite Fusion in a new tab" data-demolition-launch=""><img src="https://destroy.spritefusion.com/badge.svg" alt="Destroy this website" width="180" height="40" loading="lazy" decoding="async"><span>Launch game <span aria-hidden="true">↗</span></span></a>
+        <p>Mouse or touch to aim.<br>Phone: landscape. Esc pauses.</p>
+      </div>
+    </article>
   </section>
 
   <section class="portfolio-section apps-section" id="apps-and-systems">
     <div class="section-heading reveal">
-      <div><p class="signal-label"><span></span> Apps + systems</p><h2>Then there’s the useful stuff.</h2></div>
-      <p>Field data, football recruits, small mammals, and movie botany. Different subjects; same habit of turning messy data into something worth exploring.</p>
+      <div><p class="signal-label"><span></span> Apps + systems</p><h2>Field tools and data products.</h2></div>
+      <p>Offline collection, roster analysis, capture histories, and plant-family comparisons.</p>
     </div>
 
     <div class="app-grid">
@@ -434,7 +472,7 @@ ul.task-list li input[type="checkbox"] {
       <p>I’m happiest on the small, specific problems, like the offline edit that collided with someone else’s, or the trap tag that got reused. Nobody downstream should ever have to know it happened.</p>
     </div>
     <div class="capability-grid">
-      <article class="capability-card reveal" data-reactive-card=""><span>01</span><h3>Build the thing</h3><p>R Shiny apps, progressive web apps, desktop helpers, and framework-free browser experiments.</p><small>R · Python · JavaScript · Electron</small></article>
+      <article class="capability-card reveal" data-reactive-card=""><span>01</span><h3>Build the thing</h3><p>R Shiny apps, progressive web apps, desktop helpers, and interactive browser work.</p><small>R · Python · JavaScript · Electron</small></article>
       <article class="capability-card reveal" data-reactive-card=""><span>02</span><h3>Wire the data</h3><p>Relational models, offline sync, ETL pipelines, scrapers, and QA/QC that survive real use.</p><small>SQL · Azure · SQLite · APIs</small></article>
       <article class="capability-card reveal" data-reactive-card=""><span>03</span><h3>Know the field</h3><p>I spent years on field crews running vegetation protocols. I know what they ask of a crew, and what it is like to enter it all on a tablet.</p><small>Vegetation · Wildlife · Spatial data</small></article>
       <article class="capability-card reveal" data-reactive-card=""><span>04</span><h3>The fun part</h3><p>Maps, charts, motion, and sound. A chart you can poke at (tap a bar, see which families drive the score) beats one you just look at.</p><small>Canvas · Plotly · ggplot2 · Audio</small></article>
@@ -459,6 +497,7 @@ ul.task-list li input[type="checkbox"] {
   </section>
 </div>
 <script src="revamp.js" defer=""></script>
+<script src="assets/creative/demolition-launcher.js" defer=""></script>
 
 
 
