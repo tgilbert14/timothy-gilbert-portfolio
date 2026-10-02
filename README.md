@@ -32,7 +32,7 @@ Built using:
 
 ## Sprite Fusion launcher
 
-Every page has a compact top-right shortcut to [Destroy Any Website](https://www.spritefusion.com/games/destroy-any-website), a game by Hugo Duprez / Sprite Fusion. It stays visible outside the mobile navigation menu and opens the portfolio as a game in a new tab. Home and Work also include the official badge and original miniature target for local practice feedback. No game code is embedded or copied. JavaScript is optional for launching; reduced motion keeps the practice feedback static.
+Every page has a compact top-right shortcut to [Destroy Any Website](https://www.spritefusion.com/games/destroy-any-website), a game by Hugo Duprez / Sprite Fusion. It stays visible outside the mobile navigation menu and takes the current tab directly to `https://destroy.spritefusion.com/?url=tgilbert14.github.io%2Ftimothy-gilbert-portfolio%2F`. Home and Work use the same direct link on the official badge and include an original miniature target for local practice feedback. No game code is embedded or copied. JavaScript is optional for launching; reduced motion keeps the practice feedback static.
 
 The game's production `frame-ancestors` policy excludes GitHub Pages, so the integration uses its documented native badge link. Source checks and the exact policy observed on 2026-10-02 are recorded in `release-pass.json`.
 
