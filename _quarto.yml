@@ -17,11 +17,11 @@ website:
     tools-collapse: false
     tools:
       - icon: bullseye
-        text: Destroy this website (opens game in a new tab)
-        href: https://destroy.spritefusion.com/?from=badge&url=https%3A%2F%2Ftgilbert14.github.io%2Ftimothy-gilbert-portfolio%2F
-        aria-label: Destroy this website (opens game in a new tab)
-        target: _blank
-        rel: noopener noreferrer
+        text: Destroy this website
+        href: https://destroy.spritefusion.com/?url=tgilbert14.github.io%2Ftimothy-gilbert-portfolio%2F
+        aria-label: Destroy this portfolio in Sprite Fusion
+        target: _self
+        rel: noreferrer
 
     left:
       - text: 'Home'

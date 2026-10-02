@@ -94,7 +94,7 @@ format:
         <small>A game by Hugo Duprez / <a href="https://www.spritefusion.com/games/destroy-any-website" target="_blank" rel="noopener noreferrer">Sprite Fusion ↗</a></small>
       </div>
       <div class="demolition-launch-panel">
-        <a class="demolition-launch" href="https://destroy.spritefusion.com/?from=badge&amp;url=https%3A%2F%2Ftgilbert14.github.io%2Ftimothy-gilbert-portfolio%2F" target="_blank" rel="noopener noreferrer" aria-label="Launch Destroy Any Website on Sprite Fusion in a new tab" data-demolition-launch><img src="https://destroy.spritefusion.com/badge.svg" alt="Destroy this website" width="180" height="40" loading="lazy" decoding="async"><span>Launch game <span aria-hidden="true">↗</span></span></a>
+        <a class="demolition-launch" href="https://destroy.spritefusion.com/?url=tgilbert14.github.io%2Ftimothy-gilbert-portfolio%2F" target="_self" rel="noreferrer" aria-label="Destroy this portfolio in Sprite Fusion" data-demolition-launch><img src="https://destroy.spritefusion.com/badge.svg" alt="Destroy this website" width="180" height="40" loading="lazy" decoding="async"><span>Destroy my portfolio <span aria-hidden="true">→</span></span></a>
         <p>Mouse or touch to aim.<br>Phone: landscape. Esc pauses.</p>
       </div>
     </article>
