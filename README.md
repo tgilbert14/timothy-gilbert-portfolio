@@ -1,6 +1,6 @@
 # Timothy Gilbert · Digital Portfolio
 
-Welcome! This repository contains the source for my Quarto-based portfolio, which covers Shiny apps, data tools built for ecological field teams, and three framework-free interactive websites.
+Welcome! This repository contains the source for my Quarto-based portfolio, which covers Shiny apps, data tools built for ecological field teams, and five interactive browser experiences.
 
 ## 🏡 Live Site
 
@@ -10,7 +10,7 @@ Welcome! This repository contains the source for my Quarto-based portfolio, whic
 
 - `_quarto.yml` – Site configuration: navigation, styling, metadata
 - `index.qmd` – Homepage: introduction, featured work, skills, interactive websites, and field background
-- `work.qmd` – Six selected projects and three browser-based experiments
+- `work.qmd` – Six selected projects and five browser experiences, led by Living X-Ray and Two Futures
 - `about.qmd` – Professional background, field experience, and contact information
 - `dashboards.qmd` – Featured Shiny apps
 - `projects.qmd` – Other apps, scripts, and automation tools
@@ -29,6 +29,12 @@ Built using:
 - [Quarto](https://quarto.org/) for site generation
 - R packages: `shiny`, `ggplot2`, `tidyverse`, `DBI`, `plotly`, `RSQLite`
 - Hosted via GitHub Pages
+
+## Sprite Fusion launcher
+
+Home and Work link to [Destroy Any Website](https://www.spritefusion.com/games/destroy-any-website), a game by Hugo Duprez / Sprite Fusion. The official badge opens the portfolio as a game in a new tab; the original miniature target is only local practice feedback. No game code is embedded or copied. JavaScript is optional for launching; reduced motion keeps the practice feedback static.
+
+The game's production `frame-ancestors` policy excludes GitHub Pages, so the integration uses its documented native badge link. Source checks and the exact policy observed on 2026-10-02 are recorded in `release-pass.json`.
 
 ## 📦 Projects Featured
 

@@ -1,0 +1,328 @@
+{
+  "schema": "portfolio-experiences-release-pass-v1",
+  "date": "2026-10-02",
+  "baseCommit": "c2068f3",
+  "status": "frozen-for-lead-publication",
+  "published": false,
+  "committed": false,
+  "canonicalUrls": [
+    "https://desertdatalabs.com/experiences/living-x-ray/",
+    "https://desertdatalabs.com/experiences/two-futures/"
+  ],
+  "sourceFiles": [
+    "index.qmd",
+    "work.qmd",
+    "revamp.css",
+    "README.md",
+    "assets/creative/demolition-launcher.js"
+  ],
+  "changes": [
+    "Living X-Ray then Two Futures lead both browser galleries with full-card native links.",
+    "Desktop uses an equal new pair above three earlier projects; phone reflows to one column.",
+    "Actual runtime screenshots remain complete, with versioned local WebP paths.",
+    "Case notes explain source data or exhibit model, authored craft and inspectable output.",
+    "Removed stale three/framework-only descriptions and adjacent promotional filler; retained existing projects, theme, radio and settings.",
+    "Added an original local miniature target and the official native Sprite Fusion launch badge below all five existing experiment cards on Home and Work; no game code or iframe is embedded."
+  ],
+  "truthBoundaries": [
+    "Living X-Ray: native Santa Rita NEON terrain, aerial and canopy layers, 179 tagged records; botanical forms are modeled and source/default receipts are disclosed.",
+    "Two Futures: paired actual Storm Table simulations; time-compressed, uncalibrated exhibit, unsuitable for site forecasts; no client outcome claimed.",
+    "Destroy Any Website is a third-party game by Hugo Duprez / Sprite Fusion. The portfolio owns only the original launcher illustration and local feedback; no ownership or self-hosting license for the game is claimed."
+  ],
+  "covers": [
+    {
+      "path": "assets/creative/living-xray-runtime-20261002-r1.webp",
+      "source": "/Users/timbo/Documents/Codex/Artifacts/living-xray-v2/QA/showcase.png",
+      "sourceSha256": "80c6f33d1bb30570367249d1a05bf958d2c4f78f5b5432f369bfad37a74acb4a",
+      "sha256": "fe3dc533e9609344dc376299d774ac64efb0de9d7c3c1beecfa1352e62d37901",
+      "bytes": 44092,
+      "dimensions": [
+        1280,
+        651
+      ],
+      "derivation": "Installed cwebp, quality 88, method 6. No crop, resize, recoloring or generated content."
+    },
+    {
+      "path": "assets/creative/two-futures-runtime-20261002-r1.webp",
+      "source": "/Users/timbo/Documents/Codex/Artifacts/two-futures-v2/QA/showcase.png",
+      "sourceSha256": "a5e1f2625660d54444e91906ea8c1d6ca150eabd23e740eab438e46e75d1bd40",
+      "sha256": "20a340e2cc63eb75f77726338e5b011d2eff178f8884b9e9a54069d1a39bf1b4",
+      "bytes": 122636,
+      "dimensions": [
+        1280,
+        581
+      ],
+      "derivation": "Installed cwebp, quality 88, method 6. No crop, resize, recoloring or generated content."
+    }
+  ],
+  "qa": {
+    "quarto": {
+      "version": "1.10.18",
+      "status": "pass",
+      "command": "quarto render --no-clean",
+      "pages": 8,
+      "initialAttempt": "Existing macOS Sass cache unavailable inside sandbox. Authorized retry accessed the installed runtime cache; no tooling or settings changed.",
+      "generatedScope": "Unrelated older pages, shared libraries and two previously tracked image assets restored after full render; updated home/work, CSS, covers, search and sitemap retained.",
+      "finalCopyRender": {
+        "command": "quarto render work.qmd --no-clean",
+        "status": "pass",
+        "reason": "Replace shared forcing/outside-depth wording with plain descriptions of the same storm and a change beyond the cut."
+      }
+    },
+    "browser": {
+      "engine": "Chrome",
+      "preview": "http://127.0.0.1:8784/",
+      "desktop": {
+        "viewport": [
+          1220,
+          874
+        ],
+        "homePairCardWidth": 511.90625,
+        "homePairCardHeight": 605.640625,
+        "visual": "pass"
+      },
+      "phone390": {
+        "viewport": [
+          390,
+          844
+        ],
+        "homeCardWidth": 293,
+        "homeCardHeight": 531.6640625,
+        "homePageWidth": 378,
+        "workPageWidth": 390,
+        "visual": "pass"
+      },
+      "phone320": {
+        "viewport": [
+          320,
+          844
+        ],
+        "workPageWidth": 308,
+        "workCardWidth": 223,
+        "noteFontPx": 15.98,
+        "detailFontPx": 13.6,
+        "overflow": false
+      },
+      "keyboard": "Tab advances from Living X-Ray to Two Futures; native focus-visible solid outline verified.",
+      "consoleWarningsOrErrors": [],
+      "viewportOverrideReset": true,
+      "screenshots": [
+        "/private/tmp/portfolio-experiences-home-desktop.jpg",
+        "/private/tmp/portfolio-experiences-work-desktop.jpg",
+        "/private/tmp/portfolio-experiences-work-phone.jpg",
+        "/private/tmp/portfolio-experiences-final-home-1440.jpg"
+      ],
+      "finalNativeExperimentsAnchor": {
+        "desktop1440": {
+          "status": "pass",
+          "viewport": [
+            1440,
+            900
+          ],
+          "headerBottomPx": 82.859375,
+          "sectionTopPx": 83.203125,
+          "headingTopPx": 248.2890625,
+          "screenshot": "/private/tmp/portfolio-experiences-final-home-1440.jpg"
+        },
+        "phone390": {
+          "status": "not-reverified",
+          "reason": "Browser control became unavailable while navigating; prior 390/320 layout checks passed."
+        },
+        "finalViewportReset": "Unable to confirm reset after browser control became unavailable. Last confirmed override was 1440 x 900; lead should reset temporary viewport when control returns."
+      }
+    },
+    "integrity": "Canonical links appear once per source and built page in the correct order; built covers/CSS match sources; unrelated settings, scripts, about source/output and shared libraries remain unchanged.",
+    "spriteFusion": {
+      "status": "pass",
+      "engine": "Installed Playwright Chromium, isolated headless contexts; no installations or shared browser viewport overrides.",
+      "renderCommands": [
+        "quarto render index.qmd --no-clean",
+        "quarto render work.qmd --no-clean"
+      ],
+      "renderStatus": "pass",
+      "functional": {
+        "pulses": {
+          "keyboardFocus": true,
+          "pointer": "pass",
+          "keyboard": "pass",
+          "finiteCleanup": "pass",
+          "touch": "pass: native touch tap on final 390px bundle, finite cleanup",
+          "pointerCancel": "pass: interrupted launch press clears feedback"
+        },
+        "reducedMotion": {
+          "status": "pass",
+          "active": true,
+          "pageAnimation": "none",
+          "hitAnimation": "none",
+          "sightAnimation": "none",
+          "pageTransform": "none"
+        },
+        "noJavaScript": {
+          "status": "pass",
+          "target": "disabled illustration, Preview only",
+          "nativePopup": "https://destroy.spritefusion.com/?from=badge&url=https%3A%2F%2Ftgilbert14.github.io%2Ftimothy-gilbert-portfolio%2F"
+        }
+      },
+      "nativePopup": "https://destroy.spritefusion.com/?from=badge&url=https%3A%2F%2Ftgilbert14.github.io%2Ftimothy-gilbert-portfolio%2F",
+      "beforeLaunchRequests": [
+        "https://destroy.spritefusion.com/badge.svg"
+      ],
+      "badgeHTTPStatuses": [
+        200,
+        304
+      ],
+      "finalLayouts": [
+        {
+          "path": "/",
+          "viewport": 1440,
+          "width": 1019.8125,
+          "height": 256.640625,
+          "testHeight": 186.640625,
+          "launchHeight": 104.015625,
+          "captionFont": "13.6px",
+          "badgeLoaded": true,
+          "screenshot": "/private/tmp/portfolio-demolition-home-1440.png"
+        },
+        {
+          "path": "/",
+          "viewport": 390,
+          "width": 305,
+          "height": 521.3125,
+          "testHeight": 88.328125,
+          "launchHeight": 104.015625,
+          "captionFont": "12.75px",
+          "badgeLoaded": true,
+          "screenshot": "/private/tmp/portfolio-demolition-home-390.png"
+        },
+        {
+          "path": "/",
+          "viewport": 320,
+          "width": 235,
+          "height": 558.421875,
+          "testHeight": 84.875,
+          "launchHeight": 104.015625,
+          "captionFont": "12.75px",
+          "badgeLoaded": true,
+          "screenshot": "/private/tmp/portfolio-demolition-home-320.png"
+        },
+        {
+          "path": "/work.html",
+          "viewport": 1440,
+          "width": 1019.8125,
+          "height": 256.640625,
+          "testHeight": 186.640625,
+          "launchHeight": 104.015625,
+          "captionFont": "13.6px",
+          "badgeLoaded": true,
+          "screenshot": "/private/tmp/portfolio-demolition-work-1440.png"
+        },
+        {
+          "path": "/work.html",
+          "viewport": 390,
+          "width": 305,
+          "height": 521.3125,
+          "testHeight": 88.328125,
+          "launchHeight": 104.015625,
+          "captionFont": "12.75px",
+          "badgeLoaded": true,
+          "screenshot": "/private/tmp/portfolio-demolition-work-390.png"
+        },
+        {
+          "path": "/work.html",
+          "viewport": 320,
+          "width": 235,
+          "height": 558.421875,
+          "testHeight": 84.875,
+          "launchHeight": 104.015625,
+          "captionFont": "12.75px",
+          "badgeLoaded": true,
+          "screenshot": "/private/tmp/portfolio-demolition-work-320.png"
+        }
+      ],
+      "finalNoJavaScript": {
+        "status": "pass",
+        "target": "disabled illustration, Preview only"
+      },
+      "noJsScreenshot": "/private/tmp/portfolio-demolition-nojs-390.png",
+      "consoleErrors": [],
+      "review": "Inspected final desktop1440, phone390/320 and no-JavaScript captures. Tightened the practice caption and copy after the first visual pass; existing five project cards stay in the same order.",
+      "scopeIntegrity": "No incidental changes to Quarto settings, shared libraries, radio, other sources or other generated pages. CSS, new JS and source-backed covers match their docs copies. git diff --check passes."
+    }
+  },
+  "remaining": "Lead owns acceptance, publication, and verification of the canonical public destinations and the final portfolio launch link.",
+  "finalCopyPass": {
+    "dateDisclosure": "Specimen receipt says source measurements, date limits, and model defaults. Stored record dates are not claimed as measurement dates.",
+    "evergreenIntroductions": [
+      "Explore ecological records and a paired storm model. Keep going for a Tucson Saturday, a mountain road, and a dead spaceship.",
+      "Field records and a paired storm model, alongside experiments in film, elevation, and procedural worlds."
+    ],
+    "headingsThemeRadio": "Approved headings, theme, radio, settings and other projects unchanged.",
+    "renderCommands": [
+      "quarto render index.qmd --no-clean",
+      "quarto render work.qmd --no-clean"
+    ],
+    "renderStatus": "pass",
+    "unrelatedGeneratedFiles": "Baseline shared libraries retained; only home/work pages regenerated."
+  },
+  "frozenFileSha256": {
+    "index.qmd": "07debb65063c0dc210bea8ecdd9b2c6b24053e67386023c21eee937513da2613",
+    "work.qmd": "efafb25d20296ffa7cff4dccfdfa32a3ea5196669e785de496e162aefb825efb",
+    "revamp.css": "51836bdd67d208cd7eeea9194212d0f9f947f90bcf706d70f3139b64e0ddbb80",
+    "README.md": "6f77fc7ee5a8c0f5e9c58468cc7d38e901597d08e83c4c26a3d687c2c0c5a663",
+    "docs/index.html": "224dafb7b01e219355c9c7ab1471c406e8bdcda779cdecafbb4efb9968fd8328",
+    "docs/work.html": "9687e18d439ebebe00c74e050b2f23993b5726141846f21e55b04285e82f1049",
+    "docs/revamp.css": "51836bdd67d208cd7eeea9194212d0f9f947f90bcf706d70f3139b64e0ddbb80",
+    "docs/search.json": "da61562f26cc171588bc07a47d058306badec6837f64926579e8ab0656422359",
+    "docs/sitemap.xml": "f5c505bcf1ce5f8e42cd9db85773add2064f480cd0271934edea2f42c806f72f",
+    "assets/creative/demolition-launcher.js": "6f6436631b46cd01e61036aea0b53966bbfa6294b07c03950fc31ab34934dc5e",
+    "docs/assets/creative/demolition-launcher.js": "6f6436631b46cd01e61036aea0b53966bbfa6294b07c03950fc31ab34934dc5e"
+  },
+  "spriteFusionIntegration": {
+    "date": "2026-10-02",
+    "officialGamePage": "https://www.spritefusion.com/games/destroy-any-website",
+    "nativeLaunchUrl": "https://destroy.spritefusion.com/?from=badge&url=https%3A%2F%2Ftgilbert14.github.io%2Ftimothy-gilbert-portfolio%2F",
+    "officialBadgeUrl": "https://destroy.spritefusion.com/badge.svg",
+    "providedMarkup": "Official 180 × 40 linked image; from=badge and full HTTPS portfolio URL; enhanced with rel=noopener noreferrer. A visible Launch game label keeps the link usable if the badge fails.",
+    "sourceFindings": {
+      "developer": "Hugo Duprez",
+      "publisher": "Sprite Fusion",
+      "githubAuthor": "https://github.com/Hugo-Dz?tab=repositories",
+      "publicRepoInventory": "https://api.github.com/users/Hugo-Dz/repos?per_page=100&sort=updated",
+      "officialLinkedGitHubRepo": "https://github.com/Hugo-Dz/spritefusion-pixel-snapper",
+      "repoBoundary": "No public Destroy game repository found in the current author inventory. The official GitHub link leads to the MIT-licensed Pixel Snapper tool, not this game. That license does not license the game.",
+      "terms": "https://www.spritefusion.com/terms",
+      "ownership": "Official footer reserves all rights; service source, interface and branding remain Sprite Fusion or licensor property. Documented badge integration is used; no game code copied or forked.",
+      "httpObservation": {
+        "status": 200,
+        "url": "https://destroy.spritefusion.com/?url=tgilbert14.github.io%2Ftimothy-gilbert-portfolio%2F",
+        "Content-Security-Policy": "frame-ancestors 'self' https://spritefusion.com https://*.spritefusion.com http://localhost:*",
+        "X-Frame-Options": null,
+        "productionConstraint": "GitHub Pages is not permitted as a frame ancestor. Localhost permission is not evidence that production framing works."
+      },
+      "verifiedInstructions": [
+        "A/D or arrows: run",
+        "Space/W: jump; hold to fly",
+        "S: drop",
+        "Mouse: aim and shoot",
+        "Right-click: grenade",
+        "1–0 or wheel: weapons",
+        "Esc: pause",
+        "Phone: landscape; left thumb moves and touch aims/shoots"
+      ],
+      "limits": "Official catalog specifies desktop keyboard and mouse; app markup also provides touch/landscape instructions and native labeled controls. Keyboard-only gameplay and the remote game's reduced-motion runtime were not verified. Delivered inline CSS had no reduced-motion rule."
+    },
+    "implementation": {
+      "placement": "Full-width launcher below the five experiment cards on Home and Work, before the next section.",
+      "gameIframe": false,
+      "remoteJavaScript": false,
+      "remotePreload": false,
+      "remoteResourceBeforeLaunch": "Only the lazily loaded official badge; no destroy-app page, game scripts or API loaded.",
+      "art": "Original inline SVG miniature target, authored locally; not copied game artwork.",
+      "feedback": "Deliberate target click/Enter/Space or launch activation triggers one 480 ms restrained hit; class cleared after 500 ms. No sound, loops or destruction of page content.",
+      "cancellation": "Pointer cancel, page hide, document visibility loss and motion-preference changes clear pending feedback.",
+      "reducedMotion": "Static border feedback; no animation or transform.",
+      "noJavaScript": "Target remains a disabled static illustration labeled Preview only. The external launch stays a native functional anchor.",
+      "newScriptBytes": 1767
+    }
+  }
+}
