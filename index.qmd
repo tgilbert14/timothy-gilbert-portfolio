@@ -174,6 +174,89 @@ format:
       <article class="capability-card reveal" data-reactive-card><span>03</span><h3>Know the field</h3><p>I spent years on field crews running vegetation protocols. I know what they ask of a crew, and what it is like to enter it all on a tablet.</p><small>Vegetation · Wildlife · Spatial data</small></article>
       <article class="capability-card reveal" data-reactive-card><span>04</span><h3>The fun part</h3><p>Maps, charts, motion, and sound. A chart you can poke at (tap a bar, see which families drive the score) beats one you just look at.</p><small>Canvas · Plotly · ggplot2 · Audio</small></article>
     </div>
+
+    <article class="demo-hub-band demo-hub-band--desk reveal" data-reactive-card data-field-desk aria-labelledby="demo-hub-title">
+      <div class="field-desk">
+        <div class="field-desk__grid" aria-hidden="true"></div>
+        <div class="field-desk__deck">
+          <section class="field-plate field-plate--tortoise" data-plate="tortoise" data-plate-done="Round complete. No tortoise was bothered." aria-labelledby="plate-tortoise-title">
+            <div class="field-plate__strip" aria-hidden="true"><span>Start here</span><span class="is-current">Action center</span><span>Register</span><span>Map</span><span>Outcomes</span><span>Data &amp; methods</span></div>
+            <header class="field-plate__head">
+              <img src="assets/creative/hub-plate-tortoise.webp" alt="" width="220" height="332" loading="lazy" decoding="async">
+              <div><small>Workspace 01 · Santa Rita</small><h4 id="plate-tortoise-title">Tortoise</h4><p data-plate-headline>24 of 24 tracked animals are on this round’s list.</p></div>
+            </header>
+            <ul class="field-plate__queue" aria-label="Tortoise action center, demo queue">
+              <li><button type="button" aria-pressed="false" data-queue-item><i aria-hidden="true"></i><span>SR-04 · Signal lost</span><b>12 days</b></button></li>
+              <li><button type="button" aria-pressed="false" data-queue-item><i aria-hidden="true"></i><span>SR-11 · Health follow-up</span><b>due</b></button></li>
+              <li><button type="button" aria-pressed="false" data-queue-item><i aria-hidden="true"></i><span>SR-19 · Assessment due</span><b>overdue</b></button></li>
+            </ul>
+            <footer class="field-plate__foot">
+              <span class="field-plate__count" data-queue-count aria-live="polite">3 open</span>
+              <button type="button" class="field-plate__reset" data-queue-reset hidden>Reset the round ↺</button>
+            </footer>
+          </section>
+          <section class="field-plate field-plate--invasive" data-plate="invasive" data-plate-done="Round complete. The buffelgrass is imaginary anyway." aria-labelledby="plate-invasive-title">
+            <div class="field-plate__strip" aria-hidden="true"><span>Start here</span><span class="is-current">Action center</span><span>Register</span><span>Map</span><span>Outcomes</span><span>Data &amp; methods</span></div>
+            <header class="field-plate__head">
+              <img src="assets/creative/hub-plate-invasive.webp" alt="" width="220" height="332" loading="lazy" decoding="async">
+              <div><small>Workspace 02 · Santa Rita</small><h4 id="plate-invasive-title">Invasive plants</h4><p data-plate-headline>246 of 520 patches are on the candidate list.</p></div>
+            </header>
+            <ul class="field-plate__queue" aria-label="Invasive plants action center, demo queue">
+              <li><button type="button" aria-pressed="false" data-queue-item><i aria-hidden="true"></i><span>Patch 118 · Cleared, recheck overdue</span><b>68 more</b></button></li>
+              <li><button type="button" aria-pressed="false" data-queue-item><i aria-hidden="true"></i><span>Patch 207 · Past the ceiling</span><b>76</b></button></li>
+              <li><button type="button" aria-pressed="false" data-queue-item><i aria-hidden="true"></i><span>Patch 331 · Never visited</span><b>102</b></button></li>
+            </ul>
+            <footer class="field-plate__foot">
+              <span class="field-plate__count" data-queue-count aria-live="polite">3 open</span>
+              <button type="button" class="field-plate__reset" data-queue-reset hidden>Reset the round ↺</button>
+            </footer>
+          </section>
+          <section class="field-plate field-plate--restoration" data-plate="restoration" data-plate-done="Round complete. Every pretend sapling accounted for." aria-labelledby="plate-restoration-title">
+            <div class="field-plate__strip" aria-hidden="true"><span>Start here</span><span class="is-current">Action center</span><span>Register</span><span>Map</span><span>Outcomes</span><span>Data &amp; methods</span></div>
+            <header class="field-plate__head">
+              <img src="assets/creative/hub-plate-restoration.webp" alt="" width="220" height="332" loading="lazy" decoding="async">
+              <div><small>Workspace 03 · Santa Rita</small><h4 id="plate-restoration-title">Restoration</h4><p data-plate-headline>10 of 20 planting sites have a reason for a visit.</p></div>
+            </header>
+            <ul class="field-plate__queue" aria-label="Restoration action center, demo queue">
+              <li><button type="button" aria-pressed="false" data-queue-item><i aria-hidden="true"></i><span>Site 03 · Never visited</span><b>4 sites</b></button></li>
+              <li><button type="button" aria-pressed="false" data-queue-item><i aria-hidden="true"></i><span>Site 12 · Dead, then alive</span><b>verify</b></button></li>
+              <li><button type="button" aria-pressed="false" data-queue-item><i aria-hidden="true"></i><span>Site 17 · Past the 353-day bar</span><b>overdue</b></button></li>
+            </ul>
+            <footer class="field-plate__foot">
+              <span class="field-plate__count" data-queue-count aria-live="polite">3 open</span>
+              <button type="button" class="field-plate__reset" data-queue-reset hidden>Reset the round ↺</button>
+            </footer>
+          </section>
+        </div>
+        <div class="field-desk__transect" aria-hidden="true">
+          <i></i>
+          <svg class="field-desk__tortoise" viewBox="0 0 48 28" data-desk-tortoise>
+            <g class="tort-legs"><rect x="11" y="18" width="5" height="8" rx="2.2"/><rect x="27" y="18" width="5" height="8" rx="2.2"/></g>
+            <path class="tort-tail" d="M9 19 3 22l5 2z"/>
+            <circle class="tort-head" cx="41" cy="18.5" r="4.4"/>
+            <circle class="tort-eye" cx="42.6" cy="17.4" r="0.9"/>
+            <path class="tort-shell" d="M7 20c0-8.5 6.5-15 16-15s16 6.5 16 15z"/>
+            <path class="tort-pattern" d="M14 18.5c1.5-5.5 5-8.5 9-8.5s7.5 3 9 8.5M23 10v8.5M17 14l-3 4.5M29 14l3 4.5"/>
+          </svg>
+        </div>
+        <span class="field-desk__stamp" aria-hidden="true"><b>DEMO</b><span>generated<br>records</span></span>
+      </div>
+      <div class="demo-hub-band__copy">
+        <p class="signal-label"><span></span> All four, running at once</p>
+        <h3 id="demo-hub-title">One hub. Three programs. Nothing real to break.</h3>
+        <p>A Shiny demo hub with tortoise, invasive plant, and restoration workspaces, built on generated records so you can poke at everything. Each one gets the same six screens: start here, action center, register, map, outcomes, and data &amp; methods. The desk on the left is a working miniature: pick a workspace and clear its queue.</p>
+        <div class="field-desk__tabs" role="group" aria-label="Pick a workspace">
+          <button type="button" class="field-desk__tab is-active" aria-pressed="true" data-desk-tab="tortoise"><i aria-hidden="true"></i>Tortoise</button>
+          <button type="button" class="field-desk__tab" aria-pressed="false" data-desk-tab="invasive"><i aria-hidden="true"></i>Invasive plants</button>
+          <button type="button" class="field-desk__tab" aria-pressed="false" data-desk-tab="restoration"><i aria-hidden="true"></i>Restoration</button>
+        </div>
+        <div class="demo-hub-band__actions">
+          <a class="tg-btn tg-btn-primary" href="https://witty-water-00906171e.7.azurestaticapps.net/" target="_blank" rel="noopener">Open the demo hub ↗</a>
+          <a class="demo-hub-band__deep" href="https://ca-ddl-conservation-hub.happystone-04918fab.westus3.azurecontainerapps.io/?project=tortoise&amp;route=action" target="_blank" rel="noopener" data-desk-link data-href-tortoise="https://ca-ddl-conservation-hub.happystone-04918fab.westus3.azurecontainerapps.io/?project=tortoise&amp;route=action" data-href-invasive="https://ca-ddl-conservation-hub.happystone-04918fab.westus3.azurecontainerapps.io/?project=invasive&amp;route=action" data-href-restoration="https://ca-ddl-conservation-hub.happystone-04918fab.westus3.azurecontainerapps.io/?project=restoration&amp;route=action">Jump into the <span data-desk-link-name>Tortoise</span> workspace <span aria-hidden="true">↗</span></a>
+        </div>
+        <small>Generated records · Santa Rita Experimental Range · R Shiny · Leaflet · Azure Container Apps</small>
+      </div>
+    </article>
   </section>
 
   <section class="field-story field-story--wild reveal">
@@ -195,4 +278,5 @@ format:
 </div>
 <script src="revamp.js" defer></script>
 <script src="assets/creative/demolition-launcher.js" defer></script>
+<script src="assets/creative/field-desk.js" defer></script>
 ```
