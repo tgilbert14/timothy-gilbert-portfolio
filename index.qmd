@@ -133,17 +133,58 @@ format:
       </article>
 
       <article class="app-card reveal" data-reactive-card>
-        <div class="app-card__image"><img src="assets/power4-girth-index-cover.png" alt="Power-4 Girth Index cover for 67-program roster intelligence" loading="lazy"><span>02 / SPORTS</span></div>
+        <div class="app-card__image app-card__image--girth" data-matchup>
+          <div class="girth-field" aria-hidden="true"></div>
+          <div class="girth-board" aria-hidden="true" data-matchup-board></div>
+          <div class="girth-slots">
+            <p class="girth-slot" data-matchup-slot="a"><small data-matchup-conf="a">Big 12</small><b data-matchup-name="a">Arizona</b></p>
+            <i class="girth-vs" aria-hidden="true">vs</i>
+            <p class="girth-slot" data-matchup-slot="b"><small data-matchup-conf="b">Big 12</small><b data-matchup-name="b">Arizona State</b></p>
+          </div>
+          <button type="button" class="girth-spin" data-matchup-spin>Spin a matchup <span aria-hidden="true">↻</span></button>
+          <p class="girth-note" aria-hidden="true">67 programs · pick any two</p>
+          <p class="visually-hidden" aria-live="polite" data-matchup-live></p>
+          <span>02 / SPORTS</span>
+        </div>
         <div class="app-card__copy"><h3>Power-4 Girth Index</h3><p>Compare how all 67 ACC, Big Ten, Big 12, and SEC programs build football and basketball rosters: body maps, position profiles, where the high-school talent actually comes from, and whether recruiting strength turns into wins. Yes, the name is intentional.</p><ul class="tech-list"><li>R Shiny</li><li>Live data</li><li>Power-4 matchups</li></ul><div class="case-links"><a href="https://girthindex.desertdatalab.com/" target="_blank" rel="noopener">Open app ↗</a></div></div>
       </article>
 
       <article class="app-card reveal" data-reactive-card>
-        <div class="app-card__image"><img src="assets/mam0.png" alt="NEON Small Mammal Tracker national map" loading="lazy"><span>03 / ECOLOGY</span></div>
+        <div class="app-card__image app-card__image--traps" data-trapline>
+          <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="tg-mouse-mark" viewBox="0 0 32 20"><path d="M3 15c-2-1-2-4 0-5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><ellipse cx="15" cy="12" rx="9" ry="6" fill="currentColor"/><circle cx="24" cy="10" r="4.6" fill="currentColor"/><circle cx="22.5" cy="5.5" r="2.4" fill="currentColor"/><circle cx="26.4" cy="9.4" r="0.9" fill="#07111c"/><path d="M28 11.5l3-.6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></symbol></svg>
+          <img class="trapline-map" src="assets/mam0.png" alt="NEON Small Mammal Tracker national map" loading="lazy">
+          <div class="trapline-head"><span data-trapline-count>Trap check · 0 of 12</span><button type="button" class="trapline-reset" data-trapline-reset hidden>Reset the night ↺</button></div>
+          <div class="trapline-grid" role="group" aria-label="Demo trap line: check twelve traps">
+            <button type="button" class="trap" aria-pressed="false" data-trap="Peromyscus eremicus" data-tag="L2-118" data-note="" aria-label="Trap A1"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewBox="0 0 32 20"><use href="#tg-mouse-mark"/></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">A1</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="" data-tag="" data-note="" aria-label="Trap A2"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewBox="0 0 32 20"><use href="#tg-mouse-mark"/></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">A2</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="Chaetodipus penicillatus" data-tag="R4-071" data-note="" aria-label="Trap A3"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewBox="0 0 32 20"><use href="#tg-mouse-mark"/></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">A3</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="Dipodomys merriami" data-tag="L2-204" data-note="" aria-label="Trap A4"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewBox="0 0 32 20"><use href="#tg-mouse-mark"/></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">A4</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="" data-tag="" data-note="" aria-label="Trap B1"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewBox="0 0 32 20"><use href="#tg-mouse-mark"/></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">B1</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="Neotoma albigula" data-tag="R4-093" data-note="recapture" aria-label="Trap B2"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewBox="0 0 32 20"><use href="#tg-mouse-mark"/></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">B2</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="Peromyscus eremicus" data-tag="L2-131" data-note="" aria-label="Trap B3"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewBox="0 0 32 20"><use href="#tg-mouse-mark"/></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">B3</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="" data-tag="" data-note="" aria-label="Trap B4"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewBox="0 0 32 20"><use href="#tg-mouse-mark"/></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">B4</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="Onychomys torridus" data-tag="R4-056" data-note="" aria-label="Trap C1"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewBox="0 0 32 20"><use href="#tg-mouse-mark"/></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">C1</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="Chaetodipus penicillatus" data-tag="L2-162" data-note="" aria-label="Trap C2"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewBox="0 0 32 20"><use href="#tg-mouse-mark"/></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">C2</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="" data-tag="" data-note="" aria-label="Trap C3"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewBox="0 0 32 20"><use href="#tg-mouse-mark"/></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">C3</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="Perognathus flavus" data-tag="R4-110" data-note="" aria-label="Trap C4"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewBox="0 0 32 20"><use href="#tg-mouse-mark"/></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">C4</span></button>
+          </div>
+          <p class="trapline-readout" data-trapline-readout aria-live="polite">Demo trap line. Tap a trap to check it.</p>
+          <span>03 / ECOLOGY</span>
+        </div>
         <div class="app-card__copy"><h3>Small Mammal Tracker</h3><p>National trapping records turned into animal histories, home ranges, diversity profiles, and a Hall of Fame for the most-caught little weirdos.</p><ul class="tech-list"><li>R</li><li>Mapping</li><li>Ecological stats</li></ul><div class="case-links"><a href="https://tgilbert14.github.io/NEON-Small-Mammal-Tracker-App/" target="_blank" rel="noopener">Open app ↗</a></div></div>
       </article>
 
       <article class="app-card reveal" data-reactive-card>
-        <div class="app-card__image"><img src="assets/plants-in-movies-atlas-v2.webp" alt="Botanical illustration from Plants in Movies" loading="lazy"><span>04 / BOTANY?</span></div>
+        <div class="app-card__image app-card__image--lens" data-lens data-world="arrakis">
+          <img class="lens-art" src="assets/creative/plants-lens.webp" alt="Botanical illustration from Plants in Movies" width="1100" height="733" loading="lazy" decoding="async">
+          <div class="lens-glass" aria-hidden="true" data-lens-glass></div>
+          <div class="lens-worlds" role="group" aria-label="Pick a world">
+            <button type="button" class="lens-world is-active" aria-pressed="true" data-lens-world="arrakis">Arrakis</button>
+            <button type="button" class="lens-world" aria-pressed="false" data-lens-world="middle-earth">Middle-earth</button>
+            <button type="button" class="lens-world" aria-pressed="false" data-lens-world="isla-nublar">Isla Nublar</button>
+          </div>
+          <span>04 / BOTANY?</span>
+        </div>
         <div class="app-card__copy"><h3>Plants in Movies</h3><p>Explore Arrakis, Middle-earth and Isla Nublar through real plant records. Compare states, look closer with a specimen lens, and save your finds in a field notebook.</p><ul class="tech-list"><li>R Shiny</li><li>USDA data</li><li>Field notebook</li></ul><div class="case-links"><a href="https://019ecc91-3c6c-bee2-f824-0ea23fc60ac6.share.connect.posit.cloud/" target="_blank" rel="noopener">Open app ↗</a></div></div>
       </article>
     </div>
@@ -279,4 +320,5 @@ format:
 <script src="revamp.js" defer></script>
 <script src="assets/creative/demolition-launcher.js" defer></script>
 <script src="assets/creative/field-desk.js" defer></script>
+<script src="assets/creative/app-instruments.js" defer></script>
 ```
