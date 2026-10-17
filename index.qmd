@@ -17,7 +17,7 @@ format:
     <div class="portfolio-hero__copy">
       <p class="signal-label"><span></span> Tim Gilbert / Tucson, Arizona</p>
       <h1 id="hero-title">Apps for ecologists, sports fans &amp; <em>nerds.</em></h1>
-      <p class="portfolio-hero__lede">I’m an ecologist and data scientist who builds R Shiny apps, databases, scrapers, offline field tools, and interactive browser experiences. I like making complicated things easier to use, and a lot more fun.</p>
+      <p class="portfolio-hero__lede">I’m an ecologist and data scientist who builds R Shiny apps, databases, scrapers, offline field tools, and interactive browser experiences. I like making complicated things easier to use, and a lot more fun. Projects built with assistance from Claude (Anthropic) and Codex (OpenAI).</p>
       <div class="portfolio-actions">
         <a class="tg-btn tg-btn-primary" href="#interactive-web">Start with the fun stuff <span aria-hidden="true">↓</span></a>
         <a class="tg-btn tg-btn-ghost" href="#apps-and-systems">Apps &amp; systems</a>
@@ -56,7 +56,7 @@ format:
 
   <section class="portfolio-section interactive-web interactive-web--lead" id="interactive-web">
     <div class="section-heading reveal">
-      <div><p class="signal-label"><span></span> Interactive web</p><h2>A field plot to peel. A storm to compare.</h2></div>
+      <div><p class="signal-label"><span></span> Interactive web</p><h2>Interactive web field experiences.</h2></div>
       <p>Explore ecological records and a paired storm model. Keep going for a Tucson Saturday, a mountain road, and a dead spaceship.</p>
     </div>
     <div class="web-project-grid web-project-grid--loud web-project-grid--experiences">
