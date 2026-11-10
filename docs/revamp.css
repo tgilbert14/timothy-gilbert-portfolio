@@ -15,7 +15,7 @@
   --rv-muted: #b6c0d7;
   --rv-dim: #7f8ba9;
   --rv-mint: #74efd7;
-  --rv-coral: #ff8d7e;
+  --rv-coral: #ffa64a;
   --rv-gold: #ffd36c;
   --rv-violet: #9790ff;
   --rv-radius: 28px;
@@ -32,8 +32,8 @@ body.quarto-light {
   --rv-ink: #14223a;
   --rv-muted: #536078;
   --rv-dim: #748096;
-  --rv-mint: #087f7f;
-  --rv-coral: #c84755;
+  --rv-mint: #0b7d84;
+  --rv-coral: #a84f0e;
   --rv-gold: #9b6a00;
   --rv-violet: #5c54bd;
   --rv-shadow: 0 28px 70px rgba(52, 38, 23, 0.12);
@@ -953,7 +953,7 @@ body:has(.about-page) .watcher {
 
 .field-plate__queue button:hover { background: #fff; border-color: rgba(43, 35, 52, 0.45); }
 .field-plate__queue button:active { transform: scale(0.985); }
-.field-plate__queue button:focus-visible { outline: 2px solid #087f7f; outline-offset: 2px; }
+.field-plate__queue button:focus-visible { outline: 2px solid #0b7d84; outline-offset: 2px; }
 
 .field-plate__queue button i {
   position: relative;
@@ -971,7 +971,7 @@ body:has(.about-page) .watcher {
   top: 0.5px;
   width: 4px;
   height: 8px;
-  border: solid #087f7f;
+  border: solid #0b7d84;
   border-width: 0 2.2px 2.2px 0;
   transform: rotate(45deg) scale(0);
   transform-origin: center;
@@ -992,11 +992,11 @@ body:has(.about-page) .watcher {
   white-space: nowrap;
 }
 
-.field-plate__queue button[aria-pressed="true"] { background: rgba(116, 239, 215, 0.16); border-color: rgba(8, 127, 127, 0.5); }
-.field-plate__queue button[aria-pressed="true"] i { border-color: #087f7f; }
+.field-plate__queue button[aria-pressed="true"] { background: rgba(116, 239, 215, 0.16); border-color: rgba(11, 125, 132, 0.5); }
+.field-plate__queue button[aria-pressed="true"] i { border-color: #0b7d84; }
 .field-plate__queue button[aria-pressed="true"] i::after { transform: rotate(45deg) scale(1); }
-.field-plate__queue button[aria-pressed="true"] span { color: rgba(43, 35, 52, 0.55); text-decoration: line-through; text-decoration-color: rgba(8, 127, 127, 0.7); }
-.field-plate__queue button[aria-pressed="true"] b { background: #087f7f; color: #e7fff9; }
+.field-plate__queue button[aria-pressed="true"] span { color: rgba(43, 35, 52, 0.55); text-decoration: line-through; text-decoration-color: rgba(11, 125, 132, 0.7); }
+.field-plate__queue button[aria-pressed="true"] b { background: #0b7d84; color: #e7fff9; }
 
 .field-plate__foot {
   display: flex;
@@ -1011,7 +1011,7 @@ body:has(.about-page) .watcher {
   text-transform: uppercase;
 }
 
-.field-plate.is-complete .field-plate__count { color: #087f7f; }
+.field-plate.is-complete .field-plate__count { color: #0b7d84; }
 
 .field-plate__reset {
   margin: 0;
@@ -1019,14 +1019,14 @@ body:has(.about-page) .watcher {
   border: 0;
   border-bottom: 1px solid currentColor;
   background: none;
-  color: #087f7f;
+  color: #0b7d84;
   font: inherit;
   letter-spacing: inherit;
   text-transform: inherit;
   cursor: pointer;
 }
 
-.field-plate__reset:focus-visible { outline: 2px solid #087f7f; outline-offset: 3px; }
+.field-plate__reset:focus-visible { outline: 2px solid #0b7d84; outline-offset: 3px; }
 
 /* The transect: the tortoise only advances when a queue item is actually cleared. */
 .field-desk__transect {
@@ -1839,7 +1839,7 @@ body:has(.portfolio-home--wild)::after {
   opacity: 1;
   background:
     radial-gradient(circle 420px at var(--spot-x) var(--spot-y), rgba(116, 239, 215, 0.13), transparent 72%),
-    radial-gradient(circle 360px at 84% 74%, rgba(255, 141, 126, 0.13), transparent 72%),
+    radial-gradient(circle 360px at 84% 74%, rgba(255, 166, 74, 0.13), transparent 72%),
     repeating-radial-gradient(circle at 79% 48%, transparent 0 52px, rgba(116, 239, 215, 0.07) 53px 54px, transparent 55px 82px);
   transition: background-position 0.2s ease;
 }
@@ -2029,7 +2029,7 @@ body:has(.portfolio-home--wild)::after {
   margin-left: calc(clamp(1.15rem, 4vw, 3.75rem) * -1);
   overflow: hidden;
   border-block: 1px solid var(--rv-line-strong);
-  background: linear-gradient(90deg, rgba(255, 141, 126, 0.11), rgba(116, 239, 215, 0.08), rgba(151, 144, 255, 0.11));
+  background: linear-gradient(90deg, rgba(255, 166, 74, 0.11), rgba(116, 239, 215, 0.08), rgba(151, 144, 255, 0.11));
   transform: rotate(-1.25deg);
 }
 
@@ -2843,13 +2843,13 @@ body:has(.portfolio-home--wild)::after {
 
 .field-story--wild {
   background:
-    linear-gradient(135deg, rgba(255, 141, 126, 0.08), transparent 34%),
+    linear-gradient(135deg, rgba(255, 166, 74, 0.08), transparent 34%),
     var(--rv-surface);
 }
 
 .portfolio-cta--wild {
   background:
-    linear-gradient(115deg, rgba(255, 141, 126, 0.16), transparent 37%),
+    linear-gradient(115deg, rgba(255, 166, 74, 0.16), transparent 37%),
     radial-gradient(circle at 88% 12%, rgba(116, 239, 215, 0.18), transparent 33%),
     radial-gradient(circle at 72% 100%, rgba(151, 144, 255, 0.17), transparent 35%),
     var(--rv-surface);
@@ -2962,10 +2962,10 @@ body:has(.portfolio-home--wild)::after {
   right: 1%;
   width: 82%;
   height: 76%;
-  border: 1px solid rgba(255, 141, 126, 0.38);
+  border: 1px solid rgba(255, 166, 74, 0.38);
   border-radius: 30px;
   background:
-    linear-gradient(135deg, rgba(255, 141, 126, 0.2), transparent 45%),
+    linear-gradient(135deg, rgba(255, 166, 74, 0.2), transparent 45%),
     repeating-linear-gradient(0deg, transparent 0 24px, rgba(116, 239, 215, 0.05) 25px 26px);
   transform: rotate(6deg) translateZ(-40px);
 }
@@ -3095,10 +3095,10 @@ body:has(.portfolio-home--wild)::after {
   overflow: hidden;
   border-inline: 1px solid rgba(255, 255, 255, 0.52);
   background:
-    linear-gradient(90deg, transparent, rgba(255, 141, 126, 0.34), rgba(255, 211, 108, 0.42), rgba(116, 239, 215, 0.48), rgba(151, 144, 255, 0.42), transparent),
+    linear-gradient(90deg, transparent, rgba(255, 166, 74, 0.34), rgba(255, 211, 108, 0.42), rgba(116, 239, 215, 0.48), rgba(151, 144, 255, 0.42), transparent),
     repeating-linear-gradient(0deg, transparent 0 5px, rgba(255, 255, 255, 0.18) 6px 7px);
   box-shadow:
-    -18px 0 35px rgba(255, 141, 126, 0.24),
+    -18px 0 35px rgba(255, 166, 74, 0.24),
     18px 0 42px rgba(116, 239, 215, 0.32),
     0 0 56px rgba(151, 144, 255, 0.25);
   mix-blend-mode: screen;
@@ -3380,7 +3380,7 @@ body:has(.portfolio-home--wild)::after {
   border: 1px solid var(--rv-line-strong);
   border-radius: 24px;
   background:
-    linear-gradient(115deg, rgba(255, 141, 126, 0.08), transparent 35%),
+    linear-gradient(115deg, rgba(255, 166, 74, 0.08), transparent 35%),
     color-mix(in srgb, var(--rv-surface) 76%, transparent);
 }
 
@@ -3517,7 +3517,7 @@ body:has(.portfolio-home--wild)::after {
   z-index: 0;
   inset: -45% -28%;
   opacity: 0;
-  background: linear-gradient(108deg, transparent 43%, rgba(255, 141, 126, 0.1) 47%, rgba(255, 211, 108, 0.17) 50%, rgba(116, 239, 215, 0.2) 53%, rgba(151, 144, 255, 0.1) 56%, transparent 61%);
+  background: linear-gradient(108deg, transparent 43%, rgba(255, 166, 74, 0.1) 47%, rgba(255, 211, 108, 0.17) 50%, rgba(116, 239, 215, 0.2) 53%, rgba(151, 144, 255, 0.1) 56%, transparent 61%);
   transform: translateX(72%) rotate(-5deg);
   pointer-events: none;
 }
@@ -3762,4 +3762,37 @@ body:has(.portfolio-home--wild)::after {
   .demolition-launch-panel { display: block; }
   .demolition-launch { width: 100%; box-sizing: border-box; }
   .demolition-launch-panel > p { margin-top: 0.65rem; text-align: center; }
+}
+
+
+/* Switch to the 3D landscape view of this site (index.html). */
+.navbar .nav-link[href$="index.html"] {
+  position: relative;
+  padding: 0.35rem 0.85rem 0.35rem 1.9rem !important;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.navbar .nav-link[href$="index.html"]::before {
+  content: "";
+  position: absolute;
+  left: 0.7rem;
+  top: 50%;
+  width: 0.62rem;
+  height: 0.62rem;
+  border-radius: 50%;
+  background: #ffd98a;
+  box-shadow: 0 0 10px 2px rgba(255, 200, 110, 0.55);
+  transform: translateY(20%);
+  transition: transform 0.5s cubic-bezier(0.3, 1.5, 0.5, 1);
+}
+.navbar .nav-link[href$="index.html"]:hover::before,
+.navbar .nav-link[href$="index.html"]:focus-visible::before {
+  transform: translateY(-85%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .navbar .nav-link[href$="index.html"],
+  .navbar .nav-link[href$="index.html"]::before { transition: none; }
 }

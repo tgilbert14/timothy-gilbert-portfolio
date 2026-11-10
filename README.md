@@ -9,7 +9,8 @@ Welcome! This repository contains the source for my Quarto-based portfolio, whic
 ## 📁 Structure
 
 - `_quarto.yml` – Site configuration: navigation, styling, metadata
-- `index.qmd` – Homepage: introduction, featured work, skills, interactive websites, and field background
+- `index.html` – Main page: a 3D landscape of the Tucson basin with the projects placed on it (plain HTML + WebGL, no build step; copied into `docs/` as is)
+- `classic.qmd` – Classic home page: introduction, featured work, skills, interactive websites, and field background
 - `work.qmd` – Six selected projects and five browser experiences, led by Living X-Ray and Two Futures
 - `about.qmd` – Professional background, field experience, and contact information
 - `dashboards.qmd` – Featured Shiny apps
@@ -21,6 +22,9 @@ Welcome! This repository contains the source for my Quarto-based portfolio, whic
 - `revamp.css` – Presentation layer for the home, work, and about pages
 - `_foot.html` – Site-wide JS: scroll reveals, parallax, plant-wall lightbox
 - `assets/` – All images (incl. `assets/photos/`), icons, and PDF files
+- `basin/` – Data and libraries for the landscape: terrain, trails, city and three.js (copied into `docs/` as a Quarto resource)
+- `tools/basin/build_terrain.py` – Rebuilds `basin/height.webp`, `basin/far.webp` and `basin/meta.json` from public elevation tiles
+- `tools/basin/build_places.py` – Rebuilds `basin/trails.json` (Arizona Trail, The Loop, named trails) and `basin/city.json` (roads, buildings, rail) from OpenStreetMap; run it after `build_terrain.py`.
 
 ## ⚙️ Tech Stack
 
