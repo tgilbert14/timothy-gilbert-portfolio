@@ -5,3 +5,7 @@
 _site/
 
 **/*.quarto_ipynb
+
+# Terrain tile cache for tools/basin/build_terrain.py
+tools/basin/.tiles/
+tools/basin/.osm/

@@ -124,6 +124,6 @@ format:
 
 ::: {.tg-section .reveal}
 ::: {style="text-align:center;"}
-<a href="index.qmd" class="tg-btn tg-btn-ghost">← Back home</a>  <a href="dashboards.qmd" class="tg-btn tg-btn-primary">See what I built with this data →</a>
+<a href="classic.qmd" class="tg-btn tg-btn-ghost">← Back home</a>  <a href="dashboards.qmd" class="tg-btn tg-btn-primary">See what I built with this data →</a>
 :::
 :::

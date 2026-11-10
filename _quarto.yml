@@ -1,6 +1,10 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - index.html
+    - basin/
+    - "!tools/"
 
 website:
   title: "Tim Gilbert"
@@ -25,10 +29,10 @@ website:
 
     left:
       - text: 'Home'
-        href: index.qmd
+        href: classic.qmd
 
       - text: 'Experiments'
-        href: index.qmd#interactive-web
+        href: classic.qmd#interactive-web
 
       - text: 'Projects'
         href: work.qmd
@@ -40,6 +44,10 @@ website:
         href: about.qmd
 
     right:
+      - text: 'Landscape view'
+        href: index.html
+        aria-label: Switch to the 3D landscape view of this site
+
       - icon: github
         href: https://github.com/tgilbert14
         aria-label: GitHub

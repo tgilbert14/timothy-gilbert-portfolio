@@ -1,0 +1,2503 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="R Shiny apps, ecological data systems, sports analytics, and interactive web experiments by Tim Gilbert.">
+
+<title>Tim Gilbert — Ecologist, Data Scientist &amp; Creative Developer – Tim Gilbert</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<link href="./assets/desertLeafShrimp.png" rel="icon" type="image/png">
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9d96f532d65220ca877c0304385df42f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-df07115ad9f15e2ef3479c789e6873c8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="revamp.css">
+<meta property="og:title" content="Tim Gilbert — Ecologist, Data Scientist &amp; Creative Developer">
+<meta property="og:description" content="R Shiny apps, ecological data systems, sports analytics, and interactive web experiments by Tim Gilbert.">
+<meta property="og:image" content="https://tgilbert14.github.io/timothy-gilbert-portfolio/assets/og.jpg">
+<meta property="og:site_name" content="Tim Gilbert">
+<meta name="twitter:title" content="Tim Gilbert — Ecologist, Data Scientist &amp; Creative Developer">
+<meta name="twitter:description" content="R Shiny apps, ecological data systems, sports analytics, and interactive web experiments by Tim Gilbert.">
+<meta name="twitter:image" content="https://tgilbert14.github.io/timothy-gilbert-portfolio/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed quarto-dark"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = true;
+    const darkModeDefault = authorPrefersDark;
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-xl " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/desertLeafShrimp.png" alt="" class="navbar-logo light-content">
+    <img src="./assets/desertLeafShrimp.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Tim Gilbert</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./classic.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./classic.html#interactive-web"> 
+<span class="menu-text">Experiments</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./work.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./field-notes.html"> 
+<span class="menu-text">Field Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Landscape view</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/tgilbert14"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/tgilbert14"> <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./resume.html"> 
+<span class="menu-text">Résumé</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:tsgilbert@arizona.edu"> <i class="bi bi-envelope" role="img" aria-label="Email Tim">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://destroy.spritefusion.com/?url=tgilbert14.github.io%2Ftimothy-gilbert-portfolio%2F" rel="noreferrer" title="Destroy this website" class="quarto-navigation-tool px-1" aria-label="Destroy this portfolio in Sprite Fusion" target="_self"><i class="bi bi-bullseye"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+
+<div class="portfolio-home portfolio-home--wild">
+  <section class="portfolio-hero portfolio-hero--wild" aria-labelledby="hero-title" data-wild-hero="">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="portfolio-hero__copy">
+      <p class="signal-label"><span></span> Tim Gilbert / Tucson, Arizona</p>
+      <h1 id="hero-title">Apps for ecologists, sports fans &amp; <em>nerds.</em></h1>
+      <p class="portfolio-hero__lede">I’m an ecologist and data scientist who builds R Shiny apps, databases, scrapers, offline field tools, and interactive browser experiences. I like making complicated things easier to use, and a lot more fun. Projects built with assistance from Claude (Anthropic) and Codex (OpenAI).</p>
+      <div class="portfolio-actions">
+        <a class="tg-btn tg-btn-primary" href="#interactive-web">Start with the fun stuff <span aria-hidden="true">↓</span></a>
+        <a class="tg-btn tg-btn-ghost" href="#apps-and-systems">Apps &amp; systems</a>
+      </div>
+      <div class="hero-signoff">
+        <span>Ecologist</span><i aria-hidden="true">+</i><span>Data scientist</span><i aria-hidden="true">+</i><span>Builder of odd little worlds</span>
+      </div>
+    </div>
+
+    <div class="hero-self-portrait" data-tilt-card="" data-portrait-morph="">
+      <p class="portrait-kicker"><span></span> Field identification / TG-14</p>
+      <div class="hero-self-portrait__frame">
+        <img class="portrait-real" src="assets/tim_gc.jpg" alt="Tim Gilbert overlooking the Grand Canyon" fetchpriority="high">
+        <img class="portrait-dog" src="assets/dogTim-transition.jpg" alt="" aria-hidden="true" decoding="async" fetchpriority="low">
+        <div class="portrait-holo-gate" aria-hidden="true"><i></i><i></i><i></i></div>
+        <span class="portrait-coordinate">36.10° N / 112.11° W</span>
+        <span class="portrait-status"><i aria-hidden="true"></i><span class="portrait-status__real">FIELD RECORD ACTIVE</span><span class="portrait-status__dog">CANIS MODE ACTIVE</span></span>
+        <button class="portrait-toggle" type="button" aria-pressed="false" aria-label="Toggle alternate dog portrait" data-portrait-toggle=""><span>ALT SPECIMEN</span><i aria-hidden="true">↻</i></button>
+      </div>
+      <div class="hero-self-portrait__caption">
+        <div><small>SUBJECT</small><strong>Tim Gilbert</strong></div>
+        <div><small>RANGE</small><strong>Mostly Arizona</strong></div>
+      </div>
+      <span class="portrait-chip portrait-chip--r" aria-hidden="true">R</span>
+      <span class="portrait-chip portrait-chip--sql" aria-hidden="true">SQL</span>
+      <span class="portrait-chip portrait-chip--field" aria-hidden="true">FIELD</span>
+    </div>
+  </section>
+
+  <div class="build-ticker" aria-label="Tools and subjects I work with">
+    <div class="build-ticker__track">
+      <span>R SHINY</span><i>✶</i><span>PYTHON</span><i>✶</i><span>SQL</span><i>✶</i><span>CANVAS</span><i>✶</i><span>FIELD ECOLOGY</span><i>✶</i><span>SPORTS DATA</span><i>✶</i><span>OFFLINE-FIRST</span><i>✶</i><span>WEIRD SIDE PROJECTS</span><i>✶</i>
+      <span aria-hidden="true">R SHINY</span><i aria-hidden="true">✶</i><span aria-hidden="true">PYTHON</span><i aria-hidden="true">✶</i><span aria-hidden="true">SQL</span><i aria-hidden="true">✶</i><span aria-hidden="true">CANVAS</span><i aria-hidden="true">✶</i><span aria-hidden="true">FIELD ECOLOGY</span><i aria-hidden="true">✶</i><span aria-hidden="true">SPORTS DATA</span><i aria-hidden="true">✶</i><span aria-hidden="true">OFFLINE-FIRST</span><i aria-hidden="true">✶</i><span aria-hidden="true">WEIRD SIDE PROJECTS</span><i aria-hidden="true">✶</i>
+    </div>
+  </div>
+
+  <section class="portfolio-section interactive-web interactive-web--lead" id="interactive-web">
+    <div class="section-heading reveal">
+      <div><p class="signal-label"><span></span> Interactive web</p><h2>Interactive web field experiences.</h2></div>
+      <p>Explore ecological records and a paired storm model. Keep going for a Tucson Saturday, a mountain road, and a dead spaceship.</p>
+    </div>
+    <div class="web-project-grid web-project-grid--loud web-project-grid--experiences">
+      <a class="web-project web-project--study reveal" href="https://desertdatalabs.com/experiences/living-x-ray/" target="_blank" rel="noopener" data-reactive-card="">
+        <div class="web-project__image"><img src="assets/creative/living-xray-runtime-20261002-r1.webp" alt="Living X-Ray separates a Santa Rita plot into modeled plants, canopy, aerial imagery, and measured terrain" width="1280" height="651" loading="lazy" decoding="async"></div>
+        <div class="web-project__copy"><p>Living X-Ray</p><h3>Peel back a Santa Rita research plot.</h3><p class="web-project__note">Native NEON terrain, aerial and canopy layers, and 179 tagged plant records. Select a plant to inspect its source measurements and model defaults.</p><small>Measured terrain · modeled plants · source receipts</small><b>Explore the plot ↗</b></div>
+      </a>
+      <a class="web-project web-project--study reveal" href="https://desertdatalabs.com/experiences/two-futures/" target="_blank" rel="noopener" data-reactive-card="">
+        <div class="web-project__image"><img src="assets/creative/two-futures-runtime-20261002-r1.webp" alt="Two Futures shows the same Storm Table terrain and storm in two views, with one basin added in B" width="1280" height="581" loading="lazy" decoding="async"></div>
+        <div class="web-project__copy"><p>Two Futures</p><h3>What changes when you dig one basin?</h3><p class="web-project__note">Run two copies of the actual Storm Table model on one clock. Inspect the first sustained difference and save the paired view, ledgers, and recipe.</p><small>Time-compressed, uncalibrated exhibit. Not a site forecast.</small><b>Compare the storm ↗</b></div>
+      </a>
+      <a class="web-project reveal" href="https://tgilbert14.github.io/old-pueblo/" target="_blank" rel="noopener" data-reactive-card="">
+        <div class="web-project__image"><img src="assets/creative/long-saturday.webp" alt="Tucson stadium glowing at night" loading="lazy"><span>Scroll + sound</span></div>
+        <div class="web-project__copy"><p>The Long Saturday</p><h3>One desert day, from first light to kickoff.</h3><small>Film scrubbing · field-recorded soundscape · four scroll movements</small><b>Enter the story ↗</b></div>
+      </a>
+      <a class="web-project reveal" href="https://tgilbert14.github.io/ddl-27-miles/" target="_blank" rel="noopener" data-reactive-card="">
+        <div class="web-project__image"><img src="assets/creative/27-miles.jpg" alt="27 Miles to Canada, Mount Lemmon interactive ascent" loading="lazy"><span>Procedural Canvas</span></div>
+        <div class="web-project__copy"><p>27 Miles to Canada</p><h3>Drive from saguaros to snow in twenty-seven miles.</h3><small>Six biotic communities · elevation model · live climate shift</small><b>Start the climb ↗</b></div>
+      </a>
+      <a class="web-project reveal" href="https://tgilbert14.github.io/ddl-orrery/" target="_blank" rel="noopener" data-reactive-card="">
+        <div class="web-project__image"><img src="assets/creative/orrery.jpg" alt="The Orrery procedural solar system" loading="lazy"><span>Procedural world</span></div>
+        <div class="web-project__copy"><p>The Orrery</p><h3>Eleven worlds keep time around one dead ship.</h3><small>Canvas-baked planets · generative score · shuttle flight · hidden sector</small><b>Choose a world ↗</b></div>
+      </a>
+    </div>
+    <article class="demolition-console reveal" aria-labelledby="demolition-title" data-demolition-console="">
+      <button class="demolition-target" type="button" disabled="" aria-label="Miniature target illustration" data-demolition-test="">
+        <span class="demolition-target__label">Miniature target</span>
+        <svg viewbox="0 0 300 184" fill="none" aria-hidden="true">
+          <defs><pattern id="demolition-grid" width="20" height="20" patternunits="userSpaceOnUse"><path d="M20 0H0V20" stroke="currentColor" stroke-opacity=".13"></path></pattern></defs>
+          <path fill="url(#demolition-grid)" d="M0 0h300v184H0z"></path>
+          <g class="demolition-target__page">
+            <path d="m65 40 147-13 24 113-147 13z" fill="currentColor" fill-opacity=".07" stroke="currentColor" stroke-opacity=".55"></path>
+            <path d="m65 40 147-13 4 18-147 13z" fill="currentColor" fill-opacity=".13"></path>
+            <path d="m80 44 3-.3m6-.5 3-.3m6-.5 3-.3M80 76l67-6m-65 17 47-4" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
+            <path d="m85 104 40-4 6 29-40 4zm51-5 40-4 6 29-40 4zm51-4 24-2 6 29-24 2z" fill="currentColor" fill-opacity=".16"></path>
+            <path d="m162 66 42-4 3 17-42 4z" fill="currentColor" fill-opacity=".25"></path>
+          </g>
+          <g class="demolition-target__sight"><circle cx="150" cy="91" r="36" stroke="currentColor" stroke-width="1.2"></circle><path d="M150 42v23m0 52v23M101 91h23m52 0h23" stroke="currentColor" stroke-width="1.5"></path><circle cx="150" cy="91" r="3" fill="currentColor"></circle></g>
+          <g class="demolition-target__hit"><circle cx="150" cy="91" r="13" stroke="currentColor" stroke-width="2"></circle><path d="m125 74-9-8m60 12 10-5m-36-18v-9m-18 67-6 9m40-8 5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></g>
+          <path d="M18 44V18h26m212 0h26v26M18 140v26h26m212 0h26v-26" stroke="currentColor" stroke-opacity=".35"></path>
+        </svg>
+        <span class="demolition-target__caption"><span data-demolition-test-label="">Preview only</span><span aria-hidden="true">＋</span></span>
+      </button>
+      <div class="demolition-copy">
+        <p class="demolition-kicker">One more way to explore</p>
+        <h3 id="demolition-title">Take a shot at my portfolio.</h3>
+        <p>Play with a copy of this page in Sprite Fusion.</p>
+        <small>A game by Hugo Duprez / <a href="https://www.spritefusion.com/games/destroy-any-website" target="_blank" rel="noopener noreferrer">Sprite Fusion ↗</a></small>
+      </div>
+      <div class="demolition-launch-panel">
+        <a class="demolition-launch" href="https://destroy.spritefusion.com/?url=tgilbert14.github.io%2Ftimothy-gilbert-portfolio%2F" target="_self" rel="noreferrer" aria-label="Destroy this portfolio in Sprite Fusion" data-demolition-launch=""><img src="https://destroy.spritefusion.com/badge.svg" alt="Destroy this website" width="180" height="40" loading="lazy" decoding="async"><span>Destroy my portfolio <span aria-hidden="true">→</span></span></a>
+        <p>Mouse or touch to aim.<br>Phone: landscape. Esc pauses.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="portfolio-section apps-section" id="apps-and-systems">
+    <div class="section-heading reveal">
+      <div><p class="signal-label"><span></span> Apps + systems</p><h2>Field tools and data products.</h2></div>
+      <p>Offline collection, roster analysis, capture histories, and plant-family comparisons.</p>
+    </div>
+
+    <div class="app-grid">
+      <article class="app-card app-card--ecoplot reveal" data-reactive-card="">
+        <div class="app-card__image app-card__image--ecoplot">
+          <img class="ecoplot-field" src="assets/photos/field-transect-collection.jpg" alt="Vegetation data collection along a field transect" loading="lazy">
+          <div class="ecoplot-status"><i aria-hidden="true"></i><span>OFFLINE · 12 SAFE</span></div>
+          <div class="ecoplot-device" aria-hidden="true"><i></i><img src="assets/ecoplot/ecoPlot_5_collectingFrequencyDataWithBubblePick.png" alt=""></div>
+          <div class="ecoplot-route" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="ecoplot-database" aria-hidden="true"><i></i><i></i><i></i><b>SQL</b></div>
+          <span>01 / FIELD → DATABASE</span>
+        </div>
+        <div class="app-card__copy"><h3>EcoPlot Mobile</h3><p>Offline vegetation data collection, cloud sync, office review, and reports. Built for places where the bars on your phone are mostly decorative.</p><ul class="tech-list"><li>PWA</li><li>Azure SQL</li><li>Offline sync</li></ul><div class="case-links"><a href="./ecoplot.html">Case study →</a><a href="https://app.desertdatacollection.com/" target="_blank" rel="noopener">Live app ↗</a></div></div>
+      </article>
+
+      <article class="app-card reveal" data-reactive-card="">
+        <div class="app-card__image app-card__image--girth" data-matchup="">
+          <div class="girth-field" aria-hidden="true"></div>
+          <div class="girth-board" aria-hidden="true" data-matchup-board=""></div>
+          <div class="girth-slots">
+            <p class="girth-slot" data-matchup-slot="a"><small data-matchup-conf="a">Big 12</small><b data-matchup-name="a">Arizona</b></p>
+            <i class="girth-vs" aria-hidden="true">vs</i>
+            <p class="girth-slot" data-matchup-slot="b"><small data-matchup-conf="b">Big 12</small><b data-matchup-name="b">Arizona State</b></p>
+          </div>
+          <button type="button" class="girth-spin" data-matchup-spin="">Spin a matchup <span aria-hidden="true">↻</span></button>
+          <p class="girth-note" aria-hidden="true">67 programs · pick any two</p>
+          <p class="visually-hidden" aria-live="polite" data-matchup-live=""></p>
+          <span>02 / SPORTS</span>
+        </div>
+        <div class="app-card__copy"><h3>Power-4 Girth Index</h3><p>Compare how all 67 ACC, Big Ten, Big 12, and SEC programs build football and basketball rosters: body maps, position profiles, where the high-school talent actually comes from, and whether recruiting strength turns into wins. Yes, the name is intentional.</p><ul class="tech-list"><li>R Shiny</li><li>Live data</li><li>Power-4 matchups</li></ul><div class="case-links"><a href="https://girthindex.desertdatalab.com/" target="_blank" rel="noopener">Open app ↗</a></div></div>
+      </article>
+
+      <article class="app-card reveal" data-reactive-card="">
+        <div class="app-card__image app-card__image--traps" data-trapline="">
+          <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="tg-mouse-mark" viewbox="0 0 32 20"><path d="M3 15c-2-1-2-4 0-5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path><ellipse cx="15" cy="12" rx="9" ry="6" fill="currentColor"></ellipse><circle cx="24" cy="10" r="4.6" fill="currentColor"></circle><circle cx="22.5" cy="5.5" r="2.4" fill="currentColor"></circle><circle cx="26.4" cy="9.4" r="0.9" fill="#07111c"></circle><path d="M28 11.5l3-.6" stroke="currentColor" stroke-width="1" stroke-linecap="round"></path></symbol></svg>
+          <img class="trapline-map" src="assets/mam0.png" alt="NEON Small Mammal Tracker national map" loading="lazy">
+          <div class="trapline-head"><span data-trapline-count="">Trap check · 0 of 12</span><button type="button" class="trapline-reset" data-trapline-reset="" hidden="">Reset the night ↺</button></div>
+          <div class="trapline-grid" role="group" aria-label="Demo trap line: check twelve traps">
+            <button type="button" class="trap" aria-pressed="false" data-trap="Peromyscus eremicus" data-tag="L2-118" data-note="" aria-label="Trap A1"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewbox="0 0 32 20"><use href="#tg-mouse-mark"></use></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">A1</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="" data-tag="" data-note="" aria-label="Trap A2"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewbox="0 0 32 20"><use href="#tg-mouse-mark"></use></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">A2</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="Chaetodipus penicillatus" data-tag="R4-071" data-note="" aria-label="Trap A3"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewbox="0 0 32 20"><use href="#tg-mouse-mark"></use></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">A3</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="Dipodomys merriami" data-tag="L2-204" data-note="" aria-label="Trap A4"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewbox="0 0 32 20"><use href="#tg-mouse-mark"></use></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">A4</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="" data-tag="" data-note="" aria-label="Trap B1"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewbox="0 0 32 20"><use href="#tg-mouse-mark"></use></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">B1</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="Neotoma albigula" data-tag="R4-093" data-note="recapture" aria-label="Trap B2"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewbox="0 0 32 20"><use href="#tg-mouse-mark"></use></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">B2</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="Peromyscus eremicus" data-tag="L2-131" data-note="" aria-label="Trap B3"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewbox="0 0 32 20"><use href="#tg-mouse-mark"></use></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">B3</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="" data-tag="" data-note="" aria-label="Trap B4"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewbox="0 0 32 20"><use href="#tg-mouse-mark"></use></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">B4</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="Onychomys torridus" data-tag="R4-056" data-note="" aria-label="Trap C1"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewbox="0 0 32 20"><use href="#tg-mouse-mark"></use></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">C1</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="Chaetodipus penicillatus" data-tag="L2-162" data-note="" aria-label="Trap C2"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewbox="0 0 32 20"><use href="#tg-mouse-mark"></use></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">C2</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="" data-tag="" data-note="" aria-label="Trap C3"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewbox="0 0 32 20"><use href="#tg-mouse-mark"></use></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">C3</span></button>
+            <button type="button" class="trap" aria-pressed="false" data-trap="Perognathus flavus" data-tag="R4-110" data-note="" aria-label="Trap C4"><span class="trap__box" aria-hidden="true"><svg class="trap__mouse" viewbox="0 0 32 20"><use href="#tg-mouse-mark"></use></svg></span><span class="trap__door" aria-hidden="true"></span><span class="trap__id" aria-hidden="true">C4</span></button>
+          </div>
+          <p class="trapline-readout" data-trapline-readout="" aria-live="polite">Demo trap line. Tap a trap to check it.</p>
+          <span>03 / ECOLOGY</span>
+        </div>
+        <div class="app-card__copy"><h3>Small Mammal Tracker</h3><p>National trapping records turned into animal histories, home ranges, diversity profiles, and a Hall of Fame for the most-caught little weirdos.</p><ul class="tech-list"><li>R</li><li>Mapping</li><li>Ecological stats</li></ul><div class="case-links"><a href="https://tgilbert14.github.io/NEON-Small-Mammal-Tracker-App/" target="_blank" rel="noopener">Open app ↗</a></div></div>
+      </article>
+
+      <article class="app-card reveal" data-reactive-card="">
+        <div class="app-card__image app-card__image--lens" data-lens="" data-world="arrakis">
+          <img class="lens-art" src="assets/creative/plants-lens.webp" alt="Botanical illustration from Plants in Movies" width="1100" height="733" loading="lazy" decoding="async">
+          <div class="lens-glass" aria-hidden="true" data-lens-glass=""></div>
+          <div class="lens-worlds" role="group" aria-label="Pick a world">
+            <button type="button" class="lens-world is-active" aria-pressed="true" data-lens-world="arrakis">Arrakis</button>
+            <button type="button" class="lens-world" aria-pressed="false" data-lens-world="middle-earth">Middle-earth</button>
+            <button type="button" class="lens-world" aria-pressed="false" data-lens-world="isla-nublar">Isla Nublar</button>
+          </div>
+          <span>04 / BOTANY?</span>
+        </div>
+        <div class="app-card__copy"><h3>Plants in Movies</h3><p>Explore Arrakis, Middle-earth and Isla Nublar through real plant records. Compare states, look closer with a specimen lens, and save your finds in a field notebook.</p><ul class="tech-list"><li>R Shiny</li><li>USDA data</li><li>Field notebook</li></ul><div class="case-links"><a href="https://019ecc91-3c6c-bee2-f824-0ea23fc60ac6.share.connect.posit.cloud/" target="_blank" rel="noopener">Open app ↗</a></div></div>
+      </article>
+    </div>
+
+    <div class="section-end-link reveal"><a href="./work.html">Everything else I’ve built <span aria-hidden="true">→</span></a></div>
+  </section>
+
+  <section class="portfolio-section proof-ledger reveal" aria-labelledby="proof-title">
+    <div class="proof-ledger__head">
+      <p class="signal-label"><span></span> A few receipts</p>
+      <h2 id="proof-title">Real projects. Real records.</h2>
+    </div>
+    <div class="proof-ledger__grid">
+      <article data-reactive-card=""><strong data-count-to="178" data-count-suffix="k+">178k+</strong><span>Capture records traced to individual animals</span></article>
+      <article data-reactive-card=""><strong data-count-to="46">46</strong><span>NEON field sites in one tracker</span></article>
+      <article data-reactive-card=""><strong data-count-to="3">3</strong><span>Movie worlds explored through USDA plant records</span></article>
+    </div>
+  </section>
+
+  <section class="portfolio-section capabilities-section">
+    <div class="section-heading reveal">
+      <div><p class="signal-label"><span></span> Under the hood</p><h2>I do the database, the interface, and the field logic.</h2></div>
+      <p>I’m happiest on the small, specific problems, like the offline edit that collided with someone else’s, or the trap tag that got reused. Nobody downstream should ever have to know it happened.</p>
+    </div>
+    <div class="capability-grid">
+      <article class="capability-card reveal" data-reactive-card=""><span>01</span><h3>Build the thing</h3><p>R Shiny apps, progressive web apps, desktop helpers, and interactive browser work.</p><small>R · Python · JavaScript · Electron</small></article>
+      <article class="capability-card reveal" data-reactive-card=""><span>02</span><h3>Wire the data</h3><p>Relational models, offline sync, ETL pipelines, scrapers, and QA/QC that survive real use.</p><small>SQL · Azure · SQLite · APIs</small></article>
+      <article class="capability-card reveal" data-reactive-card=""><span>03</span><h3>Know the field</h3><p>I spent years on field crews running vegetation protocols. I know what they ask of a crew, and what it is like to enter it all on a tablet.</p><small>Vegetation · Wildlife · Spatial data</small></article>
+      <article class="capability-card reveal" data-reactive-card=""><span>04</span><h3>The fun part</h3><p>Maps, charts, motion, and sound. A chart you can poke at (tap a bar, see which families drive the score) beats one you just look at.</p><small>Canvas · Plotly · ggplot2 · Audio</small></article>
+    </div>
+
+    <article class="demo-hub-band demo-hub-band--desk reveal" data-reactive-card="" data-field-desk="" aria-labelledby="demo-hub-title">
+      <div class="field-desk">
+        <div class="field-desk__grid" aria-hidden="true"></div>
+        <div class="field-desk__deck">
+          <section class="field-plate field-plate--tortoise" data-plate="tortoise" data-plate-done="Round complete. No tortoise was bothered." aria-labelledby="plate-tortoise-title">
+            <div class="field-plate__strip" aria-hidden="true"><span>Start here</span><span class="is-current">Action center</span><span>Register</span><span>Map</span><span>Outcomes</span><span>Data &amp; methods</span></div>
+            <header class="field-plate__head">
+              <img src="assets/creative/hub-plate-tortoise.webp" alt="" width="220" height="332" loading="lazy" decoding="async">
+              <div><small>Workspace 01 · Santa Rita</small><h4 id="plate-tortoise-title">Tortoise</h4><p data-plate-headline="">24 of 24 tracked animals are on this round’s list.</p></div>
+            </header>
+            <ul class="field-plate__queue" aria-label="Tortoise action center, demo queue">
+              <li><button type="button" aria-pressed="false" data-queue-item=""><i aria-hidden="true"></i><span>SR-04 · Signal lost</span><b>12 days</b></button></li>
+              <li><button type="button" aria-pressed="false" data-queue-item=""><i aria-hidden="true"></i><span>SR-11 · Health follow-up</span><b>due</b></button></li>
+              <li><button type="button" aria-pressed="false" data-queue-item=""><i aria-hidden="true"></i><span>SR-19 · Assessment due</span><b>overdue</b></button></li>
+            </ul>
+            <footer class="field-plate__foot">
+              <span class="field-plate__count" data-queue-count="" aria-live="polite">3 open</span>
+              <button type="button" class="field-plate__reset" data-queue-reset="" hidden="">Reset the round ↺</button>
+            </footer>
+          </section>
+          <section class="field-plate field-plate--invasive" data-plate="invasive" data-plate-done="Round complete. The buffelgrass is imaginary anyway." aria-labelledby="plate-invasive-title">
+            <div class="field-plate__strip" aria-hidden="true"><span>Start here</span><span class="is-current">Action center</span><span>Register</span><span>Map</span><span>Outcomes</span><span>Data &amp; methods</span></div>
+            <header class="field-plate__head">
+              <img src="assets/creative/hub-plate-invasive.webp" alt="" width="220" height="332" loading="lazy" decoding="async">
+              <div><small>Workspace 02 · Santa Rita</small><h4 id="plate-invasive-title">Invasive plants</h4><p data-plate-headline="">246 of 520 patches are on the candidate list.</p></div>
+            </header>
+            <ul class="field-plate__queue" aria-label="Invasive plants action center, demo queue">
+              <li><button type="button" aria-pressed="false" data-queue-item=""><i aria-hidden="true"></i><span>Patch 118 · Cleared, recheck overdue</span><b>68 more</b></button></li>
+              <li><button type="button" aria-pressed="false" data-queue-item=""><i aria-hidden="true"></i><span>Patch 207 · Past the ceiling</span><b>76</b></button></li>
+              <li><button type="button" aria-pressed="false" data-queue-item=""><i aria-hidden="true"></i><span>Patch 331 · Never visited</span><b>102</b></button></li>
+            </ul>
+            <footer class="field-plate__foot">
+              <span class="field-plate__count" data-queue-count="" aria-live="polite">3 open</span>
+              <button type="button" class="field-plate__reset" data-queue-reset="" hidden="">Reset the round ↺</button>
+            </footer>
+          </section>
+          <section class="field-plate field-plate--restoration" data-plate="restoration" data-plate-done="Round complete. Every pretend sapling accounted for." aria-labelledby="plate-restoration-title">
+            <div class="field-plate__strip" aria-hidden="true"><span>Start here</span><span class="is-current">Action center</span><span>Register</span><span>Map</span><span>Outcomes</span><span>Data &amp; methods</span></div>
+            <header class="field-plate__head">
+              <img src="assets/creative/hub-plate-restoration.webp" alt="" width="220" height="332" loading="lazy" decoding="async">
+              <div><small>Workspace 03 · Santa Rita</small><h4 id="plate-restoration-title">Restoration</h4><p data-plate-headline="">10 of 20 planting sites have a reason for a visit.</p></div>
+            </header>
+            <ul class="field-plate__queue" aria-label="Restoration action center, demo queue">
+              <li><button type="button" aria-pressed="false" data-queue-item=""><i aria-hidden="true"></i><span>Site 03 · Never visited</span><b>4 sites</b></button></li>
+              <li><button type="button" aria-pressed="false" data-queue-item=""><i aria-hidden="true"></i><span>Site 12 · Dead, then alive</span><b>verify</b></button></li>
+              <li><button type="button" aria-pressed="false" data-queue-item=""><i aria-hidden="true"></i><span>Site 17 · Past the 353-day bar</span><b>overdue</b></button></li>
+            </ul>
+            <footer class="field-plate__foot">
+              <span class="field-plate__count" data-queue-count="" aria-live="polite">3 open</span>
+              <button type="button" class="field-plate__reset" data-queue-reset="" hidden="">Reset the round ↺</button>
+            </footer>
+          </section>
+        </div>
+        <div class="field-desk__transect" aria-hidden="true">
+          <i></i>
+          <svg class="field-desk__tortoise" viewbox="0 0 48 28" data-desk-tortoise="">
+            <g class="tort-legs"><rect x="11" y="18" width="5" height="8" rx="2.2"></rect><rect x="27" y="18" width="5" height="8" rx="2.2"></rect></g>
+            <path class="tort-tail" d="M9 19 3 22l5 2z"></path>
+            <circle class="tort-head" cx="41" cy="18.5" r="4.4"></circle>
+            <circle class="tort-eye" cx="42.6" cy="17.4" r="0.9"></circle>
+            <path class="tort-shell" d="M7 20c0-8.5 6.5-15 16-15s16 6.5 16 15z"></path>
+            <path class="tort-pattern" d="M14 18.5c1.5-5.5 5-8.5 9-8.5s7.5 3 9 8.5M23 10v8.5M17 14l-3 4.5M29 14l3 4.5"></path>
+          </svg>
+        </div>
+        <span class="field-desk__stamp" aria-hidden="true"><b>DEMO</b><span>generated<br>records</span></span>
+      </div>
+      <div class="demo-hub-band__copy">
+        <p class="signal-label"><span></span> All four, running at once</p>
+        <h3 id="demo-hub-title">One hub. Three programs. Nothing real to break.</h3>
+        <p>A Shiny demo hub with tortoise, invasive plant, and restoration workspaces, built on generated records so you can poke at everything. Each one gets the same six screens: start here, action center, register, map, outcomes, and data &amp; methods. The desk on the left is a working miniature: pick a workspace and clear its queue.</p>
+        <div class="field-desk__tabs" role="group" aria-label="Pick a workspace">
+          <button type="button" class="field-desk__tab is-active" aria-pressed="true" data-desk-tab="tortoise"><i aria-hidden="true"></i>Tortoise</button>
+          <button type="button" class="field-desk__tab" aria-pressed="false" data-desk-tab="invasive"><i aria-hidden="true"></i>Invasive plants</button>
+          <button type="button" class="field-desk__tab" aria-pressed="false" data-desk-tab="restoration"><i aria-hidden="true"></i>Restoration</button>
+        </div>
+        <div class="demo-hub-band__actions">
+          <a class="tg-btn tg-btn-primary" href="https://witty-water-00906171e.7.azurestaticapps.net/" target="_blank" rel="noopener">Open the demo hub ↗</a>
+          <a class="demo-hub-band__deep" href="https://ca-ddl-conservation-hub.happystone-04918fab.westus3.azurecontainerapps.io/?project=tortoise&amp;route=action" target="_blank" rel="noopener" data-desk-link="" data-href-tortoise="https://ca-ddl-conservation-hub.happystone-04918fab.westus3.azurecontainerapps.io/?project=tortoise&amp;route=action" data-href-invasive="https://ca-ddl-conservation-hub.happystone-04918fab.westus3.azurecontainerapps.io/?project=invasive&amp;route=action" data-href-restoration="https://ca-ddl-conservation-hub.happystone-04918fab.westus3.azurecontainerapps.io/?project=restoration&amp;route=action">Jump into the <span data-desk-link-name="">Tortoise</span> workspace <span aria-hidden="true">↗</span></a>
+        </div>
+        <small>Generated records · Santa Rita Experimental Range · R Shiny · Leaflet · Azure Container Apps</small>
+      </div>
+    </article>
+  </section>
+
+  <section class="field-story field-story--wild reveal">
+    <div class="field-story__image"><img src="assets/photos/field-rangeland-walk.jpg" alt="Rangeland fieldwork in the American Southwest" loading="lazy"></div>
+    <div class="field-story__copy">
+      <h2>Before the data</h2>
+      <p>I was collecting data for NEON before I wrote any code to handle it.</p>
+      <p>Small-mammal trapping, vegetation surveys, electrofishing, and soil work. That’s why I build for one thumb in bad lighting, with no signal.</p>
+      <div><a class="tg-btn tg-btn-primary" href="./about.html">The longer story</a><a class="tg-btn tg-btn-ghost" href="./field-notes.html">Field notes</a></div>
+    </div>
+  </section>
+
+  <section class="portfolio-cta portfolio-cta--wild reveal">
+    <p class="signal-label"><span></span> Send me the weird one</p>
+    <h2>Got a cursed spreadsheet, a strange dataset, or an app idea nobody else understands?</h2>
+    <p>That is probably more interesting than a normal contact form.</p>
+    <div class="portfolio-actions"><a class="tg-btn tg-btn-primary" href="mailto:tsgilbert@arizona.edu">Tell me about it</a><a class="tg-btn tg-btn-ghost" href="https://github.com/tgilbert14" target="_blank" rel="noopener">Browse the code ↗</a></div>
+  </section>
+</div>
+<script src="revamp.js" defer=""></script>
+<script src="assets/creative/demolition-launcher.js" defer=""></script>
+<script src="assets/creative/field-desk.js" defer=""></script>
+<script src="assets/creative/app-instruments.js" defer=""></script>
+
+
+
+</main> <!-- /main -->
+<!-- Site-wide motion: scroll reveal, parallax, plant-wall lightbox.
+     Injected on every page via _quarto.yml include-after-body. -->
+<script>
+  (function() {
+    // Mark JS as available so CSS can safely hide .reveal elements
+    // (no-JS users keep everything visible).
+    document.documentElement.classList.add('js');
+
+    var reduce=window.matchMedia&&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---------- Scroll reveal ----------
+       Plain scroll/resize/load handler (input-driven, works everywhere)
+       plus a safety timer so content is NEVER stranded hidden if scroll
+       events somehow never fire. Avoids depending on IntersectionObserver. */
+    var reveals=[].slice.call(document.querySelectorAll('.reveal, .reveal-left'));
+    if(reduce) {
+      reveals.forEach(function(el) {el.classList.add('is-visible');});
+    } else {
+      var revealInView=function() {
+        var vh=window.innerHeight||document.documentElement.clientHeight;
+        for(var i=reveals.length-1;i>=0;i--) {
+          if(reveals[i].getBoundingClientRect().top<vh*0.88) {
+            reveals[i].classList.add('is-visible');
+            reveals.splice(i,1);
+          }
+        }
+      };
+      revealInView();
+      window.addEventListener('scroll',revealInView,{passive: true});
+      window.addEventListener('resize',revealInView,{passive: true});
+      window.addEventListener('load',revealInView);
+      // Last-resort safety: reveal everything after a few seconds no matter what.
+      setTimeout(function() {
+        reveals.forEach(function(el) {el.classList.add('is-visible');});
+      },3500);
+    }
+
+    /* ---------- Flora Wall: blur-up on load + per-tile cascade ----------
+       Additive enhancements on top of the .reveal handler above. Fade/blur-up
+       is driven by a .loaded class; the cascade writes a capped inline
+       animation-delay so all ~90 tiles sweep in (not just the first 6). Both
+       are CSS-gated under prefers-reduced-motion (see styles.css), so under
+       reduce they no-op and tiles render at opacity 1. */
+    (function() {
+      var wall=document.querySelector('.plant-wall');
+      if(!wall) return;
+      var tiles=[].slice.call(wall.querySelectorAll('img'));
+      // Blur-up: mark each tile loaded (handles cached + already-complete imgs).
+      tiles.forEach(function(im) {
+        if(im.complete&&im.naturalWidth>0) {im.classList.add('loaded');}
+        else {
+          im.addEventListener('load',function() {im.classList.add('loaded');});
+          im.addEventListener('error',function() {im.classList.add('loaded');});
+        }
+      });
+      // Per-tile cascade is only the FALLBACK path (browsers without native
+      // scroll-driven animations). Where view() is supported, each tile reveals
+      // itself and an inline delay would fight the native animation — so skip it.
+      var hasViewTimeline=window.CSS&&CSS.supports&&
+        CSS.supports('animation-timeline','view()');
+      if(!reduce&&!hasViewTimeline) {
+        tiles.forEach(function(im,i) {
+          im.style.animationDelay=Math.min(i*0.035,0.9).toFixed(3)+'s';
+        });
+      }
+    })();
+
+    /* ---------- Sprout brand mark: auto-play once when scrolled into view ---------- */
+    var sprout=document.querySelector('.sprout-stage');
+    if(sprout&&!reduce) {
+      var played=false;
+      var maybePlay=function() {
+        if(played) return;
+        var r=sprout.getBoundingClientRect();
+        var vh=window.innerHeight||document.documentElement.clientHeight;
+        if(r.top<vh*0.8&&r.bottom>0) {
+          played=true;
+          sprout.classList.add('grow');
+          setTimeout(function() {sprout.classList.remove('grow');},2600);
+          window.removeEventListener('scroll',maybePlay);
+        }
+      };
+      maybePlay();
+      window.addEventListener('scroll',maybePlay,{passive: true});
+    }
+
+    /* ---------- Holographic avatar: cursor tilt + iridescent sheen ---------- */
+    var heroAvatar=document.querySelector('.hero-avatar');
+    if(heroAvatar&&!reduce&&window.matchMedia('(pointer: fine)').matches) {
+      var avMove=function(e) {
+        var rect=heroAvatar.getBoundingClientRect();
+        var px=Math.min(1,Math.max(0,(e.clientX-rect.left)/rect.width));
+        var py=Math.min(1,Math.max(0,(e.clientY-rect.top)/rect.height));
+        heroAvatar.style.setProperty('--ax',((px-0.5)*26).toFixed(2)+'deg');
+        heroAvatar.style.setProperty('--ay',((0.5-py)*26).toFixed(2)+'deg');
+        heroAvatar.style.setProperty('--mx',(px*100).toFixed(1)+'%');
+        heroAvatar.style.setProperty('--my',(py*100).toFixed(1)+'%');
+      };
+      var avReset=function() {
+        heroAvatar.style.setProperty('--ax','0deg');
+        heroAvatar.style.setProperty('--ay','0deg');
+        heroAvatar.style.setProperty('--mx','50%');
+        heroAvatar.style.setProperty('--my','50%');
+      };
+      heroAvatar.addEventListener('pointermove',avMove);
+      heroAvatar.addEventListener('pointerleave',avReset);
+    }
+
+    /* ---------- Living hero: circuit parallax depth ----------
+       Writes its OWN --cx/--cy on .hero-circuit only (never avMove's
+       --ax/--ay/--mx/--my on .hero-avatar). Pointer drift is fine-pointer +
+       motion-ok only; scroll drift runs whenever motion is ok. The CSS at
+       styles.css maps --cx/--cy to opposite-sign translates on the two sides
+       and preserves the right side's scaleX(-1) mirror. */
+    var heroCircuit=document.querySelector('.hero-circuit');
+    if(heroCircuit&&!reduce) {
+      var cScrollY=0,cPointerY=0;
+      if(window.matchMedia('(pointer: fine)').matches) {
+        var hero=heroCircuit.closest('.hero')||heroCircuit;
+        hero.addEventListener('pointermove',function(e) {
+          var rect=hero.getBoundingClientRect();
+          if(!rect.width||!rect.height) return;
+          var px=Math.min(1,Math.max(0,(e.clientX-rect.left)/rect.width));
+          var py=Math.min(1,Math.max(0,(e.clientY-rect.top)/rect.height));
+          heroCircuit.style.setProperty('--cx',((px-0.5)*2).toFixed(3));
+          cPointerY=(py-0.5)*2;
+          heroCircuit.style.setProperty('--cy',(cPointerY+cScrollY).toFixed(3));
+        },{passive: true});
+        hero.addEventListener('pointerleave',function() {
+          cPointerY=0;
+          heroCircuit.style.setProperty('--cx','0');
+          heroCircuit.style.setProperty('--cy',cScrollY.toFixed(3));
+        });
+      }
+      var cTicking=false;
+      var cScroll=function() {
+        cScrollY=Math.min(0.6,Math.max(-0.6,window.pageYOffset/600));
+        heroCircuit.style.setProperty('--cy',(cPointerY+cScrollY).toFixed(3));
+        cTicking=false;
+      };
+      window.addEventListener('scroll',function() {
+        if(!cTicking) {cTicking=true; requestAnimationFrame(cScroll);}
+      },{passive: true});
+      cScroll();
+    }
+
+    /* ---------- Parallax ---------- */
+    if(!reduce) {
+      var pxEls=[].slice.call(document.querySelectorAll('[data-parallax]'));
+      if(pxEls.length) {
+        var ticking=false;
+        var run=function() {
+          var vh=window.innerHeight;
+          pxEls.forEach(function(el) {
+            var r=el.getBoundingClientRect();
+            if(r.bottom<-200||r.top>vh+200) return;
+            var speed=parseFloat(el.getAttribute('data-parallax'))||0.15;
+            var offset=(r.top+r.height/2-vh/2)*-speed;
+            el.style.transform='translate3d(0,'+offset.toFixed(1)+'px,0)';
+          });
+          ticking=false;
+        };
+        var onScroll=function() {
+          if(!ticking) {ticking=true; requestAnimationFrame(run);}
+        };
+        window.addEventListener('scroll',onScroll,{passive: true});
+        window.addEventListener('resize',onScroll,{passive: true});
+        run();
+      }
+    }
+
+    /* ---------- Lightbox (plant wall + any .lightboxable image) ---------- */
+    var imgs=[].slice.call(document.querySelectorAll('.plant-wall img, .shot-grid img, .viz-figs img, .lightboxable'));
+    if(imgs.length) {
+      var ov=document.createElement('div');
+      ov.className='lightbox';
+      ov.setAttribute('role','dialog');
+      ov.setAttribute('aria-modal','true');
+      ov.setAttribute('aria-label','Photo viewer');
+      ov.innerHTML=
+        '<button class="lb-close" aria-label="Close (Esc)">×</button>'+
+        '<button class="lb-nav lb-prev" aria-label="Previous">‹</button>'+
+        '<img alt="">'+
+        '<button class="lb-nav lb-next" aria-label="Next">›</button>'+
+        '<div class="lb-caption"></div>';
+      document.body.appendChild(ov);
+
+      var lbImg=ov.querySelector('img');
+      var lbCaption=ov.querySelector('.lb-caption');
+      var lbClose=ov.querySelector('.lb-close');
+      var idx=0;
+      var lastFocus=null;   // trigger element, restored on hide()
+
+      // Warm the immediate neighbors so arrow/swipe nav doesn't stall on a cold
+      // full-res JPEG (no thumbnails exist).
+      function preloadNeighbor(j) {
+        var n=imgs[(j+imgs.length)%imgs.length];
+        if(n) {var p=new Image(); p.src=n.currentSrc||n.src;}
+      }
+
+      function show(i) {
+        idx=(i+imgs.length)%imgs.length;
+        lbImg.src=imgs[idx].currentSrc||imgs[idx].src;
+        lbImg.alt=imgs[idx].alt||'';
+        if(lbCaption) lbCaption.textContent=(idx+1)+' / '+imgs.length;
+        ov.classList.add('open');
+        document.body.style.overflow='hidden';
+        preloadNeighbor(idx+1);
+        preloadNeighbor(idx-1);
+      }
+      function hide() {
+        ov.classList.remove('open');
+        document.body.style.overflow='';
+        if(lastFocus&&lastFocus.focus) {try {lastFocus.focus();} catch(_e) {}}
+        lastFocus=null;
+      }
+
+      imgs.forEach(function(im,i) {
+        // Keyboard-operable tiles: a mouse/touch-only wall locks out keyboard + AT
+        // users, and the focus-restore on close (lastFocus.focus()) is a no-op if the
+        // trigger was never focusable. tabIndex + role=button + Enter/Space fix all three.
+        im.tabIndex=0;
+        im.setAttribute('role','button');
+        var open=function() {
+          lastFocus=im;               // remember trigger for focus restore
+          show(i);
+          if(lbClose&&lbClose.focus) {try {lbClose.focus();} catch(_e) {}}
+        };
+        im.addEventListener('click',open);
+        im.addEventListener('keydown',function(e) {
+          if(e.key==='Enter'||e.key===' '||e.key==='Spacebar') {e.preventDefault(); open();}
+        });
+      });
+      ov.addEventListener('click',function(e) {
+        if(e.target===ov||e.target.classList.contains('lb-close')) hide();
+      });
+      ov.querySelector('.lb-prev').addEventListener('click',function(e) {
+        e.stopPropagation(); show(idx-1);
+      });
+      ov.querySelector('.lb-next').addEventListener('click',function(e) {
+        e.stopPropagation(); show(idx+1);
+      });
+      document.addEventListener('keydown',function(e) {
+        if(!ov.classList.contains('open')) return;
+        if(e.key==='Escape') hide();
+        else if(e.key==='ArrowLeft') show(idx-1);
+        else if(e.key==='ArrowRight') show(idx+1);
+        else if(e.key==='Tab') {
+          // Focus trap: keep Tab cycling within the dialog controls so AT/keyboard
+          // users can't wander onto the page behind the modal.
+          var f=[lbClose,ov.querySelector('.lb-prev'),ov.querySelector('.lb-next')]
+            .filter(Boolean);
+          if(!f.length) return;
+          var first=f[0],last=f[f.length-1];
+          var active=document.activeElement;
+          if(e.shiftKey&&(active===first||!ov.contains(active))) {
+            e.preventDefault(); last.focus();
+          } else if(!e.shiftKey&&(active===last||!ov.contains(active))) {
+            e.preventDefault(); first.focus();
+          }
+        }
+      });
+
+      // Touch swipe: left/right on the overlay advances the gallery (the copy
+      // literally says "tap any to enlarge"). The ‹ › buttons + keys still work.
+      var touchX=null,touchY=null;
+      ov.addEventListener('touchstart',function(e) {
+        if(!e.touches||!e.touches.length) return;
+        touchX=e.touches[0].clientX; touchY=e.touches[0].clientY;
+      },{passive: true});
+      ov.addEventListener('touchend',function(e) {
+        if(touchX===null||!e.changedTouches||!e.changedTouches.length) return;
+        var dx=e.changedTouches[0].clientX-touchX;
+        var dy=e.changedTouches[0].clientY-touchY;
+        // horizontal intent only, ignore vertical scrolls / small taps
+        if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)) {
+          if(dx<0) show(idx+1); else show(idx-1);
+        }
+        touchX=touchY=null;
+      },{passive: true});
+    }
+  })();
+
+  // ---- Persistent "watcher" mascot (ported from desertdatalabs.com): rides a
+  //      random outside edge on every page EXCEPT home (the hero avatar already
+  //      watches there), follows the cursor, over-shares trivia, click to mute. ----
+  (function() {
+    if(!document.body) return;
+    // (now shows on home too — the hero avatar and the corner mascot coexist)
+    if(document.querySelector('.watcher')) return;      // guard double-init
+
+    var reduce=window.matchMedia&&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var fine=window.matchMedia&&window.matchMedia('(pointer: fine)').matches;
+
+    var MARK_SVG=
+      '<svg viewBox="0 0 120 120" fill="none" aria-hidden="true">'+
+      '<defs>'+
+      '<linearGradient id="tgw-edge" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2dd4bf"/><stop offset="100%" stop-color="#f97366"/></linearGradient>'+
+      '<linearGradient id="tgw-chip" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0a1830"/><stop offset="42%" stop-color="#0c2a2c"/><stop offset="72%" stop-color="#141430"/><stop offset="100%" stop-color="#1d1030"/></linearGradient>'+
+      '</defs>'+
+      '<rect x="7" y="7" width="106" height="106" rx="28" fill="url(#tgw-chip)" stroke="url(#tgw-edge)" stroke-width="3.5"/>'+
+      '<g class="rays" stroke="currentColor" stroke-width="4" stroke-linecap="round">'+
+      '<path class="ray" d="M74.1 31.1 L84.4 18.9"/>'+
+      '<path class="ray" d="M81.7 44.2 L97.4 41.4"/>'+
+      '<path class="ray" d="M79.1 59 L92.9 67"/>'+
+      '<path class="ray" d="M40.9 59 L27.1 67"/>'+
+      '<path class="ray" d="M38.3 44.2 L22.6 41.4"/>'+
+      '<path class="ray" d="M45.9 31.1 L35.6 18.9"/>'+
+      '</g>'+
+      '<g fill="none" stroke="#5fb56a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">'+
+      '<path d="M60 28 V96"/>'+
+      '<path d="M60 36 L74 48 L60 60 L46 48 Z"/>'+
+      '<path d="M44 96 H76"/>'+
+      '</g>'+
+      '<circle class="watcher-pupil" cx="60" cy="48" r="4.7" fill="#7ee0a0"/>'+
+      '</svg>';
+
+    // wizard hat (drops on for Gandalf lines) + a lightning bolt (monsoon strike)
+    var HAT_SVG=
+      '<svg viewBox="0 0 100 70" fill="none" aria-hidden="true">'+
+      '<ellipse cx="50" cy="60" rx="40" ry="9" fill="#2e2570"/>'+
+      '<path d="M50 4 C55 24 60 46 72 60 L28 60 C40 46 45 24 50 4 Z" fill="#4a3bb0"/>'+
+      '<circle cx="50" cy="29" r="3.6" fill="#ffd34d"/>'+
+      '<circle cx="45" cy="43" r="2.3" fill="#ffe48a"/>'+
+      '<circle cx="56" cy="47" r="2.3" fill="#ffe48a"/>'+
+      '</svg>';
+    var BOLT_SVG=
+      '<svg viewBox="0 0 40 120" fill="none" aria-hidden="true">'+
+      '<path d="M23 0 L6 64 L18 64 L11 120 L38 50 L24 50 Z" fill="#fde047" stroke="#fffbeb" stroke-width="2" stroke-linejoin="round"/>'+
+      '</svg>';
+    // rain cloud (creosote line) + sunglasses (5-click easter egg)
+    var CLOUD_SVG=
+      '<svg viewBox="0 0 80 60" fill="none" aria-hidden="true">'+
+      '<g fill="#9fb3c8">'+
+      '<ellipse cx="30" cy="26" rx="19" ry="12"/><ellipse cx="50" cy="24" rx="17" ry="13"/><ellipse cx="40" cy="32" rx="23" ry="11"/>'+
+      '</g>'+
+      '<g class="rain" stroke="#7fd4e8" stroke-width="2.5" stroke-linecap="round">'+
+      '<line class="drop d1" x1="26" y1="42" x2="24" y2="50"/><line class="drop d2" x1="40" y1="44" x2="38" y2="52"/><line class="drop d3" x1="54" y1="42" x2="52" y2="50"/>'+
+      '</g>'+
+      '</svg>';
+    var SHADES_SVG=
+      '<svg viewBox="0 0 100 44" fill="none" aria-hidden="true">'+
+      '<path d="M8 9 H92" stroke="#0b0b0b" stroke-width="4" stroke-linecap="round"/>'+
+      '<rect x="10" y="11" width="34" height="24" rx="9" fill="#0b0b0b"/><rect x="56" y="11" width="34" height="24" rx="9" fill="#0b0b0b"/>'+
+      '<path d="M44 17 H56" stroke="#0b0b0b" stroke-width="5"/>'+
+      '<rect x="15" y="15" width="11" height="5" rx="2.5" fill="#46566a"/><rect x="61" y="15" width="11" height="5" rx="2.5" fill="#46566a"/>'+
+      '</svg>';
+    // wizard staff (rides along with the hat on Gandalf lines)
+    var STAFF_SVG=
+      '<svg viewBox="0 0 30 104" fill="none" aria-hidden="true">'+
+      '<path d="M15 100 C12 76 19 56 14 34 C11 24 17 18 15 12" stroke="#7c5a32" stroke-width="4.5" stroke-linecap="round"/>'+
+      '<circle cx="15" cy="10" r="7" fill="#a8ecff"/><circle cx="15" cy="10" r="7" fill="none" stroke="#eafbff" stroke-width="1.6"/>'+
+      '<circle cx="13" cy="8" r="2" fill="#ffffff" opacity="0.85"/>'+
+      '</svg>';
+    // more one-off costumes: hard hat (data-eng), grad cap (CV), saguaro buddy (plant)
+    var HARDHAT_SVG=
+      '<svg viewBox="0 0 100 56" fill="none" aria-hidden="true">'+
+      '<path d="M18 44 H82 Q82 14 50 14 Q18 14 18 44 Z" fill="#f3b500"/>'+
+      '<rect x="8" y="42" width="84" height="9" rx="4.5" fill="#e0a200"/>'+
+      '<rect x="46" y="14" width="8" height="30" rx="3" fill="#e0a200"/>'+
+      '</svg>';
+    var GRAD_SVG=
+      '<svg viewBox="0 0 100 64" fill="none" aria-hidden="true">'+
+      '<path d="M50 38 L28 45 V53 Q50 63 72 53 V45 Z" fill="#2a3142"/>'+
+      '<path d="M50 22 L94 38 L50 54 L6 38 Z" fill="#12151d"/>'+
+      '<circle cx="50" cy="38" r="2.6" fill="#0a0c11"/>'+
+      '<path d="M50 38 L88 41 V53" stroke="#f2c84b" stroke-width="2" fill="none"/>'+
+      '<circle cx="88" cy="55" r="3.5" fill="#f2c84b"/>'+
+      '</svg>';
+    var CACTUS_SVG=
+      '<svg viewBox="0 0 60 90" fill="none" stroke="#43b35f" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">'+
+      '<path d="M30 86 V20"/><path d="M30 54 H17 V38"/><path d="M30 46 H44 V30"/>'+
+      '</svg>';
+
+    var el=document.createElement('div');
+    el.className='watcher';
+    el.setAttribute('aria-hidden','true');
+    el.innerHTML=
+      '<div class="watcher-bubble"><span class="watcher-bubble-text"></span></div>'+
+      '<button class="watcher-mark" type="button" tabindex="-1">'+
+      '<span class="watcher-bolt" aria-hidden="true">'+BOLT_SVG+'</span>'+
+      '<span class="watcher-cloud" aria-hidden="true">'+CLOUD_SVG+'</span>'+
+      '<div class="mark-card">'+MARK_SVG+
+      '<span class="holo"></span><span class="holo-glare"></span>'+
+      '</div>'+
+      '<span class="watcher-hat" aria-hidden="true">'+HAT_SVG+'</span>'+
+      '<span class="watcher-staff" aria-hidden="true">'+STAFF_SVG+'</span>'+
+      '<span class="watcher-hardhat" aria-hidden="true">'+HARDHAT_SVG+'</span>'+
+      '<span class="watcher-grad" aria-hidden="true">'+GRAD_SVG+'</span>'+
+      '<span class="watcher-cactus" aria-hidden="true">'+CACTUS_SVG+'</span>'+
+      '<span class="watcher-shades" aria-hidden="true">'+SHADES_SVG+'</span>'+
+      '<span class="watcher-mute" aria-hidden="true">🔇</span>'+
+      '</button>';
+    document.body.appendChild(el);
+    if(Math.random()<0.02) el.classList.add('shiny');   // ~1-in-50 iridescent variant
+
+    var mark=el.querySelector('.watcher-mark');
+    var bubbleText=el.querySelector('.watcher-bubble-text');
+
+    // cling to a random spot on the OUTSIDE edge (re-rolled on load + after a strike).
+    // data-side (l/r) tells the thought-bubble which way to open (up + toward center).
+    function place() {
+      var mobile=window.innerWidth<600;
+      var inset=mobile? '10px':'0px';   // phones: sit IN from the edge (no cutoff)
+      var hang=mobile? 0:10;            // ...and don't hang off-screen
+      var edges=['left','right','bottom','left','right','bottom'];
+      var edge=edges[Math.floor(Math.random()*edges.length)];
+      el.style.left=el.style.right=el.style.top=el.style.bottom='auto';
+      var hx='0px',hy='0px',side;
+      if(edge==='left') {
+        el.style.left=inset;
+        el.style.top=(30+Math.random()*42).toFixed(1)+'vh';
+        hx=(-hang)+'px'; side='l';
+      } else if(edge==='right') {
+        el.style.right=inset;
+        el.style.top=(30+Math.random()*42).toFixed(1)+'vh';
+        hx=hang+'px'; side='r';
+      } else {
+        var x=18+Math.random()*60;
+        el.style.bottom=inset;
+        el.style.left=x.toFixed(1)+'vw';
+        hy=hang+'px'; side=(x<50)? 'l':'r';
+      }
+      el.style.setProperty('--hangx',hx);
+      el.style.setProperty('--hangy',hy);
+      el.setAttribute('data-side',side);
+    }
+    place();
+
+    // mute state persists across pages for the session
+    var muted=false;
+    try {muted=sessionStorage.getItem('tg-watcher-muted')==='1';} catch(e) {}
+
+    // cursor tracking: tilt + holo + pupil (fine pointer, motion ok; freezes when muted)
+    if(fine&&!reduce) {
+      window.addEventListener('pointermove',function(e) {
+        if(muted) return;
+        var r=mark.getBoundingClientRect();
+        var cx=r.left+r.width/2;
+        var cy=r.top+r.height/2;
+        var nx=Math.max(-1,Math.min(1,(e.clientX-cx)/(window.innerWidth*0.5)));
+        var ny=Math.max(-1,Math.min(1,(e.clientY-cy)/(window.innerHeight*0.5)));
+        el.style.setProperty('--ax',(nx*22).toFixed(2)+'deg');
+        el.style.setProperty('--ay',(-ny*22).toFixed(2)+'deg');
+        el.style.setProperty('--mx',(50+nx*50).toFixed(1)+'%');
+        el.style.setProperty('--my',(50+ny*50).toFixed(1)+'%');
+        el.style.setProperty('--wpx',(nx*4.6).toFixed(2)+'px');
+        el.style.setProperty('--wpy',(ny*4.6).toFixed(2)+'px');
+      },{passive: true});
+    }
+
+    // page-aware quips
+    var p=(location.pathname||'').toLowerCase();
+    var key=/dashboard/.test(p)? 'shiny'
+      :/project/.test(p)? 'projects'
+        :/ecoplot/.test(p)? 'ecoplot'
+          :(/field-notes/.test(p)||/flora/.test(p))? 'flora'
+            :/about/.test(p)? 'about'
+              :(/resume/.test(p)||/\bcv\b/.test(p))? 'resume'
+                :'default';
+
+    // short, dry one-liners (not corny) — each trails off in "..." like he's not
+    // done. A couple are interactive (drag gag). Page lines mix into a shared pool.
+    var SHARED=[
+      "Man, I miss Clippy...",
+      "Mute me. I dare you...",
+      "Did you know you can drag me...",
+      {t: "Mmmm... that sweet sweet creosote smell after the rain...",fx: "rain"},
+      {t: "Saguaros can take like 75 years to grow one arm...",fx: "cactus"},
+      "King Clone is a creosote, but almost 12,000 years old 😐...",
+      "Night-blooming cereus opens one night a year...",
+      "Jojoba oil basically helped save the whales...",
+      "Fun fact: Teddy-bear cholla is not for hugging...",
+      "I've been watching the data. It's fine...",
+      "Somewhere, a pivot table needs me...",
+      {t: "Patching a leaky data pipe... give me a sec...",fx: "hardhat"},
+      "I named your cursor. It's Greg now...",
+      "Just me and the uptime graph tonight...",
+      "My boss has a mullet... That's not a joke...",
+      {t: "The Eye is always watching...",fx: "eye"},
+      {t: "You shall not pass...",next: "...just kidding...",hat: true},
+      {t: "Keep it secret. Keep it safe... the data...",hat: true},
+      {t: "All we have to decide is what to do with the data we're given...",hat: true},
+      {t: "A data engineer is never late. Nor is he early. He arrives precisely when he means to...",hat: true}
+    ];
+    var PAGE={
+      shiny: ["Tim built these in R. I watched...","Click one. They actually run...","So many reactive expressions..."],
+      projects: ["Real projects. I supervised. Loosely...","He builds a lot of these...","Pick one. I have notes..."],
+      ecoplot: ["EcoPlot. Field data, no clipboard...","Offline-first. I find that romantic...","This one's my favorite. Don't tell the others..."],
+      flora: ["That's a lot of plants. I know them...","I count three saguaros from here...","Tim met all of these. In person..."],
+      about: ["That's Tim. He's alright...","Ask him about soil moisture. I dare you..."],
+      resume: [{t: "Look at all those skills...",fx: "grad"},"Hire him. I get to keep watching..."],
+      default: ["I'm always watching... someone has to...","Tim's around here somewhere...","Let's talk soil moisture variance..."]
+    };
+    var OUCH=["Ouch!...","Ow— fine...","Rude...","Hey! Okay, okay...","...betrayal..."];
+    var BACK=["...okay, I'm back...","Missed me...?","Oh good, you returned...","...as I was saying..."];
+    var DRAG=["wheee...","okay, okay... moving...","fine, out of your way...","to the corner I go...","easy... put me down gently..."];
+
+    var pool=(PAGE[key]||PAGE.default).concat(SHARED);
+    // seasonal: more storm lines during AZ monsoon (Jul-Sep), night-only ones after dark
+    var MONSOON=["Smells like a storm coming...","Monsoon season... my favorite and most dangerous...","I love a dramatic desert sky...","Get the data inside, it's gonna pour..."];
+    var NIGHT=["It's late... I'll keep watch... go on...","Just me and the moths tonight...","The desert's quieter after dark... I like it..."];
+    var now=new Date();
+    var isMonsoon=now.getMonth()>=6&&now.getMonth()<=8;
+    var isNight=now.getHours()>=20||now.getHours()<5;
+    if(isMonsoon) pool=pool.concat(MONSOON);
+    if(isNight) pool=pool.concat(NIGHT);
+    var last=-1;
+    function pick() {
+      if(pool.length<2) return pool[0];
+      var i;
+      do {i=Math.floor(Math.random()*pool.length);} while(i===last);
+      last=i;
+      return pool[i];
+    }
+    function choose(arr) {return arr[Math.floor(Math.random()*arr.length)];}
+
+    var hideTimer,nextTimer,muteTimer,lineTimer,strikeTimer,returnTimer;
+    var struck=false,parked=false;
+
+    function forceSay(text,dwell) {
+      if(document.hidden) return;
+      window.clearTimeout(lineTimer);
+      bubbleText.textContent=text;
+      el.classList.add('talking');
+      window.clearTimeout(hideTimer);
+      hideTimer=window.setTimeout(function() {el.classList.remove('talking');},dwell||6000);
+    }
+    // show a pool quip — handles {t, next, hat}: drops a wizard hat + plays a follow-up
+    function showQuip(q) {
+      var t=(typeof q==='string')? q:q.t;
+      var nxt=(typeof q==='object')? q.next:null;
+      var hat=(typeof q==='object')&&q.hat;
+      var fx=(typeof q==='object')? q.fx:null;   // 'eye' | 'rain'
+      window.clearTimeout(hideTimer);
+      window.clearTimeout(lineTimer);
+      bubbleText.textContent=t;
+      el.classList.add('talking');
+      if(hat) el.classList.add('has-hat');
+      if(fx) el.classList.add('fx-'+fx);
+      function done() {el.classList.remove('talking'); el.classList.remove('has-hat'); if(fx) el.classList.remove('fx-'+fx);}
+      if(nxt) {
+        lineTimer=window.setTimeout(function() {
+          bubbleText.textContent=nxt;
+          hideTimer=window.setTimeout(done,5500);
+        },3500);
+      } else {
+        hideTimer=window.setTimeout(done,12000);
+      }
+    }
+    function say() {
+      if(document.hidden||muted||struck) return;
+      showQuip(pick());
+    }
+    function schedule(first) {
+      window.clearTimeout(nextTimer);
+      if(muted||struck) return;
+      var delay=first? 2500:(18000+Math.random()*3000);
+      nextTimer=window.setTimeout(function() {say(); schedule(false);},delay);
+    }
+
+    function setMuted(m) {
+      window.clearTimeout(muteTimer);
+      if(m) {
+        muted=true;
+        try {sessionStorage.setItem('tg-watcher-muted','1');} catch(e) {}
+        window.clearTimeout(nextTimer);
+        el.classList.remove('has-hat');
+        el.classList.add('mad');
+        forceSay(choose(OUCH),1400);
+        muteTimer=window.setTimeout(function() {
+          el.classList.add('muted');
+          el.classList.remove('talking');
+        },1300);
+      } else {
+        muted=false;
+        try {sessionStorage.setItem('tg-watcher-muted','0');} catch(e) {}
+        el.classList.remove('muted');
+        el.classList.remove('mad');
+        forceSay(choose(BACK));
+        schedule(false);
+      }
+    }
+
+    // ---- monsoon: every ~45s a bolt strikes him; he vanishes, then pops up
+    //      somewhere new ~15s later. Skipped under reduced motion. ----
+    function scheduleStrike() {
+      window.clearTimeout(strikeTimer);
+      if(parked) return;                  // user dragged him; he stays put
+      strikeTimer=window.setTimeout(strike,isMonsoon? 32000:45000);   // more frequent in monsoon
+    }
+    function strike() {
+      if(document.hidden||muted) {scheduleStrike(); return;}
+      struck=true;
+      window.clearTimeout(nextTimer);
+      window.clearTimeout(hideTimer);
+      window.clearTimeout(lineTimer);
+      el.classList.remove('talking');
+      el.classList.remove('has-hat');
+      el.classList.add('zapped');
+      window.setTimeout(function() {
+        el.classList.remove('zapped');
+        el.classList.add('gone');
+      },750);
+      returnTimer=window.setTimeout(function() {
+        place();
+        el.classList.remove('gone');
+        el.classList.add('arriving');
+        window.setTimeout(function() {el.classList.remove('arriving');},700);
+        struck=false;
+        schedule(false);
+        scheduleStrike();
+      },15000);
+    }
+
+    // drag him out of the way (pointer-drag); a click with no drag = mute
+    var downX=0,downY=0,pressed=false,dragged=false,grabX=0,grabY=0;
+    mark.addEventListener('pointerdown',function(e) {
+      if(muted||struck) return;
+      pressed=true; dragged=false; downX=e.clientX; downY=e.clientY;
+      var r=el.getBoundingClientRect();
+      grabX=e.clientX-r.left; grabY=e.clientY-r.top;
+      try {mark.setPointerCapture(e.pointerId);} catch(_e) {}
+    });
+    mark.addEventListener('pointermove',function(e) {
+      if(!pressed||muted||struck) return;
+      if(!dragged&&Math.abs(e.clientX-downX)<5&&Math.abs(e.clientY-downY)<5) return;
+      if(!dragged) {
+        dragged=true;
+        el.classList.add('grabbing');
+        el.style.right='auto'; el.style.bottom='auto';
+        el.style.setProperty('--hangx','0px'); el.style.setProperty('--hangy','0px');
+        forceSay(choose(DRAG));
+      }
+      e.preventDefault();
+      var ww=el.offsetWidth,hh=el.offsetHeight;
+      var nx=Math.min(window.innerWidth-ww-4,Math.max(4,e.clientX-grabX));
+      var ny=Math.min(window.innerHeight-hh-4,Math.max(4,e.clientY-grabY));
+      el.style.left=nx+'px'; el.style.top=ny+'px';
+      el.setAttribute('data-side',(nx+ww/2<window.innerWidth/2)? 'l':'r');
+    });
+    mark.addEventListener('pointerup',function(e) {
+      if(dragged) {
+        parked=true;                       // he stays where you put him
+        window.clearTimeout(strikeTimer);  // ...and stops wandering off
+        el.classList.remove('grabbing');
+      }
+      pressed=false;
+      try {mark.releasePointerCapture(e.pointerId);} catch(_e) {}
+    });
+    // 5 fast clicks = sunglasses easter egg (instead of a 5th mute toggle)
+    var clickTimes=[];
+    function easterEgg() {
+      window.clearTimeout(muteTimer);
+      muted=false; el.classList.remove('muted'); el.classList.remove('mad');
+      try {sessionStorage.setItem('tg-watcher-muted','0');} catch(e) {}
+      el.classList.add('cool');
+      forceSay("you found the secret... there's no prize...",5000);
+      window.setTimeout(function() {el.classList.remove('cool');},5000);
+      schedule(false);
+    }
+    mark.addEventListener('click',function() {
+      if(dragged) {dragged=false; return;}
+      if(struck) return;
+      var t=Date.now();
+      clickTimes.push(t);
+      clickTimes=clickTimes.filter(function(x) {return t-x<1500;});
+      if(clickTimes.length>=5) {clickTimes=[]; easterEgg(); return;}
+      var prev=clickTimes[clickTimes.length-2];
+      if(prev&&t-prev<350) return;   // rapid mashing — skip the mute toggle
+      setMuted(!muted);
+    });
+
+    // ---- context-aware reactions ----
+    // idle check-in: ~60s without mouse movement (desktop)
+    var idleTimer;
+    function resetIdle() {
+      window.clearTimeout(idleTimer);
+      if(!fine||reduce) return;
+      idleTimer=window.setTimeout(function() {
+        if(!muted&&!struck&&!document.hidden) forceSay("still there...? blink twice...",7000);
+      },60000);
+    }
+    window.addEventListener('pointermove',resetIdle,{passive: true});
+    resetIdle();
+    // bottom-of-page reward (once per page)
+    var sawBottom=false;
+    window.addEventListener('scroll',function() {
+      if(sawBottom||muted||struck) return;
+      if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4) {
+        sawBottom=true;
+        forceSay("you scrolled the whole thing... a person of culture...",7000);
+      }
+    },{passive: true});
+    // email field focus -> he leans in
+    [].forEach.call(document.querySelectorAll('input[type=email]'),function(inp) {
+      inp.addEventListener('focus',function() {
+        if(!muted&&!struck) forceSay("ooh, emailing Tim...? put in a good word...",7000);
+      });
+    });
+
+    document.addEventListener('visibilitychange',function() {
+      if(document.hidden) {window.clearTimeout(nextTimer);}
+      else if(!muted&&!struck) {schedule(false);}
+    });
+
+    // first appearance in the SESSION greets with "I see you..." (once, not per page)
+    var greeted=false;
+    try {greeted=sessionStorage.getItem('tg-watcher-greeted')==='1';} catch(e) {}
+    if(muted) {
+      el.classList.add('mad');
+      el.classList.add('muted');
+    } else if(!greeted) {
+      try {sessionStorage.setItem('tg-watcher-greeted','1');} catch(e) {}
+      window.setTimeout(function() {forceSay('I see you...',7000);},1500);
+      schedule(false);
+    } else {
+      schedule(true);
+    }
+    if(!reduce) scheduleStrike();
+  })();
+
+  // ---- saguaro-circuit scroll spine: a PCB-saguaro down the left edge whose
+  //      nodes light up as you scroll (doubles as a scroll-progress charge). ----
+  (function() {
+    if(!document.body) return;
+    if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if(window.innerWidth<1100) return;   // needs left-margin room
+    if(document.querySelector('.saguaro-spine')) return;
+    var TRACE=
+      '<path class="t-line" d="M16 14 V986"/>'+
+      '<path class="t-line" d="M16 690 H34 V560"/>'+
+      '<path class="t-line" d="M16 360 H30 V250"/>'+
+      '<path class="t-line" d="M16 820 H5 V740"/>'+
+      '<circle class="t-node" cx="16" cy="14" r="5"/>'+
+      '<circle class="t-node" cx="16" cy="986" r="6"/>'+
+      '<circle class="t-node" cx="34" cy="560" r="5"/>'+
+      '<circle class="t-node" cx="30" cy="250" r="5"/>'+
+      '<circle class="t-node" cx="5" cy="740" r="4.5"/>'+
+      '<circle class="t-node" cx="16" cy="520" r="4.5"/>';
+    function svg(cls) {
+      return '<svg class="'+cls+'" viewBox="0 0 44 1000" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true">'+TRACE+'</svg>';
+    }
+    var sp=document.createElement('div');
+    sp.className='saguaro-spine';
+    sp.setAttribute('aria-hidden','true');
+    sp.innerHTML=svg('spine-dim')+svg('spine-lit');
+    document.body.appendChild(sp);
+    var ticking=false;
+    function update() {
+      var max=document.documentElement.scrollHeight-window.innerHeight;
+      var prog=max>0? Math.min(1,Math.max(0,window.pageYOffset/max)):0;
+      sp.style.setProperty('--prog',prog.toFixed(4));
+      ticking=false;
+    }
+    window.addEventListener('scroll',function() {if(!ticking) {ticking=true; requestAnimationFrame(update);} },{passive: true});
+    window.addEventListener('resize',update,{passive: true});
+    update();
+  })();
+</script>
+
+<!-- NEON Driver Cascade radial spider menu: hub fans out the 7 explorers,
+     then a second hub click opens the capstone. Progressive enhancement. -->
+<script>
+(function () {
+  "use strict";
+
+  var root = document.querySelector("[data-neon-spider]");
+  if (!root) return;
+
+  var hub = root.querySelector("[data-neon-hub]");
+  var hubState = root.querySelector("[data-neon-hub-state]");
+  var hubLink = root.querySelector("[data-neon-hub-link]");
+  var nodesWrap = root.querySelector("[data-neon-nodes]");
+  var tracesG = root.querySelector(".neon-spider__traces-g");
+  if (!hub || !hubLink || !nodesWrap) return;
+
+  var nodes = Array.prototype.slice.call(nodesWrap.querySelectorAll(".neon-spider__node"));
+  var links = nodes.map(function (n) { return n.querySelector(".neon-spider__link"); });
+
+  var reduceMQ = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  // Promote from the no-JS fallback into the interactive widget.
+  root.classList.remove("is-noscript");
+
+  var LABEL_EXPAND = "Tap to explore";
+  var LABEL_OPEN = "Open the Cascade →";
+
+  // Build the SVG connecting traces (hub center -> each node).
+  function buildTraces() {
+    if (!tracesG) return;
+    var n = nodes.length;
+    var r = 200; // viewBox units
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < n; i++) {
+      var theta = (i * (360 / n) - 90) * (Math.PI / 180);
+      var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("x1", "0");
+      line.setAttribute("y1", "0");
+      line.setAttribute("x2", (Math.cos(theta) * r).toFixed(1));
+      line.setAttribute("y2", (Math.sin(theta) * r).toFixed(1));
+      line.setAttribute("pathLength", "1");
+      line.style.setProperty("--i", String(i));
+      frag.appendChild(line);
+    }
+    tracesG.appendChild(frag);
+  }
+  buildTraces();
+
+  function setChildrenReachable(reachable) {
+    nodes.forEach(function (node, idx) {
+      var link = links[idx];
+      if (!link) return;
+      if (reachable) {
+        link.removeAttribute("tabindex");
+        link.removeAttribute("aria-hidden");
+      } else {
+        link.setAttribute("tabindex", "-1");
+        link.setAttribute("aria-hidden", "true");
+      }
+    });
+  }
+
+  // Reduced-motion: render the ring statically, hub opens in one click.
+  if (reduceMQ.matches) {
+    root.classList.add("is-static");
+    hub.setAttribute("aria-expanded", "true");
+    hubState.textContent = LABEL_OPEN;
+    setChildrenReachable(true);
+    hub.addEventListener("click", function () {
+      window.location.href = hubLink.getAttribute("href");
+    });
+    return;
+  }
+
+  var isOpen = false;
+  setChildrenReachable(false);
+
+  function open() {
+    if (isOpen) return;
+    isOpen = true;
+    root.classList.add("is-open");
+    hub.setAttribute("aria-expanded", "true");
+    hubState.textContent = LABEL_OPEN;
+    setChildrenReachable(true);
+    document.addEventListener("click", onOutsideClick, true);
+    document.addEventListener("keydown", onKeydown, true);
+  }
+
+  function collapse(returnFocus) {
+    if (!isOpen) return;
+    isOpen = false;
+    root.classList.remove("is-open");
+    hub.setAttribute("aria-expanded", "false");
+    hubState.textContent = LABEL_EXPAND;
+    setChildrenReachable(false);
+    document.removeEventListener("click", onOutsideClick, true);
+    document.removeEventListener("keydown", onKeydown, true);
+    if (returnFocus) hub.focus();
+  }
+
+  // The hub is a <button>, so Enter/Space natively fire click: one handler
+  // covers mouse + keyboard. 1st activate fans out; 2nd opens the capstone.
+  hub.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (!isOpen) { open(); }
+    else { window.location.href = hubLink.getAttribute("href"); }
+  });
+
+  function onOutsideClick(e) { if (!root.contains(e.target)) collapse(false); }
+  function onKeydown(e) {
+    if (e.key === "Escape" || e.key === "Esc") { e.preventDefault(); collapse(true); }
+  }
+
+  // Fail safe to static if reduced-motion turns on mid-session.
+  if (typeof reduceMQ.addEventListener === "function") {
+    reduceMQ.addEventListener("change", function (e) {
+      if (e.matches) {
+        collapse(false);
+        root.classList.add("is-static");
+        hub.setAttribute("aria-expanded", "true");
+        hubState.textContent = LABEL_OPEN;
+        setChildrenReachable(true);
+      }
+    });
+  }
+})();
+</script>
+
+<!-- ============================================================
+     SYNTH-FM — a retro VHS / Vice City radio deck, top-right.
+     Every note is synthesized live in WebAudio (no audio files):
+     kick / snare / hats / bass / pad / arp / lead sequenced on a
+     16-step clock, per-station chord tables, tape hiss + a dotted
+     feedback delay. Four stations you can tune across with a
+     static burst between. Off by default; starts only on a click.
+     ============================================================ -->
+<script>
+(function () {
+  /* Neon reading-progress hairline (styled + scroll-driven in styles.css). */
+  if (!document.querySelector('.tg-progress')) {
+    var prog = document.createElement('div');
+    prog.className = 'tg-progress';
+    prog.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(prog);
+  }
+
+  if (document.querySelector('[data-vhs]')) return;
+
+  /* ---------- Build the deck DOM ---------- */
+  var root = document.createElement('div');
+  root.className = 'vhs-radio is-off';
+  root.setAttribute('data-vhs', '');
+  root.innerHTML =
+    '<button class="vhs-radio__toggle" data-vhs-toggle aria-expanded="false" aria-label="Open the SYNTH-FM radio">' +
+      '<span class="bb-rec" aria-hidden="true"></span>' +
+      '<span class="bb-osd" aria-hidden="true">' +
+        '<span class="bb-freq">SYNTH&#183;FM<b data-vhs-lfreq>99.9 FM</b></span>' +
+        '<span class="bb-tick"><span data-vhs-lname>SUNSET DRIVE &#183; Chrome Horizon &#183; </span></span>' +
+      '</span>' +
+    '</button>' +
+    '<div class="vhs-radio__deck" data-vhs-deck role="region" aria-label="SYNTH-FM synthwave radio" hidden>' +
+      '<div class="vhs-radio__top">' +
+        '<span class="vhs-radio__brand">&#9673; SYNTH-FM</span>' +
+        '<button class="vhs-radio__close" data-vhs-close aria-label="Close radio">&#10005;</button>' +
+      '</div>' +
+      '<div class="vhs-radio__screen">' +
+        '<canvas class="vhs-radio__static" data-vhs-static width="120" height="66" aria-hidden="true"></canvas>' +
+        '<div class="vhs-radio__screen-row">' +
+          '<span class="vhs-radio__ch" data-vhs-ch>CH 01</span>' +
+          '<span class="vhs-radio__freq" data-vhs-freq>99.9 FM</span>' +
+          '<span class="vhs-radio__onair" data-vhs-onair>&#9679; STANDBY</span>' +
+        '</div>' +
+        '<div class="vhs-radio__name"><span class="vhs-radio__marq" data-vhs-name>press play to tune in</span></div>' +
+        '<div class="vhs-radio__eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>' +
+      '</div>' +
+      '<div class="vhs-radio__controls">' +
+        '<button class="vhs-radio__btn vhs-radio__power" data-vhs-power aria-pressed="false">&#9205; Tune In</button>' +
+        '<div class="vhs-radio__tune">' +
+          '<button class="vhs-radio__btn vhs-radio__seek" data-vhs-prev aria-label="Previous station">&#9664;&#9664;</button>' +
+          '<button class="vhs-radio__btn vhs-radio__seek" data-vhs-next aria-label="Next station">&#9654;&#9654;</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+  document.body.appendChild(root);
+
+  var elToggle = root.querySelector('[data-vhs-toggle]');
+  var elDeck   = root.querySelector('[data-vhs-deck]');
+  var elClose  = root.querySelector('[data-vhs-close]');
+  var elPower  = root.querySelector('[data-vhs-power]');
+  var elPrev   = root.querySelector('[data-vhs-prev]');
+  var elNext   = root.querySelector('[data-vhs-next]');
+  var elCh     = root.querySelector('[data-vhs-ch]');
+  var elFreq   = root.querySelector('[data-vhs-freq]');
+  var elName   = root.querySelector('[data-vhs-name]');
+  var elOnair  = root.querySelector('[data-vhs-onair]');
+  var elStatic = root.querySelector('[data-vhs-static]');
+
+  /* ---------- Stations ----------
+     Each: display meta, tempo, feature flags, and a 4-chord loop
+     (one chord per bar). Pads are stacked note names; the arp is
+     generated from the pad an octave up, so it's always in key. */
+  var STATIONS = [
+    /* ---- Synthwave (the originals) ---- */
+    { num: '01', freq: '99.9',  name: 'SUNSET DRIVE', genre: 'synthwave', track: 'Chrome Horizon · Vela Nova',
+      acc: '#ff2d95', acc2: '#2de2e6', bpm: 102, kick: 1, snare: 1, hats: 1, lead: 1,
+      chords: [
+        { pad: ['A2','E3','A3','C4'], root: 'A1' },
+        { pad: ['F2','C3','F3','A3'], root: 'F1' },
+        { pad: ['C3','G3','C4','E4'], root: 'C2' },
+        { pad: ['G2','D3','G3','B3'], root: 'G1' }
+      ] },
+    /* Anthem synth-pop — 80s "forever young" flavor (original), golden-nostalgia palette */
+    { num: '02', freq: '104.5', name: 'GOLDEN HOUR', genre: 'Anthem Synth-Pop', track: "'Golden While It Lasts' · Novaville",
+      acc: '#f5c14e', acc2: '#8b8cf0', bpm: 100, kick: 1, snare: 1, hats: 1, lead: 1, padCut: 1800, drive: 0.25, crackle: 0.35,
+      chords: [
+        { pad: ['F#3','B3','D4','F#4'], root: 'B2' },
+        { pad: ['G3','B3','D4','G4'],   root: 'G2' },
+        { pad: ['A3','D4','F#4','A4'],  root: 'D2' },
+        { pad: ['E3','A3','C#4','E4'],  root: 'A2' }
+      ] },
+    /* Anime symphonic metal — AoT/Babymetal energy (original): drop-tuned E-phrygian
+       weight under a bright kawaii top hook; gallop kick, relentless arp, hook every bar */
+    { num: '03', freq: '88.8', name: 'TITAN BLOOM', genre: 'Anime Symphonic Metal', track: "'Requiem for the Falling Sky' · KAGURA//ZERO",
+      acc: '#ff2f92', acc2: '#5b16ff', bpm: 160, kick: 1, snare: 1, hats: 1, lead: 1,
+      padCut: 2800, drive: 0.6, crackle: 0.08, tone: { type: 'highpass', freq: 60, q: 0.7, makeup: 1.0 },
+      kickPat:  [1,0,1,1, 1,0,1,1, 1,0,1,1, 1,0,1,1],
+      snarePat: [0,0,0,0, 1,0,0,0, 0,0,0,0, 1,0,0,1],
+      hatPat:   [1,1,1,1, 1,1,2,1, 1,1,1,1, 1,1,2,1],
+      bassSteps: [0,3,4,7, 8,11,12,15],
+      arpSkip: [],
+      leadSteps: [0,6,10,14], leadBars: 'all',
+      chords: [
+        { pad: ['B2','E3','G3','B3'], root: 'E2' },
+        { pad: ['C3','E3','G3','C4'], root: 'C2' },
+        { pad: ['D3','F#3','A3','D4'], root: 'D2' },
+        { pad: ['C3','F3','A3','C4'], root: 'F2' }
+      ] },
+    /* ---- Vice City oldies (80s Miami synth-pop) — brighter pad ---- */
+    { num: '04', freq: '103.5', name: 'SUNSET AND OCEAN', genre: 'oldies', track: 'Chrome & Coral · Lita Marquez',
+      acc: '#ffb347', acc2: '#38e1c6', bpm: 108, kick: 1, snare: 1, hats: 1, lead: 1, padCut: 2800,
+      chords: [
+        { pad: ['C3','E3','G3','B3'], root: 'C2' },
+        { pad: ['A2','E3','G3','B3'], root: 'A1' },
+        { pad: ['F2','A2','C3','E3'], root: 'F1' },
+        { pad: ['G2','D3','G3','B3'], root: 'G1' }
+      ] },
+    { num: '05', freq: '98.7', name: 'MIAMI AFTER DARK', genre: 'oldies', track: 'Neon Tide · The Biscayne Set',
+      acc: '#ff5e8a', acc2: '#22c3e6', bpm: 104, kick: 1, snare: 1, hats: 1, lead: 1, padCut: 2800,
+      chords: [
+        { pad: ['D3','A3','D4','E4'],  root: 'D2' },
+        { pad: ['B2','D3','F#3','A3'], root: 'B1' },
+        { pad: ['G2','B2','D3','F#3'], root: 'G1' },
+        { pad: ['A2','E3','G3','D4'],  root: 'A1' }
+      ] },
+    /* ---- Cyberpunk — driven / hollow, with grit ---- */
+    { num: '06', freq: '106.6', name: 'NEON GUTTER', genre: 'cyberpunk', track: 'Ghost in the Gutter · SPRAWL_07',
+      acc: '#39ff14', acc2: '#ff073a', bpm: 132, kick: 1, snare: 1, hats: 1, lead: 1, drive: 0.4, crackle: 0.22,
+      chords: [
+        { pad: ['E2','G2','B2','E3'], root: 'E1' },
+        { pad: ['F2','A2','C3','F3'], root: 'F1' },
+        { pad: ['G2','B2','D3','G3'], root: 'G1' },
+        { pad: ['D2','F2','A2','D3'], root: 'D1' }
+      ] },
+    { num: '07', freq: '92.3', name: 'RAIN CIRCUIT', genre: 'cyberpunk', track: 'Rain on the Server Farm · V/OID',
+      acc: '#00e5ff', acc2: '#a03cff', bpm: 92, kick: 1, snare: 0, hats: 1, lead: 1, crackle: 0.5,
+      tone: { type: 'lowpass', freq: 2500, q: 0.7, makeup: 1.15 },
+      chords: [
+        { pad: ['D2','F2','A2','E3'],  root: 'D1' },
+        { pad: ['A#1','D3','F3','A3'], root: 'A#1' },
+        { pad: ['G2','A#2','D3','G3'], root: 'G1' },
+        { pad: ['A2','C3','E3','A3'],  root: 'A1' }
+      ] },
+    /* ---- Synthwave (moody, snareless) ---- */
+    { num: '08', freq: '88.6',  name: 'CHROME BLVD', genre: 'synthwave', track: 'Tradewind Runner · Lena Meridian',
+      acc: '#ffd24a', acc2: '#a01c76', bpm: 86, kick: 1, snare: 0, hats: 1, lead: 1,
+      chords: [
+        { pad: ['C3','G3','B3','E4'], root: 'C2' },
+        { pad: ['A2','E3','G3','C4'], root: 'A1' },
+        { pad: ['F2','C3','E3','A3'], root: 'F1' },
+        { pad: ['G2','D3','F3','B3'], root: 'G1' }
+      ] },
+    /* ---- Retro radio — warm lounge + boxy AM ---- */
+    { num: '09', freq: '88.3', name: 'AFTER HOURS', genre: 'retro', track: 'Silk & Static · Odell Rivers',
+      acc: '#e08a9a', acc2: '#d7a24c', bpm: 82, kick: 1, snare: 1, hats: 1, lead: 1, padCut: 1600,
+      tone: { type: 'lowpass', freq: 5500, q: 0.7, makeup: 1.06 },
+      chords: [
+        { pad: ['F2','A2','C3','E3'],  root: 'F1' },
+        { pad: ['D2','A2','C3','F3'],  root: 'D1' },
+        { pad: ['G2','A#2','D3','F3'], root: 'G1' },
+        { pad: ['C3','E3','G3','A#3'], root: 'C2' }
+      ] },
+    { num: '10', freq: '1220', band: 'AM', name: 'GOLD RADIO', genre: 'retro', track: 'Moonglow Boulevard · The Velvetones',
+      acc: '#f2b155', acc2: '#4bb8a9', bpm: 96, kick: 1, snare: 0, hats: 1, lead: 0, crackle: 0.6,
+      tone: { type: 'bandpass', freq: 1400, q: 0.9, makeup: 1.8 },
+      chords: [
+        { pad: ['C3','E3','G3','C4'], root: 'C2' },
+        { pad: ['A2','E3','A3','C4'], root: 'A1' },
+        { pad: ['F2','A2','C3','F3'], root: 'F1' },
+        { pad: ['G2','B2','D3','G3'], root: 'G1' }
+      ] }
+  ];
+  var chIdx = 0;
+  try {
+    var saved = parseInt(localStorage.getItem('tg-radio-ch'), 10);
+    if (saved >= 0 && saved < STATIONS.length) chIdx = saved;
+  } catch (e) {}
+  function cur() { return STATIONS[chIdx]; }
+
+  /* ---------- Note helpers ---------- */
+  var NOTE = { 'C':0,'C#':1,'D':2,'D#':3,'E':4,'F':5,'F#':6,'G':7,'G#':8,'A':9,'A#':10,'B':11 };
+  function freq(n) {
+    var m = /^([A-G]#?)(\d)$/.exec(n);
+    return 440 * Math.pow(2, ((NOTE[m[1]] + (parseInt(m[2], 10) + 1) * 12) - 69) / 12);
+  }
+  var KICK  = [1,0,0,0, 1,0,0,0, 1,0,0,0, 1,0,0,0];
+  var SNARE = [0,0,0,0, 1,0,0,0, 0,0,0,0, 1,0,0,0];
+  var HAT   = [1,0,1,0, 1,0,1,0, 1,0,1,0, 1,0,2,0];
+  var BASS  = [0,2,4,6, 8,10,12,14];
+  var ARPSEQ = [0,1,2,3, 3,2,1,2]; /* index into a 4-note pad, up/down */
+
+  /* ---------- Audio engine ---------- */
+  var ac = null, master = null, comp = null, musicBus = null, sfxBus = null;
+  var delaySend = null, dly = null, noiseBuf = null;
+  /* live spectrum -> the 10 EQ bars (real audio, not a canned loop) */
+  var analyser = null, freqData = null, eqTimer = null;
+  var eqBars = [].slice.call(root.querySelectorAll('.vhs-radio__eq i'));
+  /* per-station tone chain: musicBus -> shaper(drive) -> toneFilter -> toneOut(makeup) -> comp */
+  var shaper = null, toneFilter = null, toneOut = null, crackleGain = null;
+  var curPadCut = 1100;
+  var SPB = 60 / cur().bpm / 4;
+  var timer = null, step = 0, nextT = 0, on = false, wanted = false;
+
+  function build() {
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return false;
+    ac = new AC();
+    master = ac.createGain(); master.gain.value = 0.11; master.connect(ac.destination);
+    comp = ac.createDynamicsCompressor();
+    comp.threshold.value = -20; comp.knee.value = 15; comp.ratio.value = 4;
+    comp.attack.value = 0.004; comp.release.value = 0.25; comp.connect(master);
+    /* spectrum tap for the EQ bars — post-compressor (full-scale, pre-master) */
+    analyser = ac.createAnalyser();
+    analyser.fftSize = 128;
+    analyser.smoothingTimeConstant = 0.7;
+    comp.connect(analyser);
+    freqData = new Uint8Array(analyser.frequencyBinCount);
+    musicBus = ac.createGain(); musicBus.gain.value = 0.0001;
+    /* Per-station tone chain: drive (WaveShaper) -> tone BiquadFilter -> makeup gain.
+       Defaults are transparent (linear curve, wide-open lowpass, unity gain) so the
+       synthwave stations are unaffected; applyTone() reshapes it per station. */
+    shaper = ac.createWaveShaper(); shaper.curve = driveCurve(0);
+    toneFilter = ac.createBiquadFilter(); toneFilter.type = 'lowpass'; toneFilter.frequency.value = 20000; toneFilter.Q.value = 0.7;
+    toneOut = ac.createGain(); toneOut.gain.value = 1;
+    musicBus.connect(shaper); shaper.connect(toneFilter); toneFilter.connect(toneOut); toneOut.connect(comp);
+    sfxBus = ac.createGain(); sfxBus.gain.value = 0.6; sfxBus.connect(comp);
+
+    delaySend = ac.createGain(); delaySend.gain.value = 1;
+    dly = ac.createDelay(1); dly.delayTime.value = SPB * 3;
+    var fbHp = ac.createBiquadFilter(); fbHp.type = 'highpass'; fbHp.frequency.value = 500;
+    var fb = ac.createGain(); fb.gain.value = 0.34;
+    delaySend.connect(dly); dly.connect(fbHp); fbHp.connect(fb); fb.connect(dly);
+    var wet = ac.createGain(); wet.gain.value = 0.28; dly.connect(wet); wet.connect(musicBus);
+
+    var nlen = ac.sampleRate;
+    noiseBuf = ac.createBuffer(1, nlen, ac.sampleRate);
+    var nd = noiseBuf.getChannelData(0);
+    for (var i = 0; i < nlen; i++) nd[i] = Math.random() * 2 - 1;
+
+    /* Vinyl/AM surface-noise bed — a looped, band-limited hiss the retro &
+       cyberpunk stations dial up (applyTone sets crackleGain per station). */
+    crackleGain = ac.createGain(); crackleGain.gain.value = 0;
+    var cn = ac.createBufferSource(); cn.buffer = noiseBuf; cn.loop = true;
+    var cf = ac.createBiquadFilter(); cf.type = 'bandpass'; cf.frequency.value = 1650; cf.Q.value = 0.5;
+    cn.connect(cf); cf.connect(crackleGain); crackleGain.connect(comp); cn.start();
+
+    var hlen = 2 * ac.sampleRate;
+    var hbuf = ac.createBuffer(1, hlen, ac.sampleRate);
+    var hd = hbuf.getChannelData(0);
+    for (var j = 0; j < hlen; j++) hd[j] = Math.random() * 2 - 1;
+    var hiss = ac.createBufferSource(); hiss.buffer = hbuf; hiss.loop = true;
+    var hf = ac.createBiquadFilter(); hf.type = 'lowpass'; hf.frequency.value = 6000;
+    var hg = ac.createGain(); hg.gain.value = 0.009;
+    hiss.connect(hf); hf.connect(hg); hg.connect(comp); hiss.start();
+    return true;
+  }
+
+  /* WaveShaper transfer curve. amount<=0 => identity (transparent);
+     otherwise a normalized tanh soft-clip for cyberpunk grit. */
+  function driveCurve(amount) {
+    var n = 512, c = new Float32Array(n), i, x;
+    if (!amount || amount <= 0) { for (i = 0; i < n; i++) c[i] = (i / (n - 1)) * 2 - 1; return c; }
+    var k = 1 + amount * 28;
+    for (i = 0; i < n; i++) { x = (i / (n - 1)) * 2 - 1; c[i] = Math.tanh(k * x) / Math.tanh(k); }
+    return c;
+  }
+
+  /* Reshape the per-station tone chain: pad brightness, drive, master
+     filter/makeup, and the crackle bed. Defaults keep synthwave clean. */
+  function applyTone(st) {
+    if (!ac) return;
+    var t = ac.currentTime;
+    curPadCut = st.padCut || 1100;
+    shaper.curve = driveCurve(st.drive || 0);
+    var tn = st.tone;
+    toneFilter.type = tn ? tn.type : 'lowpass';
+    toneFilter.frequency.setTargetAtTime(tn ? tn.freq : 20000, t, 0.05);
+    toneFilter.Q.setTargetAtTime(tn ? (tn.q || 0.7) : 0.7, t, 0.05);
+    toneOut.gain.setTargetAtTime(tn ? (tn.makeup || 1) : 1, t, 0.05);
+    if (crackleGain) crackleGain.gain.setTargetAtTime((st.crackle || 0) * 0.03, t, 0.1);
+  }
+
+  function noiseVoice(t, dur, type, cut, q, peak, dest) {
+    var s = ac.createBufferSource(); s.buffer = noiseBuf;
+    var f = ac.createBiquadFilter(); f.type = type; f.frequency.value = cut; f.Q.value = q || 0.7;
+    var g = ac.createGain();
+    g.gain.setValueAtTime(peak, t);
+    g.gain.exponentialRampToValueAtTime(0.001, t + dur);
+    s.connect(f); f.connect(g); g.connect(dest || musicBus);
+    s.start(t); s.stop(t + dur + 0.02);
+  }
+  function vKick(t) {
+    var o = ac.createOscillator(); o.type = 'sine';
+    o.frequency.setValueAtTime(150, t);
+    o.frequency.exponentialRampToValueAtTime(45, t + 0.09);
+    var g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(0.85, t + 0.002);
+    g.gain.exponentialRampToValueAtTime(0.001, t + 0.18);
+    o.connect(g); g.connect(musicBus); o.start(t); o.stop(t + 0.22);
+  }
+  function vSnare(t) {
+    noiseVoice(t, 0.12, 'highpass', 1800, 0.7, 0.45, musicBus);
+    var o = ac.createOscillator(); o.type = 'triangle'; o.frequency.value = 190;
+    var g = ac.createGain();
+    g.gain.setValueAtTime(0.28, t);
+    g.gain.exponentialRampToValueAtTime(0.001, t + 0.08);
+    o.connect(g); g.connect(musicBus); o.start(t); o.stop(t + 0.1);
+  }
+  function vHat(t, open) { noiseVoice(t, open ? 0.22 : 0.035, 'highpass', 7000, 0.7, open ? 0.2 : 0.16, musicBus); }
+  function vBass(t, f, len) {
+    var o1 = ac.createOscillator(); o1.type = 'sawtooth'; o1.frequency.value = f;
+    var o2 = ac.createOscillator(); o2.type = 'square'; o2.frequency.value = f / 2;
+    var g2 = ac.createGain(); g2.gain.value = 0.4;
+    var lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.Q.value = 1.2;
+    lp.frequency.setValueAtTime(1150, t);
+    lp.frequency.exponentialRampToValueAtTime(650, t + 0.08);
+    var g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(0.42, t + 0.004);
+    g.gain.linearRampToValueAtTime(0.42 * 0.55, t + 0.1);
+    g.gain.setValueAtTime(0.42 * 0.55, t + len);
+    g.gain.linearRampToValueAtTime(0.0001, t + len + 0.05);
+    o1.connect(lp); o2.connect(g2); g2.connect(lp); lp.connect(g); g.connect(musicBus);
+    o1.start(t); o2.start(t); o1.stop(t + len + 0.1); o2.stop(t + len + 0.1);
+  }
+  function vPad(t, notes, len) {
+    var lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = curPadCut; lp.Q.value = 0.6;
+    var g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(0.26, t + 0.7);
+    g.gain.linearRampToValueAtTime(0.26 * 0.8, t + 1.2);
+    g.gain.setValueAtTime(0.26 * 0.8, t + len - 0.2);
+    g.gain.linearRampToValueAtTime(0.0001, t + len + 1.2);
+    lp.connect(g); g.connect(musicBus);
+    notes.forEach(function (n) {
+      var f = freq(n);
+      [['sawtooth', -7], ['sawtooth', 7], ['triangle', 0]].forEach(function (sp) {
+        var o = ac.createOscillator(); o.type = sp[0]; o.frequency.value = f; o.detune.value = sp[1];
+        var og = ac.createGain(); og.gain.value = 1 / (notes.length * 2.4);
+        o.connect(og); og.connect(lp); o.start(t); o.stop(t + len + 1.3);
+      });
+    });
+  }
+  function vArp(t, f) {
+    var o = ac.createOscillator(); o.type = 'square'; o.frequency.value = f;
+    var lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 2500; lp.Q.value = 1;
+    var g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(0.14, t + 0.002);
+    g.gain.exponentialRampToValueAtTime(0.001, t + 0.12);
+    o.connect(lp); lp.connect(g); g.connect(musicBus);
+    var send = ac.createGain(); send.gain.value = 0.28; g.connect(send); send.connect(delaySend);
+    o.start(t); o.stop(t + 0.16);
+  }
+  function vLead(t, f, len) {
+    var g = ac.createGain();
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.linearRampToValueAtTime(0.26, t + 0.01);
+    g.gain.linearRampToValueAtTime(0.26 * 0.6, t + 0.2);
+    g.gain.setValueAtTime(0.26 * 0.6, t + len);
+    g.gain.linearRampToValueAtTime(0.0001, t + len + 0.22);
+    var lp = ac.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 3200;
+    lp.connect(g); g.connect(musicBus);
+    var send = ac.createGain(); send.gain.value = 0.5; g.connect(send); send.connect(delaySend);
+    [['sawtooth', 0], ['triangle', 5]].forEach(function (sp) {
+      var o = ac.createOscillator(); o.type = sp[0]; o.frequency.value = f; o.detune.value = sp[1];
+      o.connect(lp); o.start(t); o.stop(t + len + 0.28);
+    });
+  }
+
+  function playStep(s, t) {
+    var st = cur();
+    var bar = Math.floor(s / 16) % st.chords.length;
+    var i = s % 16;
+    var chord = st.chords[bar];
+    /* per-station pattern overrides (metal/oldies need different grooves) */
+    var kickPat = st.kickPat || KICK;
+    var snarePat = st.snarePat || SNARE;
+    var hatPat = st.hatPat || HAT;
+    var bassSteps = st.bassSteps || BASS;
+    var arpSkip = st.arpSkip || [3, 11];
+    var leadSteps = st.leadSteps || [0, 6, 10];
+    var leadBars = st.leadBars || 'odd';
+    if (st.kick && kickPat[i]) vKick(t);
+    if (st.snare && snarePat[i]) vSnare(t);
+    if (st.hats && hatPat[i]) vHat(t, hatPat[i] === 2);
+    var bi = bassSteps.indexOf(i);
+    if (bi !== -1) {
+      var gapSteps = (bassSteps[bi + 1] !== undefined ? bassSteps[bi + 1] : 16) - i;
+      vBass(t, freq(chord.root) * (bi % 2 ? 2 : 1), SPB * Math.min(1.8, Math.max(0.5, gapSteps * 0.9)));
+    }
+    if (i === 0) vPad(t, chord.pad, SPB * 16);
+    /* arp: skip slots so it breathes (or none, for relentless genres) */
+    if (arpSkip.indexOf(i) === -1) {
+      var pad = chord.pad;
+      var note = pad[ARPSEQ[i % ARPSEQ.length] % pad.length];
+      vArp(t, freq(note) * 2);
+    }
+    var barOk = leadBars === 'all' || (leadBars === 'odd' ? bar % 2 === 1 : bar % 2 === 0);
+    if (st.lead && barOk && leadSteps.indexOf(i) !== -1) {
+      vLead(t, freq(chord.pad[chord.pad.length - 1]) * 2, SPB * 3);
+    }
+  }
+  function schedule() {
+    var now = ac.currentTime;
+    if (nextT < now - 0.2) nextT = now + 0.03;
+    while (nextT < now + 0.12) {
+      playStep(step, nextT);
+      nextT += SPB;
+      step = (step + 1) % (cur().chords.length * 16);
+    }
+  }
+
+  /* ---------- Screen ---------- */
+  function paintScreen() {
+    var st = cur();
+    var band = st.band || 'FM';
+    root.style.setProperty('--acc', st.acc);
+    root.style.setProperty('--acc2', st.acc2);
+    elCh.textContent = 'CH ' + st.num;
+    elFreq.textContent = st.freq + ' ' + band;
+    elName.textContent = on ? (st.name + '  ·  ' + st.track) : st.name;
+    /* keep the collapsed boombox launcher showing the same station */
+    var lf = root.querySelector('[data-vhs-lfreq]');
+    if (lf) lf.textContent = st.freq + ' ' + band;
+    var ln = root.querySelector('[data-vhs-lname]');
+    if (ln) { var s = st.name + ' · ' + st.track + ' · '; ln.textContent = s + s; }
+  }
+
+  /* ---------- Static burst on tune ---------- */
+  var sctx = elStatic ? elStatic.getContext('2d') : null;
+  var bursting = false;
+  function reducedMotion() {
+    return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  }
+  function burst() {
+    if (reducedMotion() || !sctx || bursting) return;
+    bursting = true;
+    root.classList.add('is-bursting');
+    if (on) blip();
+    var w = elStatic.width, h = elStatic.height;
+    var img = sctx.createImageData(w, h);
+    var data = img.data;
+    var start = performance.now();
+    (function frame() {
+      for (var i = 0; i < data.length; i += 4) {
+        var v = (Math.random() * 255) | 0;
+        data[i] = v; data[i + 1] = v; data[i + 2] = v; data[i + 3] = 255;
+      }
+      sctx.putImageData(img, 0, 0);
+      if (performance.now() - start > 280) {
+        root.classList.remove('is-bursting');
+        bursting = false;
+        return;
+      }
+      requestAnimationFrame(frame);
+    })();
+  }
+  function blip() {
+    if (!ac || !on) return;
+    noiseVoice(ac.currentTime, 0.08, 'bandpass', 1400, 0.8, 0.22, sfxBus);
+  }
+
+  /* ---------- Transport ---------- */
+  /* EQ bars ride the real spectrum: 10 bars sample rising frequency bins,
+     scaleY only (composited). Interval, not rAF — rAF freezes in hidden /
+     non-painting tabs while the audio clock keeps running. The canned CSS
+     loop is disabled via .eq-live while this drives. */
+  function eqPaint() {
+    if (!analyser) return;
+    analyser.getByteFrequencyData(freqData);
+    for (var i = 0; i < eqBars.length; i++) {
+      var v = freqData[1 + i * 2] / 255;
+      eqBars[i].style.transform = 'scaleY(' + Math.min(1, 0.12 + v * 0.95).toFixed(3) + ')';
+    }
+  }
+  function radioOn() {
+    if (timer) return;
+    SPB = 60 / cur().bpm / 4;
+    if (dly) dly.delayTime.value = SPB * 3;
+    applyTone(cur());
+    step = 0; nextT = ac.currentTime + 0.06;
+    musicBus.gain.setTargetAtTime(0.5, ac.currentTime, 0.12);
+    timer = setInterval(schedule, 25);
+    if (analyser && !reducedMotion()) {
+      root.classList.add('eq-live');
+      if (!eqTimer) eqTimer = setInterval(eqPaint, 50);
+    }
+  }
+  function radioOff() {
+    if (timer) { clearInterval(timer); timer = null; }
+    if (musicBus) musicBus.gain.setTargetAtTime(0.0001, ac.currentTime, 0.1);
+    root.classList.remove('eq-live');
+    if (eqTimer) { clearInterval(eqTimer); eqTimer = null; }
+    for (var i = 0; i < eqBars.length; i++) eqBars[i].style.transform = '';
+  }
+  function applyUI() {
+    root.classList.toggle('is-playing', on);
+    elPower.setAttribute('aria-pressed', on ? 'true' : 'false');
+    /* OSD grammar: brackets = affordance, stop-square = the off switch */
+    elPower.innerHTML = on ? '&#9632; On Air<span class="vhs-livedot" aria-hidden="true"></span>' : '[Tune In]';
+    elOnair.innerHTML = on ? '&#9679; ON AIR' : '&#9679; STANDBY';
+    paintScreen();
+  }
+  function setAudio(want) {
+    wanted = want;
+    if (!want) { if (ac) radioOff(); on = false; applyUI(); return; }
+    if (!ac && !build()) return;
+    var settle = function () {
+      if (ac.state === 'running') { radioOn(); on = true; applyUI(); return true; }
+      return false;
+    };
+    var p = ac.resume();
+    if (settle()) return;
+    if (p && p.then) p.then(settle).catch(function () {});
+  }
+  function tune(dir) {
+    chIdx = (chIdx + dir + STATIONS.length) % STATIONS.length;
+    try { localStorage.setItem('tg-radio-ch', String(chIdx)); } catch (e) {}
+    burst();
+    if (on) {
+      SPB = 60 / cur().bpm / 4;
+      if (dly) dly.delayTime.value = SPB * 3;
+      applyTone(cur());
+      step = 0; nextT = ac.currentTime + 0.05;
+    }
+    paintScreen();
+  }
+
+  /* ---------- Open / close ---------- */
+  function openDeck(start) {
+    root.classList.add('is-open');
+    elToggle.setAttribute('aria-expanded', 'true');
+    elDeck.hidden = false;
+    if (start) setAudio(true);
+    else applyUI();
+    /* the (focused) toggle just went display:none — without this, keyboard
+       focus falls to <body> and a tab restarts from the page top */
+    elPower.focus();
+  }
+  function closeDeck() {
+    setAudio(false);
+    root.classList.remove('is-open');
+    elToggle.setAttribute('aria-expanded', 'false');
+    elDeck.hidden = true;
+    elToggle.focus();
+  }
+
+  elToggle.addEventListener('click', function () { openDeck(true); });
+  elClose.addEventListener('click', closeDeck);
+  elPower.addEventListener('click', function () { setAudio(!on); });
+  elPrev.addEventListener('click', function () { tune(-1); });
+  elNext.addEventListener('click', function () { tune(1); });
+
+  document.addEventListener('visibilitychange', function () {
+    if (!ac) return;
+    if (document.hidden) { ac.suspend(); }
+    else if (on) { ac.resume(); nextT = Math.max(nextT, ac.currentTime + 0.05); }
+  });
+
+  paintScreen();
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/tgilbert14\.github\.io\/timothy-gilbert-portfolio\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

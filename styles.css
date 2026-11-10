@@ -18,9 +18,9 @@
   --teal: #2dd4bf;
   --teal-bright: #5eead4;
   --teal-rgb: 45, 212, 191;
-  --salmon: #fb8a7e;
-  --salmon-soft: #f97366;
-  --salmon-rgb: 251, 138, 126;
+  --salmon: #ffa64a;
+  --salmon-soft: #f58f2e;
+  --salmon-rgb: 255, 166, 74;
   --indigo: #6366f1;
 
   /* Vice City / synthwave neon — the "show off" layer (portfolio). Hot pink +
@@ -632,9 +632,9 @@ html.js .reveal-left.is-visible { opacity: 1; transform: none; }
 .avatar-card .holo {
   background-image:
     repeating-linear-gradient(110deg,
-      rgba(255, 119, 115, 0.55) 0%, rgba(255, 224, 138, 0.55) 12%,
+      rgba(255, 166, 74, 0.55) 0%, rgba(255, 224, 138, 0.55) 12%,
       rgba(120, 238, 224, 0.55) 25%, rgba(120, 148, 255, 0.55) 38%,
-      rgba(216, 117, 255, 0.55) 50%, rgba(255, 119, 115, 0.55) 62%),
+      rgba(216, 117, 255, 0.55) 50%, rgba(255, 166, 74, 0.55) 62%),
     repeating-linear-gradient(-42deg,
       rgba(255, 255, 255, 0.10) 0 2px, transparent 2px 5px);
   background-size: 280% 280%, 130px 130px;
@@ -770,8 +770,8 @@ body.quarto-light .hero .lede {
   inset: 0;
   border-radius: inherit;
   background: linear-gradient(110deg,
-    rgba(255, 119, 115, 0.55), rgba(255, 224, 138, 0.55), rgba(120, 238, 224, 0.55),
-    rgba(120, 148, 255, 0.55), rgba(216, 117, 255, 0.55), rgba(255, 119, 115, 0.55));
+    rgba(255, 166, 74, 0.55), rgba(255, 224, 138, 0.55), rgba(120, 238, 224, 0.55),
+    rgba(120, 148, 255, 0.55), rgba(216, 117, 255, 0.55), rgba(255, 166, 74, 0.55));
   background-size: 220% 100%;
   background-position: 0% 0;
   mix-blend-mode: soft-light;
@@ -1200,9 +1200,9 @@ body.quarto-light .hero .lede {
 .neon-spider.is-open .neon-spider__hub {
   border-color: var(--neon-coral);
   box-shadow:
-    0 0 0 6px rgba(251, 138, 126, 0.12),
-    0 0 34px rgba(251, 138, 126, 0.55),
-    inset 0 0 24px rgba(251, 138, 126, 0.30);
+    0 0 0 6px rgba(255, 166, 74, 0.12),
+    0 0 34px rgba(255, 166, 74, 0.55),
+    inset 0 0 24px rgba(255, 166, 74, 0.30);
 }
 
 .neon-spider.is-open .neon-spider__hub-state { color: var(--neon-coral); }
@@ -2640,9 +2640,9 @@ body.quarto-light .navbar .quarto-color-scheme-toggle { color: #35222f; }
 .mark-card .holo {
   background-image:
     repeating-linear-gradient(110deg,
-      rgba(255, 119, 115, 0.6) 0%, rgba(255, 224, 138, 0.6) 12%,
+      rgba(255, 166, 74, 0.6) 0%, rgba(255, 224, 138, 0.6) 12%,
       rgba(120, 238, 224, 0.6) 25%, rgba(120, 148, 255, 0.6) 38%,
-      rgba(216, 117, 255, 0.6) 50%, rgba(255, 119, 115, 0.6) 62%),
+      rgba(216, 117, 255, 0.6) 50%, rgba(255, 166, 74, 0.6) 62%),
     repeating-linear-gradient(-42deg, rgba(255, 255, 255, 0.12) 0 2px, transparent 2px 5px);
   background-size: 280% 280%, 130px 130px;
   background-position: var(--mx, 50%) var(--my, 50%);
