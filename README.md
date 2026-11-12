@@ -9,8 +9,8 @@ Welcome! This repository contains the source for my Quarto-based portfolio, whic
 ## 📁 Structure
 
 - `_quarto.yml` – Site configuration: navigation, styling, metadata
-- `index.html` – Main page: a 3D landscape of the Tucson basin with the projects placed on it (plain HTML + WebGL, no build step; copied into `docs/` as is)
-- `classic.qmd` – Classic home page: introduction, featured work, skills, interactive websites, and field background
+- `landscape.html` – Landscape view: a 3D landscape of the Tucson basin with the projects placed on it (plain HTML + WebGL, no build step; copied into `docs/` as is)
+- `index.qmd` – Home page (the classic view): introduction, featured work, skills, interactive websites, and field background
 - `work.qmd` – Six selected projects and five browser experiences, led by Living X-Ray and Two Futures
 - `about.qmd` – Professional background, field experience, and contact information
 - `dashboards.qmd` – Featured Shiny apps
