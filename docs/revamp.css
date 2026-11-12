@@ -3765,8 +3765,8 @@ body:has(.portfolio-home--wild)::after {
 }
 
 
-/* Switch to the 3D landscape view of this site (index.html). */
-.navbar .nav-link[href$="index.html"] {
+/* Switch to the 3D landscape view of this site (landscape.html). */
+.navbar .nav-link[href$="landscape.html"] {
   position: relative;
   padding: 0.35rem 0.85rem 0.35rem 1.9rem !important;
   border: 1.5px solid currentColor;
@@ -3775,7 +3775,7 @@ body:has(.portfolio-home--wild)::after {
   line-height: 1.2;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-.navbar .nav-link[href$="index.html"]::before {
+.navbar .nav-link[href$="landscape.html"]::before {
   content: "";
   position: absolute;
   left: 0.7rem;
@@ -3788,11 +3788,11 @@ body:has(.portfolio-home--wild)::after {
   transform: translateY(20%);
   transition: transform 0.5s cubic-bezier(0.3, 1.5, 0.5, 1);
 }
-.navbar .nav-link[href$="index.html"]:hover::before,
-.navbar .nav-link[href$="index.html"]:focus-visible::before {
+.navbar .nav-link[href$="landscape.html"]:hover::before,
+.navbar .nav-link[href$="landscape.html"]:focus-visible::before {
   transform: translateY(-85%);
 }
 @media (prefers-reduced-motion: reduce) {
-  .navbar .nav-link[href$="index.html"],
-  .navbar .nav-link[href$="index.html"]::before { transition: none; }
+  .navbar .nav-link[href$="landscape.html"],
+  .navbar .nav-link[href$="landscape.html"]::before { transition: none; }
 }

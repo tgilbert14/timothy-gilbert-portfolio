@@ -2,7 +2,8 @@ project:
   type: website
   output-dir: docs
   resources:
-    - index.html
+    - landscape.html
+    - classic.html
     - basin/
     - "!tools/"
 
@@ -29,10 +30,10 @@ website:
 
     left:
       - text: 'Home'
-        href: classic.qmd
+        href: index.qmd
 
       - text: 'Experiments'
-        href: classic.qmd#interactive-web
+        href: index.qmd#interactive-web
 
       - text: 'Projects'
         href: work.qmd
@@ -45,7 +46,7 @@ website:
 
     right:
       - text: 'Landscape view'
-        href: index.html
+        href: landscape.html
         aria-label: Switch to the 3D landscape view of this site
 
       - icon: github
