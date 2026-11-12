@@ -243,6 +243,23 @@ body.shelf #line .tab::after{transform:rotate(180deg)}
 #pop .go{border-radius:10px;background:var(--accent);color:#fff;font-weight:700;font-size:16px;text-decoration:none;padding:12px 18px;transition:transform .3s cubic-bezier(.3,1.6,.5,1),background .2s}
 #pop .go:hover,#pop .go:focus-visible{background:var(--sun);color:var(--ink);transform:translateY(-2px)}
 #pop .back{font-weight:600;font-size:15px;padding:10px 0;background:linear-gradient(currentColor,currentColor) 0 100%/100% 1.5px no-repeat}
+#pop .alt{flex-basis:100%;font-weight:600;font-size:14px;color:var(--accent)}
+#ground{position:fixed;inset:0;z-index:40;background:#0b0d22;opacity:0;transition:opacity .5s ease;cursor:pointer;overflow:hidden}
+#ground.on{opacity:1}#ground.bye{opacity:0;transition-duration:.45s}
+#ground svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+#ground .walk{--x0:150;--y0:517;--x1:690;--y1:471;transform:translate(calc(var(--x0)*1px),calc(var(--y0)*1px)) scale(1.5)}
+#ground.on .walk{animation:g-walk 3.9s cubic-bezier(.3,.1,.5,1) both}
+#ground.on .bob{animation:g-bob .56s ease-in-out infinite alternate}
+#ground .lamp{transform-box:view-box;transform-origin:47px -131px}
+#ground.on .lamp{animation:g-swing 1.12s ease-in-out infinite alternate}
+@keyframes g-walk{from{transform:translate(calc(var(--x0)*1px),calc(var(--y0)*1px)) scale(1.5)}to{transform:translate(calc(var(--x1)*1px),calc(var(--y1)*1px)) scale(1.5)}}
+@keyframes g-bob{to{transform:translateY(-2.5px)}}
+@keyframes g-swing{from{transform:rotate(-6deg)}to{transform:rotate(7deg)}}
+@media (max-aspect-ratio:1/1){#ground .walk{--x0:474;--y0:488;--x1:655;--y1:474}}
+#ground p{position:absolute;left:var(--gut);bottom:clamp(26px,7vh,64px);margin:0;display:flex;flex-direction:column;align-items:flex-start;color:var(--paper);text-shadow:0 2px 18px rgba(0,0,0,.7)}
+#ground p b{font:600 clamp(34px,5vw,60px)/1 "Source Serif 4",serif;letter-spacing:-.015em}
+#ground p i{font:italic 18px/1.4 "Source Serif 4",serif;margin-top:8px}
+#g-skip{position:absolute;right:var(--gut);top:clamp(18px,4vh,34px);color:var(--paper);font-weight:600;font-size:15px;padding:12px 4px;min-height:44px;background:linear-gradient(currentColor,currentColor) 0 78%/100% 1.5px no-repeat}
 #pop .x{position:absolute;right:12px;top:12px;z-index:1;width:42px;height:42px;border-radius:50%;background:var(--ink);color:var(--paper);text-align:center;font-size:24px;line-height:1;box-shadow:0 4px 14px rgba(0,0,0,.4);transition:transform .25s}
 #pop .x:hover{transform:rotate(90deg)}
 #pop :focus-visible{outline-color:var(--ink);box-shadow:none}
@@ -390,9 +407,36 @@ body.shelf #line .tab::after{transform:rotate(180deg)}
     <h2 id="p-title"></h2>
     <p class="text" id="p-text"></p>
     <dl class="stats" id="p-stats"></dl>
-    <div class="acts"><a class="go" id="p-go" href="#"></a><button type="button" class="back" id="p-back">← Back to the map</button></div>
+    <div class="acts"><a class="go" id="p-go" href="#"></a><button type="button" class="back" id="p-back">← Back to the map</button><a class="alt" id="p-alt" href="#" hidden></a></div>
   </div>
 </dialog>
+
+<div id="ground" hidden>
+  <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="g-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b0d22"/><stop offset=".42" stop-color="#2c2146"/><stop offset=".68" stop-color="#8a4a44"/><stop offset=".84" stop-color="#d98a4c"/><stop offset="1" stop-color="#f4c27c"/></linearGradient>
+      <radialGradient id="g-glow"><stop offset="0" stop-color="#ffe9b8"/><stop offset=".18" stop-color="#ffc46e" stop-opacity=".85"/><stop offset=".5" stop-color="#ff9a3c" stop-opacity=".28"/><stop offset="1" stop-color="#ff8c32" stop-opacity="0"/></radialGradient>
+      <radialGradient id="g-pool" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffb45e" stop-opacity=".5"/><stop offset="1" stop-color="#ffb45e" stop-opacity="0"/></radialGradient>
+    </defs>
+    <rect width="1200" height="600" fill="url(#g-sky)"/>
+    <g fill="#fff6e2"><circle cx="96" cy="64" r="1.5"/><circle cx="212" cy="138" r="1"/><circle cx="318" cy="46" r="1.2"/><circle cx="455" cy="112" r="1.6"/><circle cx="531" cy="38" r="1"/><circle cx="604" cy="176" r=".9"/><circle cx="668" cy="82" r="1.4"/><circle cx="742" cy="30" r="1"/><circle cx="803" cy="150" r="1.2"/><circle cx="902" cy="70" r="1.6"/><circle cx="986" cy="126" r="1"/><circle cx="1068" cy="44" r="1.3"/><circle cx="1142" cy="168" r="1"/><circle cx="560" cy="232" r=".8"/><circle cx="388" cy="208" r=".8"/><circle cx="846" cy="226" r=".8"/></g>
+    <circle cx="930" cy="330" r="64" fill="#f7d9a0" opacity=".9"/><circle cx="1010" cy="250" r="15" fill="#e7b98a" opacity=".8"/>
+    <path d="M0 470 Q170 400 330 446 T640 420 T930 452 T1200 404 V600 H0Z" fill="#7a4136"/>
+    <path d="M0 506 Q260 440 520 492 T980 468 T1200 486 V600 H0Z" fill="#48261f"/>
+    <path d="M0 532 Q600 470 1200 440 V600 H0Z" fill="#150d0b"/>
+    <g class="walk">
+      <ellipse cx="34" cy="2" rx="92" ry="13" fill="url(#g-pool)"/>
+      <g class="bob" fill="#150d0b" stroke="#150d0b">
+        <path d="M-17 6 C-20 -38 -15 -70 -9 -88 C-10 -105 1 -114 10 -110 C18 -106 19 -95 14 -88 C20 -60 23 -28 25 6Z" stroke="none"/>
+        <path d="M11 -72 L31 -79 L31 -70 L14 -58Z" stroke="none"/>
+        <path d="M31 6 V-128 C31 -143 47 -143 47 -131" fill="none" stroke-width="3" stroke-linecap="round"/>
+        <g class="lamp"><path d="M47 -131 V-117" fill="none" stroke-width="1.4"/><rect x="42" y="-117" width="10" height="13" rx="2" stroke="none"/><circle cx="47" cy="-110" r="46" fill="url(#g-glow)" stroke="none"/><circle cx="47" cy="-110" r="3.2" fill="#fff1cf" stroke="none"/></g>
+      </g>
+    </g>
+  </svg>
+  <p role="status"><span class="slab">Ground stop</span><b>The Orrery</b><i>Walking out onto the Dust Sea</i></p>
+  <button type="button" id="g-skip">Skip the walk →</button>
+</div>
 
 <div id="leg" aria-hidden="true"><span class="slab" id="leg-k"></span><b id="leg-b"></b><span class="d" id="leg-d"></span></div>
 
@@ -449,7 +493,7 @@ const SITES = [
   { id:'santa-rita', pt:'SRER', ll:[31.9107,-110.8355], t:.13, when:'Morning', place:'Santa Rita Experimental Range', title:'Living X-Ray', off:[-.5,.62,-2.5],
     show:['Living X-Ray','Small Mammal Tracker','Demo Data Hub'] },
   { id:'lemmon', pt:'Mount Lemmon', peak:true, ll:[32.4430,-110.7885], t:.42, when:'Midday', place:'Mount Lemmon', title:'27 Miles to Canada', off:[-2.1,.85,2.5],
-    show:['27 Miles to Canada'] },
+    show:['27 Miles to Canada','The Orrery'] },
   { id:'stadium', pt:'Arizona Stadium', ll:[32.2288,-110.9488], t:.74, when:'Afternoon', place:'Arizona Stadium', title:'The Long Saturday', side:'r', off:[-.08,.058,.10], aim:[0,-.014,0],
     show:['The Long Saturday','Power-4 Girth Index'] },
   { id:'tucson', pt:'Downtown Tucson', ll:[32.2217,-110.9698], t:.975, when:'Evening', place:'Downtown Tucson', title:'About Tim', side:'l', off:[.28,.072,-.18], aim:[-.02,-.036,.02],
@@ -480,7 +524,7 @@ const MORE = {
   'Two Futures': ['Run two copies of the actual Storm Table model on one clock. Inspect the first sustained difference and save the paired view, ledgers, and recipe. Time-compressed, uncalibrated exhibit. Not a site forecast.', [], 'Compare the storm ↗'],
   'The Long Saturday': ['Film scrubbing, a field-recorded soundscape, and four scroll movements.', [[4,'scroll movements']], 'Enter the story ↗'],
   '27 Miles to Canada': ['Six biotic communities, an elevation model, and a live climate shift.', [[27,'miles'],[6,'biotic communities']], 'Start the climb ↗'],
-  'The Orrery': ['Canvas-baked planets, a generative score, shuttle flight, and a hidden sector.', [[11,'worlds']], 'Choose a world ↗'],
+  'The Orrery': ['Canvas-baked planets, a generative score, shuttle flight, and a hidden sector. The Dust Sea is the first world you can walk.', [[11,'worlds']], 'Walk the Dust Sea ↗', ['Or choose a world from orbit ↗', 'https://tgilbert14.github.io/ddl-orrery/']],
   'Demo Data Hub': ['A Shiny demo hub with tortoise, invasive plant, and restoration workspaces, built on generated records so you can poke at everything.', [[3,'programs']], 'Open the demo hub ↗'],
   'VGS Batch Importer': ['An R pipeline parses multiple vegetation protocols, resolves metadata, flags data-quality problems, and loads clean records into a local SQLite field database.', [], 'See implementation details →'],
   'VGSLite': ['An Electron-packaged R helper for repairing links, moving events, clearing deletion caches, converting databases, and reducing common support work in VGS 5 Desktop.', [], 'See features →'],
@@ -489,6 +533,8 @@ const MORE = {
 };
 // two pages that are not projects but have a place on the map
 const PAGES = [['About Tim','Before the data','about.html',A+'tim_gc.jpg','About Tim'], ['Field notes','Field notes','field-notes.html',A+'photos/field-rangeland-walk.jpg','Field archive']];
+// projects with a ground-level stop: the Pilgrim walks you out before the link opens
+const GROUND = { 'The Orrery': 'https://tgilbert14.github.io/ddl-orrery/surface/walk/?from=orbit' };
 const proj = t => WORK.find(w => w[0] === t) || PAGES.find(w => w[0] === t);
 const RANGES = [['Santa Catalina','Santa Catalina Mts'],['Rincon','Rincon Mts'],['Santa Rita','Santa Rita Mts'],['Tucson Mts','Tucson Mts'],['Sierrita','Sierrita Mts'],['Tortolita','Tortolita Mts']];
 const PEAKS = [['Mount Wrightson', 9456], ['Mica Mountain', 8668], ['Rincon Peak', 8482], ['Wasson Peak', 4687]];   // published summit heights, feet
@@ -956,6 +1002,17 @@ async function main() {
     stops.appendChild(li);
   });
 
+  // The Pilgrim's lantern. At this scale (about 67 m to a pixel) the walker is far smaller than a dot, so only the light travels.
+  const lamp = new THREE.Sprite(new THREE.SpriteMaterial({ depthWrite: false, depthTest: false, sizeAttenuation: false, transparent: true,
+    map: (() => { const c = document.createElement('canvas'); c.width = c.height = 128; const g = c.getContext('2d'), r = g.createRadialGradient(64, 64, 0, 64, 64, 64);
+      r.addColorStop(0, 'rgba(255,248,226,1)'); r.addColorStop(.07, 'rgba(255,206,120,1)'); r.addColorStop(.12, 'rgba(255,156,52,1)'); r.addColorStop(.135, 'rgba(70,34,10,.7)'); r.addColorStop(.17, 'rgba(255,168,74,.5)'); r.addColorStop(.5, 'rgba(255,150,60,.16)'); r.addColorStop(1, 'rgba(255,140,50,0)');
+      g.fillStyle = r; g.fillRect(0, 0, 128, 128); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t; })() }));
+  lamp.renderOrder = 20; scene.add(lamp);
+  const lampHome = SITES.find(s => s.id === 'tucson').v3, lampAt = new THREE.Vector3(); let lampTrip = null;
+  const lampSet = (x, z) => lampAt.set(x, groundY(x, z) + .012, z);
+  function lampTo(v3, ms) { if (reduce || !ms) { lampTrip = null; lampSet(v3.x, v3.z); } else lampTrip = { s: performance.now(), ms, a: lampAt.clone(), b: v3 }; }
+  lampSet(lampHome.x, lampHome.z);
+
   // places from OpenStreetMap: trails, roads and the city. They load after the land so they never hold up the first picture.
   const res = new THREE.Vector2(1, 1);
   const llWorld = (lat, lon) => world(((lon + 180) / 360 - IN.fx0) / (IN.fx1 - IN.fx0), ((1 - Math.asinh(Math.tan(lat * Math.PI / 180)) / Math.PI) / 2 - IN.fy0) / (IN.fy1 - IN.fy0));
@@ -1296,9 +1353,20 @@ async function main() {
     $('#p-kind').textContent = w[4]; $('#p-title').textContent = w[1] && PAGES.includes(w) ? w[1] : w[0]; $('#p-img').src = w[3];
     $('#p-text').textContent = PAGES.includes(w) ? m[0] : (w[1] + ' ' + m[0]).trim(); $('#p-text').hidden = !$('#p-text').textContent;
     counters.length = 0; stats($('#p-stats'), m[1]);
-    $('#p-go').textContent = m[2]; $('#p-go').href = w[2];
+    $('#p-go').textContent = m[2]; $('#p-go').href = GROUND[t] || w[2]; popNow = t;
+    const alt = $('#p-alt'); alt.hidden = !m[3]; if (m[3]) { alt.textContent = m[3][0]; alt.href = m[3][1]; }
     clearTimeout(popBye); if (!pop.open) pop.show(); pop.scrollTop = 0; void pop.offsetWidth; pop.classList.add('on'); $('#p-x').focus({ preventScroll: true });
   }
+  // a ground stop: the hooded walker crosses one dune with the lantern, then the link opens. Click skips, Escape stays.
+  const ground = $('#ground'); let popNow = null, groundTimer = 0, groundBye = 0;
+  function endGround() { clearTimeout(groundTimer); clearTimeout(groundBye); ground.classList.remove('on', 'bye'); ground.hidden = true; ground.onclick = null; }
+  function groundStop(url) {
+    const leave = () => { clearTimeout(groundTimer); clearTimeout(groundBye); location.href = url; };
+    ground.hidden = false; void ground.offsetWidth; ground.classList.add('on'); ground.onclick = leave; $('#g-skip').focus({ preventScroll: true });
+    groundBye = setTimeout(() => ground.classList.add('bye'), 3500); groundTimer = setTimeout(leave, 3950);
+  }
+  $('#p-go').addEventListener('click', e => { const u = GROUND[popNow]; if (!u || reduce || e.metaKey || e.ctrlKey || e.shiftKey || e.button) return; e.preventDefault(); groundStop(u); });
+  addEventListener('pageshow', e => { if (e.persisted) endGround(); });
   function closePop() { if (!pop.open) return; pop.classList.remove('on'); clearTimeout(popBye); popBye = setTimeout(() => pop.close(), reduce ? 0 : 420); }
   $('#p-x').addEventListener('click', closePop); $('#p-back').addEventListener('click', closePop);
   function fill(n) {
@@ -1330,9 +1398,10 @@ async function main() {
     if (!s) { tgt = HOME.target.clone(); posn = HOME.pos.clone(); t = HOME.t; }
     else { const k = small ? 1.45 : 1; tgt = s.v3.clone(); if (s.aim) tgt.add(new THREE.Vector3(...s.aim)); else tgt.y += .12; posn = tgt.clone().add(new THREE.Vector3(s.off[0] * k, s.off[1] * k, s.off[2] * k)); t = s.t; }
     const landed = () => { fill(n); arrive(); if (open && SITES[n]) popTimer = setTimeout(() => openPop(SITES[n].show[0]), quick ? 0 : 2400); };
+    if (quick) lampTo(s ? s.v3 : lampHome, 0);
     if (quick) { fly = null; if (instant) { controls.target.copy(tgt); camera.position.copy(posn); setDay(t); showT = t; controls.update(); } else flyTo(tgt, posn, t); landed(); }
     else {
-      const MS = flyTo(tgt, posn, t);
+      const MS = flyTo(tgt, posn, t); lampTo(s ? s.v3 : lampHome, MS * .86);
       // while the camera travels, say where it is going and how far; the lower third lands with it
       $('#leg-k').textContent = s ? 'Next · ' + s.when : 'Back to the start';
       $('#leg-b').textContent = s ? s.place : 'Tucson, Arizona';
@@ -1353,6 +1422,7 @@ async function main() {
   ['pointerleave', 'blur', 'click'].forEach(e => nextBtn.addEventListener(e, () => hail(false)));
   $('#home').addEventListener('click', e => { e.preventDefault(); go(-1); });
   addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !ground.hidden) return endGround();
     if (e.key === 'Escape' && pop.open) return closePop();
     if (e.target.closest('input,details,dialog')) return;
     if (e.key === 'Escape' && trailNow) return closeTrail();
@@ -1526,6 +1596,8 @@ async function main() {
     bolt.material.uniforms.res.value.copy(res); bolt.material.uniforms.opacity.value = U.flash.value > .2 ? Math.min(1, U.flash.value * 1.3) : 0;
     U.expo.value *= 1 - .42 * U.hit.value.z;
     audio.update(U.storm.value.w, U.night.value, 1 / (1 + .45 * Math.hypot(camera.position.x - U.storm.value.x, camera.position.z - U.storm.value.y)), camera.position.y);
+    if (lampTrip) { const k = Math.min(1, (now - lampTrip.s) / lampTrip.ms), e = k * k * (3 - 2 * k); lampSet(lampTrip.a.x + (lampTrip.b.x - lampTrip.a.x) * e, lampTrip.a.z + (lampTrip.b.z - lampTrip.a.z) * e); if (k >= 1) lampTrip = null; }
+    lamp.position.copy(lampAt); lamp.scale.setScalar((small ? .085 : .07) * (lampTrip ? 1.5 : 1) * (reduce ? 1 : 1 + .07 * Math.sin(now * .0042)));
     sky.position.copy(camera.position); clouds.forEach(c => { c.position.x = camera.position.x; c.position.z = camera.position.z; });
     renderer.render(scene, camera);
 
@@ -1579,7 +1651,7 @@ async function main() {
   progress(1);
   requestAnimationFrame(now => { last = now; frame(now); canvas.classList.add('ready'); document.body.classList.add('ready'); arrive(); });
   canvas.addEventListener('webglcontextlost', e => { e.preventDefault(); fail('The 3D view stopped. Reload to try again, or use the classic site.'); });
-  window.__basin = { ripple, calm, boltTo, openPop, scene, camera, controls, go, setDay, U, step, strike: () => strike(performance.now()), openTrail, trails: () => trailMesh, groundY };
+  window.__basin = { ripple, calm, boltTo, openPop, lamp, lampAt, scene, camera, controls, go, setDay, U, step, strike: () => strike(performance.now()), openTrail, trails: () => trailMesh, groundY };
 }
 main().catch(e => { console.error(e); fail('Something went wrong while building this view. The classic site has the same work.'); });
 </script>
